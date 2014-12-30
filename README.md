@@ -8,7 +8,7 @@ Apache Tajo의 공식 메뉴얼(http://tajo.apache.org/docs/devel/)을 한글로
 Apache Tajo의 공식 문서와 똑같은 reStructuredText 포맷(http://docutils.sourceforge.net/rst.html)을 사용합니다.
 소스는 Sphinx (http://sphinx-doc.org/index.html) 를 이용해 문서를 생성하게 되어 있습니다. 
 
-Sphinx나 reStructuredText은 위지웍(WYSIWYG) 도구를 제공하거나 markdow과 같이 쉽지는 않지만 문서의 계층구조와 같이체계적인 문서를 작성하는데 아주 강력한 도구입니다. Python의 공식문서도 이 도구를 이용하여 문서를 만듭니다.
+Sphinx나 reStructuredText은 위지웍(WYSIWYG) 도구를 제공하거나 markdow과 같이 쉽지는 않지만 문서의 계층구조를 가지는 체계적인 문서를 작성하는데 아주 강력한 도구입니다. Python의 공식문서도 이 도구를 이용하여 문서를 만듭니다.
 
 reStructuredText 포맷에 대한 레퍼런스는 아래 링크에서 참고 하세요.
  * reStructuredText reference (http://docutils.sourceforge.net/rst.html)

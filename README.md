@@ -31,7 +31,7 @@ index.html
 
 공헌하기
 ===========
-한글 번역이나 Github의 pull request를 이용하세요.
+한글 번역이나 문서 작성 모두 환영합니다. 제출은 Github의 pull request를 이용해주세요!
 
 참여자
 ===========

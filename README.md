@@ -29,15 +29,21 @@ index.html
 ....
 ```
 
+Mailing List
+============
+ * tajo-doc-kr at googlegroups.com (https://groups.google.com/forum/#!forum/tajo-doc-kr/new)
+ 
 공헌하기
 ===========
 한글 번역이나 문서 작성 모두 환영합니다. 제출은 Github의 pull request를 이용해주세요!
 
-참여자
+공헌한 분들
 ===========
 참여를 원하시는 분들은 메일로 연락 주세요.
 
  * 최현식 (Hyunsik Choi) (hyunsik at apache dot org)
+ * 남윤민 (Yoonmin Nam)
+
  
 License
 ===========

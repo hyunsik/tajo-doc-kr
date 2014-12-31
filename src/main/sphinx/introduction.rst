@@ -1,13 +1,14 @@
 ***************
-Introduction
+아파치 타조란?
 ***************
 
-The main goal of Apache Tajo project is to build an advanced open source
-data warehouse system in Hadoop for processing web-scale data sets. 
-Basically, Tajo provides SQL standard as a query language.
-Tajo is designed for both interactive and batch queries on data sets
-stored on HDFS and other data sources. Without hurting query response
-times, Tajo provides fault-tolerance and dynamic load balancing which
-are necessary for long-running queries. Tajo employs a cost-based and
-progressive query optimization techniques for reoptimizing running
-queries in order to avoid the worst query plans.
+아파치 타조 프로젝트의 핵심목표는 웹-스케일의 대규모 데이터를 처리하기 위한
+하둡 기반의 데이터 웨어하우스 시스템을 오픈소스로 구축하는 것입니다.
+타조는 표준 SQL을 질의 언어로 지원합니다. 또한, 타조는 하둡 분산 파일 시스템
+상의 데이터를 포함한 여러 형태의 데이터에 대해 인터랙티브 (Interactive) 질의와
+배치 (Batch) 질의 모두를 지원하도록 설계되어 있습니다. 빠른 질의 처리 시간을
+보장하면서, 타조는 내고장성 (Fault-Tolerance) 과 실시간 로드 밸런싱 (Dynamic-
+Load Balancing) 을 제공합니다. 보다 빠른 성능을 위해 타조는 두가지 형태의 질의
+최적화 기술 (cost-based 와 progressive) 을 사용해 처리중인 질의를 재-최적화 하는
+방법으로 가장 성능이 좋지 않은 질의 실행 계획을 사용하지 않도록 합니다.
+

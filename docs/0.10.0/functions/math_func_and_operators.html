@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Math Functions and Operators &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
+        <link rel="up" title="Functions" href="../functions.html"/>
+        <link rel="next" title="String Functions and Operators" href="string_func_and_operators.html"/>
+        <link rel="prev" title="Functions" href="../functions.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/downloading_source.html">Dowload and unpack the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/building.html">Build source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/local_setup.html">Setting up a local Tajo cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/first_query.html">First query execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/preliminary.html">Preliminary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/worker_configuration.html">Worker Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog_configuration.html">Catalog Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/ha_configuration.html">High Availability for TajoMaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo-site-xml.html">The tajo-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">Meta Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">Administration Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">Introducing to TSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">Executing Queries from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#client-time-zone">Client Time Zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#examples-of-time-zone">Examples of Time Zone</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../functions.html">Functions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Math Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">String Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">Network Functions and Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../functions.html">Functions</a> &raquo;</li>
+      
+    <li>Math Functions and Operators</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/functions/math_func_and_operators.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="math-functions-and-operators">
+<h1>Math Functions and Operators<a class="headerlink" href="#math-functions-and-operators" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="abs">
+<tt class="descname">abs</tt><big>(</big><em>number int|float</em><big>)</big><a class="headerlink" href="#abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns absolute value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">same as a parameter type</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="acos">
+<tt class="descname">acos</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#acos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the arc cosine of number value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number as radian</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">1</span><span class="p">.</span><span class="mi">2661036727794992</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="asin">
+<tt class="descname">asin</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#asin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the arc sine of number value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number as radian</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9272952180016123</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="atan">
+<tt class="descname">atan</tt><big>(</big><em>number float8</em><big>)</big><a class="headerlink" href="#atan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the arc tangent of number value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number as radian</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">6747409422235527</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="atan2">
+<tt class="descname">atan2</tt><big>(</big><em>y float</em>, <em>x float</em><big>)</big><a class="headerlink" href="#atan2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle theta from the conversion of rectangular coordinates (x, y) to polar coordinates (r, theta)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> &#8211; the ordinate(y axis) coordinate</li>
+<li><strong>x</strong> &#8211; the abscissa(x axis) coordinate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float8</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">atan2</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">1</span><span class="p">.</span><span class="mi">460139105621001</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="cbrt">
+<tt class="descname">cbrt</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#cbrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the cube root of a number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">cbrt</span><span class="p">(</span><span class="mi">27</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ceil">
+<tt class="descname">ceil</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#ceil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a smallest integer not less than argument</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">.</span><span class="mi">8</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="o">-</span><span class="mi">42</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="cos">
+<tt class="descname">cos</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#cos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the cosine of a number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7648421872844885</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="degrees">
+<tt class="descname">degrees</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#degrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts radians to degrees</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; radian value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">degrees</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">45</span><span class="p">.</span><span class="mi">83662361046586</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="div">
+<tt class="descname">div</tt><big>(</big><em>num1 int</em>, <em>num2 int</em><big>)</big><a class="headerlink" href="#div" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integer division truncates resut</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>num1</strong> &#8211; number to be divided</li>
+<li><strong>num2</strong> &#8211; number to divide</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int8</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">div</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="exp">
+<tt class="descname">exp</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Euler&#8217;s number e raised to the power of a number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2</span><span class="p">.</span><span class="mi">718281828459045</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="floor">
+<tt class="descname">floor</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a largest integer not greater than argument</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">floor</span><span class="p">(</span><span class="mi">53</span><span class="p">.</span><span class="mi">1</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">53</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mod">
+<tt class="descname">mod</tt><big>(</big><em>num1 int</em>, <em>num2 int</em><big>)</big><a class="headerlink" href="#mod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns remainder of num1 / num2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>num1</strong> &#8211; number to be divided</li>
+<li><strong>num2</strong> &#8211; number to divide</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int8</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">mod</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pi">
+<tt class="descname">pi</tt><big>(</big><big>)</big><a class="headerlink" href="#pi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns constant value of pi</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">pi</span><span class="p">();</span>
+<span class="o">&gt;</span> <span class="mi">3</span><span class="p">.</span><span class="mi">141592653589793</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pow">
+<tt class="descname">pow</tt><big>(</big><em>x float</em>, <em>y float</em><big>)</big><a class="headerlink" href="#pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns value of x raised to the power of y</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; base number</li>
+<li><strong>y</strong> &#8211; exponent</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float8</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">1024</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="radians">
+<tt class="descname">radians</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#radians" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts degrees to radians</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; degree value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7853981633974483</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="round">
+<tt class="descname">round</tt><big>(</big><em>number int|float</em><big>)</big><a class="headerlink" href="#round" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounds to nearest integer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">round</span><span class="p">(</span><span class="mi">5</span><span class="p">.</span><span class="mi">1</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="sign">
+<tt class="descname">sign</tt><big>(</big><em>number int|float</em><big>)</big><a class="headerlink" href="#sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns sign of argument as -1, 0, 1</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="sin">
+<tt class="descname">sin</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#sin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the sine of number value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">8414709848078965</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="sqrt">
+<tt class="descname">sqrt</tt><big>(</big><em>number float8</em><big>)</big><a class="headerlink" href="#sqrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the square root of a number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">256</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">16</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="tan">
+<tt class="descname">tan</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#tan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the tangent of number value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">2027100355086725</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="string_func_and_operators.html" class="btn btn-neutral float-right" title="String Functions and Operators"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../functions.html" class="btn btn-neutral" title="Functions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

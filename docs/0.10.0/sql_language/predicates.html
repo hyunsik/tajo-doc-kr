@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Predicates &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
+        <link rel="up" title="SQL Language" href="../sql_language.html"/>
+        <link rel="next" title="타임존(Time Zone)" href="../time_zone.html"/>
+        <link rel="prev" title="SQL Expressions" href="sql_expression.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/downloading_source.html">Dowload and unpack the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/building.html">Build source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/local_setup.html">Setting up a local Tajo cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/first_query.html">First query execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/preliminary.html">Preliminary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/worker_configuration.html">Worker Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog_configuration.html">Catalog Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/ha_configuration.html">High Availability for TajoMaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo-site-xml.html">The tajo-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">Meta Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">Administration Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">Introducing to TSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">Executing Queries from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddl.html">Data Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL Expressions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#client-time-zone">Client Time Zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#examples-of-time-zone">Examples of Time Zone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../sql_language.html">SQL Language</a> &raquo;</li>
+      
+    <li>Predicates</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/sql_language/predicates.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="predicates">
+<h1>Predicates<a class="headerlink" href="#predicates" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="in-predicate">
+<h2>IN Predicate<a class="headerlink" href="#in-predicate" title="Permalink to this headline">¶</a></h2>
+<p>IN predicate provides row and array comparison.</p>
+<p><em>Synopsis</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">column_reference</span> <span class="k">IN</span> <span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">valN</span><span class="p">)</span>
+<span class="n">column_reference</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">valN</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Examples are as follows:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="c1">-- this statement filters lists down all the records where col1 value is 1, 2 or 3:</span>
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col1</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c1">-- this statement filters lists down all the records where col1 value is neither 1, 2 nor 3:</span>
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col1</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can use &#8216;IN clause&#8217; on text data domain as follows:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col2</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;tajo&#39;</span><span class="p">,</span> <span class="s1">&#39;hadoop&#39;</span><span class="p">);</span>
+
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col2</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;tajo&#39;</span><span class="p">,</span> <span class="s1">&#39;hadoop&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-pattern-matching-predicates">
+<h2>String Pattern Matching Predicates<a class="headerlink" href="#string-pattern-matching-predicates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="like">
+<h3>LIKE<a class="headerlink" href="#like" title="Permalink to this headline">¶</a></h3>
+<p>LIKE operator returns true or false depending on whether its pattern matches the given string. An underscore (_) in pattern matches any single character. A percent sign (%) matches any sequence of zero or more characters.</p>
+<p><em>Synopsis</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="k">LIKE</span> <span class="n">pattern</span>
+<span class="n">string</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="n">pattern</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ilike">
+<h3>ILIKE<a class="headerlink" href="#ilike" title="Permalink to this headline">¶</a></h3>
+<p>ILIKE is the same to LIKE, but it is a case insensitive operator. It is not in the SQL standard. We borrow this operator from PostgreSQL.</p>
+<p><em>Synopsis</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="k">ILIKE</span> <span class="n">pattern</span>
+<span class="n">string</span> <span class="k">NOT</span> <span class="k">ILIKE</span> <span class="n">pattern</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="similar-to">
+<h3>SIMILAR TO<a class="headerlink" href="#similar-to" title="Permalink to this headline">¶</a></h3>
+<p><em>Synopsis</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="k">SIMILAR</span> <span class="k">TO</span> <span class="n">pattern</span>
+<span class="n">string</span> <span class="k">NOT</span> <span class="k">SIMILAR</span> <span class="k">TO</span> <span class="n">pattern</span>
+</pre></div>
+</div>
+<p>It returns true or false depending on whether its pattern matches the given string. Also like LIKE, <tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> uses <tt class="docutils literal"><span class="pre">_</span></tt> and <tt class="docutils literal"><span class="pre">%</span></tt> as metacharacters denoting any single character and any string, respectively.</p>
+<p>In addition to these metacharacters borrowed from LIKE, &#8216;SIMILAR TO&#8217; supports more powerful pattern-matching metacharacters borrowed from regular expressions:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">metacharacter</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&amp;#124;</td>
+<td>denotes alternation (either of two alternatives).</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>denotes repetition of the previous item zero or more times.</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>denotes repetition of the previous item one or more times.</td>
+</tr>
+<tr class="row-odd"><td>?</td>
+<td>denotes repetition of the previous item zero or one time.</td>
+</tr>
+<tr class="row-even"><td>{m}</td>
+<td>denotes repetition of the previous item exactly m times.</td>
+</tr>
+<tr class="row-odd"><td>{m,}</td>
+<td>denotes repetition of the previous item m or more times.</td>
+</tr>
+<tr class="row-even"><td>{m,n}</td>
+<td>denotes repetition of the previous item at least m and not more than n times.</td>
+</tr>
+<tr class="row-odd"><td>[]</td>
+<td>A bracket expression specifies a character class, just as in POSIX regular expressions.</td>
+</tr>
+<tr class="row-even"><td>()</td>
+<td>Parentheses can be used to group items into a single logical item.</td>
+</tr>
+</tbody>
+</table>
+<p>Note that <cite>.`</cite> is not used as a metacharacter in <tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> operator.</p>
+</div>
+<div class="section" id="regular-expressions">
+<h3>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h3>
+<p>Regular expressions provide a very powerful means for string pattern matching. In the current Tajo, regular expressions are based on Java-style regular expressions instead of POSIX regular expression. The main difference between java-style one and POSIX&#8217;s one is character class.</p>
+<p><em>Synopsis</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="o">~</span> <span class="n">pattern</span>
+<span class="n">string</span> <span class="o">!~</span> <span class="n">pattern</span>
+
+<span class="n">string</span> <span class="o">~*</span> <span class="n">pattern</span>
+<span class="n">string</span> <span class="o">!~*</span> <span class="n">pattern</span>
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">operator</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>~</td>
+<td>It returns true if a given regular expression is matched to string. Otherwise, it returns false.</td>
+</tr>
+<tr class="row-odd"><td>!~</td>
+<td>It returns false if a given regular expression is matched to string. Otherwise, it returns true.</td>
+</tr>
+<tr class="row-even"><td>~*</td>
+<td>It is the same to &#8216;~&#8217;, but it is case insensitive.</td>
+</tr>
+<tr class="row-odd"><td>!~*</td>
+<td>It is the same to &#8216;!~&#8217;, but it is case insensitive.</td>
+</tr>
+</tbody>
+</table>
+<p>Here are examples:</p>
+<div class="highlight-sql"><div class="highlight"><pre>&#39;abc&#39;   ~   &#39;.*c&#39;               true
+&#39;abc&#39;   ~   &#39;c&#39;                 false
+&#39;aaabc&#39; ~   &#39;([a-z]){3}bc       true
+&#39;abc&#39;   ~*  &#39;.*C&#39;               true
+&#39;abc&#39;   !~* &#39;B.*&#39;               true
+</pre></div>
+</div>
+<p>Regular expressions operator is not in the SQL standard. We borrow this operator from PostgreSQL.</p>
+<p><em>Synopsis for REGEXP and RLIKE operators</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="n">REGEXP</span> <span class="n">pattern</span>
+<span class="n">string</span> <span class="k">NOT</span> <span class="n">REGEXP</span> <span class="n">pattern</span>
+
+<span class="n">string</span> <span class="n">RLIKE</span> <span class="n">pattern</span>
+<span class="n">string</span> <span class="k">NOT</span> <span class="n">RLIKE</span> <span class="n">pattern</span>
+</pre></div>
+</div>
+<p>But, they do not support case-insensitive operators.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../time_zone.html" class="btn btn-neutral float-right" title="타임존(Time Zone)"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sql_expression.html" class="btn btn-neutral" title="SQL Expressions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

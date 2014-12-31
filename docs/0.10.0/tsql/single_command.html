@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Executing a single command &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
+        <link rel="up" title="Tajo Shell (TSQL)" href="../tsql.html"/>
+        <link rel="next" title="Executing Queries from Files" href="execute_file.html"/>
+        <link rel="prev" title="Introducing to TSQL" href="intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/downloading_source.html">Dowload and unpack the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/building.html">Build source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/local_setup.html">Setting up a local Tajo cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/first_query.html">First query execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/preliminary.html">Preliminary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/worker_configuration.html">Worker Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog_configuration.html">Catalog Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/ha_configuration.html">High Availability for TajoMaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo-site-xml.html">The tajo-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="meta_command.html">Meta Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin_command.html">Administration Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introducing to TSQL</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execute_file.html">Executing Queries from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#client-time-zone">Client Time Zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#examples-of-time-zone">Examples of Time Zone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../tsql.html">Tajo Shell (TSQL)</a> &raquo;</li>
+      
+    <li>Executing a single command</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/tsql/single_command.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="executing-a-single-command">
+<h1>Executing a single command<a class="headerlink" href="#executing-a-single-command" title="Permalink to this headline">¶</a></h1>
+<p>You may want to run more queries without entering tsql prompt. Tsql provides the <tt class="docutils literal"><span class="pre">-c</span></tt> argument for above requirement. And Tajo assumes that queries are separated by semicolon as follows:</p>
+<div class="highlight-sql"><div class="highlight"><pre>$ bin/tsql  -c &quot;select count(*) from table1; select sum(score) from table1;&quot;
+Progress: 0%, response time: 0.217 sec
+Progress: 0%, response time: 0.218 sec
+Progress: 100%, response time: 0.317 sec
+?count
+-------------------------------
+5
+(1 rows, 0.317 sec, 2 B selected)
+Progress: 0%, response time: 0.202 sec
+Progress: 0%, response time: 0.204 sec
+Progress: 100%, response time: 0.345 sec
+?sum
+-------------------------------
+15.0
+(1 rows, 0.345 sec, 5 B selected)
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="execute_file.html" class="btn btn-neutral float-right" title="Executing Queries from Files"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introducing to TSQL"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

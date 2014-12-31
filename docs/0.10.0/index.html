@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Apache Tajo™ (dev) - User documentation &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="#"/>
+        <link rel="next" title="아파치 타조란?" href="introduction.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="#" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/downloading_source.html">Dowload and unpack the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/building.html">Build source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/local_setup.html">Setting up a local Tajo cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/first_query.html">First query execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/preliminary.html">Preliminary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/worker_configuration.html">Worker Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/catalog_configuration.html">Catalog Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/ha_configuration.html">High Availability for TajoMaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/tajo-site-xml.html">The tajo-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tsql.html">Tajo Shell (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tsql/meta_command.html">Meta Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/admin_command.html">Administration Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/intro.html">Introducing to TSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/single_command.html">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/execute_file.html">Executing Queries from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql_language.html">SQL Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/ddl.html">Data Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/queries.html">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/sql_expression.html">SQL Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/predicates.html">Predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#client-time-zone">클라이언트 타임존 (Client Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#id3">타임존 사용 예제</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions/math_func_and_operators.html">Math Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/string_func_and_operators.html">String Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_management/table_overview.html">Overview of Tajo Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_management/file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_management/compression.html">Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/column_partitioning.html">Column Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Apache Tajo™ (dev) - User documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="apache-tajo-dev-user-documentation">
+<h1>Apache Tajo™ (dev) - User documentation<a class="headerlink" href="#apache-tajo-dev-user-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This documentation is based on the development branch (master).
+As a result, some contents can be mismatched to the actual implementation.</p>
+</div>
+<p>Table of Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/downloading_source.html">Dowload and unpack the source code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/downloading_source.html#download-the-latest-source-release">Download the latest source release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/downloading_source.html#check-out-the-source-code-via-git">Check out the source code via Git</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/building.html">Build source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/local_setup.html">Setting up a local Tajo cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/first_query.html">First query execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/preliminary.html">Preliminary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/preliminary.html#catalog-site-xml-and-tajo-site-xml">catalog-site.xml and tajo-site.xml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/preliminary.html#tajo-env-sh">tajo-env.sh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/cluster_setup.html">Cluster Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/cluster_setup.html#fully-distributed-mode">Fully Distributed Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/tajo_master_configuration.html">Tajo Master Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/tajo_master_configuration.html#tajo-rootdir">Tajo Rootdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/tajo_master_configuration.html#tajomaster-heap-memory-size">TajoMaster Heap Memory Size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/worker_configuration.html">Worker Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/worker_configuration.html#worker-heap-memory-size">Worker Heap Memory Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/worker_configuration.html#temporary-data-directory">Temporary Data Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/worker_configuration.html#maximum-number-of-parallel-running-tasks-for-each-worker">Maximum number of parallel running tasks for each worker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/worker_configuration.html#worker-resources">Worker Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/catalog_configuration.html">Catalog Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/catalog_configuration.html#derby-configuration">Derby Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/catalog_configuration.html#mysqlstore-configuration">MySQLStore Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/catalog_configuration.html#mariadbstore-configuration">MariaDBStore Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/catalog_configuration.html#hcatalogstore-configuration">HCatalogStore Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/ha_configuration.html">High Availability for TajoMaster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/ha_configuration.html#terminology">Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/ha_configuration.html#configuration-file-settings">Configuration File Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/ha_configuration.html#backup-master-settings">Backup Master Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/ha_configuration.html#launch-a-tajo-cluster">Launch a Tajo cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/ha_configuration.html#administration-ha-state">Administration HA state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/ha_configuration.html#how-to-test-automatic-failover">How to Test Automatic Failover</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/service_config_defaults.html">Cluster Service Configuration Defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/service_config_defaults.html#tajo-master-configuration-defaults">Tajo Master Configuration Defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/tajo-site-xml.html">The tajo-site.xml File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/tajo-site-xml.html#system-config">System Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/tajo-site-xml.html#date-time-settings">Date/Time Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tsql.html">Tajo Shell (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tsql/meta_command.html">Meta Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tsql/meta_command.html#basic-usages">Basic usages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/admin_command.html">Administration Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tsql/admin_command.html#synopsis">Synopsis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/intro.html">Introducing to TSQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tsql/intro.html#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tsql/intro.html#entering-tsql-shell">Entering tsql shell</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/single_command.html">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/execute_file.html">Executing Queries from Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tsql/execute_file.html#basic-usages">Basic usages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tsql/execute_file.html#setting-parameter-value-in-sql-file">Setting parameter value in SQL file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql_language.html">SQL Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/data_model.html">Data Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/data_model.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/ddl.html">Data Definition Language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/ddl.html#create-database">CREATE DATABASE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/ddl.html#drop-database">DROP DATABASE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/ddl.html#create-table">CREATE TABLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/ddl.html#drop-table">DROP TABLE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/queries.html">Queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/queries.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/queries.html#from-clause">From Clause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/queries.html#where-clause">Where Clause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/queries.html#groupby-and-having-clauses">Groupby and Having Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/queries.html#orderby-and-limit-clauses">Orderby and Limit Clauses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/queries.html#window-functions">Window Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/sql_expression.html">SQL Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/sql_expression.html#arithmetic-expressions">Arithmetic Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/sql_expression.html#type-casts">Type Casts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/sql_expression.html#string-expressions">String Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/sql_expression.html#function-call">Function Call</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/predicates.html">Predicates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/predicates.html#in-predicate">IN Predicate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_language/predicates.html#string-pattern-matching-predicates">String Pattern Matching Predicates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#client-time-zone">클라이언트 타임존 (Client Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#id3">타임존 사용 예제</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions/math_func_and_operators.html">Math Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/string_func_and_operators.html">String Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/datetime_func_and_operators.html">DateTime Functions and Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="functions/datetime_func_and_operators.html#date-time-formatting-and-conversion">Date/Time Formatting and Conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="functions/network_func_and_operators.html">Network Functions and Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="functions/network_func_and_operators.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="functions/network_func_and_operators.html#supported-functions">Supported Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_management/table_overview.html">Overview of Tajo Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="table_management/table_overview.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table_management/table_overview.html#managed-table">Managed Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table_management/table_overview.html#external-table">External Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table_management/table_overview.html#table-properties">Table Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table_management/table_overview.html#common-table-properties">Common Table Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="table_management/file_formats.html">File Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="table_management/csv.html">CSV (TextFile)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table_management/rcfile.html">RCFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table_management/parquet.html">Parquet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="table_management/sequencefile.html">SequenceFile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="table_management/compression.html">Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/intro_to_partitioning.html">Introduction to Partitioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="partitioning/intro_to_partitioning.html#partitioning-methods">Partitioning Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/column_partitioning.html">Column Partitioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="partitioning/column_partitioning.html#how-to-create-a-column-partitioned-table">How to Create a Column Partitioned Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="partitioning/column_partitioning.html#partition-pruning-on-column-partitioned-tables">Partition Pruning on Column Partitioned Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="partitioning/column_partitioning.html#compatibility-issues-with-apache-hive">Compatibility Issues with Apache Hive™</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backup_and_restore/catalog.html">Backup and Restore Catalog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="backup_and_restore/catalog.html#sql-dump">SQL dump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup_and_restore/catalog.html#database-level-backup">Database-level backup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_driver.html#from-binary-distribution">From Binary Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_driver.html#from-building-source-code">From Building Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#faq">FAQ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc_driver.html#java-nio-channels-unresolvedaddressexception">java.nio.channels.UnresolvedAddressException</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introduction.html" class="btn btn-neutral float-right" title="아파치 타조란?"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

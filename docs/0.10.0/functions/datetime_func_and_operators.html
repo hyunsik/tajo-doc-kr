@@ -1,0 +1,862 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DateTime Functions and Operators &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
+        <link rel="up" title="Functions" href="../functions.html"/>
+        <link rel="next" title="Network Functions and Operators" href="network_func_and_operators.html"/>
+        <link rel="prev" title="String Functions and Operators" href="string_func_and_operators.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/downloading_source.html">Dowload and unpack the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/building.html">Build source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/local_setup.html">Setting up a local Tajo cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/first_query.html">First query execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/preliminary.html">Preliminary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/worker_configuration.html">Worker Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog_configuration.html">Catalog Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/ha_configuration.html">High Availability for TajoMaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo-site-xml.html">The tajo-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">Meta Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">Administration Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">Introducing to TSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">Executing Queries from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#client-time-zone">Client Time Zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#examples-of-time-zone">Examples of Time Zone</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../functions.html">Functions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="math_func_and_operators.html">Math Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">String Functions and Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">DateTime Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">Network Functions and Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../functions.html">Functions</a> &raquo;</li>
+      
+    <li>DateTime Functions and Operators</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/functions/datetime_func_and_operators.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="datetime-functions-and-operators">
+<h1>DateTime Functions and Operators<a class="headerlink" href="#datetime-functions-and-operators" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><ul class="simple">
+<li>Note : Example result may be various based on time zone.</li>
+</ul>
+</div></blockquote>
+<dl class="function">
+<dt id="add_days">
+<tt class="descname">add_days</tt><big>(</big><em>date date|timestamp</em>, <em>day int</em><big>)</big><a class="headerlink" href="#add_days" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns date value which is added with given day parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; base timestamp or date</li>
+<li><strong>day</strong> &#8211; day value to be added</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">timestamp</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">add_days</span><span class="p">(</span><span class="nb">date</span> <span class="s1">&#39;2013-12-30&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">03</span> <span class="mi">15</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+
+<span class="k">select</span> <span class="n">add_days</span><span class="p">(</span><span class="k">timestamp</span> <span class="s1">&#39;2013-12-05 12:10:20&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">28</span> <span class="mi">03</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="add_months">
+<tt class="descname">add_months</tt><big>(</big><em>date date|timestamp</em>, <em>month int</em><big>)</big><a class="headerlink" href="#add_months" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns date value which is added with given month parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; base timestamp or date</li>
+<li><strong>month</strong> &#8211; month value to be added</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">timestamp</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">add_months</span><span class="p">(</span><span class="nb">date</span> <span class="s1">&#39;2013-12-17&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="current_date">
+<tt class="descname">current_date</tt><big>(</big><big>)</big><a class="headerlink" href="#current_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">date</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">current_date</span><span class="p">();</span>
+<span class="o">&gt;</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">23</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="current_time">
+<tt class="descname">current_time</tt><big>(</big><big>)</big><a class="headerlink" href="#current_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">time</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">current_time</span><span class="p">();</span>
+<span class="o">&gt;</span> <span class="mi">05</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">27</span><span class="p">.</span><span class="mi">651999</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="extract">
+<tt class="descname">extract</tt><big>(</big><em>field FROM source</em><big>)</big><a class="headerlink" href="#extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>The extract function retrieves subfields such as year or hour from date/time values. <em>source</em> must be a value expression of type <em>timestamp</em>, or <em>time</em>. (Expressions of type <em>date</em> are cast to <em>timestamp</em> and can therefore be used as well.) <em>field</em> is an identifier that selects what field to extract from the source value. The extract function returns values of type double precision. The following are valid field names:</p>
+<p><strong>century</strong></p>
+<p>The century</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">century</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-12-16 12:21:13&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">21</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>The first century starts at 0001-01-01 00:00:00 AD, although they did not know it at the time. This definition applies to all Gregorian calendar countries. There is no century number 0, you go from -1 century to 1 century. If you disagree with this, please write your complaint to: Pope, Cathedral Saint-Peter of Roma, Vatican.</p>
+<p><strong>day</strong></p>
+<p>For <em>timestamp</em> values, the day (of the month) field (1 - 31)</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">day</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">16</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>decade</strong></p>
+<p>The year field divided by 10</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">decade</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">200</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>dow</strong></p>
+<p>The day of the week as Sunday(0) to Saturday(6)</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">dow</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">5</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Note that extract&#8217;s day of the week numbering differs from that of the to_char(..., &#8216;D&#8217;) function.</p>
+<p><strong>doy</strong></p>
+<p>The day of the year (1 - 365/366)</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">doy</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">47</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>hour</strong></p>
+<p>The hour field (0 - 23)</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">hour</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">20</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>isodow</strong></p>
+<p>The day of the week as Monday(1) to Sunday(7)</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">isodow</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-18 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">7</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>This is identical to dow except for Sunday. This matches the ISO 8601 day of the week numbering.</p>
+<p><strong>isoyear</strong></p>
+<p>The ISO 8601 year that the date falls in</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">isoyear</span> <span class="k">from</span> <span class="nb">date</span> <span class="s1">&#39;2006-01-01&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2005</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Each ISO year begins with the Monday of the week containing the 4th of January, so in early January or late December the ISO year may be different from the Gregorian year. See the week field for more information.</p>
+<p><strong>microseconds</strong></p>
+<p>The seconds field, including fractional parts, multiplied by 1 000 000; note that this includes full seconds</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">microseconds</span> <span class="k">from</span> <span class="n">time</span> <span class="s1">&#39;17:12:28.5&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2</span><span class="p">.</span><span class="mi">85</span><span class="n">E7</span>
+</pre></div>
+</div>
+<p><strong>millennium</strong></p>
+<p>The millennium</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">millennium</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Years in the 1900s are in the second millennium. The third millennium started January 1, 2001.</p>
+<p><strong>milliseconds</strong></p>
+<p>The seconds field, including fractional parts, multiplied by 1000. Note that this includes full seconds.</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">milliseconds</span> <span class="k">from</span> <span class="n">time</span> <span class="s1">&#39;17:12:28.5&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">28500</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>minute</strong></p>
+<p>The minutes field (0 - 59)</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">minute</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">38</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>month</strong></p>
+<p>For timestamp values, the number of the month within the year (1 - 12)</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">month</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>quarter</strong></p>
+<p>The quarter of the year (1 - 4) that the date is in</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">quarter</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>second</strong></p>
+<p>The seconds field, including fractional parts (0 - 59[1])</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">second</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">40</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>week</strong></p>
+<p>The number of the week of the year that the day is in. By definition (ISO 8601), weeks start on Mondays and the first week of a year contains January 4 of that year. In other words, the first Thursday of a year is in week 1 of that year.</p>
+<p>In the ISO definition, it is possible for early-January dates to be part of the 52nd or 53rd week of the previous year, and for late-December dates to be part of the first week of the next year. For example, 2005-01-01 is part of the 53rd week of year 2004, and 2006-01-01 is part of the 52nd week of year 2005, while 2012-12-31 is part of the first week of 2013. It&#8217;s recommended to use the isoyear field together with week to get consistent results.</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">week</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">7</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>year</strong></p>
+<p>The year field. Keep in mind there is no 0 AD, so subtracting BC years from AD years should be done with care.</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">year</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2001</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>The extract function is primarily intended for computational processing.</p>
+<p>The date_part function is also supported. It is equivalent to the SQL-standard function extract:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="date_part">
+<tt class="descname">date_part</tt><big>(</big><em>'field'</em>, <em>source</em><big>)</big><a class="headerlink" href="#date_part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note that here the field parameter needs to be a string value, not a name. The valid field names for date_part are the same as for extract.</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">date_part</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">16</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="now">
+<tt class="descname">now</tt><big>(</big><big>)</big><a class="headerlink" href="#now" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current timestamp</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">timestamp</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">now</span><span class="p">();</span>
+<span class="o">&gt;</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">23</span> <span class="mi">08</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">43</span><span class="p">.</span><span class="mi">286</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="to_char">
+<tt class="descname">to_char</tt><big>(</big><em>src timestamp</em>, <em>format text</em><big>)</big><a class="headerlink" href="#to_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts timestamp to text. For more detailed, see &#8216;Date/Time Formatting and Conversion&#8217; section below.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>src</strong> &#8211; timestamp to be converted</li>
+<li><strong>format</strong> &#8211; format string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">text</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">to_char</span><span class="p">(</span><span class="k">current_timestamp</span><span class="p">,</span> <span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">23</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="to_date">
+<tt class="descname">to_date</tt><big>(</big><em>src text</em>, <em>format text</em><big>)</big><a class="headerlink" href="#to_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts text to date. For more detailed, see &#8216;Date/Time Formatting and Conversion&#8217; section below.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>src</strong> &#8211; date string to be converted</li>
+<li><strong>format</strong> &#8211; format string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">date</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">to_date</span><span class="p">(</span><span class="s1">&#39;2014-01-04&#39;</span><span class="p">,</span> <span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="to_timestamp">
+<tt class="descname">to_timestamp</tt><big>(</big><em>epoch int</em><big>)</big><a class="headerlink" href="#to_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts int(UNIX epoch) to timestamp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>epoch</strong> &#8211; second value from Jan. 1, 1970</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">timestamp</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">to_timestamp</span><span class="p">(</span><span class="mi">412312345</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">1983</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">25</span> <span class="mi">03</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">25</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descname">to_timestamp</tt><big>(</big><em>src text</em>, <em>format text</em><big>)</big></dt>
+<dd><p>Converts text timestamp. For more detailed, see &#8216;Date/Time Formatting and Conversion&#8217; section below.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>src</strong> &#8211; timestamp string to be converted</li>
+<li><strong>format</strong> &#8211; format string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">timestamp</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">to_timestamp</span><span class="p">(</span><span class="s1">&#39;97/2/16 8:14:30&#39;</span><span class="p">,</span> <span class="s1">&#39;FMYYYY/FMMM/FMDD FMHH:FMMI:FMSS&#39;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">0097</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span> <span class="mi">23</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">30</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utc_usec_to">
+<tt class="descname">utc_usec_to</tt><big>(</big><em>string text</em>, <em>long timestamp</em>, <em>int dayOfWeek</em><big>)</big><a class="headerlink" href="#utc_usec_to" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first">If the <strong>first parameter</strong> is &#8216;day&#8217;.</p>
+<p>Shifts and return a UNIX timestamp in microseconds to the beginning of the day it occurs in.
+For example, if unix_timestamp occurs on May 19th at 08:58, this function returns a UNIX timestamp for May 19th at 00:00 (midnight).</p>
+</li>
+<li><p class="first">If the <strong>first parameter</strong> is &#8216;hour&#8217;.</p>
+<p>Shifts and return a UNIX timestamp in microseconds to the beginning of the hour it occurs in.
+For example, if unix_timestamp occurs at 08:58, this function returns a UNIX timestamp for 08:00 on the same day.</p>
+</li>
+<li><p class="first">If the <strong>first parameter</strong> is &#8216;month&#8217;.</p>
+<p>Shifts and return a UNIX timestamp in microseconds to the beginning of the month it occurs in.
+For example, if unix_timestamp occurs on March 19th, this function returns a UNIX timestamp for March 1st of the same year.</p>
+</li>
+<li><p class="first">If the <strong>first parameter</strong> is &#8216;year&#8217;.</p>
+<p>Returns a UNIX timestamp in microseconds that represents the year of the unix_timestamp argument.
+For example, if unix_timestamp occurs in 2010, the function returns 1274259481071200, the microsecond representation of 2010-01-01 00:00.</p>
+</li>
+<li><p class="first">If the <strong>first parameter</strong> is &#8216;week&#8217; and <strong>third parameter</strong> is 2 i.e (TUESDAY)</p>
+<p>Returns a UNIX timestamp in microseconds that represents a day in the week of the
+For example, if unix_timestamp occurs on Friday, 2008-04-11, and you set day_of_week to 2 (Tuesday), the function returns a UNIX timestamp for Tuesday, 2008-04-08.</p>
+</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>string</strong> &#8211; could be &#8216;day&#8217; &#8216;hour&#8217; &#8216;month&#8217; &#8216;year&#8217; &#8216;week&#8217;</li>
+<li><strong>long</strong> &#8211; unix timestamp in microseconds</li>
+<li><strong>int</strong> &#8211; day of the week from 0 (Sunday) to 6 (Saturday).Optional parameter required only if first parameter is &#8216;week&#8217;</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">long</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">utc_usec_to</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="mi">1274259481071200</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="mi">1274227200000000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="section" id="date-time-formatting-and-conversion">
+<h2>Date/Time Formatting and Conversion<a class="headerlink" href="#date-time-formatting-and-conversion" title="Permalink to this headline">¶</a></h2>
+<p><em>Template patterns for date/time formatting</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pattern</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HH</td>
+<td>hour of day (01-12)</td>
+</tr>
+<tr class="row-odd"><td>HH12</td>
+<td>hour of day (01-12)</td>
+</tr>
+<tr class="row-even"><td>HH24</td>
+<td>hour of day (00-23)</td>
+</tr>
+<tr class="row-odd"><td>MI</td>
+<td>minute (00-59)</td>
+</tr>
+<tr class="row-even"><td>SS</td>
+<td>second (00-59)</td>
+</tr>
+<tr class="row-odd"><td>MS</td>
+<td>millisecond (000-999)</td>
+</tr>
+<tr class="row-even"><td>US</td>
+<td>microsecond (000000-999999)</td>
+</tr>
+<tr class="row-odd"><td>SSSS</td>
+<td>seconds past midnight (0-86399)</td>
+</tr>
+<tr class="row-even"><td>AM, am, PM or pm</td>
+<td>meridiem indicator (without periods)</td>
+</tr>
+<tr class="row-odd"><td>A.M., a.m., P.M. or p.m.</td>
+<td>meridiem indicator (with periods)</td>
+</tr>
+<tr class="row-even"><td>Y,YYY</td>
+<td>year (4 and more digits) with comma</td>
+</tr>
+<tr class="row-odd"><td>YYYY</td>
+<td>year (4 and more digits)</td>
+</tr>
+<tr class="row-even"><td>YYY</td>
+<td>last 3 digits of year</td>
+</tr>
+<tr class="row-odd"><td>YY</td>
+<td>last 2 digits of year</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td>last digit of year</td>
+</tr>
+<tr class="row-odd"><td>IYYY</td>
+<td>ISO year (4 and more digits)</td>
+</tr>
+<tr class="row-even"><td>IYY</td>
+<td>last 3 digits of ISO year</td>
+</tr>
+<tr class="row-odd"><td>IY</td>
+<td>last 2 digits of ISO year</td>
+</tr>
+<tr class="row-even"><td>I</td>
+<td>last digit of ISO year</td>
+</tr>
+<tr class="row-odd"><td>BC, bc, AD or ad</td>
+<td>era indicator (without periods)</td>
+</tr>
+<tr class="row-even"><td>B.C., b.c., A.D. or a.d.</td>
+<td>era indicator (with periods)</td>
+</tr>
+<tr class="row-odd"><td>MONTH</td>
+<td>full upper case month name (blank-padded to 9 chars)</td>
+</tr>
+<tr class="row-even"><td>Month</td>
+<td>full capitalized month name (blank-padded to 9 chars)</td>
+</tr>
+<tr class="row-odd"><td>month</td>
+<td>full lower case month name (blank-padded to 9 chars)</td>
+</tr>
+<tr class="row-even"><td>MON</td>
+<td>abbreviated upper case month name (3 chars in English, localized lengths vary)</td>
+</tr>
+<tr class="row-odd"><td>Mon</td>
+<td>abbreviated capitalized month name (3 chars in English, localized lengths vary)</td>
+</tr>
+<tr class="row-even"><td>mon</td>
+<td>abbreviated lower case month name (3 chars in English, localized lengths vary)</td>
+</tr>
+<tr class="row-odd"><td>MM</td>
+<td>month number (01-12)</td>
+</tr>
+<tr class="row-even"><td>DAY</td>
+<td>full upper case day name (blank-padded to 9 chars)</td>
+</tr>
+<tr class="row-odd"><td>Day</td>
+<td>full capitalized day name (blank-padded to 9 chars)</td>
+</tr>
+<tr class="row-even"><td>day</td>
+<td>full lower case day name (blank-padded to 9 chars)</td>
+</tr>
+<tr class="row-odd"><td>DY</td>
+<td>abbreviated upper case day name (3 chars in English, localized lengths vary)</td>
+</tr>
+<tr class="row-even"><td>Dy</td>
+<td>abbreviated capitalized day name (3 chars in English, localized lengths vary)</td>
+</tr>
+<tr class="row-odd"><td>dy</td>
+<td>abbreviated lower case day name (3 chars in English, localized lengths vary)</td>
+</tr>
+<tr class="row-even"><td>DDD</td>
+<td>day of year (001-366)</td>
+</tr>
+<tr class="row-odd"><td>IDDD</td>
+<td>ISO day of year (001-371; day 1 of the year is Monday of the first ISO week.)</td>
+</tr>
+<tr class="row-even"><td>DD</td>
+<td>day of month (01-31)</td>
+</tr>
+<tr class="row-odd"><td>D</td>
+<td>day of the week, Sunday(1) to Saturday(7)</td>
+</tr>
+<tr class="row-even"><td>ID</td>
+<td>ISO day of the week, Monday(1) to Sunday(7)</td>
+</tr>
+<tr class="row-odd"><td>W</td>
+<td>week of month (1-5) (The first week starts on the first day of the month.)</td>
+</tr>
+<tr class="row-even"><td>WW</td>
+<td>week number of year (1-53) (The first week starts on the first day of the year.)</td>
+</tr>
+<tr class="row-odd"><td>IW</td>
+<td>ISO week number of year (01 - 53; the first Thursday of the new year is in week 1.)</td>
+</tr>
+<tr class="row-even"><td>CC</td>
+<td>century (2 digits) (The twenty-first century starts on 2001-01-01.)</td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td>Julian Day (integer days since November 24, 4714 BC at midnight UTC)</td>
+</tr>
+<tr class="row-even"><td>Q</td>
+<td>quarter (ignored by to_date and to_timestamp)</td>
+</tr>
+<tr class="row-odd"><td>RM</td>
+<td>month in upper case Roman numerals (I-XII; I=January)</td>
+</tr>
+<tr class="row-even"><td>rm</td>
+<td>month in lower case Roman numerals (i-xii; i=January)</td>
+</tr>
+<tr class="row-odd"><td>TZ</td>
+<td>upper case time-zone name</td>
+</tr>
+<tr class="row-even"><td>tz</td>
+<td>lower case time-zone name</td>
+</tr>
+</tbody>
+</table>
+<p><em>Template pattern modifiers for date/time formatting</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="72%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Modifier</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FM prefix</td>
+<td>fill mode (suppress padding blanks and trailing zeroes)</td>
+<td>FMMonth</td>
+</tr>
+<tr class="row-odd"><td>TH suffix</td>
+<td>upper case ordinal number suffix    DDTH, e.g.,</td>
+<td>12TH</td>
+</tr>
+<tr class="row-even"><td>th suffix</td>
+<td>lower case ordinal number suffix    DDth, e.g.,</td>
+<td>12th</td>
+</tr>
+<tr class="row-odd"><td>FX prefix</td>
+<td>fixed format global option (see usage notes)</td>
+<td>FX Month DD Day</td>
+</tr>
+<tr class="row-even"><td>TM prefix</td>
+<td>translation mode (print localized day and month names based on lc_time)</td>
+<td>TMMonth</td>
+</tr>
+<tr class="row-odd"><td>SP suffix</td>
+<td>spell mode (not implemented)</td>
+<td>DDSP</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><ul class="simple">
+<li>FM suppresses leading zeroes and trailing blanks that would otherwise be added to make the output of a pattern be fixed-width. In Tajo, FM modifies only the next specification, while in Oracle FM affects all subsequent specifications, and repeated FM modifiers toggle fill mode on and off.</li>
+<li>TM does not include trailing blanks.</li>
+<li><em>to_timestamp</em> and <em>to_date</em> skip multiple blank spaces in the input string unless the FX option is used. For example, <em>to_timestamp</em> (&#8216;2000    JUN&#8217;, &#8216;YYYY MON&#8217;) works, but <em>to_timestamp</em> (&#8216;2000    JUN&#8217;, &#8216;FXYYYY MON&#8217;) returns an error because <em>to_timestamp</em> expects one space only. FX must be specified as the first item in the template.</li>
+<li>Ordinary text is allowed in <em>to_char</em> templates and will be output literally. You can put a substring in double quotes to force it to be interpreted as literal text even if it contains pattern key words. For example, in &#8216;&#8220;Hello Year &#8220;YYYY&#8217;, the YYYY will be replaced by the year data, but the single Y in Year will not be. In <em>to_date</em>, to_number, and <em>to_timestamp</em>, double-quoted strings skip the number of input characters contained in the string, e.g. &#8220;XX&#8221; skips two input characters.</li>
+<li>If you want to have a double quote in the output you must precede it with a backslash, for example &#8216;&#8220;YYYY Month&#8221;&#8217;.</li>
+<li>If the year format specification is less than four digits, e.g. YYY, and the supplied year is less than four digits, the year will be adjusted to be nearest to the year 2020, e.g. 95 becomes 1995.</li>
+<li>The YYYY conversion from string to timestamp or date has a restriction when processing years with more than 4 digits. You must use some non-digit character or template after YYYY, otherwise the year is always interpreted as 4 digits. For example (with the year 20000): <em>to_date</em> (&#8216;200001131&#8217;, &#8216;YYYYMMDD&#8217;) will be interpreted as a 4-digit year; instead use a non-digit separator after the year, like <em>to_date</em> (&#8216;20000-1131&#8217;, &#8216;YYYY-MMDD&#8217;) or <em>to_date</em> (&#8216;20000Nov31&#8217;, &#8216;YYYYMonDD&#8217;).</li>
+<li>In conversions from string to timestamp or date, the CC (century) field is ignored if there is a YYY, YYYY or Y,YYY field. If CC is used with YY or Y then the year is computed as the year in the specified century. If the century is specified but the year is not, the first year of the century is assumed.</li>
+<li>An ISO week date (as distinct from a Gregorian date) can be specified to <em>to_timestamp</em> and <em>to_date</em> in one of two ways:</li>
+<li>Year, week, and weekday: for example <em>to_date</em> (&#8216;2006-42-4&#8217;, &#8216;IYYY-IW-ID&#8217;) returns the date 2006-10-19. If you omit the weekday it is assumed to be 1 (Monday).</li>
+<li>Year and day of year: for example <em>to_date</em> (&#8216;2006-291&#8217;, &#8216;IYYY-IDDD&#8217;) also returns 2006-10-19.</li>
+<li>Attempting to construct a date using a mixture of ISO week and Gregorian date fields is nonsensical, and will cause an error. In the context of an ISO year, the concept of a &#8220;month&#8221; or &#8220;day of month&#8221; has no meaning. In the context of a Gregorian year, the ISO week has no meaning. Users should avoid mixing Gregorian and ISO date specifications.</li>
+<li>In a conversion from string to timestamp, millisecond (MS) or microsecond (US) values are used as the seconds digits after the decimal point. For example <em>to_timestamp</em> (&#8216;12:3&#8217;, &#8216;SS:MS&#8217;) is not 3 milliseconds, but 300, because the conversion counts it as 12 + 0.3 seconds. This means for the format SS:MS, the input values 12:3, 12:30, and 12:300 specify the same number of milliseconds. To get three milliseconds, one must use 12:003, which the conversion counts as 12 + 0.003 = 12.003 seconds.</li>
+<li>Here is a more complex example: <em>to_timestamp</em> (&#8216;15:12:02.020.001230&#8217;, &#8216;HH:MI:SS.MS.US&#8217;) is 15 hours, 12 minutes, and 2 seconds + 20 milliseconds + 1230 microseconds = 2.021230 seconds.</li>
+<li><em>to_char</em> (..., &#8216;ID&#8217;)&#8217;s day of the week numbering matches the extract(isodow from ...) function, but <em>to_char</em> (..., &#8216;D&#8217;)&#8217;s does not match extract(dow from ...)&#8217;s day numbering.</li>
+<li><em>to_char</em> (interval) formats HH and HH12 as shown on a 12-hour clock, i.e. zero hours and 36 hours output as 12, while HH24 outputs the full hour value, which can exceed 23 for intervals.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="network_func_and_operators.html" class="btn btn-neutral float-right" title="Network Functions and Operators"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="string_func_and_operators.html" class="btn btn-neutral" title="String Functions and Operators"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

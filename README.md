@@ -3,6 +3,10 @@ Apache Tajo 한글 문서 프로젝트 (tajo-doc-kr)
 Apache Tajo의 공식 메뉴얼(http://tajo.apache.org/docs/devel/)을 한글로 번역 및 작성 합니다.
 또한 Apache Tajo 커미터의 도움으로 한글로 잘 작성된 문서는 Apache Tajo 프로젝트에 영문으로 번역되어 반영될 수 있습니다.
 
+번역 문서
+=========
+ * Tajo (개발 버전) 사용자 메뉴얼 (http://hyunsik.github.io/tajo-doc-kr/docs/0.10.0/)
+
 문서포맷
 =========
 Apache Tajo의 공식 문서와 똑같은 reStructuredText 포맷(http://docutils.sourceforge.net/rst.html)을 사용합니다.

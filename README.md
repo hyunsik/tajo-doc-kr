@@ -35,7 +35,7 @@ Mailing List
  
 공헌하기
 ===========
-한글 번역이나 문서 작성 모두 환영합니다. 제출은 Github의 pull request를 이용해주세요!
+ * https://github.com/hyunsik/tajo-doc-kr/wiki/HowToContribute 페이지를 읽어주세요!
 
 공헌한 분들
 ===========

@@ -35,6 +35,7 @@ Mailing List
  
 공헌하기
 ===========
+ * 이슈 트래커 (https://github.com/hyunsik/tajo-doc-kr/issues)
  * https://github.com/hyunsik/tajo-doc-kr/wiki/HowToContribute 페이지를 읽어주세요!
 
 공헌한 분들

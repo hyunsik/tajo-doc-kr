@@ -59,12 +59,12 @@
         
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">아파치 타조란?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/downloading_source.html">Dowload and unpack the source code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/building.html">Build source code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/local_setup.html">Setting up a local Tajo cluster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/first_query.html">First query execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id2">준비 사항</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id5">소스코드 빌드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id6">로컬 클러스터 셋업</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id7">첫 질의 실행</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
@@ -104,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#client-time-zone">클라이언트 타임존 (Client Time Zone)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#time-zone-id">Time Zone ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">타임존 사용 예제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">타임존 사용 예제</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
@@ -193,7 +193,7 @@ Tajo는 내부적으로 모든 날짜 시간 관련된 내용은 UTC (Coordinate
 <div class="section" id="table-time-zone">
 <h2>테이블 타임존 (Table Time Zone)<a class="headerlink" href="#table-time-zone" title="Permalink to this headline">¶</a></h2>
 <p>각 테이블은 <tt class="docutils literal"><span class="pre">timezone</span></tt> 속성을 가질 수 있습니다. 이 속성을 이용해 사용자는 각 테이블에 물리적으로 저장될 또는 이미 저장되어 있는 데이터가 특정 타임존을 따르도록 명시적이고 수동적으로 설정할 수 있습니다. 예를 들어 &#8216;2014-09-07 18:01:00&#8217; 이라는 <tt class="docutils literal"><span class="pre">timestamp</span></tt> 값은 실제로 어떤 타임존을 따르냐에 UTC 기준으로한 절대 시간은 상이하게 다를 수 있습니다.</p>
-<p>다음과 같이 테이블의 타임존을 명시적으로 지정할 수 있습니다. 설정 값으로 <a href="#id1"><span class="problematic" id="id2">``</span></a>ASIA/Seoul``이 사용되었는데요. 이 값으로 어떤 것이 쓰일 수 있는지는 아래에서 <a class="reference internal" href="#time-zone-id">Time Zone ID</a> 섹션에서 다시 설명합니다.</p>
+<p>다음과 같이 테이블의 타임존을 명시적으로 지정할 수 있습니다. 설정 값으로 <tt class="docutils literal"><span class="pre">ASIA/Seoul</span></tt> 이 사용되었는데요. 이 값으로 어떤 것이 쓰일 수 있는지는 아래에서 <a class="reference internal" href="#time-zone-id">Time Zone ID</a> 섹션에서 다시 설명합니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">EXTERNAL</span> <span class="k">TABLE</span> <span class="n">table1</span> <span class="p">(</span>
  <span class="n">t_timestamp</span>  <span class="k">TIMESTAMP</span><span class="p">,</span>
  <span class="n">t_date</span>    <span class="nb">DATE</span>
@@ -233,8 +233,8 @@ Tajo는 내부적으로 모든 날짜 시간 관련된 내용은 UTC (Coordinate
 <p class="last">자바 6은 소수의 위치 기반 표현만 지원하며 UTC를 이용한 오프셋 표현을 지원하지 않습ㄴ다. 그래서 자바 6 사용자에게는 GMT 키워드를 이용한 오프셋 표현을 강력하게 권고합니다. 즉 자바 6 사용자는 &#8216;UTC-7&#8217; 대신에 &#8216;GMT-7&#8217;를 반드시 사용하셔야 합니다.</p>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>타임존 사용 예제<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>타임존 사용 예제<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>예제를 설명하기 위해 아래 입력데이터가 <tt class="docutils literal"><span class="pre">Asia/Seoul</span></tt> 즉 GMT+9 로 쓰여진 데이터라고 가정합니다.</p>
 <div class="highlight-text"><div class="highlight"><pre>1980-4-1 01:50:30.010|1980-04-01
 80/4/1 1:50:30 AM|80/4/1

@@ -1,15 +1,16 @@
 ============================
- SQL Expressions
+ SQL 수식
 ============================
 
 -------------------------
- Arithmetic Expressions
+ 연산 수식
 -------------------------
 
 -------------------------
-Type Casts
+타입 변환
 -------------------------
-A type cast converts a specified-typed data to another-typed data. Tajo has two type cast syntax:
+타입 변환은 특정 타입의 데이터를 다른 타입의 데이터로 변환합니다.
+타조는 두가지 형태의 타입 변환 구문을 지원합니다.
 
 .. code-block:: sql
 
@@ -18,12 +19,12 @@ A type cast converts a specified-typed data to another-typed data. Tajo has two 
 
 
 -------------------------
-String Expressions
+String 수식
 -------------------------
 
 
 -------------------------
-Function Call
+함수 호출
 -------------------------
 
 .. code-block:: sql

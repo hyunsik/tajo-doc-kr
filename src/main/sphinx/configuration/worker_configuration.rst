@@ -1,26 +1,26 @@
 *********************
-Worker Configuration
+워커(Worker) 설정
 *********************
 
 ========================
-Worker Heap Memory Size
+워커 힙 메모리 크기
 ========================
 
-The environment variable ``TAJO_WORKER_HEAPSIZE`` in ``conf/tajo-env.sh`` allow Tajo Worker to use the specified heap memory size.
+``conf/tajo-env.sh`` 파일 내용 중에 ``TAJO_WORKER_HEAPSIZE`` 환경 변수 값에 타조 워커가 사용할 힙 메모리 크기를 지정합니다.
 
-If you want to adjust heap memory size, set ``TAJO_WORKER_HEAPSIZE`` variable in ``conf/tajo-env.sh`` with a proper size as follows:
+힙 메모리 크기를 변경하려면, ``conf/tajo-env.sh`` 파일에 ``TAJO_WORKER_HEAPSIZE`` 변수 값을 적절한 값으로 지정합니다:
 
 .. code-block:: bash
 
   TAJO_WORKER_HEAPSIZE=8000
 
-The default size is 1000 (1GB).
+기본 값은 1000 (1GB) 입니다.
 
 ========================
-Temporary Data Directory
+임시 데이터 디렉토리
 ========================
 
-TajoWorker stores temporary data on local file system due to out-of-core algorithms. It is possible to specify one or more temporary data directories where temporary data will be stored.
+out-of-core 알고리즘에 따라 타조 워커는 임시 데이터를 로컬 파일 시스템에 저장합니다. 임시 데이터 저장소로 하나 이상의 데이터 디렉토리를 지정할 수 있습니다.
 
 ``tajo-site.xml``
 
@@ -33,26 +33,26 @@ TajoWorker stores temporary data on local file system due to out-of-core algorit
   
 
 ==========================================================
-Maximum number of parallel running tasks for each worker
+각 워커가 수행할 수 있는 최대 병렬 작업 수
 ==========================================================
 
-In Tajo, the capacity of running tasks in parallel are determined by available resources and workload of running queries. In order to specify it, please see [Worker Resources] (#ResourceConfiguration) section.
+타조는 가용 자원과 처리 중인 질의의 작업량에 따라 병렬로 실행할 작업 수를 결정합니다. 이 값을 명시하려면,  [워커 자원(Worker Resources)] (#ResourceConfiguration) 절을 참조합니다.
 
 ==========================================================
-Worker Resources
+워커 자원
 ==========================================================
 
-Each worker can execute multiple tasks simultaneously.
-In Tajo, users can specify the total size of memory and the number of disks for each worker. Available resources affect how many tasks are executed simultaneously.
+하나의 워커는 여러 작업들을 동시에 수행할 수 있습니다.
+타조는, 사용자가 각 워커가 사용할 총 메모리 크기와 디스크 갯수를 지정할 수 있습니다. 가용한 자원에 따라 동시에 수행할 수 있는 작업의 수가 결정됩니다.
 
-In order to specify the resource capacity of each worker, you should add the following configs to ``tajo-site.xml`` :
+각 워커의 리소스 량을 지정하려면, ``tajo-site.xml`` 파일에 다음 값을을 설정합니다:
 
 =================================  ==========================  ===================   =========================
-  property name                     description                value type            default value            
+  속성 명                     설명                값 타입            기본 값            
 =================================  ==========================  ===================   =========================
-  tajo.worker.resource.cpu-cores    the number of cpu cores    integer               1                        
-  tajo.worker.resource.memory-mb    memory size (MB)           integer               1024                     
-  tajo.worker.resource.disks        the number of disks        integer               1                        
+  tajo.worker.resource.cpu-cores    CPU 코어 수    integer               1                        
+  tajo.worker.resource.memory-mb    메모리 크기 (MB)           integer               1024                     
+  tajo.worker.resource.disks        디스크 수        integer               1                        
 =================================  ==========================  ===================   =========================
 
 .. note:: 

@@ -1,19 +1,19 @@
 *******************************************
-Cluster Setup
+클러스터 구성
 *******************************************
 
-Fully Distributed Mode
+완전 분산 모드
 ==========================================
-A fully distributed mode enables a Tajo instance to run on `Hadoop Distributed File System (HDFS) <http://wiki.apache.org/hadoop/HDFS>`_. In this mode, a number of Tajo workers run across a number of the physical nodes where HDFS data nodes run.
+완전 분산 모드는 타조 인스턴스를 `Hadoop Distributed File System (HDFS) <http://wiki.apache.org/hadoop/HDFS>`_ 에서 동작하도록 해줍니다. 이 모드에서는, 여러 타조 워커(worker)들이 HDFS 데이터 노드들이 실행 중인 다수의 물리노드들 위에서 동작하게 됩니다.
 
 
-In this section, we explain how to setup the cluster mode. 
+이 절에서는, 클러스터 모드 구성 방법에 대해 설명합니다. 
 
 
-Settings
+설정
 --------------------------------------------------------
 
-Please add the following configs to tajo-site.xml file:
+tajo-site.xml 파일에 다음과 같이 설정합니다:
 
 .. code-block:: xml
 
@@ -42,14 +42,14 @@ Please add the following configs to tajo-site.xml file:
     <value>hostname:26005</value>
   </property>
 
-Workers
+워커들(Workers)
 --------------------------------------------------------
 
-The file ``conf/workers`` lists all host names of workers, one per line.
-By default, this file contains the single entry ``localhost``.
-You can easily add host names of workers via your favorite text editor.
+``conf/workers`` 파일에 모든 워커들의 호스트 명을 하나 당 한 줄로 명시합니다.
+기본 값으로, 이 파일 내용에는 ``localhost`` 하나만 들어가 있습니다.
+평소에 잘 쓰는 아무 텍스트 편집기를 이용해서, 쉽게 워커들의 호스트 명들을 추가할 수 있습니다.
 
-For example: ::
+예: ::
 
   $ cat > conf/workers
   host1.domain.com
@@ -58,29 +58,29 @@ For example: ::
 
   <ctrl + d>
 
-Make base directories and set permissions
+기본 디렉토리 생성 및 접근 권한 설정
 --------------------------------------------------------
 
-If you want to know Tajo’s configuration in more detail, see Configuration page.
-Before launching the tajo, you should create the tajo root dir and set the permission as follows: ::
+타조 설정에 대해 좀 더 자세한 내용을 원한다면, Configuration page를 참조합니다.
+타조 실행에 앞서, 다음과 같이 타조 root 디렉토리 생성과 접근 권한 설정을 합니다: ::
 
   $ $HADOOP_HOME/bin/hadoop fs -mkdir       /tajo
   $ $HADOOP_HOME/bin/hadoop fs -chmod g+w   /tajo
 
 
-Launch a Tajo cluster
+타조 클러스터 실행
 --------------------------------------------------------
 
-Then, execute ``start-tajo.sh`` ::
+그리고, ``start-tajo.sh`` 를 실행합니다::
 
   $ $TAJO_HOME/bin/start-tajo.sh
 
 .. note::
 
-  In default, each worker is set to very little resource capacity. In order to increase parallel degree, please read 
-  :doc:`/configuration/worker_configuration`.
+  기본적으로, 각 워커에는 아주 적은 량의 자원이 할당되어 있습니다. 병렬 작업을 늘릴 수 있는 방법을 원한다면, 
+  :doc:`/configuration/worker_configuration`를 참고합니다.
 
 .. note::
 
-  In default, TajoMaster listens on 127.0.0.1 for clients. To allow remote clients to access TajoMaster, please set tajo.master.client-rpc.address config to tajo-site.xml. In order to know how to change the listen port, please refer :doc:`/configuration/service_config_defaults`.
+  기본적으로, 타조 마스터는 127.0.0.1 주소에 대해 클라이언트 접속을 허용하도록 되어 있습니다. 타조 마스터에 원격에서 클라이언트 접속을 허용하도록 설정하려면, tajo-site.xml 파일 내용 중에 tajo.master.client-rpc.address 에 설정값을 명시합니다. 접속 포트를 변경하려면, , :doc:`/configuration/service_config_defaults` 를 참고합니다.
 

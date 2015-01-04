@@ -1,17 +1,17 @@
 ********************************
-DateTime Functions and Operators
+날짜 및 시간 함수와 연산자들
 ********************************
 
-  * Note : Example result may be various based on time zone.
+  * 주의사항 : 아래 함수와 연산자들의 설명에 포함되어 있는 예제들은 타임존 (time zone) 에 따라 결과가 달라질 수 있습니다.
 
 .. function:: add_days (date date|timestamp, day int)
 
-  Returns date value which is added with given day parameter.
+  입력한 기준 날짜에서 입력한 날 만큼을 더한 새로운 날짜를 돌려줍니다.
 
-  :param date: base timestamp or date
-  :param day: day value to be added
-  :rtype: timestamp
-  :example:
+  :인자 date: 기준이 되는 타임스탬프나 날짜
+  :인자 day: 기준 날짜에 더하고자 하는 날
+  :리턴타입: timestamp
+  :예제:
           
   .. code-block:: sql
 
@@ -23,12 +23,12 @@ DateTime Functions and Operators
 
 .. function:: add_months (date date|timestamp, month int)
 
-  Returns date value which is added with given month parameter.
+     입력된 달 만큼 입력한  날짜 혹은 타임스탬프에 더한 날짜를 돌려줍니다.
 
-  :param date: base timestamp or date
-  :param month: month value to be added
-  :rtype: timestamp
-  :example:
+  :인자 date: 기준이 되는 날자나 타임스탬프
+  :인자 month: 기준 날짜에 더해질 달
+  :리턴타입: timestamp
+  :예제:
           
   .. code-block:: sql
 
@@ -37,9 +37,9 @@ DateTime Functions and Operators
 
 .. function:: current_date ()
 
-  Returns current date
+  현재 날짜를 (yyyy-mm-dd) 포맷으로 돌려줍니다.
 
-  :rtype: date
+  :리턴타입: date
           
   .. code-block:: sql
 
@@ -48,9 +48,9 @@ DateTime Functions and Operators
 
 .. function:: current_time ()
 
-  Returns current time
+    현재 시간을 돌려줍니다.
 
-  :rtype: time
+  :리턴타입: time
           
   .. code-block:: sql
 
@@ -210,7 +210,7 @@ DateTime Functions and Operators
 
   The number of the week of the year that the day is in. By definition (ISO 8601), weeks start on Mondays and the first week of a year contains January 4 of that year. In other words, the first Thursday of a year is in week 1 of that year.
 
-  In the ISO definition, it is possible for early-January dates to be part of the 52nd or 53rd week of the previous year, and for late-December dates to be part of the first week of the next year. For example, 2005-01-01 is part of the 53rd week of year 2004, and 2006-01-01 is part of the 52nd week of year 2005, while 2012-12-31 is part of the first week of 2013. It's recommended to use the isoyear field together with week to get consistent results.
+  In the ISO definition, it is possible for early-January dates to be part of the 52nd or 53rd week of the previous year, and for late-December dates to be part of the first week of the next year. For 예제, 2005-01-01 is part of the 53rd week of year 2004, and 2006-01-01 is part of the 52nd week of year 2005, while 2012-12-31 is part of the first week of 2013. It's recommended to use the isoyear field together with week to get consistent results.
 
   .. code-block:: sql
 
@@ -243,8 +243,8 @@ DateTime Functions and Operators
 
   Returns current timestamp
 
-  :rtype: timestamp
-  :example:
+  :리턴타입: timestamp
+  :예제:
 
   .. code-block:: sql
 
@@ -255,9 +255,9 @@ DateTime Functions and Operators
 
   Converts timestamp to text. For more detailed, see 'Date/Time Formatting and Conversion' section below.
 
-  :param src: timestamp to be converted
-  :param format: format string
-  :rtype: text
+  :인자 src: timestamp to be converted
+  :인자 format: format string
+  :리턴타입: text
 
   .. code-block:: sql
 
@@ -268,9 +268,9 @@ DateTime Functions and Operators
 
   Converts text to date. For more detailed, see 'Date/Time Formatting and Conversion' section below.
 
-  :param src: date string to be converted
-  :param format: format string
-  :rtype: date
+  :인자 src: date string to be converted
+  :인자 format: format string
+  :리턴타입: date
 
   .. code-block:: sql
 
@@ -281,8 +281,8 @@ DateTime Functions and Operators
 
   Converts int(UNIX epoch) to timestamp.
 
-  :param epoch: second value from Jan. 1, 1970
-  :rtype: timestamp
+  :인자 epoch: second value from Jan. 1, 1970
+  :리턴타입: timestamp
 
   .. code-block:: sql
 
@@ -293,9 +293,9 @@ DateTime Functions and Operators
 
   Converts text timestamp. For more detailed, see 'Date/Time Formatting and Conversion' section below.
 
-  :param src: timestamp string to be converted
-  :param format: format string
-  :rtype: timestamp
+  :인자 src: timestamp string to be converted
+  :인자 format: format string
+  :리턴타입: timestamp
 
   .. code-block:: sql
 
@@ -307,33 +307,33 @@ DateTime Functions and Operators
   * If the **first parameter** is 'day'.
 
     Shifts and return a UNIX timestamp in microseconds to the beginning of the day it occurs in.
-    For example, if unix_timestamp occurs on May 19th at 08:58, this function returns a UNIX timestamp for May 19th at 00:00 (midnight).
+    For 예제, if unix_timestamp occurs on May 19th at 08:58, this function returns a UNIX timestamp for May 19th at 00:00 (midnight).
 
   * If the **first parameter** is 'hour'.
 
     Shifts and return a UNIX timestamp in microseconds to the beginning of the hour it occurs in.
-    For example, if unix_timestamp occurs at 08:58, this function returns a UNIX timestamp for 08:00 on the same day.
+    For 예제, if unix_timestamp occurs at 08:58, this function returns a UNIX timestamp for 08:00 on the same day.
 
   * If the **first parameter** is 'month'.
 
     Shifts and return a UNIX timestamp in microseconds to the beginning of the month it occurs in.
-    For example, if unix_timestamp occurs on March 19th, this function returns a UNIX timestamp for March 1st of the same year.
+    For 예제, if unix_timestamp occurs on March 19th, this function returns a UNIX timestamp for March 1st of the same year.
 
   * If the **first parameter** is 'year'.
 
     Returns a UNIX timestamp in microseconds that represents the year of the unix_timestamp argument.
-    For example, if unix_timestamp occurs in 2010, the function returns 1274259481071200, the microsecond representation of 2010-01-01 00:00.
+    For 예제, if unix_timestamp occurs in 2010, the function returns 1274259481071200, the microsecond representation of 2010-01-01 00:00.
 
   * If the **first parameter** is 'week' and **third parameter** is 2 i.e (TUESDAY)
 
     Returns a UNIX timestamp in microseconds that represents a day in the week of the
-    For example, if unix_timestamp occurs on Friday, 2008-04-11, and you set day_of_week to 2 (Tuesday), the function returns a UNIX timestamp for Tuesday, 2008-04-08.
+    For 예제, if unix_timestamp occurs on Friday, 2008-04-11, and you set day_of_week to 2 (Tuesday), the function returns a UNIX timestamp for Tuesday, 2008-04-08.
 
-  :param string: could be 'day' 'hour' 'month' 'year' 'week'
-  :param long: unix timestamp in microseconds
-  :param int: day of the week from 0 (Sunday) to 6 (Saturday).Optional parameter required only if first parameter is 'week'
-  :rtype: long
-  :example:
+  :인자 string: could be 'day' 'hour' 'month' 'year' 'week'
+  :인자 long: unix timestamp in microseconds
+  :인자 int: day of the week from 0 (Sunday) to 6 (Saturday).Optional parameter required only if first parameter is 'week'
+  :리턴타입: long
+  :예제:
 
   .. code-block:: sql
 
@@ -404,7 +404,7 @@ tz                          lower case time-zone name
 *Template pattern modifiers for date/time formatting*
 
 =========== ======================================================================= ================
-Modifier    Description                                                             Example
+Modifier    Description                                                             예제
 =========== ======================================================================= ================
 FM prefix   fill mode (suppress padding blanks and trailing zeroes)                 FMMonth
 TH suffix   upper case ordinal number suffix    DDTH, e.g.,                         12TH
@@ -418,29 +418,29 @@ SP suffix   spell mode (not implemented)                                        
 
   * TM does not include trailing blanks.
 
-  * *to_timestamp* and *to_date* skip multiple blank spaces in the input string unless the FX option is used. For example, *to_timestamp* ('2000    JUN', 'YYYY MON') works, but *to_timestamp* ('2000    JUN', 'FXYYYY MON') returns an error because *to_timestamp* expects one space only. FX must be specified as the first item in the template.
+  * *to_timestamp* and *to_date* skip multiple blank spaces in the input string unless the FX option is used. For 예제, *to_timestamp* ('2000    JUN', 'YYYY MON') works, but *to_timestamp* ('2000    JUN', 'FXYYYY MON') returns an error because *to_timestamp* expects one space only. FX must be specified as the first item in the template.
 
-  * Ordinary text is allowed in *to_char* templates and will be output literally. You can put a substring in double quotes to force it to be interpreted as literal text even if it contains pattern key words. For example, in '"Hello Year "YYYY', the YYYY will be replaced by the year data, but the single Y in Year will not be. In *to_date*, to_number, and *to_timestamp*, double-quoted strings skip the number of input characters contained in the string, e.g. "XX" skips two input characters.
+  * Ordinary text is allowed in *to_char* templates and will be output literally. You can put a substring in double quotes to force it to be interpreted as literal text even if it contains pattern key words. For 예제, in '"Hello Year "YYYY', the YYYY will be replaced by the year data, but the single Y in Year will not be. In *to_date*, to_number, and *to_timestamp*, double-quoted strings skip the number of input characters contained in the string, e.g. "XX" skips two input characters.
 
-  * If you want to have a double quote in the output you must precede it with a backslash, for example '\"YYYY Month\"'.
+  * If you want to have a double quote in the output you must precede it with a backslash, for 예제 '\"YYYY Month\"'.
 
   * If the year format specification is less than four digits, e.g. YYY, and the supplied year is less than four digits, the year will be adjusted to be nearest to the year 2020, e.g. 95 becomes 1995.
 
-  * The YYYY conversion from string to timestamp or date has a restriction when processing years with more than 4 digits. You must use some non-digit character or template after YYYY, otherwise the year is always interpreted as 4 digits. For example (with the year 20000): *to_date* ('200001131', 'YYYYMMDD') will be interpreted as a 4-digit year; instead use a non-digit separator after the year, like *to_date* ('20000-1131', 'YYYY-MMDD') or *to_date* ('20000Nov31', 'YYYYMonDD').
+  * The YYYY conversion from string to timestamp or date has a restriction when processing years with more than 4 digits. You must use some non-digit character or template after YYYY, otherwise the year is always interpreted as 4 digits. For 예제 (with the year 20000): *to_date* ('200001131', 'YYYYMMDD') will be interpreted as a 4-digit year; instead use a non-digit separator after the year, like *to_date* ('20000-1131', 'YYYY-MMDD') or *to_date* ('20000Nov31', 'YYYYMonDD').
 
   * In conversions from string to timestamp or date, the CC (century) field is ignored if there is a YYY, YYYY or Y,YYY field. If CC is used with YY or Y then the year is computed as the year in the specified century. If the century is specified but the year is not, the first year of the century is assumed.
 
   * An ISO week date (as distinct from a Gregorian date) can be specified to *to_timestamp* and *to_date* in one of two ways:
 
-  * Year, week, and weekday: for example *to_date* ('2006-42-4', 'IYYY-IW-ID') returns the date 2006-10-19. If you omit the weekday it is assumed to be 1 (Monday).
+  * Year, week, and weekday: for 예제 *to_date* ('2006-42-4', 'IYYY-IW-ID') returns the date 2006-10-19. If you omit the weekday it is assumed to be 1 (Monday).
 
-  * Year and day of year: for example *to_date* ('2006-291', 'IYYY-IDDD') also returns 2006-10-19.
+  * Year and day of year: for 예제 *to_date* ('2006-291', 'IYYY-IDDD') also returns 2006-10-19.
 
   * Attempting to construct a date using a mixture of ISO week and Gregorian date fields is nonsensical, and will cause an error. In the context of an ISO year, the concept of a "month" or "day of month" has no meaning. In the context of a Gregorian year, the ISO week has no meaning. Users should avoid mixing Gregorian and ISO date specifications.
 
-  * In a conversion from string to timestamp, millisecond (MS) or microsecond (US) values are used as the seconds digits after the decimal point. For example *to_timestamp* ('12:3', 'SS:MS') is not 3 milliseconds, but 300, because the conversion counts it as 12 + 0.3 seconds. This means for the format SS:MS, the input values 12:3, 12:30, and 12:300 specify the same number of milliseconds. To get three milliseconds, one must use 12:003, which the conversion counts as 12 + 0.003 = 12.003 seconds.
+  * In a conversion from string to timestamp, millisecond (MS) or microsecond (US) values are used as the seconds digits after the decimal point. For 예제 *to_timestamp* ('12:3', 'SS:MS') is not 3 milliseconds, but 300, because the conversion counts it as 12 + 0.3 seconds. This means for the format SS:MS, the input values 12:3, 12:30, and 12:300 specify the same number of milliseconds. To get three milliseconds, one must use 12:003, which the conversion counts as 12 + 0.003 = 12.003 seconds.
 
-  * Here is a more complex example: *to_timestamp* ('15:12:02.020.001230', 'HH:MI:SS.MS.US') is 15 hours, 12 minutes, and 2 seconds + 20 milliseconds + 1230 microseconds = 2.021230 seconds.
+  * Here is a more complex 예제: *to_timestamp* ('15:12:02.020.001230', 'HH:MI:SS.MS.US') is 15 hours, 12 minutes, and 2 seconds + 20 milliseconds + 1230 microseconds = 2.021230 seconds.
 
   * *to_char* (..., 'ID')'s day of the week numbering matches the extract(isodow from ...) function, but *to_char* (..., 'D')'s does not match extract(dow from ...)'s day numbering.
 

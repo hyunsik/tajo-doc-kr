@@ -59,7 +59,6 @@
 
 .. function:: extract(field FROM source)
 
-
   The extract function retrieves subfields such as year or hour from date/time values. *source* must be a value expression of type *timestamp*, or *time*. (Expressions of type *date* are cast to *timestamp* and can therefore be used as well.) *field* is an identifier that selects what field to extract from the source value. The extract function returns values of type double precision. The following are valid field names:
 
   **century**

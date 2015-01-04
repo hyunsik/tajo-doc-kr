@@ -36,7 +36,7 @@ out-of-core 알고리즘에 따라 타조 워커는 임시 데이터를 로컬 �
 각 워커가 수행할 수 있는 최대 병렬 작업 수
 ==========================================================
 
-타조는 가용 자원과 처리 중인 질의의 작업량에 따라 병렬로 실행할 작업 수를 결정합니다. 이 값을 명시하려면,  [워커 자원(Worker Resources)] (#ResourceConfiguration) 절을 참조합니다.
+타조는 가용 자원과 처리 중인 질의의 작업 부하에 따라 병렬로 실행할 작업 수를 결정합니다. 이 값을 명시하려면,  [워커 자원(Worker Resources)] (#ResourceConfiguration) 절을 참조합니다.
 
 ==========================================================
 워커 자원
@@ -48,27 +48,27 @@ out-of-core 알고리즘에 따라 타조 워커는 임시 데이터를 로컬 �
 각 워커의 리소스 량을 지정하려면, ``tajo-site.xml`` 파일에 다음 값을을 설정합니다:
 
 =================================  ==========================  ===================   =========================
-  속성 명                     설명                값 타입            기본 값            
+  속성 명                             설명                          값 타입                기본 값            
 =================================  ==========================  ===================   =========================
-  tajo.worker.resource.cpu-cores    CPU 코어 수    integer               1                        
-  tajo.worker.resource.memory-mb    메모리 크기 (MB)           integer               1024                     
-  tajo.worker.resource.disks        디스크 수        integer               1                        
+  tajo.worker.resource.cpu-cores    CPU 코어 수                   integer               1                        
+  tajo.worker.resource.memory-mb    메모리 크기 (MB)               integer               1024                     
+  tajo.worker.resource.disks        디스크 수                      integer               1                        
 =================================  ==========================  ===================   =========================
 
 .. note:: 
   
-  Currently, QueryMaster requests 512MB memory and 0.5 disk per task for the backward compatibility.
+  현재 쿼리 마스터는 하위 버전과의 호환성 때문에 작업 당 512MB 메모리와 0.5 디스크를 요청하도록 되어있습니다.
 
 .. note::
 
-  If ``tajo.worker.resource.dfs-dir-aware`` is set to ``true`` in ``tajo-site.xml``, the worker will aware of and use the number of HDFS datanode's data dirs in the node.
-  In other words, ``tajo.worker.resource.disks`` is ignored.
+  ``tajo-site.xml`` 파일에 ``tajo.worker.resource.dfs-dir-aware`` 값이 ``true`` 로 설정된 경우, 워커는 자동으로 해당 노드의 HDFS의 데이터 노드로부터 데이터 디렉토리들을 파악해서 사용합니다.
+  즉, ``tajo.worker.resource.disks`` 에 설정값은 무시됩니다.
 
 ------------
- Example
+ 예
 ------------
 
-Assume that you want to give 5120 MB memory, 4 disks, and 24 cores on each worker. The example configuration is as follows:
+각 워커에 5120 MB의 메모리, 4개의 디스크와 24 코어를 할당하려면, 다음의 예시 처럼 설정합니다:
 
 ``tajo-site.xml``
 
@@ -90,9 +90,9 @@ Assume that you want to give 5120 MB memory, 4 disks, and 24 cores on each worke
   </property>  
 
 --------------------
- Dedicated Mode
+ 전용 모드
 --------------------
-Tajo provides a dedicated mode that allows each worker in a Tajo cluster to use whole available system resources including cpu-cores, memory, and disks. For this mode, a user should add the following config to ``tajo-site.xml`` : 
+타조는 타조 클러스터를 구성하는 각 워커가 CPU, 메모리, 디스크를 포함하는 모든 가용한 자원을 최대한 사용하도록 하는 전용 모드를 지원합니다. 이 모드에 대한 설정을 위해서는, ``tajo-site.xml`` 파일에 다음과 같은 내용을 추가합니다: 
 
 .. code-block:: xml
 
@@ -101,10 +101,10 @@ Tajo provides a dedicated mode that allows each worker in a Tajo cluster to use 
     <value>true</value>
   </property>
 
-In addition, it can limit the memory capacity used for Tajo worker as follows:
+추가로, 타조 워커가 사용할 메모리 량을 다음과 같이 제한할 수도 있습니다:
 
 ===============================================  ================================================   ===================   =======================
-  property name                                  description                                        value type            default value           
+  속성 명                                             설명                                               값 타입                기본 값           
 ===============================================  ================================================   ===================   =======================
-  tajo.worker.resource.dedicated-memory-ratio    how much memory to be used in whole memory         float                 0.8                     
+  tajo.worker.resource.dedicated-memory-ratio    전체 메모리중 가용 메모리 비율                              float                 0.8                     
 ===============================================  ================================================   ===================   =======================

@@ -10,7 +10,7 @@ catalog-site.xml 와 tajo-site.xml
 * catalog-site.xml - 카탈로그 서버 설정.
 * tajo-site.xml - 나머지 타조 모듈들에 대한 설정. 
 
-각 설정은 이름과 값의 쌍으로 되어 있습니다. ``a.b.c`` 설정에 ``123`` 값을 지정한다면, 해당 파일에 다음과 같이 속성 값을 지정합니다.
+각 설정은 속성 이름과 값의 쌍으로 되어 있습니다. 예를 들어, ``a.b.c`` 속성에 ``123`` 값을 지정한다면, 해당 파일에 다음과 같이 정의합니다.
 
 .. code-block:: xml
 
@@ -19,9 +19,9 @@ catalog-site.xml 와 tajo-site.xml
     <value>123</value>
   </property>
 
-타조는 다양한 내부 설정이 가능합니다. 어떤 설정들은 따로 명시하지 않으면, 기본 값이 사용됩니다. 타조는 일반적인 경우 몇가지 설정만으로도 동작하도록 설계되어 있으므로, 설정과 관련해서 큰 걱정을 할 필요는 없을 것입니다.
+타조는 다양한 내부 설정이 가능합니다. 어떤 설정들은 따로 명시하지 않으면, 기본 값이 사용되기 때문에, 보통은 몇가지 설정만으로도 타조가 잘 동작하도록 설계되어 있습니다. 따라서, 설정에 대해 걱정을 많이할 필요는 없습니다.
 
-기본적으로는, ``${TAJO}/conf`` 디렉토리에 ``tajo-site.xml`` 파일은 없습니다. 설정을 하려면, 먼저 ``$TAJO_HOME/conf/tajo-site.xml.templete`` 파일을 ``tajo-site.xml`` 로 복사한 후 tajo-site 파일에 설정을 변경 또는 추가합니다.
+처음에는, ``${TAJO}/conf`` 디렉토리에 ``tajo-site.xml`` 파일이 없기 때문에, 설정을 하려면, 먼저 ``$TAJO_HOME/conf/tajo-site.xml.templete`` 파일을 ``tajo-site.xml`` 로 복사하, tajo-site 파일에 설정 내용을 적용합니다.
 
 ============
 tajo-env.sh

@@ -1,14 +1,14 @@
 *****************************
-Math Functions and Operators
+수학함수와 연산자들
 *****************************
 
 .. function:: abs (number int|float)
 
-  Returns absolute value
+  입력된 수의 절대값을 돌려줍니다.
 
-  :param number: input number
-  :rtype: same as a parameter type
-  :example:
+  :인자 number: 입력된 수
+  :리턴타입: 입력된 인자와 동일한 타입
+  :예제:
   
   .. code-block:: sql
 
@@ -17,11 +17,11 @@ Math Functions and Operators
 
 .. function:: acos (number float)
 
-  Returns the arc cosine of number value
+  입력된 수의 아크 코사인 값을 돌려줍니다.
 
-  :param number: input number as radian
+  :인자 number: 입력된 라디안 (radian) 값
   :rtype: float8
-  :example:
+  :예제:
 
   .. code-block:: sql
 
@@ -30,11 +30,11 @@ Math Functions and Operators
 
 .. function:: asin (number float)
 
-  Returns the arc sine of number value
+  입력된 수의 아크 사인 값을 돌려줍니다.
 
-  :param number: input number as radian
-  :rtype: float8
-  :example:
+  :인자 number: 입력된 라디안 (radian) 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -43,11 +43,11 @@ Math Functions and Operators
 
 .. function:: atan (number float8)
 
-  Returns the arc tangent of number value
+  입력된 수의 아크 탄젠트 값을 돌려줍니다.
 
-  :param number: input number as radian
-  :rtype: float8
-  :example:
+  :인자 number: 입력된 라디안 (radian) 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -56,12 +56,12 @@ Math Functions and Operators
 
 .. function:: atan2 (y float, x float)
 
-  Returns the angle theta from the conversion of rectangular coordinates (x, y) to polar coordinates (r, theta)
+  입력된 직교좌표계 (x,y)를 극좌표계(r, theta)로 변환하고, 각 theta 의 값을 돌려줍니다.
 
-  :param y: the ordinate(y axis) coordinate
-  :param x: the abscissa(x axis) coordinate
-  :rtype: float8
-  :example:
+  :인자 y: 세로좌표 (y축)
+  :인자 x: 가로좌표 (x축)
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -70,11 +70,11 @@ Math Functions and Operators
 
 .. function:: cbrt (number float)
 
-  Returns the cube root of a number
+  입력된 수의 세제곱근 계산하여 돌려줍니다.
 
-  :param number: target real number
-  :rtype: float8
-  :example:
+  :인자 number: 입력된 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -83,11 +83,11 @@ Math Functions and Operators
 
 .. function:: ceil (number float)
 
-  Returns a smallest integer not less than argument
+  입력된 값보다 큰 정수들 중 가장 작은 값을 돌려줍니다.
 
-  :param number: target real number
-  :rtype: int8
-  :example:
+  :인자 number: 입력된 값
+  :리턴타입: int8
+  :예제:
 
   .. code-block:: sql
 
@@ -96,11 +96,11 @@ Math Functions and Operators
 
 .. function:: cos (number float)
 
-  Returns the cosine of a number
+  입력된 값의 코사인 값을 돌려줍니다.
 
-  :param number: target real number
-  :rtype: float8
-  :example:
+  :인자 number: 입력된 라디안 (radian) 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -109,11 +109,11 @@ Math Functions and Operators
 
 .. function:: degrees (number float)
 
-  Converts radians to degrees
-
-  :param number: radian value
-  :rtype: float8
-  :example:
+  입력된 라디안 (radian) 값을 각도로 변환해 돌려줍니다.
+  
+  :인자 number: 라디안 (radian) 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -122,12 +122,12 @@ Math Functions and Operators
 
 .. function:: div (num1 int, num2 int)
 
-  Integer division truncates resut
+  입력된 두개의 정수를 나누고 (num1 / num2), 그 몫을 돌려줍니다.
 
-  :param num1: number to be divided
-  :param num2: number to divide
-  :rtype: int8
-  :example:
+  :인자 num1: 피제수
+  :인자 num2: 제수
+  :리턴타입: int8
+  :예제:
 
   .. code-block:: sql
 
@@ -136,11 +136,11 @@ Math Functions and Operators
 
 .. function:: exp (number float)
 
-  Returns Euler's number e raised to the power of a number
+  오일러 상수 e에 대해 입력된 수의 지수승을 돌려줍니다.
 
-  :param number: input number
-  :rtype: float8
-  :example:
+  :예제 number: 입력된 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -149,11 +149,11 @@ Math Functions and Operators
 
 .. function:: floor (number float)
 
-  Returns a largest integer not greater than argument
+  입력된 값보다 작은 정수 중 가장 큰 수를 반환합니다.
 
-  :param number: target real number
-  :rtype: int8
-  :example:
+  :인자 number: 입력된 값
+  :리턴타입: int8
+  :예제:
 
   .. code-block:: sql
 
@@ -162,12 +162,12 @@ Math Functions and Operators
 
 .. function:: mod (num1 int, num2 int)
 
-  Returns remainder of num1 / num2
+  입력된 두 수를 나누고 (num1 / num2), 그 나머지를 반환합니다.
 
-  :param num1: number to be divided
-  :param num2: number to divide
-  :rtype: int8
-  :example:
+  :인자 num1: 제수
+  :인자 num2: 피제수
+  :리턴타입: int8
+  :예제:
 
   .. code-block:: sql
 
@@ -176,10 +176,10 @@ Math Functions and Operators
 
 .. function:: pi ()
 
-  Returns constant value of pi
+  원주율을 돌려줍니다.
 
-  :rtype: float8
-  :example:
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -187,13 +187,13 @@ Math Functions and Operators
     > 3.141592653589793
 
 .. function:: pow (x float, y float)
+  
+  입력된 값 x의 y 거듭제곱을 돌려줍니다.
 
-  Returns value of x raised to the power of y
-
-  :param x: base number
-  :param y: exponent
-  :rtype: float8
-  :example:
+  :인자 x: 밑
+  :인자 y: 지수
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -201,12 +201,12 @@ Math Functions and Operators
     > 1024.0
 
 .. function:: radians (number float)
+ 
+  입력된 각도 값을 라디안 (radian) 값으로 변환해 돌려줍니다.
 
-  Converts degrees to radians
-
-  :param number: degree value
-  :rtype: float8
-  :example:
+  :인자 number: 각도 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -215,11 +215,11 @@ Math Functions and Operators
 
 .. function:: round (number int|float)
 
-  Rounds to nearest integer
+  입력된 값의 반올림 값을 돌려줍니다.
 
-  :param number: target number
-  :rtype: int8
-  :example:
+  :인자 number: 입력 값
+  :리턴타입: int8
+  :예제:
 
   .. code-block:: sql
 
@@ -228,11 +228,11 @@ Math Functions and Operators
 
 .. function:: sign (number int|float)
 
-  Returns sign of argument as -1, 0, 1
+  입력된 값의 부호를 돌려줍니다.
 
-  :param number: target number
-  :rtype: float8
-  :example:
+  :인자 number: 입략 깂
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -241,11 +241,11 @@ Math Functions and Operators
 
 .. function:: sin (number float)
 
-  Returns the sine of number value
+  입력 값의 사인 값을 돌려줍니다.
 
-  :param number: target number
-  :rtype: float8
-  :example:
+  :인자 number: 입력 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -254,11 +254,11 @@ Math Functions and Operators
 
 .. function:: sqrt (number float8)
 
-  Returns the square root of a number
+  입력된 값의 제곱근을 돌려줍니다.
 
-  :param number: target number
-  :rtype: float8
-  :example:
+  :인자 number: 입력 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 
@@ -267,11 +267,11 @@ Math Functions and Operators
 
 .. function:: tan (number float)
 
-  Returns the tangent of number value
+  입력된 값의 탄젠트 값을 돌려줍니다.
 
-  :param number: target number
-  :rtype: float8
-  :example:
+  :인자 number: 입력 값
+  :리턴타입: float8
+  :예제:
 
   .. code-block:: sql
 

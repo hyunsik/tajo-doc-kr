@@ -1,8 +1,8 @@
 *************************************
-File Formats
+파일 포맷
 *************************************
 
-Currently, Tajo provides four file formats as follows:
+현제, 타조는 아래와 같이 네가지의 파일 포맷을 제공합니다.
 
 .. toctree::
     :maxdepth: 1

@@ -2,20 +2,19 @@
 CSV (TextFile)
 *************************************
 
-A character-separated values (CSV) file represents a tabular data set consisting of rows and columns.
-Each row is a plan-text line. A line is usually broken by a character line feed ``\n`` or carriage-return ``\r``.
-The line feed ``\n`` is the default delimiter in Tajo. Each record consists of multiple fields, separated by
-some other character or string, most commonly a literal vertical bar ``|``, comma ``,`` or tab ``\t``.
-The vertical bar is used as the default field delimiter in Tajo.
+Character-separated values (CSV) 파일은 로우와 컬럼으로 구성된 표로 나타내어진 데이터 셋입니다.
+각각의 로우들은 일반 텍스트 라인입니다. 하나의 라인은 ``\n`` 혹은 ``\r`` 로 나누어 집니다.
+라인피드 ``\n`` 는 타조의 기본 구분자 입니다. 각각의 레코드는 여러개의 필드를 가지고 있으며, 여러가지 문자열 혹은 ``|``, 컴마 ``,`` 혹은 탭 ``\t`` 으로 분리됩니다.
+타조는 ``|`` 를 기본 필드 구분자로 사용합니다.
 
 =========================================
-How to Create a CSV Table ?
+어떻게 CSV 테이블을 만드나요?
 =========================================
 
-If you are not familiar with the ``CREATE TABLE`` statement, please refer to the Data Definition Language :doc:`/sql_language/ddl`.
+아직 CREATE TABLE 선언문에 익숙하지 않다면,  데이터 정의 언어 (DDL, Data Definition Language) :doc:`/sql_language/ddl` 을 참고해 주세요.
 
-In order to specify a certain file format for your table, you need to use the ``USING`` clause in your ``CREATE TABLE``
-statement. The below is an example statement for creating a table using CSV files.
+특정한 파일 포맷을 테이블에 지정하기 위해서는 ``CREATE TABLE`` 절에 ``USING``선언을 사용하면 됩니다.
+아래는 csv 파일을 사용해 테이블을 만드는 방법에 대한 예제입니다. 
 
 .. code-block:: sql
 
@@ -28,19 +27,20 @@ statement. The below is an example statement for creating a table using CSV file
   ) USING CSV;
 
 =========================================
-Physical Properties
+물리적 속성들
 =========================================
 
-Some table storage formats provide parameters for enabling or disabling features and adjusting physical parameters.
-The ``WITH`` clause in the CREATE TABLE statement allows users to set those parameters.
+몇몇 테이블 저장 포맷은 테이블의 물리적 속성을 조정할 수 있는 기능을 허용하거나 허용하지 않도록 설정할 수 있는 파라메터를 제공합니다.
+``CREATE TABLE`` 선언문에  ``WITH`` 절을 사용하여 여러 파라메터들을 설정할 수 있습니다.
 
-Now, the CSV storage format provides the following physical properties.
+아래의 여러 설정값들을 통해 CSV 저장 포맷에 대한 여러가지 물리적 속성들을 변경할 수 있습니다.
 
-* ``text.delimiter``: delimiter character. ``|`` or ``\u0001`` is usually used, and the default field delimiter is ``|``.
-* ``text.null``: NULL character. The default NULL character is an empty string ``''``. Hive's default NULL character is ``'\\N'``.
-* ``compression.codec``: Compression codec. You can enable compression feature and set specified compression algorithm. The compression algorithm used to compress files. The compression codec name should be the fully qualified class name inherited from `org.apache.hadoop.io.compress.CompressionCodec <https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/compress/CompressionCodec.html>`_. By default, compression is disabled.
-* ``csvfile.serde`` (deprecated): custom (De)serializer class. ``org.apache.tajo.storage.TextSerializerDeserializer`` is the default (De)serializer class.
-* ``timezone``: the time zone that the table uses for writting. When table rows are read or written, ```timestamp``` and ```time``` column values are adjusted by this timezone if it is set. Time zone can be an abbreviation form like 'PST' or 'DST'. Also, it accepts an offset-based form like 'UTC+9' or a location-based form like 'Asia/Seoul'.
+* ``text.delimiter``: 구분자에 대한 속성 입니다.  보통 ``|`` 혹은 ``\u0001`` 가 사용되고, 기본 구분자로는 ``|`` 가 사용됩니다.
+* ``text.null``: NULL 문자에 대한 속성입니다.  NULL 문자의 기본값은 공백 문자열  ``''`` 입니다.  참고로, 아파치 하이브의 기본 NULL 문자는 ``'\\N'``입니다.
+* ``compression.codec``: 압축 코덱에 대한 속성입니다. 압축에 대해 설정한 후 특정한 압축 알고리즘을 설정할 수 있습니다. 압축 알고리즘은 파일을 압축하는데 사용됩니다.  압축 코덱의 이름은 정확한 상속 정보 (`org.apache.hadoop.io.compress.CompressionCodec <https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/compress/CompressionCodec.html>`_) 를 포함한 클래스 이름을 지정해주어야 합니다. 
+기본적으로 압축은 사용되지 않도록 설정되어 있습니다.
+* ``csvfile.serde`` (deprecated): 커스텀 (De)serializer 클래스에 대한 속성 입니다. ``org.apache.tajo.storage.TextSerializerDeserializer`` 가 기본 (De)serializer 클래스로 설정 되어 있습니다.
+* ``timezone``: 테이블에 데이터를 쓸 때 사용되는 타임존에 대한 속성입니다. 테이블 로우들을 읽거나 쓸 때, ```timestamp``` 와 ```time``` 컬럼 값들은 타임존이 설정 되어 있을 경우 설정된 타임존에 맞게 값을 변경합니다. 타임존은 'PST' 혹은 'DST'와 같은 형태로 축약 될 수 이습니다. 또한 오프셋 기반의 형태 (UTC+9) 혹은 지역기반의 형태 (Asia/Seoul) 로 설정될 수 있습니다. 
 * ``text.error-tolerance.max-num``: the maximum number of permissible parsing errors. This value should be an integer value. By default, ``text.error-tolerance.max-num`` is ``0``. According to the value, parsing errors will be handled in different ways.
   * If ``text.error-tolerance.max-num < 0``, all parsing errors are ignored.
   * If ``text.error-tolerance.max-num == 0``, any parsing error is not allowed. If any error occurs, the query will be failed. (default)

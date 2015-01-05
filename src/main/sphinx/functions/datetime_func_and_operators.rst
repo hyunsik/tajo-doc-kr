@@ -1,17 +1,17 @@
 ********************************
-DateTime Functions and Operators
+날짜 및 시간 함수와 연산자들
 ********************************
 
-  * Note : Example result may be various based on time zone.
+  * 주의사항 : 아래 함수와 연산자들의 설명에 포함되어 있는 예제들은 타임존 (time zone) 에 따라 결과가 달라질 수 있습니다.
 
 .. function:: add_days (date date|timestamp, day int)
 
-  Returns date value which is added with given day parameter.
+  입력한 기준 날짜에서 입력한 날 만큼을 더한 새로운 날짜를 돌려줍니다.
 
-  :param date: base timestamp or date
-  :param day: day value to be added
-  :rtype: timestamp
-  :example:
+  :인자 date: 기준이 되는 타임스탬프나 날짜
+  :인자 day: 기준 날짜에 더하고자 하는 날
+  :리턴타입: timestamp
+  :예제:
           
   .. code-block:: sql
 
@@ -23,12 +23,12 @@ DateTime Functions and Operators
 
 .. function:: add_months (date date|timestamp, month int)
 
-  Returns date value which is added with given month parameter.
+     입력된 달 만큼 입력한  날짜 혹은 타임스탬프에 더한 날짜를 돌려줍니다.
 
-  :param date: base timestamp or date
-  :param month: month value to be added
-  :rtype: timestamp
-  :example:
+  :인자 date: 기준이 되는 날자나 타임스탬프
+  :인자 month: 기준 날짜에 더해질 달
+  :리턴타입: timestamp
+  :예제:
           
   .. code-block:: sql
 
@@ -37,9 +37,9 @@ DateTime Functions and Operators
 
 .. function:: current_date ()
 
-  Returns current date
+  현재 날짜를 (yyyy-mm-dd) 포맷으로 돌려줍니다.
 
-  :rtype: date
+  :리턴타입: date
           
   .. code-block:: sql
 
@@ -48,9 +48,9 @@ DateTime Functions and Operators
 
 .. function:: current_time ()
 
-  Returns current time
+    현재 시간을 돌려줍니다.
 
-  :rtype: time
+  :리턴타입: time
           
   .. code-block:: sql
 
@@ -59,22 +59,22 @@ DateTime Functions and Operators
 
 .. function:: extract(field FROM source)
 
-  The extract function retrieves subfields such as year or hour from date/time values. *source* must be a value expression of type *timestamp*, or *time*. (Expressions of type *date* are cast to *timestamp* and can therefore be used as well.) *field* is an identifier that selects what field to extract from the source value. The extract function returns values of type double precision. The following are valid field names:
+   입력된 날짜 혹은 시간값에 대해 field 인자로 입력한 년도 혹은 시간 같은 특정 학목값을 돌려줍니다. *source* 인자는 *timestamp*, 혹은 *time* 타입이어야 합니다. (*date* 타입은 *timestamp* 타입으로 캐스팅 되므로, 두 타입 모두 사용할 수 있습니다.) *field* 인자는 source 인자로부터 출력하고자 하는 항목에 대한 정보입니다. 이 함수는 배정밀도 (double precision) 값을 돌려줍니다. 아래는 field 인자로 사용될 수 있는 여러 항목들에 대한 예제입니다.
 
   **century**
 
-  The century
+    입력된 값으로 부터 세기에 대한 값을 돌려줍니다.
 
   .. code-block:: sql
 
     select extract(century from timestamp '2001-12-16 12:21:13');
     > 21.0
 
-  The first century starts at 0001-01-01 00:00:00 AD, although they did not know it at the time. This definition applies to all Gregorian calendar countries. There is no century number 0, you go from -1 century to 1 century. If you disagree with this, please write your complaint to: Pope, Cathedral Saint-Peter of Roma, Vatican.
-
+    1세기는 0001-01-01 00:00:00 AD에 시작됩니다. 따라서, 그레고리안 달력을 적용한 모든 나라에서 올바른 세기 값을 얻을 수 있습니다. 세기는 0부터 시작하지 않습니다.
+  
   **day**
 
-  For *timestamp* values, the day (of the month) field (1 - 31)
+  *timestamp* 값에서, 날짜는 1에서 31까지의 값을 가질 수 있습니다.
 
   .. code-block:: sql
 
@@ -82,8 +82,8 @@ DateTime Functions and Operators
     > 16.0
 
   **decade**
-
-  The year field divided by 10
+ 
+   입력된 값으로 부터 년도 값을 10으로 나눈 값을 돌려줍니다.
 
   .. code-block:: sql
 
@@ -92,18 +92,18 @@ DateTime Functions and Operators
 
   **dow**
 
-  The day of the week as Sunday(0) to Saturday(6)
+  입력된 값으로 부터 입력된 시간값으로 부터 요일을 0 (일요일) 부터 6 (토요일) 로 변환해 돌려줍니다.
 
   .. code-block:: sql
 
     select extract(dow from timestamp '2001-02-16 20:38:40');
     > 5.0
 
-  Note that extract's day of the week numbering differs from that of the to_char(..., 'D') function.
+  해당 함수는 to_char(..., 'D') 함수와는 다르게 동작합니다.
 
   **doy**
 
-  The day of the year (1 - 365/366)
+  입력된 값으로 부터 해당 년도 중 몇번째 일인지를 돌려줍니다.
 
   .. code-block:: sql
 
@@ -111,9 +111,9 @@ DateTime Functions and Operators
     > 47.0
 
   **hour**
-
-  The hour field (0 - 23)
-
+  
+   입력된 값으로 부터 시간값 (0 ~ 23)을 돌려줍니다.
+  
   .. code-block:: sql
 
     select extract(hour from timestamp '2001-02-16 20:38:40');
@@ -121,29 +121,29 @@ DateTime Functions and Operators
 
   **isodow**
 
-  The day of the week as Monday(1) to Sunday(7)
+ 입력된 값으로 부터 요일정보를 1 (월요일) 부터 7 (일요일) 로 변환해 돌려줍니다.
 
   .. code-block:: sql
 
     select extract(isodow from timestamp '2001-02-18 20:38:40');
     > 7.0
 
-  This is identical to dow except for Sunday. This matches the ISO 8601 day of the week numbering.
+  이 함수는 일요일에 대한 값을 제외하면 dow함수와 동일하게 동작합니다. 이는 ISO 8601에 명시된 한 주의 요일에 대한 넘버링 방법을 따릅니다.
 
   **isoyear**
 
-  The ISO 8601 year that the date falls in
+  입력된 값으로 부터 ISO 8601 기준에 따르는 년도를 돌려줍니다.
 
   .. code-block:: sql
 
     select extract(isoyear from date '2006-01-01');
     > 2005.0
 
-  Each ISO year begins with the Monday of the week containing the 4th of January, so in early January or late December the ISO year may be different from the Gregorian year. See the week field for more information.
+  ISO 년도는  4주로 구성된 1월의 첫번째 월요일 에서 시작됩니다. 그래서, 1월 초나 12월 말의 어느날은 그레고리안 달력과 다른 년도값을 돌려줄 수 도 있습니다. 자세한 정보를 위해서는 week 항목을 참조해 세요.
 
   **microseconds**
 
-  The seconds field, including fractional parts, multiplied by 1 000 000; note that this includes full seconds
+   입력된 값으로부터 마이크로초 단위로 소숫점을 포함한 초 정보를 변환하여 돌려줍니다. 이는 입력 값에 포함된 초 정보를 1,000,000과 곱하는 연산을 통해 이루어집니다.
 
   .. code-block:: sql
 
@@ -153,17 +153,17 @@ DateTime Functions and Operators
   **millennium**
 
   The millennium
-
+   입력된 값으로 부터 천년 단위로 시간정보를 변환해 돌려줍니다.
   .. code-block:: sql
 
     select extract(millennium from timestamp '2001-02-16 20:38:40');
     > 3.0
 
-  Years in the 1900s are in the second millennium. The third millennium started January 1, 2001.
+  1900년도 대의 모든 년도는 두번째 millennium에 속합니다. 세번 째 millennium은 2001년 1월 1일부터 시작되었습니다.
 
   **milliseconds**
 
-  The seconds field, including fractional parts, multiplied by 1000. Note that this includes full seconds.
+  입력된 값으로 부터 밀리초 단위로 소숫점을 포함한 초 정보를 변환하여 돌려줍니다. 이는 입력 값에 포함된 초 정보를 1,000과 곱하는 연산을 통해 이루어집니다.
 
   .. code-block:: sql
 
@@ -172,7 +172,7 @@ DateTime Functions and Operators
 
   **minute**
 
-  The minutes field (0 - 59)
+  입력된 값으로 부터 분 정보 (0~59) 를 반환합니다.
 
   .. code-block:: sql
 
@@ -181,7 +181,7 @@ DateTime Functions and Operators
 
   **month**
 
-  For timestamp values, the number of the month within the year (1 - 12)
+   입력된 값으로 부터 달 정보 (1~12) 를 반환합니다.
 
   .. code-block:: sql
 
@@ -190,7 +190,7 @@ DateTime Functions and Operators
 
   **quarter**
 
-  The quarter of the year (1 - 4) that the date is in
+  입력된 값이 어떤 분기 (1~4) 에 속하는 지를 계산하여 반환합니다.
 
   .. code-block:: sql
 
@@ -199,7 +199,7 @@ DateTime Functions and Operators
 
   **second**
 
-  The seconds field, including fractional parts (0 - 59[1])
+입력된 값으로 부터 초 정보 (0~59) 를 반환합니다.
 
   .. code-block:: sql
 
@@ -207,10 +207,11 @@ DateTime Functions and Operators
     > 40.0
 
   **week**
-
-  The number of the week of the year that the day is in. By definition (ISO 8601), weeks start on Mondays and the first week of a year contains January 4 of that year. In other words, the first Thursday of a year is in week 1 of that year.
-
-  In the ISO definition, it is possible for early-January dates to be part of the 52nd or 53rd week of the previous year, and for late-December dates to be part of the first week of the next year. For example, 2005-01-01 is part of the 53rd week of year 2004, and 2006-01-01 is part of the 52nd week of year 2005, while 2012-12-31 is part of the first week of 2013. It's recommended to use the isoyear field together with week to get consistent results.
+  
+    일 년중 몇번째 주 인지를 나타냅니다. ISO 8601에 따르면, 첫번째 주는 1월 4일을 포함하는 주에서 시작됩니다. 따라서, 그 주의 1일은 목요일 입니다. 
+  ISO 정의에서, 일월 초의 몇몇 요일들은 일년 전 년도의 52번째 와 53번째 주 사이에 속할 가능성이 있습니다. 또한, 12월 말의 몇몇 요일들은 다음 년도의 첫번째 주에 속할 수 있습니다. 
+    예를 들어, 2005-01-01 은 2004년도의 53번째 주에 속하고, 2006-01-01 은 2005년도의 52번째 주에 속하지만, 2012-12-31은 2013년도의 첫번째 주에 속합니다. 
+    일관된 주 정보를 얻기 위해 isoyear 항목과 주 정보를 함께 사용하는것을 추천합니다.
 
   .. code-block:: sql
 
@@ -218,21 +219,21 @@ DateTime Functions and Operators
     > 7.0
 
   **year**
-
-  The year field. Keep in mind there is no 0 AD, so subtracting BC years from AD years should be done with care.
+  
+    입력된 값에서 년도 정보를 반환합니다. 참고로 기원 후 0년이라는 년도는 없기 때문에, 기원 전 년도와 기원 후 년도 간의 연산 (특히 기원 전 년도에서 기원 후 년도를 빼는 연산) 은 주의하여 수행하여야 합니다.
 
   .. code-block:: sql
 
     select extract(year from timestamp '2001-02-16 20:38:40');
     > 2001.0
 
-  The extract function is primarily intended for computational processing.
+  extract 함수는 컴퓨터를 활용한 여러가지 연산을 위 만들어졌습니다.
 
-  The date_part function is also supported. It is equivalent to the SQL-standard function extract:
+    타조는 date_part 함수 역시 지원합니다. 이는 SQL 표준의 extract 함수와 동일하게 동작합니다.
 
 .. function:: date_part('field', source)
 
-  Note that here the field parameter needs to be a string value, not a name. The valid field names for date_part are the same as for extract.
+  field 인자는 extract 함수와 동일 하게 사용하여도 됩니다. 하지만 문자열로 입력하셔야 합니다. (extract 함수는 field 인자로 문자열이 아닌 항목이름을 그대로 입력하 사용합니다.)
 
   .. code-block:: sql
 
@@ -241,10 +242,10 @@ DateTime Functions and Operators
 
 .. function:: now()
 
-  Returns current timestamp
+ 현재 타임스탬프를 돌려줍니다.
 
-  :rtype: timestamp
-  :example:
+  :리턴타입: timestamp
+  :예제:
 
   .. code-block:: sql
 
@@ -253,11 +254,11 @@ DateTime Functions and Operators
 
 .. function:: to_char(src timestamp, format text)
 
-  Converts timestamp to text. For more detailed, see 'Date/Time Formatting and Conversion' section below.
+    입력한 타임스탬프를 입력한 format에 맞추어 text 타입으로 변환하여 돌려줍니다. 자세한 정보는 아래의 'Date/Time 포맷팅과 변환' 섹션에 기술되어 있습니다.
 
-  :param src: timestamp to be converted
-  :param format: format string
-  :rtype: text
+  :인자 src: text 타입으로 변환하고자 하는 타임스탬프
+  :인자 format: 문자열로 표현한 포맷
+  :리턴타입: text
 
   .. code-block:: sql
 
@@ -266,11 +267,11 @@ DateTime Functions and Operators
 
 .. function:: to_date(src text, format text)
 
-  Converts text to date. For more detailed, see 'Date/Time Formatting and Conversion' section below.
+    입력된 text를 입력한 format에 맞추어 date 타입으로 변환합니다. 자세한 정보는 아래의  'Date/Time 포맷팅과 변환' 섹션에 기술되어 있습니다.
 
-  :param src: date string to be converted
-  :param format: format string
-  :rtype: date
+  :인자 src: date 타입으로 변환하고자 하는 text 
+  :인자 format: 문자열로 표현한 포맷
+  :리턴타입: date
 
   .. code-block:: sql
 
@@ -279,10 +280,10 @@ DateTime Functions and Operators
 
 .. function:: to_timestamp(epoch int)
 
-  Converts int(UNIX epoch) to timestamp.
+    입력한 유닉스 시간을 타임스탬프 타입으로 변환하여 돌려줍니다.
 
-  :param epoch: second value from Jan. 1, 1970
-  :rtype: timestamp
+  :인자 epoch: int 타입의 유닉스 시간
+  :리턴타입: timestamp
 
   .. code-block:: sql
 
@@ -291,11 +292,11 @@ DateTime Functions and Operators
 
 .. function:: to_timestamp(src text, format text)
 
-  Converts text timestamp. For more detailed, see 'Date/Time Formatting and Conversion' section below.
+  text타입으로 입력된 타임스탬프를 타임스탬프 타입으로 변환하여 돌려줍니다. 자세한 정보는 아래의  'Date/Time 포맷팅과 변환' 섹션에 기술되어 있습니다.
 
-  :param src: timestamp string to be converted
-  :param format: format string
-  :rtype: timestamp
+  :인자 src: 변환하고자 하는 text타입의 타임스탬프 정보timestamp string to be converted
+  :인자 format: 문자열로 표현한 포맷
+  :리턴타입: timestamp
 
   .. code-block:: sql
 
@@ -304,36 +305,36 @@ DateTime Functions and Operators
 
 .. function:: utc_usec_to (string text , long timestamp , int dayOfWeek)
 
-  * If the **first parameter** is 'day'.
+  * **첫 번째 인자** 가 'day'일 경우.
 
-    Shifts and return a UNIX timestamp in microseconds to the beginning of the day it occurs in.
-    For example, if unix_timestamp occurs on May 19th at 08:58, this function returns a UNIX timestamp for May 19th at 00:00 (midnight).
+        입력된 유닉스 타임스탬프가 나타내는 날짜가 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+        예를 들어, 유닉스 타임스탬프값이 May 19th at 08:58 를 나타냈을때, 이 함수는 May 19th at 00:00 을 나타내는 유닉스 타임스탬프 값을 돌려줍니다.
 
-  * If the **first parameter** is 'hour'.
+  * **첫 번째 인자** 가  'hour' 일 경우..
 
-    Shifts and return a UNIX timestamp in microseconds to the beginning of the hour it occurs in.
-    For example, if unix_timestamp occurs at 08:58, this function returns a UNIX timestamp for 08:00 on the same day.
+        입력된 유닉스 타임스탬프가 나타내는 시간이 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+        예를 들어, 유닉스 타임스탬프값이 08:58 를 나타낸다면, 이 함수는 같은 날 08:00 정각의 유닉스 타임스탬프 값을 돌려줍니다.
 
-  * If the **first parameter** is 'month'.
+  * **첫 번째 인자** 가 'month' 일 경우..
 
-    Shifts and return a UNIX timestamp in microseconds to the beginning of the month it occurs in.
-    For example, if unix_timestamp occurs on March 19th, this function returns a UNIX timestamp for March 1st of the same year.
+        입력된 유닉스 타임스탬프가 나타내는 달이 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+        예를 들어, 유닉스 타임스탬프값이 March 19th 를 나타낸다면, 이 함수는 같은 년도의 March 1일을 나타내는 유닉스 타임스탬프 값을 돌려줍니다.
 
-  * If the **first parameter** is 'year'.
+  * **첫 번째 인자** 가 'year' 일 경우..
 
-    Returns a UNIX timestamp in microseconds that represents the year of the unix_timestamp argument.
-    For example, if unix_timestamp occurs in 2010, the function returns 1274259481071200, the microsecond representation of 2010-01-01 00:00.
+        입력된 유닉스 타임스탬프가 나타내는 년도가 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+        예를 들어, 유닉스 타임스탬프값이 2010년 중의 시간을 나타낸다면, 이 함수는 2010-01-01 00:00 의 유닉스 타임스탬프 값인 1274259481071200 을 돌려줍니다.
 
-  * If the **first parameter** is 'week' and **third parameter** is 2 i.e (TUESDAY)
+  * **첫 번째 인자** 가 'week' 이고 **세번째 인자** 가 2 (화요일) 일 경우.
 
-    Returns a UNIX timestamp in microseconds that represents a day in the week of the
-    For example, if unix_timestamp occurs on Friday, 2008-04-11, and you set day_of_week to 2 (Tuesday), the function returns a UNIX timestamp for Tuesday, 2008-04-08.
+        입력된 유닉스 타임스탬프가 포함된 주에서 특정 요일이 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+        예를 들어, 유닉스 타임스탬프 값이 2008-04-11 (금요일) 나타내고, day_of_week 값으로 2 (화요일)을 인자로 입력하였다면, 이 함수는 2008-04-08 (화요일) 을 나타내는 유닉스 타임스탬프 값을 돌려줍니다.
 
-  :param string: could be 'day' 'hour' 'month' 'year' 'week'
-  :param long: unix timestamp in microseconds
-  :param int: day of the week from 0 (Sunday) to 6 (Saturday).Optional parameter required only if first parameter is 'week'
-  :rtype: long
-  :example:
+  :인자 string: 'day', 'hour', 'month', 'year', 그리고 'week' 중 하나
+  :인자 long: 특정 시각을 나타내는 유닉스 타임스탬프
+  :인자 int: 특정 요일을 표현하는 숫자, 0 (일요일) ~ 6 (토요일). 'week' 인자를 첫번째 인자로 입력하였을때 추가적으로 필요한 인자입니다.
+  :리턴타입: long
+  :예제:
 
   .. code-block:: sql
 
@@ -341,107 +342,104 @@ DateTime Functions and Operators
     > 1274227200000000
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Date/Time Formatting and Conversion
+Date/Time 포맷팅과 변환
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*Template patterns for date/time formatting*
-
+*Date/Time 포맷팅을 위한 탬플릿 패턴들*
 =========================== ================================================================
-Pattern                     Description
+패턴                                                  설명
 =========================== ================================================================
-HH                          hour of day (01-12)
-HH12                        hour of day (01-12)
-HH24                        hour of day (00-23)
-MI                          minute (00-59)
-SS                          second (00-59)
-MS                          millisecond (000-999)
-US                          microsecond (000000-999999)
-SSSS                        seconds past midnight (0-86399)
-AM, am, PM or pm            meridiem indicator (without periods)
-A.M., a.m., P.M. or p.m.    meridiem indicator (with periods)
-Y,YYY                       year (4 and more digits) with comma
-YYYY                        year (4 and more digits)
-YYY                         last 3 digits of year
-YY                          last 2 digits of year
-Y                           last digit of year
-IYYY                        ISO year (4 and more digits)
-IYY                         last 3 digits of ISO year
-IY                          last 2 digits of ISO year
-I                           last digit of ISO year
-BC, bc, AD or ad            era indicator (without periods)
-B.C., b.c., A.D. or a.d.    era indicator (with periods)
-MONTH                       full upper case month name (blank-padded to 9 chars)
-Month                       full capitalized month name (blank-padded to 9 chars)
-month                       full lower case month name (blank-padded to 9 chars)
-MON                         abbreviated upper case month name (3 chars in English, localized lengths vary)
-Mon                         abbreviated capitalized month name (3 chars in English, localized lengths vary)
-mon                         abbreviated lower case month name (3 chars in English, localized lengths vary)
-MM                          month number (01-12)
-DAY                         full upper case day name (blank-padded to 9 chars)
-Day                         full capitalized day name (blank-padded to 9 chars)
-day                         full lower case day name (blank-padded to 9 chars)
-DY                          abbreviated upper case day name (3 chars in English, localized lengths vary)
-Dy                          abbreviated capitalized day name (3 chars in English, localized lengths vary)
-dy                          abbreviated lower case day name (3 chars in English, localized lengths vary)
-DDD                         day of year (001-366)
-IDDD                        ISO day of year (001-371; day 1 of the year is Monday of the first ISO week.)
-DD                          day of month (01-31)
-D                           day of the week, Sunday(1) to Saturday(7)
-ID                          ISO day of the week, Monday(1) to Sunday(7)
-W                           week of month (1-5) (The first week starts on the first day of the month.)
-WW                          week number of year (1-53) (The first week starts on the first day of the year.)
-IW                          ISO week number of year (01 - 53; the first Thursday of the new year is in week 1.)
-CC                          century (2 digits) (The twenty-first century starts on 2001-01-01.)
-J                           Julian Day (integer days since November 24, 4714 BC at midnight UTC)
-Q                           quarter (ignored by to_date and to_timestamp)
-RM                          month in upper case Roman numerals (I-XII; I=January)
-rm                          month in lower case Roman numerals (i-xii; i=January)
-TZ                          upper case time-zone name
-tz                          lower case time-zone name
+HH                          해당 날의 시간 (01-12)
+HH12                        해당 날의 시간 (01-12)
+HH24                        해당 날의 시간 (00-23)
+MI                          분 (00-59)
+SS                          초 (00-59)
+MS                          밀리초 (000-999)
+US                          마이크로초 (000000-999999)
+SSSS                        해당 날의 자정으로 부터 현재 시간까지 지난 초 (0-86399)
+AM, am, PM or pm            meridiem 지시자 (마침표 미포함)
+A.M., a.m., P.M. or p.m.    meridiem 지시자 (마침표 포함)
+Y,YYY                       컴마가 포함된 년 (네 자리 이상의 숫자)
+YYYY                        년도 (네 자리 이상의 숫자)
+YYY                         년도의 마지막 세자리 숫자
+YY                          년도의 마지막 두자리 숫자
+Y                           년도의 마지막 한자리 숫자
+IYYY                        ISO 년도 (네 자리 이상의 숫자)
+IYY                         ISO 년도의 마지막 세자리 숫자
+IY                          ISO 년도의 마지막 두자리 숫자
+I                           ISO 년도의 마지막 한자리 숫자
+BC, bc, AD or ad            era 지시자 (마침표 미포함)
+B.C., b.c., A.D. or a.d.    era 지시자 (마침표 포함)
+MONTH                       대문자로 표기한 달의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+Month                       첫번째 글자만 대문자로 표기한 달의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+month                       소문자로 표기한 달의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+MON                         대문자로 축약된 달의 영문 이름 (3개의 알파멧으로 표기)
+Mon                         첫번째 글자만 대문자로 표기하여 축약한 달의 영문 이름 (3개의 알파멧으로 표기)
+mon                         소문자로 축약된 달의 영문 이름 (3개의 알파멧으로 표기)
+MM                          숫자로 표기된 달 (01-12)
+DAY                         대문자로 표기한 요일의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+Day                         첫번째 글자만 대문자로 표기한 요일의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+day                         대문자로 표기한 요일의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+DY                          대문자로 축약된 요일의 영문 이름 (3개의 알파멧으로 표기)
+Dy                          첫번째 글자만 대문자로 표기한 요일의 영문 이름 (3개의 알파멧으로 표기)
+dy                          소문자로 축약된 요일의 영문 이름 (3개의 알파멧으로 표기)
+DDD                         해당 년도의 시작부터 지금까지 지난 날 (001-366)
+IDDD                        해당 ISO 년도의 시작부터 지금까지 지난 날 (001-371; ISO 년도의 첫쨋날은 첫번째 주에 포함되어 있습니다.)
+DD                          해당 달의 시작부터 지금까지 지난 날 (01-31)
+D                           해당 주의 요일. 일요일 (1) 부터 토요일 (7) 로 표기
+ID                          해당 ISO 주의 요일. 일요일 (1) 부터 토요일 (7) 로 표기
+W                           해당 달의 주 (1-5) (첫번째 주는 해당 달의 첫번째 날부터 시작됩니다.)
+WW                          해당 년도의 주 (1-53) (첫번째 주는 해당 년도의 첫번째 날부터 시작됩니다.)
+IW                          해당 ISO 년도의 주 (0-53, 해당 년도의 첫번째 목요일은 첫번째 주의 1일 입니다.)
+CC                          세기 (2 자리 수, 21세기는 2001-01-01에 시작됬습니다.)
+J                           율리우스 일 (기원 전 4713년 1월 1일 부터의 일수)
+Q                           분기 (to_date 함수와 to_timestamp 함수에서는 적용되지 않음)
+RM                          대문자의 로마 숫자로 표기된 달 (I-XII; I=January)
+rm                          소문자의 로마 숫자로 표기된 달 (i-xii; i=January)
+TZ                          대문자로 표기된 타임존 이름
+tz                          소문자로 표기된 타임존 이름
 =========================== ================================================================
 
-
-*Template pattern modifiers for date/time formatting*
-
+*Date/Time 포맷팅을 위한 템플릿 패턴 수식어들*
 =========== ======================================================================= ================
-Modifier    Description                                                             Example
+수식어             설명                                                                                                                                           예제
 =========== ======================================================================= ================
-FM prefix   fill mode (suppress padding blanks and trailing zeroes)                 FMMonth
-TH suffix   upper case ordinal number suffix    DDTH, e.g.,                         12TH
-th suffix   lower case ordinal number suffix    DDth, e.g.,                         12th
-FX prefix   fixed format global option (see usage notes)                            FX Month DD Day
-TM prefix   translation mode (print localized day and month names based on lc_time) TMMonth
-SP suffix   spell mode (not implemented)                                            DDSP
+FM (접두사)  채우기 모드 (빈칸 혹은 0으로 공백을 채우지 않음)                                                                     FMMonth
+TH (접미사)  대문자 서수 표시 접미사                                                            			        DDTH, 12TH
+th (접미사)  소문자 서수 표시 접미사                                   			                        DDth, 12th
+FX (접두사)  fixed format global option (see usage notes)                            FX Month DD Day
+TM (접두사)  translation mode (print localized day and month names based on lc_time) TMMonth
+SP (접미사)  spell mode (not implemented)                                            DDSP
 =========== ======================================================================= ================
 
-  * FM suppresses leading zeroes and trailing blanks that would otherwise be added to make the output of a pattern be fixed-width. In Tajo, FM modifies only the next specification, while in Oracle FM affects all subsequent specifications, and repeated FM modifiers toggle fill mode on and off.
+  * FM 접두사는 길게 늘어진 공백 혹은 0으로 공백을 채우지 않습니다. FM 접두사가 없다면, 고정길이로 패턴을 출력할 수 있습니다. 타조에서는 FM 접두사 바로 이후의 패턴에 대해서만 적용됩니다. 이는 오라클의 FM 적용 (FM 접두사 이후 모든 패턴에 대해 적용)과는 조금 다릅니다. FM의 반복된 사용은 채우기 모드를 on/off 합니다.
 
-  * TM does not include trailing blanks.
+  * TM 접두사는 길게 늘어진 공백을 허용하지 않습니다.
 
-  * *to_timestamp* and *to_date* skip multiple blank spaces in the input string unless the FX option is used. For example, *to_timestamp* ('2000    JUN', 'YYYY MON') works, but *to_timestamp* ('2000    JUN', 'FXYYYY MON') returns an error because *to_timestamp* expects one space only. FX must be specified as the first item in the template.
+  * *to_timestamp* 함수와 *to_date* 함수는 FX 접두사가 사용되지 않을 경우 입력 문자열에 있는 여러 공백을 건너뜁니다. 예를 들어, *to_timestamp* ('2000    JUN', 'YYYY MON') 은 동작하지만, *to_timestamp* ('2000    JUN', 'FXYYYY MON') 의 경우 오류가 발생하는데, 이는 *to_timestamp* 함수는 오직 하나의 공백만 허용하기 때문입니다. FX 접두사는 반드시 탬플릿의 첫번째 아이템으로 사용되어야 합니다.
 
-  * Ordinary text is allowed in *to_char* templates and will be output literally. You can put a substring in double quotes to force it to be interpreted as literal text even if it contains pattern key words. For example, in '"Hello Year "YYYY', the YYYY will be replaced by the year data, but the single Y in Year will not be. In *to_date*, to_number, and *to_timestamp*, double-quoted strings skip the number of input characters contained in the string, e.g. "XX" skips two input characters.
+  * 서수 text는 *to_char* 탬플릿에 허용 되며 리터럴로 출력 됩니다. 큰 따옴표 내의 보조 문자열은 리터럴 text로 인식되며 이는 패턴 키워드를 포함할 경우에도 적용됩니다. 예를 들어, '"Hello Year "YYYY'에서, YYYY 는 년도 데이터로 치환되지만 Year 단어 내의 대문자 Y는 큰 따옴표 안에 위치하기 때문에 리터럴로 인식되어 년도 정보로 변환되지 않습니다. *to_date*, to_number, 그리고 *to_timestamp* 함수들에서도, 큰 따옴표 내의 문자열은 문자열에 포함되어 있는 입력문자의 수만큼 입력 문자들을 건너뜁니다. 예를 들어, "XX"는 두개의 입력 문자를 건너뜁니다.
 
-  * If you want to have a double quote in the output you must precede it with a backslash, for example '\"YYYY Month\"'.
+  * 큰 따옴표를 사용하고자 한다면, 백슬래쉬 (\) 를 먼저 사용해 주세요. (예: '\"YYYY Month\"')
 
-  * If the year format specification is less than four digits, e.g. YYY, and the supplied year is less than four digits, the year will be adjusted to be nearest to the year 2020, e.g. 95 becomes 1995.
+  * 년도 포맷이 4자리 이하로 표기되거나 (예: YYY),  지원되는 년도가 4자리 이하라면, 2020년과 가장 가까운 년도로 대체됩니다. 예를 들어, 95의 경우 2995년도 보다 1995년도가 2020 년도와 가까우므로 1995로 표기됩니다.
 
-  * The YYYY conversion from string to timestamp or date has a restriction when processing years with more than 4 digits. You must use some non-digit character or template after YYYY, otherwise the year is always interpreted as 4 digits. For example (with the year 20000): *to_date* ('200001131', 'YYYYMMDD') will be interpreted as a 4-digit year; instead use a non-digit separator after the year, like *to_date* ('20000-1131', 'YYYY-MMDD') or *to_date* ('20000Nov31', 'YYYYMonDD').
+  * 문자열에서 타임스탬프 혹은 날짜 타입으로의 YYYY 변환의 경우 4개 이상의 수를 포함하는 년도에 대해서는 사용이 제한됩니다.  따라서 YYYY 포맷 이후에 문자 혹은 탬플릿을 반드시 사용하여야 합니다. 그렇지 않을 경우 년도에 대한 표현은  4자리 숫자로만 표현되어 정확한 년도 표기가 되지 않습니다. 예를 들어, *to_date* ('200001131', 'YYYYMMDD') 함수의 경우 5자리가 아닌 4자리로만 년도를 표기합니다. 대신 *to_date* ('20000-1131', 'YYYY-MMDD') 혹은 *to_date* ('20000Nov31', 'YYYYMonDD') 처럼 년도 뒤에 숫자가 아닌 구분자 혹은 문자표현을 사용하여 원하는 년도 정보를 얻을 수 있습니다.
 
-  * In conversions from string to timestamp or date, the CC (century) field is ignored if there is a YYY, YYYY or Y,YYY field. If CC is used with YY or Y then the year is computed as the year in the specified century. If the century is specified but the year is not, the first year of the century is assumed.
+  * 문자열을 타임스탬프 혹은 날짜 타입으로 변환할 때, CC (세기) 항목은 YYY, YYYY 혹은 Y,YYY 항목이 있을 경우 무시됩니다. 만약 CC 가 YY 혹은 Y 와 함께 사용된다면, 년도의 계산은 지정된 특정 세기를 고려하여 계산됩니다.  만약 세기가 입력되었으나 년도가 입력되지 않았다면, 해당 세기의 첫번째 년도로 가정합니다.
 
-  * An ISO week date (as distinct from a Gregorian date) can be specified to *to_timestamp* and *to_date* in one of two ways:
+  * ISO 주 날짜 (그레고리안 날짜가 아닌) 는 *to_timestamp* 함수와 *to_date* 함수를 아래 두가지 방법중 한가지 방법으로 구체화 시킬 수 있습니다:
 
-  * Year, week, and weekday: for example *to_date* ('2006-42-4', 'IYYY-IW-ID') returns the date 2006-10-19. If you omit the weekday it is assumed to be 1 (Monday).
+  * 년도, 주 그리고 평일에 관한 예제: *to_date* ('2006-42-4', 'IYYY-IW-ID') 함수는 2006-10-19 를 돌려줍니다. 이 예제에서 평일을 제외하면 1 (월요일)로 가정합니다.
 
-  * Year and day of year: for example *to_date* ('2006-291', 'IYYY-IDDD') also returns 2006-10-19.
+  * 년도와 년도의 달에 관한 예제:  *to_date* ('2006-291', 'IYYY-IDDD') 함수 또한 2006-10-19 을 돌려줍니다.
 
-  * Attempting to construct a date using a mixture of ISO week and Gregorian date fields is nonsensical, and will cause an error. In the context of an ISO year, the concept of a "month" or "day of month" has no meaning. In the context of a Gregorian year, the ISO week has no meaning. Users should avoid mixing Gregorian and ISO date specifications.
+  * ISO 주와 그레고리안 날짜의 혼합 사용은 올바르지 않으며, 오류를 유발하게 됩니다. ISO 년도 개념에서, "달", 혹은 "달의 날짜" 와 같은 개념은 의미가 업습니다. 또한, 그레고리안 날짜의 개념에서, ISO 주의 사용은 의미가 없습니다. 사용자는 반드시 두 개념을 구분하여 사용하여야 합니다.
 
-  * In a conversion from string to timestamp, millisecond (MS) or microsecond (US) values are used as the seconds digits after the decimal point. For example *to_timestamp* ('12:3', 'SS:MS') is not 3 milliseconds, but 300, because the conversion counts it as 12 + 0.3 seconds. This means for the format SS:MS, the input values 12:3, 12:30, and 12:300 specify the same number of milliseconds. To get three milliseconds, one must use 12:003, which the conversion counts as 12 + 0.003 = 12.003 seconds.
+  * 문자열에서 타임스탬프 타입으로 변환할때, 밀리초 (MS) 혹은 마이크로초 (US) 는 소수점 이하의 숫자들에 사용됩니다. 예를 들어, *to_timestamp* ('12:3', 'SS:MS') 변환의 결과는 3 밀리초가 아닌 300 밀리초입니다. 왜냐하면 이 변환은 12 + 0.3 초와 같은 형태로 시간을 표현하기 때문입니다. 이는 SS:MS 포맷의 경우,  입력값으로 12:3, 12:30, 그리고 12:300 이 주어진다면 이 모든 입력값이 모두 같은 밀리초 값을 가지고 있다는 의미입니다. 3 밀리초를 표현하고자 한다면, 12:003 와 같은 형태로 표현해야 합니다. 이는 변환시 12 + 0.003 = 12.003 초 로 표현하기 때문입니다.
 
-  * Here is a more complex example: *to_timestamp* ('15:12:02.020.001230', 'HH:MI:SS.MS.US') is 15 hours, 12 minutes, and 2 seconds + 20 milliseconds + 1230 microseconds = 2.021230 seconds.
+  * Here is a more complex 예제: *to_timestamp* ('15:12:02.020.001230', 'HH:MI:SS.MS.US') is 15 hours, 12 minutes, and 2 seconds + 20 milliseconds + 1230 microseconds = 2.021230 seconds.
 
-  * *to_char* (..., 'ID')'s day of the week numbering matches the extract(isodow from ...) function, but *to_char* (..., 'D')'s does not match extract(dow from ...)'s day numbering.
+  * *to_char* (..., 'ID') 함수의 특정 주의 날짜 수치화의 출력값은 (isodow from ...) 함수와 일치하지만, *to_char* (..., 'D') 함수의 경우 extract(dow from ...) 함수의 날짜 수치화 결과와 다릅니다.
 
-  * *to_char* (interval) formats HH and HH12 as shown on a 12-hour clock, i.e. zero hours and 36 hours output as 12, while HH24 outputs the full hour value, which can exceed 23 for intervals.
+  * *to_char* (interval) 함수는 HH와 HH12에 대해 12시간 시각으로 포맷팅을 수행합니다. 예를 들어, 0시와 36시는 12시로 출력됩니다. 이는 HH24 포맷이 나타내는 24시간 시각 포맷 (0~23) 과 다릅니다.

@@ -1,35 +1,33 @@
-*******************************
-Network Functions and Operators
-*******************************
+******************************
+네트워크 함수와 연산자들
+******************************
 
 =============
-Prerequisites
+전제조건
 =============
 
-Apache Tajo provides network functions and operations using GeoIP databases.
-To use these functions and operations, the GeoIP database should be precedently installed in local disks of
-all the workers.
-(Please refer the install instruction in http://dev.maxmind.com/geoip/legacy/downloadable/)
+아파치 타조는 GeoIP 데이터베이스를 사용한 네트워크 함수와 연산자들을 제공합니다.
+네트워크 함수와 연산자들을 사용하기 위해서는 모든 워커의 로컬디스크에 GeoIP 데이터베이스가 설치되어 있어야 합니다.
+(GeoIP의 설치를 위해서는 이 링크를 참고해 주세요:  http://dev.maxmind.com/geoip/legacy/downloadable/)
 
-Once the GeoIP database is installed, you should specify the install location in ``conf/tajo-site.xml``
-as follows. ::
-
+GeoIP 데이터베이스가 설치되었다면, 설치위치를 ``conf/tajo-site.xml`` 에 아래와 같이 입력해주시면 모든 준비가 끝납니다.
+::
   <property>
     <name>tajo.function.geoip-database-location</name>
     <value>/path/to/geoip/database/file</value>
   </property>
 
 ===================
-Supported Functions
+지원되는 함수들
 ===================
 
 .. function:: geoip_country_code (string addr)
 
-  Convert an ipv4 address string to a geoip country code.
-
-  :param addr: ipv4 address string
-  :rtype: text
-  :example:
+  입력된 IPv4 주소를 GeoIP의 국가코드로 변환해 돌려줍니다.
+ 
+  :인자 addr: 문자열로 입력된 IPv4 주소
+  :리턴타입: text
+  :예제:
 
   .. code-block:: sql
 
@@ -38,25 +36,25 @@ Supported Functions
 
 .. function:: geoip_country_code (inet4 addr)
 
-  Convert an ipv4 address to a geoip country code.
-
-  :param addr: ipv4 address
-  :rtype: text
-  :example:
+  입력된 IPv4 주소를 GeoIP의 국가코드로 변환해 돌려줍니다.
+  
+  :인자 addr: inet4 타입으로 입력된 IPv4 주소
+  :리턴타입: text
+  :예제:
 
   .. code-block:: sql
 
-    select geoip_country_code(163.152.71.31)
+    select geoip_country_code('163.152.71.31')
     > 'KR'
 
 .. function:: geoip_in_country (string addr, string code)
 
-  If the given country code is same with the country code of the given address, it returns true. Otherwise, returns false.
+  입력된 주소와 국가코드가 일치하다면 true 를 돌려줍니다. 그렇지않다면, false를 돌려줍니다.
 
-  :param addr: ipv4 address string
-  :param code: country code
-  :rtype: boolean
-  :example:
+  :인자 addr: 문자열로 입력된 IPv4 주소
+  :인자 code: 국가코드
+  :리턴타입: boolean
+  :예제:
 
   .. code-block:: sql
 
@@ -65,12 +63,12 @@ Supported Functions
 
 .. function:: geoip_in_country (inet4 addr, string code)
 
-  If the given country code is same with the country code of the given address, it returns true. Otherwise, returns false.
+  입력된 주소와 국가코드가 일치하다면 true 를 돌려줍니다. 그렇지않다면, false를 돌려줍니다.
 
-  :param addr: ipv4 address
-  :param code: country code
-  :rtype: boolean
-  :example:
+  :인자 addr: inet4 타입으로 입력된 IPv4 주소
+  :인자 code: 국가코드
+  :리턴타입: boolean
+  :예제:
 
   .. code-block:: sql
 

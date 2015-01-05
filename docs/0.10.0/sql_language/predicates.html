@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Predicates &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>연산자 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -31,7 +31,7 @@
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="SQL Language" href="../sql_language.html"/>
         <link rel="next" title="타임존(Time Zone)" href="../time_zone.html"/>
-        <link rel="prev" title="SQL Expressions" href="sql_expression.html"/> 
+        <link rel="prev" title="SQL 수식" href="sql_expression.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../sql_language.html">SQL Language</a> &raquo;</li>
       
-    <li>Predicates</li>
+    <li>연산자</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/sql_language/predicates.txt" rel="nofollow"> View page source</a>
@@ -178,17 +178,17 @@
 </div>
           <div role="main">
             
-  <div class="section" id="predicates">
-<h1>Predicates<a class="headerlink" href="#predicates" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="in-predicate">
-<h2>IN Predicate<a class="headerlink" href="#in-predicate" title="Permalink to this headline">¶</a></h2>
-<p>IN predicate provides row and array comparison.</p>
-<p><em>Synopsis</em></p>
+  <div class="section" id="id1">
+<h1>연산자<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="in">
+<h2>IN 연산자<a class="headerlink" href="#in" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">IN</span></tt> 연산자는 row와 배열 비교를 위해 사용됩니다.</p>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="n">column_reference</span> <span class="k">IN</span> <span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">valN</span><span class="p">)</span>
 <span class="n">column_reference</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">valN</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Examples are as follows:</p>
+<p>예제는 아래와 같습니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="c1">-- this statement filters lists down all the records where col1 value is 1, 2 or 3:</span>
 <span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col1</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
@@ -196,19 +196,20 @@
 <span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col1</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can use &#8216;IN clause&#8217; on text data domain as follows:</p>
+<p>문자 데이터에 대해서도 <tt class="docutils literal"><span class="pre">IN</span></tt> 연산자를 사용할 수 있습니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col2</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;tajo&#39;</span><span class="p">,</span> <span class="s1">&#39;hadoop&#39;</span><span class="p">);</span>
 
 <span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">WHERE</span> <span class="n">col2</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;tajo&#39;</span><span class="p">,</span> <span class="s1">&#39;hadoop&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="string-pattern-matching-predicates">
-<h2>String Pattern Matching Predicates<a class="headerlink" href="#string-pattern-matching-predicates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="string">
+<h2>String 패턴과 매칭 연산자<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="like">
 <h3>LIKE<a class="headerlink" href="#like" title="Permalink to this headline">¶</a></h3>
-<p>LIKE operator returns true or false depending on whether its pattern matches the given string. An underscore (_) in pattern matches any single character. A percent sign (%) matches any sequence of zero or more characters.</p>
-<p><em>Synopsis</em></p>
+<p><tt class="docutils literal"><span class="pre">LIKE</span></tt> 연산자는 주어진 string에 대해 패턴 매칭 검사를 한 후 true 혹은 false를 결과로 돌려줍니다.
+패턴에 포함된 <tt class="docutils literal"><span class="pre">_</span></tt> 는 하나의 문자를 의미하고, <tt class="docutils literal"><span class="pre">%</span></tt> 는 0개, 혹은 그 이상의 어떤 문자열을 의미합니다.</p>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="k">LIKE</span> <span class="n">pattern</span>
 <span class="n">string</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="n">pattern</span>
 </pre></div>
@@ -216,8 +217,8 @@
 </div>
 <div class="section" id="ilike">
 <h3>ILIKE<a class="headerlink" href="#ilike" title="Permalink to this headline">¶</a></h3>
-<p>ILIKE is the same to LIKE, but it is a case insensitive operator. It is not in the SQL standard. We borrow this operator from PostgreSQL.</p>
-<p><em>Synopsis</em></p>
+<p><tt class="docutils literal"><span class="pre">ILIKE</span></tt> 연산자는 <tt class="docutils literal"><span class="pre">LIKE</span></tt> 와 같지만 대소문자 구분이 없습니다. 이는 SQL의 표준은 아니며, PostgreSQL의 구현을 빌려왔습니다.</p>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="k">ILIKE</span> <span class="n">pattern</span>
 <span class="n">string</span> <span class="k">NOT</span> <span class="k">ILIKE</span> <span class="n">pattern</span>
 </pre></div>
@@ -225,65 +226,43 @@
 </div>
 <div class="section" id="similar-to">
 <h3>SIMILAR TO<a class="headerlink" href="#similar-to" title="Permalink to this headline">¶</a></h3>
-<p><em>Synopsis</em></p>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="k">SIMILAR</span> <span class="k">TO</span> <span class="n">pattern</span>
 <span class="n">string</span> <span class="k">NOT</span> <span class="k">SIMILAR</span> <span class="k">TO</span> <span class="n">pattern</span>
 </pre></div>
 </div>
-<p>It returns true or false depending on whether its pattern matches the given string. Also like LIKE, <tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> uses <tt class="docutils literal"><span class="pre">_</span></tt> and <tt class="docutils literal"><span class="pre">%</span></tt> as metacharacters denoting any single character and any string, respectively.</p>
-<p>In addition to these metacharacters borrowed from LIKE, &#8216;SIMILAR TO&#8217; supports more powerful pattern-matching metacharacters borrowed from regular expressions:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="21%" />
-<col width="79%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">metacharacter</th>
-<th class="head">description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>&amp;#124;</td>
-<td>denotes alternation (either of two alternatives).</td>
-</tr>
-<tr class="row-odd"><td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>denotes repetition of the previous item zero or more times.</td>
-</tr>
-<tr class="row-even"><td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>denotes repetition of the previous item one or more times.</td>
-</tr>
-<tr class="row-odd"><td>?</td>
-<td>denotes repetition of the previous item zero or one time.</td>
-</tr>
-<tr class="row-even"><td>{m}</td>
-<td>denotes repetition of the previous item exactly m times.</td>
-</tr>
-<tr class="row-odd"><td>{m,}</td>
-<td>denotes repetition of the previous item m or more times.</td>
-</tr>
-<tr class="row-even"><td>{m,n}</td>
-<td>denotes repetition of the previous item at least m and not more than n times.</td>
-</tr>
-<tr class="row-odd"><td>[]</td>
-<td>A bracket expression specifies a character class, just as in POSIX regular expressions.</td>
-</tr>
-<tr class="row-even"><td>()</td>
-<td>Parentheses can be used to group items into a single logical item.</td>
-</tr>
-</tbody>
-</table>
-<p>Note that <cite>.`</cite> is not used as a metacharacter in <tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> operator.</p>
+<p><tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> 는 주어진 string에 대해 주어진 패턴이 맞는지를 계산해 true 혹은 false를 돌려줍니다.
+또한, <tt class="docutils literal"><span class="pre">LIKE</span></tt> 와 비슷하게, <tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> 연산자는 <tt class="docutils literal"><span class="pre">_</span></tt> 와 <tt class="docutils literal"><span class="pre">%</span></tt> 를 메타문자로 사용할 수 있습니다.</p>
+<p><tt class="docutils literal"><span class="pre">LIKE</span></tt> 로부터 빌려온 이러한 메타문자들과 더불어, <tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> 연산자는 더욱 강력한 패턴매칭을 위해 정규식의 다양한 메타문자들을 지원합니다.
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| 메타문자               | 설명                                                           |
++========================+================================================================+
+| &amp;#124;                 | 두개의 아이템 중 하나를 의미.                                  |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| *                      | 이전 아이템이 0번 이상 반복됨.                                 |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| +                      | 이전 아이템이 1번 이상 반복됨.                                 |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| ?                      | 이전 아이템이 0번 혹은 한번 반복됨.                            |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| {m}                    | 이전 아이템이 정확히 m번 반복됨.                               |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| {m,}                   | 이전 아이템이 m번 혹은 그 이상 반복됨.                         |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| {m,n}                  | 이전 아이템이 최소한 m번 반복되고, n번 이상은 반복되지 않음.   |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| []                     | POSIX 정규 표현식과 같이 문자열 클래스를 의미.                 |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
+| ()                     | 괄호 내의 아이템들을 하나의 논리적인 아이템으로 묶음.          |
++&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+</p>
+<p><tt class="docutils literal"><span class="pre">.</span></tt> 의 경우는 <tt class="docutils literal"><span class="pre">SIMILAR</span> <span class="pre">TO</span></tt> 연산자의 메타문자로 사용되지 않는점을 유의하세요.</p>
 </div>
-<div class="section" id="regular-expressions">
-<h3>Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h3>
-<p>Regular expressions provide a very powerful means for string pattern matching. In the current Tajo, regular expressions are based on Java-style regular expressions instead of POSIX regular expression. The main difference between java-style one and POSIX&#8217;s one is character class.</p>
-<p><em>Synopsis</em></p>
+<div class="section" id="id2">
+<h3>정규식<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>정규식은 string 패턴 매칭을 위한 강력한 도구 입니다.
+현재 타조에서는, POSIX 정규식을 대신해 자바언어와 유사한 정규식을 제공합니다.
+두 정규식의 주요 차이점은 문자 클래스에 있습니다.</p>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="o">~</span> <span class="n">pattern</span>
 <span class="n">string</span> <span class="o">!~</span> <span class="n">pattern</span>
 
@@ -297,35 +276,35 @@
 <col width="91%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">operator</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">연산자</th>
+<th class="head">설명</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>~</td>
-<td>It returns true if a given regular expression is matched to string. Otherwise, it returns false.</td>
+<td>주어진 정규식이 string과 매칭될 경우 true를 돌려줍니다. 그렇지 않다면, false를 돌려줍니다.</td>
 </tr>
 <tr class="row-odd"><td>!~</td>
-<td>It returns false if a given regular expression is matched to string. Otherwise, it returns true.</td>
+<td>주어진 정규식이 string과 매칭될 경우 false를 돌려줍니다. 그렇지 않다면, true를 돌려줍니다.</td>
 </tr>
 <tr class="row-even"><td>~*</td>
-<td>It is the same to &#8216;~&#8217;, but it is case insensitive.</td>
+<td>&#8216;~&#8217; 연산자와 동일하지만, 대소문자 구분이 없습니다.</td>
 </tr>
 <tr class="row-odd"><td>!~*</td>
-<td>It is the same to &#8216;!~&#8217;, but it is case insensitive.</td>
+<td>&#8216;!~&#8217; 연산자와 동일하지만, 대소문자 구분이 없습니다.</td>
 </tr>
 </tbody>
 </table>
-<p>Here are examples:</p>
+<p>아래에 몇가지 예제가 있습니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre>&#39;abc&#39;   ~   &#39;.*c&#39;               true
 &#39;abc&#39;   ~   &#39;c&#39;                 false
 &#39;aaabc&#39; ~   &#39;([a-z]){3}bc       true
 &#39;abc&#39;   ~*  &#39;.*C&#39;               true
-&#39;abc&#39;   !~* &#39;B.*&#39;               true
+&#39;abc&#39;   !~* &#39;B.*&#39;
 </pre></div>
 </div>
-<p>Regular expressions operator is not in the SQL standard. We borrow this operator from PostgreSQL.</p>
-<p><em>Synopsis for REGEXP and RLIKE operators</em></p>
+<p>정규식 연산자들은 SQL 표준은 아닙니다. 타조는 정규식 연산자들을 PostgreSQL 로부터 빌려왔습니다.</p>
+<p><em>REGEXP 연산자와 RLIKE 연산자 개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="n">string</span> <span class="n">REGEXP</span> <span class="n">pattern</span>
 <span class="n">string</span> <span class="k">NOT</span> <span class="n">REGEXP</span> <span class="n">pattern</span>
 
@@ -333,7 +312,7 @@
 <span class="n">string</span> <span class="k">NOT</span> <span class="n">RLIKE</span> <span class="n">pattern</span>
 </pre></div>
 </div>
-<p>But, they do not support case-insensitive operators.</p>
+<p>그러나, 이들은 대소문자 구분이 필요합니다.</p>
 </div>
 </div>
 </div>
@@ -347,7 +326,7 @@
         <a href="../time_zone.html" class="btn btn-neutral float-right" title="타임존(Time Zone)"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sql_expression.html" class="btn btn-neutral" title="SQL Expressions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sql_expression.html" class="btn btn-neutral" title="SQL 수식"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

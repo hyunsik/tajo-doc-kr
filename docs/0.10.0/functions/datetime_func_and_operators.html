@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DateTime Functions and Operators &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>날짜 및 시간 함수와 연산자들 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="Functions" href="../functions.html"/>
-        <link rel="next" title="Network Functions and Operators" href="network_func_and_operators.html"/>
-        <link rel="prev" title="String Functions and Operators" href="string_func_and_operators.html"/> 
+        <link rel="next" title="네트워크 함수와 연산자들" href="network_func_and_operators.html"/>
+        <link rel="prev" title="문자열 함수와 연산자들" href="string_func_and_operators.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions.html">Functions</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../functions.html">Functions</a> &raquo;</li>
       
-    <li>DateTime Functions and Operators</li>
+    <li>날짜 및 시간 함수와 연산자들</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/functions/datetime_func_and_operators.txt" rel="nofollow"> View page source</a>
@@ -178,31 +178,28 @@
 </div>
           <div role="main">
             
-  <div class="section" id="datetime-functions-and-operators">
-<h1>DateTime Functions and Operators<a class="headerlink" href="#datetime-functions-and-operators" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="id1">
+<h1>날짜 및 시간 함수와 연산자들<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><ul class="simple">
-<li>Note : Example result may be various based on time zone.</li>
+<li>주의사항 : 아래 함수와 연산자들의 설명에 포함되어 있는 예제들은 타임존 (time zone) 에 따라 결과가 달라질 수 있습니다.</li>
 </ul>
 </div></blockquote>
 <dl class="function">
 <dt id="add_days">
 <tt class="descname">add_days</tt><big>(</big><em>date date|timestamp</em>, <em>day int</em><big>)</big><a class="headerlink" href="#add_days" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns date value which is added with given day parameter.</p>
+<dd><p>입력한 기준 날짜에서 입력한 날 만큼을 더한 새로운 날짜를 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>date</strong> &#8211; base timestamp or date</li>
-<li><strong>day</strong> &#8211; day value to be added</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 date:</th><td class="field-body">기준이 되는 타임스탬프나 날짜</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">timestamp</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 day:</th><td class="field-body">기준 날짜에 더하고자 하는 날</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">timestamp</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -218,21 +215,19 @@
 <dl class="function">
 <dt id="add_months">
 <tt class="descname">add_months</tt><big>(</big><em>date date|timestamp</em>, <em>month int</em><big>)</big><a class="headerlink" href="#add_months" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns date value which is added with given month parameter.</p>
+<dd><blockquote>
+<div>입력된 달 만큼 입력한  날짜 혹은 타임스탬프에 더한 날짜를 돌려줍니다.</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>date</strong> &#8211; base timestamp or date</li>
-<li><strong>month</strong> &#8211; month value to be added</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 date:</th><td class="field-body">기준이 되는 날자나 타임스탬프</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">timestamp</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 month:</th><td class="field-body">기준 날짜에 더해질 달</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">timestamp</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -245,12 +240,12 @@
 <dl class="function">
 <dt id="current_date">
 <tt class="descname">current_date</tt><big>(</big><big>)</big><a class="headerlink" href="#current_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns current date</p>
+<dd><p>현재 날짜를 (yyyy-mm-dd) 포맷으로 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">date</td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">date</td>
 </tr>
 </tbody>
 </table>
@@ -263,12 +258,13 @@
 <dl class="function">
 <dt id="current_time">
 <tt class="descname">current_time</tt><big>(</big><big>)</big><a class="headerlink" href="#current_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns current time</p>
+<dd><blockquote>
+<div>현재 시간을 돌려줍니다.</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">time</td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">time</td>
 </tr>
 </tbody>
 </table>
@@ -281,123 +277,141 @@
 <dl class="function">
 <dt id="extract">
 <tt class="descname">extract</tt><big>(</big><em>field FROM source</em><big>)</big><a class="headerlink" href="#extract" title="Permalink to this definition">¶</a></dt>
-<dd><p>The extract function retrieves subfields such as year or hour from date/time values. <em>source</em> must be a value expression of type <em>timestamp</em>, or <em>time</em>. (Expressions of type <em>date</em> are cast to <em>timestamp</em> and can therefore be used as well.) <em>field</em> is an identifier that selects what field to extract from the source value. The extract function returns values of type double precision. The following are valid field names:</p>
+<dd><blockquote>
+<div><blockquote>
+<div>입력된 날짜 혹은 시간값에 대해 field 인자로 입력한 년도 혹은 시간 같은 특정 학목값을 돌려줍니다. <em>source</em> 인자는 <em>timestamp</em>, 혹은 <em>time</em> 타입이어야 합니다. (<em>date</em> 타입은 <em>timestamp</em> 타입으로 캐스팅 되므로, 두 타입 모두 사용할 수 있습니다.) <em>field</em> 인자는 source 인자로부터 출력하고자 하는 항목에 대한 정보입니다. 이 함수는 배정밀도 (double precision) 값을 돌려줍니다. 아래는 field 인자로 사용될 수 있는 여러 항목들에 대한 예제입니다.</div></blockquote>
 <p><strong>century</strong></p>
-<p>The century</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">century</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-12-16 12:21:13&#39;</span><span class="p">);</span>
-<span class="o">&gt;</span> <span class="mi">21</span><span class="p">.</span><span class="mi">0</span>
+<blockquote>
+<div>입력된 값으로 부터 세기에 대한 값을 돌려줍니다.</div></blockquote>
+<div class="highlight-sql"><div class="highlight"><pre>select extract(century from timestamp &#39;2001-12-16 12:21:13&#39;);
+&gt; 21.0
+
+1세기는 0001-01-01 00:00:00 AD에 시작됩니다. 따라서, 그레고리안 달력을 적용한 모든 나라에서 올바른 세기 값을 얻을 수 있습니다. 세기는 0부터 시작하지 않습니다.
 </pre></div>
 </div>
-<p>The first century starts at 0001-01-01 00:00:00 AD, although they did not know it at the time. This definition applies to all Gregorian calendar countries. There is no century number 0, you go from -1 century to 1 century. If you disagree with this, please write your complaint to: Pope, Cathedral Saint-Peter of Roma, Vatican.</p>
 <p><strong>day</strong></p>
-<p>For <em>timestamp</em> values, the day (of the month) field (1 - 31)</p>
+<p><em>timestamp</em> 값에서, 날짜는 1에서 31까지의 값을 가질 수 있습니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">day</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">16</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>decade</strong></p>
-<p>The year field divided by 10</p>
+<blockquote>
+<div>입력된 값으로 부터 년도 값을 10으로 나눈 값을 돌려줍니다.</div></blockquote>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">decade</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">200</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>dow</strong></p>
-<p>The day of the week as Sunday(0) to Saturday(6)</p>
+<p>입력된 값으로 부터 입력된 시간값으로 부터 요일을 0 (일요일) 부터 6 (토요일) 로 변환해 돌려줍니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">dow</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">5</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>Note that extract&#8217;s day of the week numbering differs from that of the to_char(..., &#8216;D&#8217;) function.</p>
+<p>해당 함수는 to_char(..., &#8216;D&#8217;) 함수와는 다르게 동작합니다.</p>
 <p><strong>doy</strong></p>
-<p>The day of the year (1 - 365/366)</p>
+<p>입력된 값으로 부터 해당 년도 중 몇번째 일인지를 돌려줍니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">doy</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">47</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>hour</strong></p>
-<p>The hour field (0 - 23)</p>
+<blockquote>
+<div>입력된 값으로 부터 시간값 (0 ~ 23)을 돌려줍니다.</div></blockquote>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">hour</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">20</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>isodow</strong></p>
-<p>The day of the week as Monday(1) to Sunday(7)</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">isodow</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-18 20:38:40&#39;</span><span class="p">);</span>
+</div></blockquote>
+<p>입력된 값으로 부터 요일정보를 1 (월요일) 부터 7 (일요일) 로 변환해 돌려줍니다.</p>
+<blockquote>
+<div><div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">isodow</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-18 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">7</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>This is identical to dow except for Sunday. This matches the ISO 8601 day of the week numbering.</p>
+<p>이 함수는 일요일에 대한 값을 제외하면 dow함수와 동일하게 동작합니다. 이는 ISO 8601에 명시된 한 주의 요일에 대한 넘버링 방법을 따릅니다.</p>
 <p><strong>isoyear</strong></p>
-<p>The ISO 8601 year that the date falls in</p>
+<p>입력된 값으로 부터 ISO 8601 기준에 따르는 년도를 돌려줍니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">isoyear</span> <span class="k">from</span> <span class="nb">date</span> <span class="s1">&#39;2006-01-01&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">2005</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>Each ISO year begins with the Monday of the week containing the 4th of January, so in early January or late December the ISO year may be different from the Gregorian year. See the week field for more information.</p>
+<p>ISO 년도는  4주로 구성된 1월의 첫번째 월요일 에서 시작됩니다. 그래서, 1월 초나 12월 말의 어느날은 그레고리안 달력과 다른 년도값을 돌려줄 수 도 있습니다. 자세한 정보를 위해서는 week 항목을 참조해 세요.</p>
 <p><strong>microseconds</strong></p>
-<p>The seconds field, including fractional parts, multiplied by 1 000 000; note that this includes full seconds</p>
+<blockquote>
+<div>입력된 값으로부터 마이크로초 단위로 소숫점을 포함한 초 정보를 변환하여 돌려줍니다. 이는 입력 값에 포함된 초 정보를 1,000,000과 곱하는 연산을 통해 이루어집니다.</div></blockquote>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">microseconds</span> <span class="k">from</span> <span class="n">time</span> <span class="s1">&#39;17:12:28.5&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">2</span><span class="p">.</span><span class="mi">85</span><span class="n">E7</span>
 </pre></div>
 </div>
 <p><strong>millennium</strong></p>
-<p>The millennium</p>
+<dl class="docutils">
+<dt>The millennium</dt>
+<dd>입력된 값으로 부터 천년 단위로 시간정보를 변환해 돌려줍니다.</dd>
+</dl>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">millennium</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>Years in the 1900s are in the second millennium. The third millennium started January 1, 2001.</p>
+<p>1900년도 대의 모든 년도는 두번째 millennium에 속합니다. 세번 째 millennium은 2001년 1월 1일부터 시작되었습니다.</p>
 <p><strong>milliseconds</strong></p>
-<p>The seconds field, including fractional parts, multiplied by 1000. Note that this includes full seconds.</p>
+<p>입력된 값으로 부터 밀리초 단위로 소숫점을 포함한 초 정보를 변환하여 돌려줍니다. 이는 입력 값에 포함된 초 정보를 1,000과 곱하는 연산을 통해 이루어집니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">milliseconds</span> <span class="k">from</span> <span class="n">time</span> <span class="s1">&#39;17:12:28.5&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">28500</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>minute</strong></p>
-<p>The minutes field (0 - 59)</p>
+<p>입력된 값으로 부터 분 정보 (0~59) 를 반환합니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">minute</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">38</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>month</strong></p>
-<p>For timestamp values, the number of the month within the year (1 - 12)</p>
+<blockquote>
+<div>입력된 값으로 부터 달 정보 (1~12) 를 반환합니다.</div></blockquote>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">month</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>quarter</strong></p>
-<p>The quarter of the year (1 - 4) that the date is in</p>
+<p>입력된 값이 어떤 분기 (1~4) 에 속하는 지를 계산하여 반환합니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">quarter</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>second</strong></p>
-<p>The seconds field, including fractional parts (0 - 59[1])</p>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">second</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
+</div></blockquote>
+</dd></dl>
+
+<p>입력된 값으로 부터 초 정보 (0~59) 를 반환합니다.</p>
+<blockquote>
+<div><div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">second</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">40</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>week</strong></p>
-<p>The number of the week of the year that the day is in. By definition (ISO 8601), weeks start on Mondays and the first week of a year contains January 4 of that year. In other words, the first Thursday of a year is in week 1 of that year.</p>
-<p>In the ISO definition, it is possible for early-January dates to be part of the 52nd or 53rd week of the previous year, and for late-December dates to be part of the first week of the next year. For example, 2005-01-01 is part of the 53rd week of year 2004, and 2006-01-01 is part of the 52nd week of year 2005, while 2012-12-31 is part of the first week of 2013. It&#8217;s recommended to use the isoyear field together with week to get consistent results.</p>
+<blockquote>
+<div>일 년중 몇번째 주 인지를 나타냅니다. ISO 8601에 따르면, 첫번째 주는 1월 4일을 포함하는 주에서 시작됩니다. 따라서, 그 주의 1일은 목요일 입니다. ISO 정의에서, 일월 초의 몇몇 요일들은 일년 전 년도의 52번째 와 53번째 주 사이에 속할 가능성이 있습니다. 또한, 12월 말의 몇몇 요일들은 다음 년도의 첫번째 주에 속할 수 있습니다. 예를 들어, 2005-01-01 은 2004년도의 53번째 주에 속하고, 2006-01-01 은 2005년도의 52번째 주에 속하지만, 2012-12-31은 2013년도의 첫번째 주에 속합니다. 일관된 주 정보를 얻기 위해 isoyear 항목과 주 정보를 함께 사용하는것을 추천합니다.</div></blockquote>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">week</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">7</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p><strong>year</strong></p>
-<p>The year field. Keep in mind there is no 0 AD, so subtracting BC years from AD years should be done with care.</p>
+<blockquote>
+<div>입력된 값에서 년도 정보를 반환합니다. 참고로 기원 후 0년이라는 년도는 없기 때문에, 기원 전 년도와 기원 후 년도 간의 연산 (특히 기원 전 년도에서 기원 후 년도를 빼는 연산) 은 주의하여 수행하여야 합니다.</div></blockquote>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="k">year</span> <span class="k">from</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">2001</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>The extract function is primarily intended for computational processing.</p>
-<p>The date_part function is also supported. It is equivalent to the SQL-standard function extract:</p>
-</dd></dl>
-
+<p>extract 함수는 컴퓨터를 활용한 여러가지 연산을 위 만들어졌습니다.</p>
+<blockquote>
+<div>타조는 date_part 함수 역시 지원합니다. 이는 SQL 표준의 extract 함수와 동일하게 동작합니다.</div></blockquote>
+</div></blockquote>
 <dl class="function">
 <dt id="date_part">
 <tt class="descname">date_part</tt><big>(</big><em>'field'</em>, <em>source</em><big>)</big><a class="headerlink" href="#date_part" title="Permalink to this definition">¶</a></dt>
-<dd><p>Note that here the field parameter needs to be a string value, not a name. The valid field names for date_part are the same as for extract.</p>
+<dd><p>field 인자는 extract 함수와 동일 하게 사용하여도 됩니다. 하지만 문자열로 입력하셔야 합니다. (extract 함수는 field 인자로 문자열이 아닌 항목이름을 그대로 입력하 사용합니다.)</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">date_part</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="k">timestamp</span> <span class="s1">&#39;2001-02-16 20:38:40&#39;</span><span class="p">);</span>
 <span class="o">&gt;</span> <span class="mi">16</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
@@ -407,14 +421,15 @@
 <dl class="function">
 <dt id="now">
 <tt class="descname">now</tt><big>(</big><big>)</big><a class="headerlink" href="#now" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns current timestamp</p>
-<table class="docutils field-list" frame="void" rules="none">
+<dd><p>현재 타임스탬프를 돌려줍니다.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">timestamp</td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">timestamp</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -422,24 +437,23 @@
 <span class="o">&gt;</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">23</span> <span class="mi">08</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">43</span><span class="p">.</span><span class="mi">286</span>
 </pre></div>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="to_char">
 <tt class="descname">to_char</tt><big>(</big><em>src timestamp</em>, <em>format text</em><big>)</big><a class="headerlink" href="#to_char" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts timestamp to text. For more detailed, see &#8216;Date/Time Formatting and Conversion&#8217; section below.</p>
+<dd><blockquote>
+<div>입력한 타임스탬프를 입력한 format에 맞추어 text 타입으로 변환하여 돌려줍니다. 자세한 정보는 아래의 &#8216;Date/Time 포맷팅과 변환&#8217; 섹션에 기술되어 있습니다.</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>src</strong> &#8211; timestamp to be converted</li>
-<li><strong>format</strong> &#8211; format string</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 src:</th><td class="field-body">text 타입으로 변환하고자 하는 타임스탬프</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 format:</th><td class="field-body">문자열로 표현한 포맷</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
 </tr>
 </tbody>
 </table>
@@ -452,19 +466,17 @@
 <dl class="function">
 <dt id="to_date">
 <tt class="descname">to_date</tt><big>(</big><em>src text</em>, <em>format text</em><big>)</big><a class="headerlink" href="#to_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts text to date. For more detailed, see &#8216;Date/Time Formatting and Conversion&#8217; section below.</p>
+<dd><blockquote>
+<div>입력된 text를 입력한 format에 맞추어 date 타입으로 변환합니다. 자세한 정보는 아래의  &#8216;Date/Time 포맷팅과 변환&#8217; 섹션에 기술되어 있습니다.</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>src</strong> &#8211; date string to be converted</li>
-<li><strong>format</strong> &#8211; format string</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 src:</th><td class="field-body">date 타입으로 변환하고자 하는 text</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">date</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 format:</th><td class="field-body">문자열로 표현한 포맷</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">date</td>
 </tr>
 </tbody>
 </table>
@@ -477,14 +489,15 @@
 <dl class="function">
 <dt id="to_timestamp">
 <tt class="descname">to_timestamp</tt><big>(</big><em>epoch int</em><big>)</big><a class="headerlink" href="#to_timestamp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts int(UNIX epoch) to timestamp.</p>
+<dd><blockquote>
+<div>입력한 유닉스 시간을 타임스탬프 타입으로 변환하여 돌려줍니다.</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>epoch</strong> &#8211; second value from Jan. 1, 1970</td>
+<tr class="field-odd field"><th class="field-name">인자 epoch:</th><td class="field-body">int 타입의 유닉스 시간</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">timestamp</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">timestamp</td>
 </tr>
 </tbody>
 </table>
@@ -497,19 +510,16 @@
 <dl class="function">
 <dt>
 <tt class="descname">to_timestamp</tt><big>(</big><em>src text</em>, <em>format text</em><big>)</big></dt>
-<dd><p>Converts text timestamp. For more detailed, see &#8216;Date/Time Formatting and Conversion&#8217; section below.</p>
+<dd><p>text타입으로 입력된 타임스탬프를 타임스탬프 타입으로 변환하여 돌려줍니다. 자세한 정보는 아래의  &#8216;Date/Time 포맷팅과 변환&#8217; 섹션에 기술되어 있습니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>src</strong> &#8211; timestamp string to be converted</li>
-<li><strong>format</strong> &#8211; format string</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 src:</th><td class="field-body">변환하고자 하는 text타입의 타임스탬프 정보timestamp string to be converted</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">timestamp</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 format:</th><td class="field-body">문자열로 표현한 포맷</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">timestamp</td>
 </tr>
 </tbody>
 </table>
@@ -523,42 +533,50 @@
 <dt id="utc_usec_to">
 <tt class="descname">utc_usec_to</tt><big>(</big><em>string text</em>, <em>long timestamp</em>, <em>int dayOfWeek</em><big>)</big><a class="headerlink" href="#utc_usec_to" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
-<li><p class="first">If the <strong>first parameter</strong> is &#8216;day&#8217;.</p>
-<p>Shifts and return a UNIX timestamp in microseconds to the beginning of the day it occurs in.
-For example, if unix_timestamp occurs on May 19th at 08:58, this function returns a UNIX timestamp for May 19th at 00:00 (midnight).</p>
+<li><p class="first"><strong>첫 번째 인자</strong> 가 &#8216;day&#8217;일 경우.</p>
+<blockquote>
+<div><p>입력된 유닉스 타임스탬프가 나타내는 날짜가 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+예를 들어, 유닉스 타임스탬프값이 May 19th at 08:58 를 나타냈을때, 이 함수는 May 19th at 00:00 을 나타내는 유닉스 타임스탬프 값을 돌려줍니다.</p>
+</div></blockquote>
 </li>
-<li><p class="first">If the <strong>first parameter</strong> is &#8216;hour&#8217;.</p>
-<p>Shifts and return a UNIX timestamp in microseconds to the beginning of the hour it occurs in.
-For example, if unix_timestamp occurs at 08:58, this function returns a UNIX timestamp for 08:00 on the same day.</p>
+<li><p class="first"><strong>첫 번째 인자</strong> 가  &#8216;hour&#8217; 일 경우..</p>
+<blockquote>
+<div><p>입력된 유닉스 타임스탬프가 나타내는 시간이 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+예를 들어, 유닉스 타임스탬프값이 08:58 를 나타낸다면, 이 함수는 같은 날 08:00 정각의 유닉스 타임스탬프 값을 돌려줍니다.</p>
+</div></blockquote>
 </li>
-<li><p class="first">If the <strong>first parameter</strong> is &#8216;month&#8217;.</p>
-<p>Shifts and return a UNIX timestamp in microseconds to the beginning of the month it occurs in.
-For example, if unix_timestamp occurs on March 19th, this function returns a UNIX timestamp for March 1st of the same year.</p>
+<li><p class="first"><strong>첫 번째 인자</strong> 가 &#8216;month&#8217; 일 경우..</p>
+<blockquote>
+<div><p>입력된 유닉스 타임스탬프가 나타내는 달이 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+예를 들어, 유닉스 타임스탬프값이 March 19th 를 나타낸다면, 이 함수는 같은 년도의 March 1일을 나타내는 유닉스 타임스탬프 값을 돌려줍니다.</p>
+</div></blockquote>
 </li>
-<li><p class="first">If the <strong>first parameter</strong> is &#8216;year&#8217;.</p>
-<p>Returns a UNIX timestamp in microseconds that represents the year of the unix_timestamp argument.
-For example, if unix_timestamp occurs in 2010, the function returns 1274259481071200, the microsecond representation of 2010-01-01 00:00.</p>
+<li><p class="first"><strong>첫 번째 인자</strong> 가 &#8216;year&#8217; 일 경우..</p>
+<blockquote>
+<div><p>입력된 유닉스 타임스탬프가 나타내는 년도가 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+예를 들어, 유닉스 타임스탬프값이 2010년 중의 시간을 나타낸다면, 이 함수는 2010-01-01 00:00 의 유닉스 타임스탬프 값인 1274259481071200 을 돌려줍니다.</p>
+</div></blockquote>
 </li>
-<li><p class="first">If the <strong>first parameter</strong> is &#8216;week&#8217; and <strong>third parameter</strong> is 2 i.e (TUESDAY)</p>
-<p>Returns a UNIX timestamp in microseconds that represents a day in the week of the
-For example, if unix_timestamp occurs on Friday, 2008-04-11, and you set day_of_week to 2 (Tuesday), the function returns a UNIX timestamp for Tuesday, 2008-04-08.</p>
+<li><p class="first"><strong>첫 번째 인자</strong> 가 &#8216;week&#8217; 이고 <strong>세번째 인자</strong> 가 2 (화요일) 일 경우.</p>
+<blockquote>
+<div><p>입력된 유닉스 타임스탬프가 포함된 주에서 특정 요일이 시작되는 시점의 타임스탬프 값을 돌려줍니다.
+예를 들어, 유닉스 타임스탬프 값이 2008-04-11 (금요일) 나타내고, day_of_week 값으로 2 (화요일)을 인자로 입력하였다면, 이 함수는 2008-04-08 (화요일) 을 나타내는 유닉스 타임스탬프 값을 돌려줍니다.</p>
+</div></blockquote>
 </li>
 </ul>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>string</strong> &#8211; could be &#8216;day&#8217; &#8216;hour&#8217; &#8216;month&#8217; &#8216;year&#8217; &#8216;week&#8217;</li>
-<li><strong>long</strong> &#8211; unix timestamp in microseconds</li>
-<li><strong>int</strong> &#8211; day of the week from 0 (Sunday) to 6 (Saturday).Optional parameter required only if first parameter is &#8216;week&#8217;</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">&#8216;day&#8217;, &#8216;hour&#8217;, &#8216;month&#8217;, &#8216;year&#8217;, 그리고 &#8216;week&#8217; 중 하나</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">long</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 long:</th><td class="field-body">특정 시각을 나타내는 유닉스 타임스탬프</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">인자 int:</th><td class="field-body">특정 요일을 표현하는 숫자, 0 (일요일) ~ 6 (토요일). &#8216;week&#8217; 인자를 첫번째 인자로 입력하였을때 추가적으로 필요한 인자입니다.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">long</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -568,227 +586,91 @@ For example, if unix_timestamp occurs on Friday, 2008-04-11, and you set day_of_
 </div>
 </dd></dl>
 
-<div class="section" id="date-time-formatting-and-conversion">
-<h2>Date/Time Formatting and Conversion<a class="headerlink" href="#date-time-formatting-and-conversion" title="Permalink to this headline">¶</a></h2>
-<p><em>Template patterns for date/time formatting</em></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="25%" />
-<col width="75%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Pattern</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>HH</td>
-<td>hour of day (01-12)</td>
-</tr>
-<tr class="row-odd"><td>HH12</td>
-<td>hour of day (01-12)</td>
-</tr>
-<tr class="row-even"><td>HH24</td>
-<td>hour of day (00-23)</td>
-</tr>
-<tr class="row-odd"><td>MI</td>
-<td>minute (00-59)</td>
-</tr>
-<tr class="row-even"><td>SS</td>
-<td>second (00-59)</td>
-</tr>
-<tr class="row-odd"><td>MS</td>
-<td>millisecond (000-999)</td>
-</tr>
-<tr class="row-even"><td>US</td>
-<td>microsecond (000000-999999)</td>
-</tr>
-<tr class="row-odd"><td>SSSS</td>
-<td>seconds past midnight (0-86399)</td>
-</tr>
-<tr class="row-even"><td>AM, am, PM or pm</td>
-<td>meridiem indicator (without periods)</td>
-</tr>
-<tr class="row-odd"><td>A.M., a.m., P.M. or p.m.</td>
-<td>meridiem indicator (with periods)</td>
-</tr>
-<tr class="row-even"><td>Y,YYY</td>
-<td>year (4 and more digits) with comma</td>
-</tr>
-<tr class="row-odd"><td>YYYY</td>
-<td>year (4 and more digits)</td>
-</tr>
-<tr class="row-even"><td>YYY</td>
-<td>last 3 digits of year</td>
-</tr>
-<tr class="row-odd"><td>YY</td>
-<td>last 2 digits of year</td>
-</tr>
-<tr class="row-even"><td>Y</td>
-<td>last digit of year</td>
-</tr>
-<tr class="row-odd"><td>IYYY</td>
-<td>ISO year (4 and more digits)</td>
-</tr>
-<tr class="row-even"><td>IYY</td>
-<td>last 3 digits of ISO year</td>
-</tr>
-<tr class="row-odd"><td>IY</td>
-<td>last 2 digits of ISO year</td>
-</tr>
-<tr class="row-even"><td>I</td>
-<td>last digit of ISO year</td>
-</tr>
-<tr class="row-odd"><td>BC, bc, AD or ad</td>
-<td>era indicator (without periods)</td>
-</tr>
-<tr class="row-even"><td>B.C., b.c., A.D. or a.d.</td>
-<td>era indicator (with periods)</td>
-</tr>
-<tr class="row-odd"><td>MONTH</td>
-<td>full upper case month name (blank-padded to 9 chars)</td>
-</tr>
-<tr class="row-even"><td>Month</td>
-<td>full capitalized month name (blank-padded to 9 chars)</td>
-</tr>
-<tr class="row-odd"><td>month</td>
-<td>full lower case month name (blank-padded to 9 chars)</td>
-</tr>
-<tr class="row-even"><td>MON</td>
-<td>abbreviated upper case month name (3 chars in English, localized lengths vary)</td>
-</tr>
-<tr class="row-odd"><td>Mon</td>
-<td>abbreviated capitalized month name (3 chars in English, localized lengths vary)</td>
-</tr>
-<tr class="row-even"><td>mon</td>
-<td>abbreviated lower case month name (3 chars in English, localized lengths vary)</td>
-</tr>
-<tr class="row-odd"><td>MM</td>
-<td>month number (01-12)</td>
-</tr>
-<tr class="row-even"><td>DAY</td>
-<td>full upper case day name (blank-padded to 9 chars)</td>
-</tr>
-<tr class="row-odd"><td>Day</td>
-<td>full capitalized day name (blank-padded to 9 chars)</td>
-</tr>
-<tr class="row-even"><td>day</td>
-<td>full lower case day name (blank-padded to 9 chars)</td>
-</tr>
-<tr class="row-odd"><td>DY</td>
-<td>abbreviated upper case day name (3 chars in English, localized lengths vary)</td>
-</tr>
-<tr class="row-even"><td>Dy</td>
-<td>abbreviated capitalized day name (3 chars in English, localized lengths vary)</td>
-</tr>
-<tr class="row-odd"><td>dy</td>
-<td>abbreviated lower case day name (3 chars in English, localized lengths vary)</td>
-</tr>
-<tr class="row-even"><td>DDD</td>
-<td>day of year (001-366)</td>
-</tr>
-<tr class="row-odd"><td>IDDD</td>
-<td>ISO day of year (001-371; day 1 of the year is Monday of the first ISO week.)</td>
-</tr>
-<tr class="row-even"><td>DD</td>
-<td>day of month (01-31)</td>
-</tr>
-<tr class="row-odd"><td>D</td>
-<td>day of the week, Sunday(1) to Saturday(7)</td>
-</tr>
-<tr class="row-even"><td>ID</td>
-<td>ISO day of the week, Monday(1) to Sunday(7)</td>
-</tr>
-<tr class="row-odd"><td>W</td>
-<td>week of month (1-5) (The first week starts on the first day of the month.)</td>
-</tr>
-<tr class="row-even"><td>WW</td>
-<td>week number of year (1-53) (The first week starts on the first day of the year.)</td>
-</tr>
-<tr class="row-odd"><td>IW</td>
-<td>ISO week number of year (01 - 53; the first Thursday of the new year is in week 1.)</td>
-</tr>
-<tr class="row-even"><td>CC</td>
-<td>century (2 digits) (The twenty-first century starts on 2001-01-01.)</td>
-</tr>
-<tr class="row-odd"><td>J</td>
-<td>Julian Day (integer days since November 24, 4714 BC at midnight UTC)</td>
-</tr>
-<tr class="row-even"><td>Q</td>
-<td>quarter (ignored by to_date and to_timestamp)</td>
-</tr>
-<tr class="row-odd"><td>RM</td>
-<td>month in upper case Roman numerals (I-XII; I=January)</td>
-</tr>
-<tr class="row-even"><td>rm</td>
-<td>month in lower case Roman numerals (i-xii; i=January)</td>
-</tr>
-<tr class="row-odd"><td>TZ</td>
-<td>upper case time-zone name</td>
-</tr>
-<tr class="row-even"><td>tz</td>
-<td>lower case time-zone name</td>
-</tr>
-</tbody>
-</table>
-<p><em>Template pattern modifiers for date/time formatting</em></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="11%" />
-<col width="72%" />
-<col width="16%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Modifier</th>
-<th class="head">Description</th>
-<th class="head">Example</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>FM prefix</td>
-<td>fill mode (suppress padding blanks and trailing zeroes)</td>
-<td>FMMonth</td>
-</tr>
-<tr class="row-odd"><td>TH suffix</td>
-<td>upper case ordinal number suffix    DDTH, e.g.,</td>
-<td>12TH</td>
-</tr>
-<tr class="row-even"><td>th suffix</td>
-<td>lower case ordinal number suffix    DDth, e.g.,</td>
-<td>12th</td>
-</tr>
-<tr class="row-odd"><td>FX prefix</td>
-<td>fixed format global option (see usage notes)</td>
-<td>FX Month DD Day</td>
-</tr>
-<tr class="row-even"><td>TM prefix</td>
-<td>translation mode (print localized day and month names based on lc_time)</td>
-<td>TMMonth</td>
-</tr>
-<tr class="row-odd"><td>SP suffix</td>
-<td>spell mode (not implemented)</td>
-<td>DDSP</td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="date-time">
+<h2>Date/Time 포맷팅과 변환<a class="headerlink" href="#date-time" title="Permalink to this headline">¶</a></h2>
+<p><em>Date/Time 포맷팅을 위한 탬플릿 패턴들</em>
+=========================== ================================================================
+패턴                                                  설명
+=========================== ================================================================
+HH                          해당 날의 시간 (01-12)
+HH12                        해당 날의 시간 (01-12)
+HH24                        해당 날의 시간 (00-23)
+MI                          분 (00-59)
+SS                          초 (00-59)
+MS                          밀리초 (000-999)
+US                          마이크로초 (000000-999999)
+SSSS                        해당 날의 자정으로 부터 현재 시간까지 지난 초 (0-86399)
+AM, am, PM or pm            meridiem 지시자 (마침표 미포함)
+A.M., a.m., P.M. or p.m.    meridiem 지시자 (마침표 포함)
+Y,YYY                       컴마가 포함된 년 (네 자리 이상의 숫자)
+YYYY                        년도 (네 자리 이상의 숫자)
+YYY                         년도의 마지막 세자리 숫자
+YY                          년도의 마지막 두자리 숫자
+Y                           년도의 마지막 한자리 숫자
+IYYY                        ISO 년도 (네 자리 이상의 숫자)
+IYY                         ISO 년도의 마지막 세자리 숫자
+IY                          ISO 년도의 마지막 두자리 숫자
+I                           ISO 년도의 마지막 한자리 숫자
+BC, bc, AD or ad            era 지시자 (마침표 미포함)
+B.C., b.c., A.D. or a.d.    era 지시자 (마침표 포함)
+MONTH                       대문자로 표기한 달의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+Month                       첫번째 글자만 대문자로 표기한 달의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+month                       소문자로 표기한 달의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+MON                         대문자로 축약된 달의 영문 이름 (3개의 알파멧으로 표기)
+Mon                         첫번째 글자만 대문자로 표기하여 축약한 달의 영문 이름 (3개의 알파멧으로 표기)
+mon                         소문자로 축약된 달의 영문 이름 (3개의 알파멧으로 표기)
+MM                          숫자로 표기된 달 (01-12)
+DAY                         대문자로 표기한 요일의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+Day                         첫번째 글자만 대문자로 표기한 요일의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+day                         대문자로 표기한 요일의 영문 이름 (공백을 추가해 9자리 문자로 표기)
+DY                          대문자로 축약된 요일의 영문 이름 (3개의 알파멧으로 표기)
+Dy                          첫번째 글자만 대문자로 표기한 요일의 영문 이름 (3개의 알파멧으로 표기)
+dy                          소문자로 축약된 요일의 영문 이름 (3개의 알파멧으로 표기)
+DDD                         해당 년도의 시작부터 지금까지 지난 날 (001-366)
+IDDD                        해당 ISO 년도의 시작부터 지금까지 지난 날 (001-371; ISO 년도의 첫쨋날은 첫번째 주에 포함되어 있습니다.)
+DD                          해당 달의 시작부터 지금까지 지난 날 (01-31)
+D                           해당 주의 요일. 일요일 (1) 부터 토요일 (7) 로 표기
+ID                          해당 ISO 주의 요일. 일요일 (1) 부터 토요일 (7) 로 표기
+W                           해당 달의 주 (1-5) (첫번째 주는 해당 달의 첫번째 날부터 시작됩니다.)
+WW                          해당 년도의 주 (1-53) (첫번째 주는 해당 년도의 첫번째 날부터 시작됩니다.)
+IW                          해당 ISO 년도의 주 (0-53, 해당 년도의 첫번째 목요일은 첫번째 주의 1일 입니다.)
+CC                          세기 (2 자리 수, 21세기는 2001-01-01에 시작됬습니다.)
+J                           율리우스 일 (기원 전 4713년 1월 1일 부터의 일수)
+Q                           분기 (to_date 함수와 to_timestamp 함수에서는 적용되지 않음)
+RM                          대문자의 로마 숫자로 표기된 달 (I-XII; I=January)
+rm                          소문자의 로마 숫자로 표기된 달 (i-xii; i=January)
+TZ                          대문자로 표기된 타임존 이름
+tz                          소문자로 표기된 타임존 이름
+=========================== ================================================================</p>
+<p><em>Date/Time 포맷팅을 위한 템플릿 패턴 수식어들</em>
+=========== ======================================================================= ================
+수식어             설명                                                                                                                                           예제
+=========== ======================================================================= ================
+FM (접두사)  채우기 모드 (빈칸 혹은 0으로 공백을 채우지 않음)                                                                     FMMonth
+TH (접미사)  대문자 서수 표시 접미사                                                                                         DDTH, 12TH
+th (접미사)  소문자 서수 표시 접미사                                                                                 DDth, 12th
+FX (접두사)  fixed format global option (see usage notes)                            FX Month DD Day
+TM (접두사)  translation mode (print localized day and month names based on lc_time) TMMonth
+SP (접미사)  spell mode (not implemented)                                            DDSP
+=========== ======================================================================= ================</p>
 <blockquote>
 <div><ul class="simple">
-<li>FM suppresses leading zeroes and trailing blanks that would otherwise be added to make the output of a pattern be fixed-width. In Tajo, FM modifies only the next specification, while in Oracle FM affects all subsequent specifications, and repeated FM modifiers toggle fill mode on and off.</li>
-<li>TM does not include trailing blanks.</li>
-<li><em>to_timestamp</em> and <em>to_date</em> skip multiple blank spaces in the input string unless the FX option is used. For example, <em>to_timestamp</em> (&#8216;2000    JUN&#8217;, &#8216;YYYY MON&#8217;) works, but <em>to_timestamp</em> (&#8216;2000    JUN&#8217;, &#8216;FXYYYY MON&#8217;) returns an error because <em>to_timestamp</em> expects one space only. FX must be specified as the first item in the template.</li>
-<li>Ordinary text is allowed in <em>to_char</em> templates and will be output literally. You can put a substring in double quotes to force it to be interpreted as literal text even if it contains pattern key words. For example, in &#8216;&#8220;Hello Year &#8220;YYYY&#8217;, the YYYY will be replaced by the year data, but the single Y in Year will not be. In <em>to_date</em>, to_number, and <em>to_timestamp</em>, double-quoted strings skip the number of input characters contained in the string, e.g. &#8220;XX&#8221; skips two input characters.</li>
-<li>If you want to have a double quote in the output you must precede it with a backslash, for example &#8216;&#8220;YYYY Month&#8221;&#8217;.</li>
-<li>If the year format specification is less than four digits, e.g. YYY, and the supplied year is less than four digits, the year will be adjusted to be nearest to the year 2020, e.g. 95 becomes 1995.</li>
-<li>The YYYY conversion from string to timestamp or date has a restriction when processing years with more than 4 digits. You must use some non-digit character or template after YYYY, otherwise the year is always interpreted as 4 digits. For example (with the year 20000): <em>to_date</em> (&#8216;200001131&#8217;, &#8216;YYYYMMDD&#8217;) will be interpreted as a 4-digit year; instead use a non-digit separator after the year, like <em>to_date</em> (&#8216;20000-1131&#8217;, &#8216;YYYY-MMDD&#8217;) or <em>to_date</em> (&#8216;20000Nov31&#8217;, &#8216;YYYYMonDD&#8217;).</li>
-<li>In conversions from string to timestamp or date, the CC (century) field is ignored if there is a YYY, YYYY or Y,YYY field. If CC is used with YY or Y then the year is computed as the year in the specified century. If the century is specified but the year is not, the first year of the century is assumed.</li>
-<li>An ISO week date (as distinct from a Gregorian date) can be specified to <em>to_timestamp</em> and <em>to_date</em> in one of two ways:</li>
-<li>Year, week, and weekday: for example <em>to_date</em> (&#8216;2006-42-4&#8217;, &#8216;IYYY-IW-ID&#8217;) returns the date 2006-10-19. If you omit the weekday it is assumed to be 1 (Monday).</li>
-<li>Year and day of year: for example <em>to_date</em> (&#8216;2006-291&#8217;, &#8216;IYYY-IDDD&#8217;) also returns 2006-10-19.</li>
-<li>Attempting to construct a date using a mixture of ISO week and Gregorian date fields is nonsensical, and will cause an error. In the context of an ISO year, the concept of a &#8220;month&#8221; or &#8220;day of month&#8221; has no meaning. In the context of a Gregorian year, the ISO week has no meaning. Users should avoid mixing Gregorian and ISO date specifications.</li>
-<li>In a conversion from string to timestamp, millisecond (MS) or microsecond (US) values are used as the seconds digits after the decimal point. For example <em>to_timestamp</em> (&#8216;12:3&#8217;, &#8216;SS:MS&#8217;) is not 3 milliseconds, but 300, because the conversion counts it as 12 + 0.3 seconds. This means for the format SS:MS, the input values 12:3, 12:30, and 12:300 specify the same number of milliseconds. To get three milliseconds, one must use 12:003, which the conversion counts as 12 + 0.003 = 12.003 seconds.</li>
-<li>Here is a more complex example: <em>to_timestamp</em> (&#8216;15:12:02.020.001230&#8217;, &#8216;HH:MI:SS.MS.US&#8217;) is 15 hours, 12 minutes, and 2 seconds + 20 milliseconds + 1230 microseconds = 2.021230 seconds.</li>
-<li><em>to_char</em> (..., &#8216;ID&#8217;)&#8217;s day of the week numbering matches the extract(isodow from ...) function, but <em>to_char</em> (..., &#8216;D&#8217;)&#8217;s does not match extract(dow from ...)&#8217;s day numbering.</li>
-<li><em>to_char</em> (interval) formats HH and HH12 as shown on a 12-hour clock, i.e. zero hours and 36 hours output as 12, while HH24 outputs the full hour value, which can exceed 23 for intervals.</li>
+<li>FM 접두사는 길게 늘어진 공백 혹은 0으로 공백을 채우지 않습니다. FM 접두사가 없다면, 고정길이로 패턴을 출력할 수 있습니다. 타조에서는 FM 접두사 바로 이후의 패턴에 대해서만 적용됩니다. 이는 오라클의 FM 적용 (FM 접두사 이후 모든 패턴에 대해 적용)과는 조금 다릅니다. FM의 반복된 사용은 채우기 모드를 on/off 합니다.</li>
+<li>TM 접두사는 길게 늘어진 공백을 허용하지 않습니다.</li>
+<li><em>to_timestamp</em> 함수와 <em>to_date</em> 함수는 FX 접두사가 사용되지 않을 경우 입력 문자열에 있는 여러 공백을 건너뜁니다. 예를 들어, <em>to_timestamp</em> (&#8216;2000    JUN&#8217;, &#8216;YYYY MON&#8217;) 은 동작하지만, <em>to_timestamp</em> (&#8216;2000    JUN&#8217;, &#8216;FXYYYY MON&#8217;) 의 경우 오류가 발생하는데, 이는 <em>to_timestamp</em> 함수는 오직 하나의 공백만 허용하기 때문입니다. FX 접두사는 반드시 탬플릿의 첫번째 아이템으로 사용되어야 합니다.</li>
+<li>서수 text는 <em>to_char</em> 탬플릿에 허용 되며 리터럴로 출력 됩니다. 큰 따옴표 내의 보조 문자열은 리터럴 text로 인식되며 이는 패턴 키워드를 포함할 경우에도 적용됩니다. 예를 들어, &#8216;&#8220;Hello Year &#8220;YYYY&#8217;에서, YYYY 는 년도 데이터로 치환되지만 Year 단어 내의 대문자 Y는 큰 따옴표 안에 위치하기 때문에 리터럴로 인식되어 년도 정보로 변환되지 않습니다. <em>to_date</em>, to_number, 그리고 <em>to_timestamp</em> 함수들에서도, 큰 따옴표 내의 문자열은 문자열에 포함되어 있는 입력문자의 수만큼 입력 문자들을 건너뜁니다. 예를 들어, &#8220;XX&#8221;는 두개의 입력 문자를 건너뜁니다.</li>
+<li>큰 따옴표를 사용하고자 한다면, 백슬래쉬 () 를 먼저 사용해 주세요. (예: &#8216;&#8220;YYYY Month&#8221;&#8217;)</li>
+<li>년도 포맷이 4자리 이하로 표기되거나 (예: YYY),  지원되는 년도가 4자리 이하라면, 2020년과 가장 가까운 년도로 대체됩니다. 예를 들어, 95의 경우 2995년도 보다 1995년도가 2020 년도와 가까우므로 1995로 표기됩니다.</li>
+<li>문자열에서 타임스탬프 혹은 날짜 타입으로의 YYYY 변환의 경우 4개 이상의 수를 포함하는 년도에 대해서는 사용이 제한됩니다.  따라서 YYYY 포맷 이후에 문자 혹은 탬플릿을 반드시 사용하여야 합니다. 그렇지 않을 경우 년도에 대한 표현은  4자리 숫자로만 표현되어 정확한 년도 표기가 되지 않습니다. 예를 들어, <em>to_date</em> (&#8216;200001131&#8217;, &#8216;YYYYMMDD&#8217;) 함수의 경우 5자리가 아닌 4자리로만 년도를 표기합니다. 대신 <em>to_date</em> (&#8216;20000-1131&#8217;, &#8216;YYYY-MMDD&#8217;) 혹은 <em>to_date</em> (&#8216;20000Nov31&#8217;, &#8216;YYYYMonDD&#8217;) 처럼 년도 뒤에 숫자가 아닌 구분자 혹은 문자표현을 사용하여 원하는 년도 정보를 얻을 수 있습니다.</li>
+<li>문자열을 타임스탬프 혹은 날짜 타입으로 변환할 때, CC (세기) 항목은 YYY, YYYY 혹은 Y,YYY 항목이 있을 경우 무시됩니다. 만약 CC 가 YY 혹은 Y 와 함께 사용된다면, 년도의 계산은 지정된 특정 세기를 고려하여 계산됩니다.  만약 세기가 입력되었으나 년도가 입력되지 않았다면, 해당 세기의 첫번째 년도로 가정합니다.</li>
+<li>ISO 주 날짜 (그레고리안 날짜가 아닌) 는 <em>to_timestamp</em> 함수와 <em>to_date</em> 함수를 아래 두가지 방법중 한가지 방법으로 구체화 시킬 수 있습니다:</li>
+<li>년도, 주 그리고 평일에 관한 예제: <em>to_date</em> (&#8216;2006-42-4&#8217;, &#8216;IYYY-IW-ID&#8217;) 함수는 2006-10-19 를 돌려줍니다. 이 예제에서 평일을 제외하면 1 (월요일)로 가정합니다.</li>
+<li>년도와 년도의 달에 관한 예제:  <em>to_date</em> (&#8216;2006-291&#8217;, &#8216;IYYY-IDDD&#8217;) 함수 또한 2006-10-19 을 돌려줍니다.</li>
+<li>ISO 주와 그레고리안 날짜의 혼합 사용은 올바르지 않으며, 오류를 유발하게 됩니다. ISO 년도 개념에서, &#8220;달&#8221;, 혹은 &#8220;달의 날짜&#8221; 와 같은 개념은 의미가 업습니다. 또한, 그레고리안 날짜의 개념에서, ISO 주의 사용은 의미가 없습니다. 사용자는 반드시 두 개념을 구분하여 사용하여야 합니다.</li>
+<li>문자열에서 타임스탬프 타입으로 변환할때, 밀리초 (MS) 혹은 마이크로초 (US) 는 소수점 이하의 숫자들에 사용됩니다. 예를 들어, <em>to_timestamp</em> (&#8216;12:3&#8217;, &#8216;SS:MS&#8217;) 변환의 결과는 3 밀리초가 아닌 300 밀리초입니다. 왜냐하면 이 변환은 12 + 0.3 초와 같은 형태로 시간을 표현하기 때문입니다. 이는 SS:MS 포맷의 경우,  입력값으로 12:3, 12:30, 그리고 12:300 이 주어진다면 이 모든 입력값이 모두 같은 밀리초 값을 가지고 있다는 의미입니다. 3 밀리초를 표현하고자 한다면, 12:003 와 같은 형태로 표현해야 합니다. 이는 변환시 12 + 0.003 = 12.003 초 로 표현하기 때문입니다.</li>
+<li>Here is a more complex 예제: <em>to_timestamp</em> (&#8216;15:12:02.020.001230&#8217;, &#8216;HH:MI:SS.MS.US&#8217;) is 15 hours, 12 minutes, and 2 seconds + 20 milliseconds + 1230 microseconds = 2.021230 seconds.</li>
+<li><em>to_char</em> (..., &#8216;ID&#8217;) 함수의 특정 주의 날짜 수치화의 출력값은 (isodow from ...) 함수와 일치하지만, <em>to_char</em> (..., &#8216;D&#8217;) 함수의 경우 extract(dow from ...) 함수의 날짜 수치화 결과와 다릅니다.</li>
+<li><em>to_char</em> (interval) 함수는 HH와 HH12에 대해 12시간 시각으로 포맷팅을 수행합니다. 예를 들어, 0시와 36시는 12시로 출력됩니다. 이는 HH24 포맷이 나타내는 24시간 시각 포맷 (0~23) 과 다릅니다.</li>
 </ul>
 </div></blockquote>
 </div>
@@ -800,10 +682,10 @@ For example, if unix_timestamp occurs on Friday, 2008-04-11, and you set day_of_
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="network_func_and_operators.html" class="btn btn-neutral float-right" title="Network Functions and Operators"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="network_func_and_operators.html" class="btn btn-neutral float-right" title="네트워크 함수와 연산자들"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="string_func_and_operators.html" class="btn btn-neutral" title="String Functions and Operators"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="string_func_and_operators.html" class="btn btn-neutral" title="문자열 함수와 연산자들"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

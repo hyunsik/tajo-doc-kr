@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Definition Language &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>데이터 정의 언어 (DDL, Data Definition Language) &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="SQL Language" href="../sql_language.html"/>
-        <link rel="next" title="INSERT (OVERWRITE) INTO" href="insert.html"/>
-        <link rel="prev" title="Data Model" href="data_model.html"/> 
+        <link rel="next" title="데이터 삽입: INSERT (OVERWRITE) INTO" href="insert.html"/>
+        <link rel="prev" title="데이터 모델" href="data_model.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_model.html">Data Model</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_model.html">데이터 모델</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../sql_language.html">SQL Language</a> &raquo;</li>
       
-    <li>Data Definition Language</li>
+    <li>데이터 정의 언어 (DDL, Data Definition Language)</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/sql_language/ddl.txt" rel="nofollow"> View page source</a>
@@ -178,27 +178,27 @@
 </div>
           <div role="main">
             
-  <div class="section" id="data-definition-language">
-<h1>Data Definition Language<a class="headerlink" href="#data-definition-language" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ddl-data-definition-language">
+<h1>데이터 정의 언어 (DDL, Data Definition Language)<a class="headerlink" href="#ddl-data-definition-language" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="create-database">
-<h2>CREATE DATABASE<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h2>
-<p><em>Synopsis</em></p>
+<h2>CREATE DATABASE (데이터베이스 생성)<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h2>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="p">[</span><span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">database_name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span></tt> allows <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">DATABASE</span></tt> statement to avoid an error which occurs when the database exists.</p>
+<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span></tt> 구문을 사용하실 경우 <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">DATABASE</span></tt> 구문을 사용해 만들고자 하는 데이터베이스가 이미 존재할 경우 발생할 수 있는 오류를 피할 수 있습니다.</p>
 </div>
 <div class="section" id="drop-database">
-<h2>DROP DATABASE<a class="headerlink" href="#drop-database" title="Permalink to this headline">¶</a></h2>
-<p><em>Synopsis</em></p>
+<h2>DROP DATABASE (데이터베이스 삭제)<a class="headerlink" href="#drop-database" title="Permalink to this headline">¶</a></h2>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">DROP</span> <span class="k">DATABASE</span> <span class="p">[</span><span class="n">IF</span> <span class="k">EXISTS</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">database_name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">EXISTS</span></tt> allows <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">DATABASE</span></tt> statement to avoid an error which occurs when the database does not exist.</p>
+<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">EXISTS</span></tt> 구문을 사용하실 경우 <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">DATABASE</span></tt> 구문을 사용해 데이터베이스를 삭제하고자 할 때, 해당 데이터베이스가 존재 하지 않을 경우 발생할 수 있는 오류를 피할 수 있습니다.</p>
 </div>
 <div class="section" id="create-table">
-<h2>CREATE TABLE<a class="headerlink" href="#create-table" title="Permalink to this headline">¶</a></h2>
-<p><em>Synopsis</em></p>
+<h2>CREATE TABLE (테이블 생성)<a class="headerlink" href="#create-table" title="Permalink to this headline">¶</a></h2>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span><span class="p">]</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="p">[(</span><span class="o">&lt;</span><span class="k">column_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">data_type</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">...</span> <span class="p">)]</span>
 <span class="p">[</span><span class="k">using</span> <span class="o">&lt;</span><span class="n">storage_type</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">with</span> <span class="p">(</span><span class="o">&lt;</span><span class="k">key</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">...)]]</span> <span class="p">[</span><span class="k">AS</span> <span class="o">&lt;</span><span class="n">select_statement</span><span class="o">&gt;</span><span class="p">]</span>
 
@@ -206,10 +206,10 @@
 <span class="k">using</span> <span class="o">&lt;</span><span class="n">storage_type</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">with</span> <span class="p">(</span><span class="o">&lt;</span><span class="k">key</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">...)]</span> <span class="k">LOCATION</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span></tt> allows <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">[EXTERNAL]</span> <span class="pre">TABLE</span></tt> statement to avoid an error which occurs when the table does not exist.</p>
-<div class="section" id="compression">
-<h3>Compression<a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h3>
-<p>If you want to add an external table that contains compressed data, you should give &#8216;compression.code&#8217; parameter to CREATE TABLE statement.</p>
+<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span></tt> 구문을 사용하실 경우 <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">[EXTERNAL]</span> <span class="pre">TABLE</span></tt> 구문을 사용하여 테이블을 만들때 만들고자 하는 테이블이 현재 데이터베이스에 이미 존재할 경우 발생할 수 있는 오류를 피할 수 있습니다.</p>
+<div class="section" id="id1">
+<h3>테이블 압축<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>압축데이터를 포함한 외부 테이블을 추가하고 싶을 경우, CREATE TABLE 구문에 &#8216;&#8217;compression.code&#8217;&#8217; 파라메터를 추가하시면 됩니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">create</span> <span class="k">EXTERNAL</span> <span class="k">table</span> <span class="n">lineitem</span> <span class="p">(</span>
 <span class="n">L_ORDERKEY</span> <span class="nb">bigint</span><span class="p">,</span>
 <span class="n">L_PARTKEY</span> <span class="nb">bigint</span><span class="p">,</span>
@@ -221,7 +221,7 @@
 </pre></div>
 </div>
 <dl class="docutils">
-<dt><cite>compression.codec</cite> parameter can have one of the following compression codecs:</dt>
+<dt><cite>compression.codec</cite> 파라메터로 아래의 여러가지 압축 코덱들 중 하나를 선택하시면 됩니다.</dt>
 <dd><ul class="first last simple">
 <li>org.apache.hadoop.io.compress.BZip2Codec</li>
 <li>org.apache.hadoop.io.compress.DeflateCodec</li>
@@ -233,12 +233,12 @@
 </div>
 </div>
 <div class="section" id="drop-table">
-<h2>DROP TABLE<a class="headerlink" href="#drop-table" title="Permalink to this headline">¶</a></h2>
-<p><em>Synopsis</em></p>
+<h2>DROP TABLE (테이블 삭제)<a class="headerlink" href="#drop-table" title="Permalink to this headline">¶</a></h2>
+<p><em>개요</em></p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">DROP</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">IF</span> <span class="k">EXISTS</span><span class="p">]</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">PURGE</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">EXISTS</span></tt> allows <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">DATABASE</span></tt> statement to avoid an error which occurs when the database does not exist. <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span></tt> statement removes a table from Tajo catalog, but it does not remove the contents. If <tt class="docutils literal"><span class="pre">PURGE</span></tt> option is given, <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span></tt> statement will eliminate the entry in the catalog as well as the contents.</p>
+<p><tt class="docutils literal"><span class="pre">IF</span> <span class="pre">EXISTS</span></tt> 구문을 사용하실 경우 <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">DATABASE</span></tt> 구문을 사용해 테이블을 제거할 때 현재 데이터베이스에 해당 테이블이 존재하지 않을 경우 발생 할 수 있는 오류를 피할 수 있습니다. <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span></tt> 구문은 실제 데이터는 삭제하지 않지만 타조 카탈로그에서 해당 테이블 정보를 삭제합니다. <tt class="docutils literal"><span class="pre">PURGE</span></tt> 옵션을 사용하신다면, <tt class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span></tt> 타조 카탈로그의 해당 테이블 정보뿐만 아니라 실제 데이터까지 모두 삭제하게 됩니다.</p>
 </div>
 </div>
 
@@ -248,10 +248,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="insert.html" class="btn btn-neutral float-right" title="INSERT (OVERWRITE) INTO"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="insert.html" class="btn btn-neutral float-right" title="데이터 삽입: INSERT (OVERWRITE) INTO"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="data_model.html" class="btn btn-neutral" title="Data Model"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="data_model.html" class="btn btn-neutral" title="데이터 모델"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

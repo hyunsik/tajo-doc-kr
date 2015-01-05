@@ -29,7 +29,7 @@
 
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
-        <link rel="up" title="File Formats" href="file_formats.html"/>
+        <link rel="up" title="파일 포맷" href="file_formats.html"/>
         <link rel="next" title="SequenceFile" href="sequencefile.html"/>
         <link rel="prev" title="RCFile" href="rcfile.html"/> 
 
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../table_management.html">Table Management</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../table_management.html">Table Management</a> &raquo;</li>
       
-          <li><a href="file_formats.html">File Formats</a> &raquo;</li>
+          <li><a href="file_formats.html">파일 포맷</a> &raquo;</li>
       
     <li>Parquet</li>
       <li class="wy-breadcrumbs-aside">
@@ -188,7 +188,7 @@ regardless of the choice of data processing framework, data model, or programmin
 For more details, please refer to <a class="reference external" href="http://parquet.io/">Parquet File Format</a>.</p>
 <div class="section" id="how-to-create-a-parquet-table">
 <h2>How to Create a Parquet Table?<a class="headerlink" href="#how-to-create-a-parquet-table" title="Permalink to this headline">¶</a></h2>
-<p>If you are not familiar with <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> statement, please refer to Data Definition Language <a class="reference internal" href="../sql_language/ddl.html"><em>Data Definition Language</em></a>.</p>
+<p>If you are not familiar with <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> statement, please refer to Data Definition Language <a class="reference internal" href="../sql_language/ddl.html"><em>데이터 정의 언어 (DDL, Data Definition Language)</em></a>.</p>
 <p>In order to specify a certain file format for your table, you need to use the <tt class="docutils literal"><span class="pre">USING</span></tt> clause in your <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt>
 statement. Below is an example statement for creating a table using parquet files.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table1</span> <span class="p">(</span>

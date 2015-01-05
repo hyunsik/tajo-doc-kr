@@ -29,9 +29,9 @@
 
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
-        <link rel="up" title="File Formats" href="file_formats.html"/>
+        <link rel="up" title="파일 포맷" href="file_formats.html"/>
         <link rel="next" title="RCFile" href="rcfile.html"/>
-        <link rel="prev" title="File Formats" href="file_formats.html"/> 
+        <link rel="prev" title="파일 포맷" href="file_formats.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../table_management.html">Table Management</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../table_management.html">Table Management</a> &raquo;</li>
       
-          <li><a href="file_formats.html">File Formats</a> &raquo;</li>
+          <li><a href="file_formats.html">파일 포맷</a> &raquo;</li>
       
     <li>CSV (TextFile)</li>
       <li class="wy-breadcrumbs-aside">
@@ -182,16 +182,15 @@
             
   <div class="section" id="csv-textfile">
 <h1>CSV (TextFile)<a class="headerlink" href="#csv-textfile" title="Permalink to this headline">¶</a></h1>
-<p>A character-separated values (CSV) file represents a tabular data set consisting of rows and columns.
-Each row is a plan-text line. A line is usually broken by a character line feed <tt class="docutils literal"><span class="pre">\n</span></tt> or carriage-return <tt class="docutils literal"><span class="pre">\r</span></tt>.
-The line feed <tt class="docutils literal"><span class="pre">\n</span></tt> is the default delimiter in Tajo. Each record consists of multiple fields, separated by
-some other character or string, most commonly a literal vertical bar <tt class="docutils literal"><span class="pre">|</span></tt>, comma <tt class="docutils literal"><span class="pre">,</span></tt> or tab <tt class="docutils literal"><span class="pre">\t</span></tt>.
-The vertical bar is used as the default field delimiter in Tajo.</p>
-<div class="section" id="how-to-create-a-csv-table">
-<h2>How to Create a CSV Table ?<a class="headerlink" href="#how-to-create-a-csv-table" title="Permalink to this headline">¶</a></h2>
-<p>If you are not familiar with the <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> statement, please refer to the Data Definition Language <a class="reference internal" href="../sql_language/ddl.html"><em>Data Definition Language</em></a>.</p>
-<p>In order to specify a certain file format for your table, you need to use the <tt class="docutils literal"><span class="pre">USING</span></tt> clause in your <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt>
-statement. The below is an example statement for creating a table using CSV files.</p>
+<p>Character-separated values (CSV) 파일은 로우와 컬럼으로 구성된 표로 나타내어진 데이터 셋입니다.
+각각의 로우들은 일반 텍스트 라인입니다. 하나의 라인은 <tt class="docutils literal"><span class="pre">\n</span></tt> 혹은 <tt class="docutils literal"><span class="pre">\r</span></tt> 로 나누어 집니다.
+라인피드 <tt class="docutils literal"><span class="pre">\n</span></tt> 는 타조의 기본 구분자 입니다. 각각의 레코드는 여러개의 필드를 가지고 있으며, 여러가지 문자열 혹은 <tt class="docutils literal"><span class="pre">|</span></tt>, 컴마 <tt class="docutils literal"><span class="pre">,</span></tt> 혹은 탭 <tt class="docutils literal"><span class="pre">\t</span></tt> 으로 분리됩니다.
+타조는 <tt class="docutils literal"><span class="pre">|</span></tt> 를 기본 필드 구분자로 사용합니다.</p>
+<div class="section" id="csv">
+<h2>어떻게 CSV 테이블을 만드나요?<a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h2>
+<p>아직 CREATE TABLE 선언문에 익숙하지 않다면,  데이터 정의 언어 (DDL, Data Definition Language) <a class="reference internal" href="../sql_language/ddl.html"><em>데이터 정의 언어 (DDL, Data Definition Language)</em></a> 을 참고해 주세요.</p>
+<p>특정한 파일 포맷을 테이블에 지정하기 위해서는 <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> 절에 <tt class="docutils literal"><span class="pre">USING</span></tt> 선언을 사용하면 됩니다.
+아래는 csv 파일을 사용해 테이블을 만드는 방법에 대한 예제입니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span>
  <span class="n">table1</span> <span class="p">(</span>
    <span class="n">id</span> <span class="nb">int</span><span class="p">,</span>
@@ -202,17 +201,17 @@ statement. The below is an example statement for creating a table using CSV file
 </pre></div>
 </div>
 </div>
-<div class="section" id="physical-properties">
-<h2>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h2>
-<p>Some table storage formats provide parameters for enabling or disabling features and adjusting physical parameters.
-The <tt class="docutils literal"><span class="pre">WITH</span></tt> clause in the CREATE TABLE statement allows users to set those parameters.</p>
-<p>Now, the CSV storage format provides the following physical properties.</p>
+<div class="section" id="id1">
+<h2>물리적 속성들<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>몇몇 테이블 저장 포맷은 테이블의 물리적 속성을 조정할 수 있는 기능을 허용하거나 허용하지 않도록 설정할 수 있는 파라메터를 제공합니다.
+<tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> 선언문에  <tt class="docutils literal"><span class="pre">WITH</span></tt> 절을 사용하여 여러 파라메터들을 설정할 수 있습니다.</p>
+<p>아래의 여러 설정값들을 통해 CSV 저장 포맷에 대한 여러가지 물리적 속성들을 변경할 수 있습니다.</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">text.delimiter</span></tt>: delimiter character. <tt class="docutils literal"><span class="pre">|</span></tt> or <tt class="docutils literal"><span class="pre">\u0001</span></tt> is usually used, and the default field delimiter is <tt class="docutils literal"><span class="pre">|</span></tt>.</li>
-<li><tt class="docutils literal"><span class="pre">text.null</span></tt>: NULL character. The default NULL character is an empty string <tt class="docutils literal"><span class="pre">''</span></tt>. Hive&#8217;s default NULL character is <tt class="docutils literal"><span class="pre">'\\N'</span></tt>.</li>
-<li><tt class="docutils literal"><span class="pre">compression.codec</span></tt>: Compression codec. You can enable compression feature and set specified compression algorithm. The compression algorithm used to compress files. The compression codec name should be the fully qualified class name inherited from <a class="reference external" href="https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/compress/CompressionCodec.html">org.apache.hadoop.io.compress.CompressionCodec</a>. By default, compression is disabled.</li>
-<li><tt class="docutils literal"><span class="pre">csvfile.serde</span></tt> (deprecated): custom (De)serializer class. <tt class="docutils literal"><span class="pre">org.apache.tajo.storage.TextSerializerDeserializer</span></tt> is the default (De)serializer class.</li>
-<li><tt class="docutils literal"><span class="pre">timezone</span></tt>: the time zone that the table uses for writting. When table rows are read or written, <tt class="docutils literal"><span class="pre">`timestamp`</span></tt> and <tt class="docutils literal"><span class="pre">`time`</span></tt> column values are adjusted by this timezone if it is set. Time zone can be an abbreviation form like &#8216;PST&#8217; or &#8216;DST&#8217;. Also, it accepts an offset-based form like &#8216;UTC+9&#8217; or a location-based form like &#8216;Asia/Seoul&#8217;.</li>
+<li><tt class="docutils literal"><span class="pre">text.delimiter</span></tt>: 구분자에 대한 속성 입니다.  보통 <tt class="docutils literal"><span class="pre">|</span></tt> 혹은 <tt class="docutils literal"><span class="pre">\u0001</span></tt> 가 사용되고, 기본 구분자로는 <tt class="docutils literal"><span class="pre">|</span></tt> 가 사용됩니다.</li>
+<li><tt class="docutils literal"><span class="pre">text.null</span></tt>: NULL 문자에 대한 속성입니다.  NULL 문자의 기본값은 공백 문자열  <tt class="docutils literal"><span class="pre">''</span></tt> 입니다.  참고로, 아파치 하이브의 기본 NULL 문자는 <tt class="docutils literal"><span class="pre">'\\N'</span></tt> 입니다.</li>
+<li><tt class="docutils literal"><span class="pre">compression.codec</span></tt>: 압축 코덱에 대한 속성입니다. 압축에 대해 설정한 후 특정한 압축 알고리즘을 설정할 수 있습니다. 압축 알고리즘은 파일을 압축하는데 사용됩니다.  압축 코덱의 이름은 정확한 상속 정보 (<a class="reference external" href="https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/compress/CompressionCodec.html">org.apache.hadoop.io.compress.CompressionCodec</a>) 를 포함한 클래스 이름을 지정해주어야 합니다. 기본적으로 압축은 사용되지 않도록 설정되어 있습니다.</li>
+<li><tt class="docutils literal"><span class="pre">csvfile.serde</span></tt> (deprecated): 커스텀 (De)serializer 클래스에 대한 속성 입니다. <tt class="docutils literal"><span class="pre">org.apache.tajo.storage.TextSerializerDeserializer</span></tt> 가 기본 (De)serializer 클래스로 설정 되어 있습니다.</li>
+<li><tt class="docutils literal"><span class="pre">timezone</span></tt>: 테이블에 데이터를 쓸 때 사용되는 타임존에 대한 속성입니다. 테이블 로우들을 읽거나 쓸 때, <tt class="docutils literal"><span class="pre">`timestamp`</span></tt> 와 <tt class="docutils literal"><span class="pre">`time`</span></tt> 컬럼 값들은 타임존이 설정 되어 있을 경우 설정된 타임존에 맞게 값을 변경합니다. 타임존은 &#8216;PST&#8217; 혹은 &#8216;DST&#8217;와 같은 형태로 축약 될 수 이습니다. 또한 오프셋 기반의 형태 (UTC+9) 혹은 지역기반의 형태 (Asia/Seoul) 로 설정될 수 있습니다.</li>
 <li><tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span></tt>: the maximum number of permissible parsing errors. This value should be an integer value. By default, <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span></tt> is <tt class="docutils literal"><span class="pre">0</span></tt>. According to the value, parsing errors will be handled in different ways.
 * If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">&lt;</span> <span class="pre">0</span></tt>, all parsing errors are ignored.
 * If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">==</span> <span class="pre">0</span></tt>, any parsing error is not allowed. If any error occurs, the query will be failed. (default)
@@ -284,7 +283,7 @@ clause in a Hive&#8217;s <tt class="docutils literal"><span class="pre">CREATE</
         <a href="rcfile.html" class="btn btn-neutral float-right" title="RCFile"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="file_formats.html" class="btn btn-neutral" title="File Formats"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="file_formats.html" class="btn btn-neutral" title="파일 포맷"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

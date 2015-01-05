@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Network Functions and Operators &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>네트워크 함수와 연산자들 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -31,7 +31,7 @@
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="Functions" href="../functions.html"/>
         <link rel="next" title="Table Management" href="../table_management.html"/>
-        <link rel="prev" title="DateTime Functions and Operators" href="datetime_func_and_operators.html"/> 
+        <link rel="prev" title="날짜 및 시간 함수와 연산자들" href="datetime_func_and_operators.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions.html">Functions</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../functions.html">Functions</a> &raquo;</li>
       
-    <li>Network Functions and Operators</li>
+    <li>네트워크 함수와 연산자들</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/functions/network_func_and_operators.txt" rel="nofollow"> View page source</a>
@@ -178,16 +178,14 @@
 </div>
           <div role="main">
             
-  <div class="section" id="network-functions-and-operators">
-<h1>Network Functions and Operators<a class="headerlink" href="#network-functions-and-operators" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>Apache Tajo provides network functions and operations using GeoIP databases.
-To use these functions and operations, the GeoIP database should be precedently installed in local disks of
-all the workers.
-(Please refer the install instruction in <a class="reference external" href="http://dev.maxmind.com/geoip/legacy/downloadable/">http://dev.maxmind.com/geoip/legacy/downloadable/</a>)</p>
-<p>Once the GeoIP database is installed, you should specify the install location in <tt class="docutils literal"><span class="pre">conf/tajo-site.xml</span></tt>
-as follows.</p>
+  <div class="section" id="id1">
+<h1>네트워크 함수와 연산자들<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>전제조건<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>아파치 타조는 GeoIP 데이터베이스를 사용한 네트워크 함수와 연산자들을 제공합니다.
+네트워크 함수와 연산자들을 사용하기 위해서는 모든 워커의 로컬디스크에 GeoIP 데이터베이스가 설치되어 있어야 합니다.
+(GeoIP의 설치를 위해서는 이 링크를 참고해 주세요:  <a class="reference external" href="http://dev.maxmind.com/geoip/legacy/downloadable/">http://dev.maxmind.com/geoip/legacy/downloadable/</a>)</p>
+<p>GeoIP 데이터베이스가 설치되었다면, 설치위치를 <tt class="docutils literal"><span class="pre">conf/tajo-site.xml</span></tt> 에 아래와 같이 입력해주시면 모든 준비가 끝납니다.</p>
 <div class="highlight-python"><div class="highlight"><pre>&lt;property&gt;
   &lt;name&gt;tajo.function.geoip-database-location&lt;/name&gt;
   &lt;value&gt;/path/to/geoip/database/file&lt;/value&gt;
@@ -195,21 +193,21 @@ as follows.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="supported-functions">
-<h2>Supported Functions<a class="headerlink" href="#supported-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>지원되는 함수들<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="geoip_country_code">
 <tt class="descname">geoip_country_code</tt><big>(</big><em>string addr</em><big>)</big><a class="headerlink" href="#geoip_country_code" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert an ipv4 address string to a geoip country code.</p>
+<dd><p>입력된 IPv4 주소를 GeoIP의 국가코드로 변환해 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>addr</strong> &#8211; ipv4 address string</td>
+<tr class="field-odd field"><th class="field-name">인자 addr:</th><td class="field-body">문자열로 입력된 IPv4 주소</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">text</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -222,20 +220,20 @@ as follows.</p>
 <dl class="function">
 <dt>
 <tt class="descname">geoip_country_code</tt><big>(</big><em>inet4 addr</em><big>)</big></dt>
-<dd><p>Convert an ipv4 address to a geoip country code.</p>
+<dd><p>입력된 IPv4 주소를 GeoIP의 국가코드로 변환해 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>addr</strong> &#8211; ipv4 address</td>
+<tr class="field-odd field"><th class="field-name">인자 addr:</th><td class="field-body">inet4 타입으로 입력된 IPv4 주소</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">text</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">geoip_country_code</span><span class="p">(</span><span class="mi">163</span><span class="p">.</span><span class="mi">152</span><span class="p">.</span><span class="mi">71</span><span class="p">.</span><span class="mi">31</span><span class="p">)</span>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">select</span> <span class="n">geoip_country_code</span><span class="p">(</span><span class="s1">&#39;163.152.71.31&#39;</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="s1">&#39;KR&#39;</span>
 </pre></div>
 </div>
@@ -244,21 +242,18 @@ as follows.</p>
 <dl class="function">
 <dt id="geoip_in_country">
 <tt class="descname">geoip_in_country</tt><big>(</big><em>string addr</em>, <em>string code</em><big>)</big><a class="headerlink" href="#geoip_in_country" title="Permalink to this definition">¶</a></dt>
-<dd><p>If the given country code is same with the country code of the given address, it returns true. Otherwise, returns false.</p>
+<dd><p>입력된 주소와 국가코드가 일치하다면 true 를 돌려줍니다. 그렇지않다면, false를 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>addr</strong> &#8211; ipv4 address string</li>
-<li><strong>code</strong> &#8211; country code</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 addr:</th><td class="field-body">문자열로 입력된 IPv4 주소</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">boolean</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 code:</th><td class="field-body">국가코드</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">boolean</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -271,21 +266,18 @@ as follows.</p>
 <dl class="function">
 <dt>
 <tt class="descname">geoip_in_country</tt><big>(</big><em>inet4 addr</em>, <em>string code</em><big>)</big></dt>
-<dd><p>If the given country code is same with the country code of the given address, it returns true. Otherwise, returns false.</p>
+<dd><p>입력된 주소와 국가코드가 일치하다면 true 를 돌려줍니다. 그렇지않다면, false를 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>addr</strong> &#8211; ipv4 address</li>
-<li><strong>code</strong> &#8211; country code</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 addr:</th><td class="field-body">inet4 타입으로 입력된 IPv4 주소</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">boolean</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 code:</th><td class="field-body">국가코드</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">boolean</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -307,7 +299,7 @@ as follows.</p>
         <a href="../table_management.html" class="btn btn-neutral float-right" title="Table Management"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="datetime_func_and_operators.html" class="btn btn-neutral" title="DateTime Functions and Operators"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="datetime_func_and_operators.html" class="btn btn-neutral" title="날짜 및 시간 함수와 연산자들"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

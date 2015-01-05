@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Model &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>데이터 모델 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="SQL Language" href="../sql_language.html"/>
-        <link rel="next" title="Data Definition Language" href="ddl.html"/>
+        <link rel="next" title="데이터 정의 언어 (DDL, Data Definition Language)" href="ddl.html"/>
         <link rel="prev" title="SQL Language" href="../sql_language.html"/> 
 
   
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="predicates.html">Predicates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../sql_language.html">SQL Language</a> &raquo;</li>
       
-    <li>Data Model</li>
+    <li>데이터 모델</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/sql_language/data_model.txt" rel="nofollow"> View page source</a>
@@ -178,26 +178,26 @@
 </div>
           <div role="main">
             
-  <div class="section" id="data-model">
-<h1>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="data-types">
-<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="id1">
+<h1>데이터 모델<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>데이터 타입<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="6%" />
 <col width="8%" />
-<col width="15%" />
-<col width="7%" />
+<col width="14%" />
+<col width="8%" />
 <col width="26%" />
 <col width="38%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Support</th>
-<th class="head">SQL Type Name</th>
-<th class="head">Alias</th>
-<th class="head">Size (byte)</th>
-<th class="head">Description</th>
-<th class="head">Range</th>
+<tr class="row-odd"><th class="head">지원유무</th>
+<th class="head">SQL 타입 이름</th>
+<th class="head">다른표현</th>
+<th class="head">크기 (바이트)</th>
+<th class="head">의미</th>
+<th class="head">표현 가능 범위</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -357,14 +357,15 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="using-real-number-value-real-and-double">
-<h3>Using real number value (real and double)<a class="headerlink" href="#using-real-number-value-real-and-double" title="Permalink to this headline">¶</a></h3>
-<p>The real and double data types are mapped to float and double of java primitives respectively. Java primitives float and double follows the IEEE 754 specification. So, these types are correctly matched to SQL standard data types.</p>
+<div class="section" id="real-double">
+<h3>실수 사용하기 (real 과 double)<a class="headerlink" href="#real-double" title="Permalink to this headline">¶</a></h3>
+<p>real 과 double 데이터 타입들은 각각 자바의 기본형중 float와 double 타입으로 생각할 수 있습니다.
+자바 기본형에서 float와 double 타입은 모두 IEEE 754 규격을 따릅니다. 그래서, 이들 타입은 SQL 표준의 데이터 타입과 정확하게 일치합니다.</p>
 <ul class="simple">
-<li>float[( n )] is mapped to either float or double according to a given length n. If n is specified, it must be bewtween 1 and 53. The default value of n is 53.</li>
-<li>If 1 &lt;- n &lt;- 24, a value is mapped to float (6 decimal digits precision).</li>
-<li>If 25 &lt;- n &lt;- 53, a value is mapped to double (15 decimal digits precision).</li>
-<li>Do not use approximate real number columns in WHERE clause in order to compare some exact matches, especially the - and &lt;&gt; operators. The &gt; or &lt; comparisons work well.</li>
+<li>float[( n )] 표현은 n의 크기에 따라 float 혹은 double 타입으로 표현됩니다. n은 1~53 이내의 정수이며, 기본값은 53입니다.</li>
+<li>만약 n의 범위가 1과 24 사이라면, 6자리 소수점의 정밀도를 가진 float 타입으로 표현됩니다.</li>
+<li>만약 n의 범위가 25와 53 사이라면, 15자리 소수점의 정밀도를 가진 double 타입으로 표현됩니다.</li>
+<li>정확한 비교를 목적으로 WHERE절에 실수값을 사용하는 경우라면 근사치를 대입해서는 안됩니다. 특히, 비교 연산자인 &gt; 와 &lt; 연산자의 경우에는 잘 동작하지만, -와 &lt;&gt; 연산자에서는 원하는 결과를 얻지 못하는 경우가 있습니다.</li>
 </ul>
 </div>
 </div>
@@ -376,7 +377,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ddl.html" class="btn btn-neutral float-right" title="Data Definition Language"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ddl.html" class="btn btn-neutral float-right" title="데이터 정의 언어 (DDL, Data Definition Language)"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../sql_language.html" class="btn btn-neutral" title="SQL Language"><span class="fa fa-arrow-circle-left"></span> Previous</a>

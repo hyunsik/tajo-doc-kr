@@ -1,8 +1,8 @@
 *************************************
-Overview of Tajo Tables
+아파치 타조 테이블 관리 개요
 *************************************
 
-Overview
+개요
 ========
 
 Managed Table
@@ -15,12 +15,12 @@ External Table
 
 .. todo::
 
-Table Properties
+테이블 속성들
 ================
-All table formats provide parameters for enabling or disabling features and adjusting physical parameters.
-The ``WITH`` clause in the CREATE TABLE statement allows users to set those properties.
+모든 테이블 포맷은 테이블의 물리적 속성 조절을 허용하거나 허용하지 않도록 설정할 수 있는 파라메터를 제공합니다.
+CREATE TABLE 선언문 내의 ``WITH`` 절을 통해 사용자에게 여러 속성들을 설정하도록 허용할 수 있습니다.
 
-The following example is to set a custom field delimiter, NULL character, and compression codec:
+아래의 예제는 필드 구분자, NULL 문자, 그리고 압축 코덱들을 설정합니다.
 
 .. code-block:: sql
 
@@ -33,24 +33,22 @@ The following example is to set a custom field delimiter, NULL character, and co
                   'text.null'='\\N',
                   'compression.codec'='org.apache.hadoop.io.compress.SnappyCodec');
 
-Each physical table layout has its own specialized properties. They will be addressed in :doc:`/table_management/file_formats`.
+각 물리적 테이블 레이아웃은 그들만의 특별한 속성들을 가지고 있습니다. 이들은  :doc:`/table_management/file_formats` 에 정리되어 있습니다.
 
-
-Common Table Properties
+테이블의 공통 속성들
 =======================
 
-There are some common table properties which are used in most tables.
+대부분의 테이블들에서 사용되는 공통 테이블 속성들에 대한 정보입니다.
 
-Compression
+압축
 -----------
 .. todo::
 
-Time zone
+타임존
 ---------
 
-In Tajo, a table property ``timezone`` allows users to specify a time zone that the table uses for reading or writing. 
-
-You can specify a table time zone as follows:
+타조에는 아래의 예제처럼 ``timezone`` 에 대한 테이블 속성을 통해 
+데이터를 테이블로부터 읽거나 테이블에 쓸 경우에 특정 타임존을 지정할 수 있습니다. 
 
 .. code-block:: sql
 
@@ -59,5 +57,4 @@ You can specify a table time zone as follows:
     t_date    DATE
    ) USING TEXT WITH('timezone'='ASIA/Seoul') LOCATION '/path-to-table/'
  
-
-In order to learn time zone, please refer to :doc:`/time_zone`.
+타임존에 대한 자세한 정보는 :doc:`/time_zone` 을 참고해 주세요.

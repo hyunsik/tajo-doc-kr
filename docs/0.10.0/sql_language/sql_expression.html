@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SQL Expressions &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>SQL 수식 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="SQL Language" href="../sql_language.html"/>
-        <link rel="next" title="Predicates" href="predicates.html"/>
-        <link rel="prev" title="Queries" href="queries.html"/> 
+        <link rel="next" title="연산자" href="predicates.html"/>
+        <link rel="prev" title="질의하기" href="queries.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="queries.html">Queries</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">질의하기</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../sql_language.html">SQL Language</a> &raquo;</li>
       
-    <li>SQL Expressions</li>
+    <li>SQL 수식</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/sql_language/sql_expression.txt" rel="nofollow"> View page source</a>
@@ -178,24 +178,25 @@
 </div>
           <div role="main">
             
-  <div class="section" id="sql-expressions">
-<h1>SQL Expressions<a class="headerlink" href="#sql-expressions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="arithmetic-expressions">
-<h2>Arithmetic Expressions<a class="headerlink" href="#arithmetic-expressions" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="sql">
+<h1>SQL 수식<a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>연산 수식<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="type-casts">
-<h2>Type Casts<a class="headerlink" href="#type-casts" title="Permalink to this headline">¶</a></h2>
-<p>A type cast converts a specified-typed data to another-typed data. Tajo has two type cast syntax:</p>
+<div class="section" id="id2">
+<h2>타입 변환<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>타입 변환은 특정 타입의 데이터를 다른 타입의 데이터로 변환합니다.
+타조는 두가지 형태의 타입 변환 구문을 지원합니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CAST</span> <span class="p">(</span> <span class="n">expression</span> <span class="k">AS</span> <span class="k">type</span> <span class="p">)</span>
 <span class="n">expression</span><span class="p">::</span><span class="k">type</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="string-expressions">
-<h2>String Expressions<a class="headerlink" href="#string-expressions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="string">
+<h2>String 수식<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="function-call">
-<h2>Function Call<a class="headerlink" href="#function-call" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>함수 호출<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sql"><div class="highlight"><pre><span class="n">function_name</span> <span class="p">([</span><span class="n">expression</span> <span class="p">[,</span> <span class="n">expression</span> <span class="p">...</span> <span class="p">]]</span> <span class="p">)</span>
 </pre></div>
 </div>
@@ -208,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="predicates.html" class="btn btn-neutral float-right" title="Predicates"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="predicates.html" class="btn btn-neutral float-right" title="연산자"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="queries.html" class="btn btn-neutral" title="Queries"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="queries.html" class="btn btn-neutral" title="질의하기"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

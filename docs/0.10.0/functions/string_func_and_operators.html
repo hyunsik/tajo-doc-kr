@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>String Functions and Operators &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>문자열 함수와 연산자들 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="Functions" href="../functions.html"/>
-        <link rel="next" title="DateTime Functions and Operators" href="datetime_func_and_operators.html"/>
-        <link rel="prev" title="Math Functions and Operators" href="math_func_and_operators.html"/> 
+        <link rel="next" title="날짜 및 시간 함수와 연산자들" href="datetime_func_and_operators.html"/>
+        <link rel="prev" title="수학함수와 연산자들" href="math_func_and_operators.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions.html">Functions</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../functions.html">Functions</a> &raquo;</li>
       
-    <li>String Functions and Operators</li>
+    <li>문자열 함수와 연산자들</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/functions/string_func_and_operators.txt" rel="nofollow"> View page source</a>
@@ -178,26 +178,23 @@
 </div>
           <div role="main">
             
-  <div class="section" id="string-functions-and-operators">
-<h1>String Functions and Operators<a class="headerlink" href="#string-functions-and-operators" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="id1">
+<h1>문자열 함수와 연산자들<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt>
 <tt class="descname">str1 || str2</tt></dt>
-<dd><p>Returns the concatnenated string of both side strings <tt class="docutils literal"><span class="pre">str1</span></tt> and <tt class="docutils literal"><span class="pre">str2</span></tt>.</p>
+<dd><p>입력된 두개의 문자열 str1과 str2를 붙여 하나의 문자열로 만듭니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>str1</strong> &#8211; first string</li>
-<li><strong>str2</strong> &#8211; second string</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 str1:</th><td class="field-body">첫번째 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 str2:</th><td class="field-body">두번째 문자열</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -210,18 +207,18 @@
 <dl class="function">
 <dt id="char_length">
 <tt class="descname">char_length</tt><big>(</big><em>string text</em><big>)</big><a class="headerlink" href="#char_length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns Number of characters in string</p>
+<dd><p>입력된 문자열에 포함된 문자의 갯수를 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> &#8211; to be counted</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int4</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">int4</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Alias:</th><td class="field-body">character_length</td>
+<tr class="field-odd field"><th class="field-name">동일한 함수:</th><td class="field-body">character_length</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -234,21 +231,18 @@
 <dl class="function">
 <dt id="trim">
 <tt class="descname">trim</tt><big>(</big><em>[leading | trailing | both] [characters] from string</em><big>)</big><a class="headerlink" href="#trim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes the characters (a space by default) from the start/end/both ends of the string</p>
+<dd><p>입력된 문자열중 앞, 뒤, 혹은 양쪽을 지정해 특정 문자를 지웁니다. 특정 문자를 지정하지 않는다면, 기본적으로 공백을 제거한 문자열을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>string</strong> &#8211; </li>
-<li><strong>characters</strong> &#8211; </li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 characters:</th><td class="field-body">입력 문자열에서 지우고자 하는 특정 문자</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -261,24 +255,20 @@
 <dl class="function">
 <dt id="btrim">
 <tt class="descname">btrim</tt><big>(</big><em>string text</em><span class="optional">[</span>, <em>characters text</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#btrim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes the characters (a space by default) from the both ends of the string</p>
+<dd><p>입력된 문자열 양 끝에서 특정한 문자를 제거한 문자열을 돌려줍니다. 특정 문자를 지정하지 않는다면, 기본적으로 공백을 제거한 문자열을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>string</strong> &#8211; </li>
-<li><strong>characters</strong> &#8211; </li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 characters:</th><td class="field-body">입력 문자열에서 지우고자 하는 특정 문자</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Alias:</th><td class="field-body"><p class="first">trim</p>
-</td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">동일한 함수:</th><td class="field-body">trim</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -291,21 +281,18 @@
 <dl class="function">
 <dt id="ltrim">
 <tt class="descname">ltrim</tt><big>(</big><em>string text</em><span class="optional">[</span>, <em>characters text</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#ltrim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes the characters (a space by default) from the start ends of the string</p>
+<dd><p>입력된 문자열의 앞에서 특정한 문자를 제거한 문자열을 돌려줍니다. 특정 문자를 지정하지 않는다면, 기본적으로 공백을 제거한 문자열을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>string</strong> &#8211; </li>
-<li><strong>characters</strong> &#8211; </li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 characters:</th><td class="field-body">입력 문자열에서 지우고자 하는 특정 문자</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -318,21 +305,18 @@
 <dl class="function">
 <dt id="rtrim">
 <tt class="descname">rtrim</tt><big>(</big><em>string text</em><span class="optional">[</span>, <em>characters text</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#rtrim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes the characters (a space by default) from the end ends of the string</p>
+<dd><p>입력된 문자열의 뒤에서 특정한 문자를 제거한 문자열을 돌려줍니다. 특정 문자를 지정하지 않는다면, 기본적으로 공백을 제거한 문자열을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>string</strong> &#8211; </li>
-<li><strong>characters</strong> &#8211; </li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 characters:</th><td class="field-body">입력 문자열에서 지우고자 하는 특정 문자</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -345,22 +329,20 @@
 <dl class="function">
 <dt id="split_part">
 <tt class="descname">split_part</tt><big>(</big><em>string text</em>, <em>delimiter text</em>, <em>field int</em><big>)</big><a class="headerlink" href="#split_part" title="Permalink to this definition">¶</a></dt>
-<dd><p>Splits a string on delimiter and return the given field (counting from one)</p>
+<dd><p>구분기호를 기준으로 쪼개진 문자열 중 지정한 특정 문자열을 돌려줍니다. 기본적으로 문자열의 위치는 0이 아닌 1부터 매겨집니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>string</strong> &#8211; </li>
-<li><strong>delimiter</strong> &#8211; </li>
-<li><strong>field</strong> &#8211; </li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">구분기호를 포함한 입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 delimiter:</th><td class="field-body">입력 문자열을 쪼개는 기준이 되는 구분기호</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">인자 field:</th><td class="field-body">원하는 문자열의 위치</td>
+</tr>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -373,22 +355,20 @@
 <dl class="function">
 <dt id="regexp_replace">
 <tt class="descname">regexp_replace</tt><big>(</big><em>string text</em>, <em>pattern text</em>, <em>replacement text</em><big>)</big><a class="headerlink" href="#regexp_replace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replaces substrings matched to a given regular expression pattern</p>
+<dd><p>입력된 정규식 패턴과 일치하는 입력문자열의 일부분을 특정 문자열로 치환합니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>string</strong> &#8211; </li>
-<li><strong>pattern</strong> &#8211; </li>
-<li><strong>replacement</strong> &#8211; </li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">text</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 pattern:</th><td class="field-body">치환하고자 하는 정규식 패턴</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">인자 replacement:</th><td class="field-body">일치하는 정규식 패턴과 치환될 문자열</td>
+</tr>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -401,16 +381,16 @@
 <dl class="function">
 <dt id="upper">
 <tt class="descname">upper</tt><big>(</big><em>string text</em><big>)</big><a class="headerlink" href="#upper" title="Permalink to this definition">¶</a></dt>
-<dd><p>makes an input text to be upper case</p>
+<dd><p>입력된 문자열을 대문자로 치환해 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> &#8211; </td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">text</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -423,16 +403,16 @@
 <dl class="function">
 <dt id="lower">
 <tt class="descname">lower</tt><big>(</big><em>string text</em><big>)</big><a class="headerlink" href="#lower" title="Permalink to this definition">¶</a></dt>
-<dd><p>makes an input text to be lower case</p>
+<dd><p>입력된 문자열을 소문자로 치환해 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> &#8211; </td>
+<tr class="field-odd field"><th class="field-name">인자 string:</th><td class="field-body">입력 문자열</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">text</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">text</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -450,10 +430,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="datetime_func_and_operators.html" class="btn btn-neutral float-right" title="DateTime Functions and Operators"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="datetime_func_and_operators.html" class="btn btn-neutral float-right" title="날짜 및 시간 함수와 연산자들"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="math_func_and_operators.html" class="btn btn-neutral" title="Math Functions and Operators"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="math_func_and_operators.html" class="btn btn-neutral" title="수학함수와 연산자들"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

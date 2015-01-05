@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>INSERT (OVERWRITE) INTO &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>데이터 삽입: INSERT (OVERWRITE) INTO &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="SQL Language" href="../sql_language.html"/>
-        <link rel="next" title="Queries" href="queries.html"/>
-        <link rel="prev" title="Data Definition Language" href="ddl.html"/> 
+        <link rel="next" title="질의하기" href="queries.html"/>
+        <link rel="prev" title="데이터 정의 언어 (DDL, Data Definition Language)" href="ddl.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../sql_language.html">SQL Language</a> &raquo;</li>
       
-    <li>INSERT (OVERWRITE) INTO</li>
+    <li>데이터 삽입: INSERT (OVERWRITE) INTO</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/sql_language/insert.txt" rel="nofollow"> View page source</a>
@@ -179,23 +179,23 @@
           <div role="main">
             
   <div class="section" id="insert-overwrite-into">
-<h1>INSERT (OVERWRITE) INTO<a class="headerlink" href="#insert-overwrite-into" title="Permalink to this headline">¶</a></h1>
-<p>INSERT OVERWRITE statement overwrites a table data of an existing table or a data in a given directory. Tajo&#8217;s INSERT OVERWRITE statement follows <tt class="docutils literal"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">SELECT</span></tt> statement of SQL. The examples are as follows:</p>
+<h1>데이터 삽입: INSERT (OVERWRITE) INTO<a class="headerlink" href="#insert-overwrite-into" title="Permalink to this headline">¶</a></h1>
+<p>INSERT OVERWRITE 구문은 주어진 경로의 데이터 혹은 이미 존재하는 테이블에 지정한 데이터를 삽입합니다. 타조의 INSERT OVERWRITE 구문은 표준 SQL의 <tt class="docutils literal"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">SELECT</span></tt> 구문을 따릅니다. 아래에 데이터 삽입 구문에 대한 다양한 예제가 있습니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">create</span> <span class="k">table</span> <span class="n">t1</span> <span class="p">(</span><span class="n">col1</span> <span class="nb">int8</span><span class="p">,</span> <span class="n">col2</span> <span class="n">int4</span><span class="p">,</span> <span class="n">col3</span> <span class="n">float8</span><span class="p">);</span>
 
-<span class="c1">-- when a target table schema and output schema are equivalent to each other</span>
+<span class="c1">-- 입력 테이블 (lineitem) 과 출력 테이블 (t1) 의 스키마가 같을 경우</span>
 <span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="k">SELECT</span> <span class="n">l_orderkey</span><span class="p">,</span> <span class="n">l_partkey</span><span class="p">,</span> <span class="n">l_quantity</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
-<span class="c1">-- or</span>
+<span class="c1">-- 혹은 이와 같이 사용할 수 도 있습니다.</span>
 <span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
 
-<span class="c1">-- when the output schema are smaller than the target table schema</span>
+<span class="c1">-- 출력 테이블 (t1) 의 스키마가 전체 스키마의 일부분일 경우</span>
 <span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="k">SELECT</span> <span class="n">l_orderkey</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
 
-<span class="c1">-- when you want to specify certain target columns</span>
+<span class="c1">-- 특정한 컬럼들을 지정해 출력 테이블 (t1) 에 삽입할 수도 있습니다.</span>
 <span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="p">(</span><span class="n">col1</span><span class="p">,</span> <span class="n">col3</span><span class="p">)</span> <span class="k">SELECT</span> <span class="n">l_orderkey</span><span class="p">,</span> <span class="n">l_quantity</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>In addition, INSERT OVERWRITE statement overwrites table data as well as a specific directory.</p>
+<p>또한, INSERT OVERWRITE 구문은 테이블 뿐만 아니라 특정한 경로의 데이터에 대해 덮어쓰기의 형태로 데이터를 삽입할 수도 있습니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="k">LOCATION</span> <span class="s1">&#39;/dir/subdir&#39;</span> <span class="k">SELECT</span> <span class="n">l_orderkey</span><span class="p">,</span> <span class="n">l_quantity</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -207,10 +207,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="queries.html" class="btn btn-neutral float-right" title="Queries"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="queries.html" class="btn btn-neutral float-right" title="질의하기"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ddl.html" class="btn btn-neutral" title="Data Definition Language"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ddl.html" class="btn btn-neutral" title="데이터 정의 언어 (DDL, Data Definition Language)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

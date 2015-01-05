@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Math Functions and Operators &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>수학함수와 연산자들 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
         <link rel="up" title="Functions" href="../functions.html"/>
-        <link rel="next" title="String Functions and Operators" href="string_func_and_operators.html"/>
+        <link rel="next" title="문자열 함수와 연산자들" href="string_func_and_operators.html"/>
         <link rel="prev" title="Functions" href="../functions.html"/> 
 
   
@@ -92,12 +92,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">Data Definition Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">INSERT (OVERWRITE) INTO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
@@ -109,16 +109,16 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../functions.html">Functions</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Math Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">String Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datetime_func_and_operators.html">DateTime Functions and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">Network Functions and Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Overview of Tajo Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
@@ -167,7 +167,7 @@
       
           <li><a href="../functions.html">Functions</a> &raquo;</li>
       
-    <li>Math Functions and Operators</li>
+    <li>수학함수와 연산자들</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/functions/math_func_and_operators.txt" rel="nofollow"> View page source</a>
@@ -178,21 +178,21 @@
 </div>
           <div role="main">
             
-  <div class="section" id="math-functions-and-operators">
-<h1>Math Functions and Operators<a class="headerlink" href="#math-functions-and-operators" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="id1">
+<h1>수학함수와 연산자들<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="abs">
 <tt class="descname">abs</tt><big>(</big><em>number int|float</em><big>)</big><a class="headerlink" href="#abs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns absolute value</p>
+<dd><p>입력된 수의 절대값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 수</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">same as a parameter type</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">입력된 인자와 동일한 타입</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -205,16 +205,16 @@
 <dl class="function">
 <dt id="acos">
 <tt class="descname">acos</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#acos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the arc cosine of number value</p>
+<dd><p>입력된 수의 아크 코사인 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number as radian</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 라디안 (radian) 값</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -227,16 +227,16 @@
 <dl class="function">
 <dt id="asin">
 <tt class="descname">asin</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#asin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the arc sine of number value</p>
+<dd><p>입력된 수의 아크 사인 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number as radian</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 라디안 (radian) 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -249,16 +249,16 @@
 <dl class="function">
 <dt id="atan">
 <tt class="descname">atan</tt><big>(</big><em>number float8</em><big>)</big><a class="headerlink" href="#atan" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the arc tangent of number value</p>
+<dd><p>입력된 수의 아크 탄젠트 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number as radian</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 라디안 (radian) 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -271,21 +271,18 @@
 <dl class="function">
 <dt id="atan2">
 <tt class="descname">atan2</tt><big>(</big><em>y float</em>, <em>x float</em><big>)</big><a class="headerlink" href="#atan2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the angle theta from the conversion of rectangular coordinates (x, y) to polar coordinates (r, theta)</p>
+<dd><p>입력된 직교좌표계 (x,y)를 극좌표계(r, theta)로 변환하고, 각 theta 의 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>y</strong> &#8211; the ordinate(y axis) coordinate</li>
-<li><strong>x</strong> &#8211; the abscissa(x axis) coordinate</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 y:</th><td class="field-body">세로좌표 (y축)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float8</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 x:</th><td class="field-body">가로좌표 (x축)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -298,16 +295,16 @@
 <dl class="function">
 <dt id="cbrt">
 <tt class="descname">cbrt</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#cbrt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the cube root of a number</p>
+<dd><p>입력된 수의 세제곱근 계산하여 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -320,16 +317,16 @@
 <dl class="function">
 <dt id="ceil">
 <tt class="descname">ceil</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#ceil" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a smallest integer not less than argument</p>
+<dd><p>입력된 값보다 큰 정수들 중 가장 작은 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">int8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -342,16 +339,16 @@
 <dl class="function">
 <dt id="cos">
 <tt class="descname">cos</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#cos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the cosine of a number</p>
+<dd><p>입력된 값의 코사인 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 라디안 (radian) 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -364,16 +361,16 @@
 <dl class="function">
 <dt id="degrees">
 <tt class="descname">degrees</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#degrees" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts radians to degrees</p>
+<dd><p>입력된 라디안 (radian) 값을 각도로 변환해 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; radian value</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">라디안 (radian) 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -386,21 +383,18 @@
 <dl class="function">
 <dt id="div">
 <tt class="descname">div</tt><big>(</big><em>num1 int</em>, <em>num2 int</em><big>)</big><a class="headerlink" href="#div" title="Permalink to this definition">¶</a></dt>
-<dd><p>Integer division truncates resut</p>
+<dd><p>입력된 두개의 정수를 나누고 (num1 / num2), 그 몫을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>num1</strong> &#8211; number to be divided</li>
-<li><strong>num2</strong> &#8211; number to divide</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 num1:</th><td class="field-body">피제수</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int8</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 num2:</th><td class="field-body">제수</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">int8</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -413,16 +407,16 @@
 <dl class="function">
 <dt id="exp">
 <tt class="descname">exp</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#exp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns Euler&#8217;s number e raised to the power of a number</p>
+<dd><p>오일러 상수 e에 대해 입력된 수의 지수승을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; input number</td>
+<tr class="field-odd field"><th class="field-name">예제 number:</th><td class="field-body">입력된 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -435,16 +429,16 @@
 <dl class="function">
 <dt id="floor">
 <tt class="descname">floor</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#floor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a largest integer not greater than argument</p>
+<dd><p>입력된 값보다 작은 정수 중 가장 큰 수를 반환합니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target real number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력된 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">int8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -457,21 +451,18 @@
 <dl class="function">
 <dt id="mod">
 <tt class="descname">mod</tt><big>(</big><em>num1 int</em>, <em>num2 int</em><big>)</big><a class="headerlink" href="#mod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns remainder of num1 / num2</p>
+<dd><p>입력된 두 수를 나누고 (num1 / num2), 그 나머지를 반환합니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>num1</strong> &#8211; number to be divided</li>
-<li><strong>num2</strong> &#8211; number to divide</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 num1:</th><td class="field-body">제수</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int8</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 num2:</th><td class="field-body">피제수</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">int8</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -484,14 +475,14 @@
 <dl class="function">
 <dt id="pi">
 <tt class="descname">pi</tt><big>(</big><big>)</big><a class="headerlink" href="#pi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns constant value of pi</p>
+<dd><p>원주율을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -504,21 +495,18 @@
 <dl class="function">
 <dt id="pow">
 <tt class="descname">pow</tt><big>(</big><em>x float</em>, <em>y float</em><big>)</big><a class="headerlink" href="#pow" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns value of x raised to the power of y</p>
+<dd><p>입력된 값 x의 y 거듭제곱을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; base number</li>
-<li><strong>y</strong> &#8211; exponent</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">인자 x:</th><td class="field-body">밑</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float8</p>
-</td>
+<tr class="field-even field"><th class="field-name">인자 y:</th><td class="field-body">지수</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
+</tr>
+<tr class="field-even field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -531,16 +519,16 @@
 <dl class="function">
 <dt id="radians">
 <tt class="descname">radians</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#radians" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts degrees to radians</p>
+<dd><p>입력된 각도 값을 라디안 (radian) 값으로 변환해 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; degree value</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">각도 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -553,16 +541,16 @@
 <dl class="function">
 <dt id="round">
 <tt class="descname">round</tt><big>(</big><em>number int|float</em><big>)</big><a class="headerlink" href="#round" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rounds to nearest integer</p>
+<dd><p>입력된 값의 반올림 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">int8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -575,16 +563,16 @@
 <dl class="function">
 <dt id="sign">
 <tt class="descname">sign</tt><big>(</big><em>number int|float</em><big>)</big><a class="headerlink" href="#sign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns sign of argument as -1, 0, 1</p>
+<dd><p>입력된 값의 부호를 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입략 깂</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -597,16 +585,16 @@
 <dl class="function">
 <dt id="sin">
 <tt class="descname">sin</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#sin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the sine of number value</p>
+<dd><p>입력 값의 사인 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -619,16 +607,16 @@
 <dl class="function">
 <dt id="sqrt">
 <tt class="descname">sqrt</tt><big>(</big><em>number float8</em><big>)</big><a class="headerlink" href="#sqrt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the square root of a number</p>
+<dd><p>입력된 값의 제곱근을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -641,16 +629,16 @@
 <dl class="function">
 <dt id="tan">
 <tt class="descname">tan</tt><big>(</big><em>number float</em><big>)</big><a class="headerlink" href="#tan" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the tangent of number value</p>
+<dd><p>입력된 값의 탄젠트 값을 돌려줍니다.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> &#8211; target number</td>
+<tr class="field-odd field"><th class="field-name">인자 number:</th><td class="field-body">입력 값</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float8</td>
+<tr class="field-even field"><th class="field-name">리턴타입:</th><td class="field-body">float8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">예제:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -668,7 +656,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="string_func_and_operators.html" class="btn btn-neutral float-right" title="String Functions and Operators"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="string_func_and_operators.html" class="btn btn-neutral float-right" title="문자열 함수와 연산자들"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../functions.html" class="btn btn-neutral" title="Functions"><span class="fa fa-arrow-circle-left"></span> Previous</a>

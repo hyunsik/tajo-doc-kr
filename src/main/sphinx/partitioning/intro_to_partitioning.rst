@@ -1,15 +1,18 @@
 **************************************
-Introduction to Partitioning
+파티셔닝 소개
 **************************************
 
-Table partitioning provides two benefits: easy table management and data pruning by partition keys.
-Currently, Apache Tajo only provides Apache Hive-compatible column partitioning.
+테이블 파티셔닝은 두가지 장점을 제공합니다.
+* 1) 보다 간편한 테이블 관리방법
+* 2) 파티셔닝 키를 통한 데이터 가지치기 (pruning)
+ 
+현재, Tajo는 하이브와의 호환을 지원하는 컬럼 파티셔닝을 제공합니다.
 
 =========================
-Partitioning Methods
+파티셔닝 방법
 =========================
 
-Tajo provides the following partitioning methods:
- * Column Partitioning
- * Range Partitioning (TODO)
- * Hash Partitioning (TODO)
+Tajo는 아래의 세가지 파티셔닝 방법을 제공합니다.
+ * 컬럼 파티셔닝
+ * 범위 (range) 파티셔닝 (TODO)
+ * 해쉬 (hash) 파티셔닝 (TODO)

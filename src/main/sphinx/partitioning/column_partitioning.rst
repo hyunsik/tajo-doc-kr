@@ -1,24 +1,24 @@
 *********************************
-Column Partitioning
+컬럼 파티셔닝
 *********************************
 
-The column table partition is designed to support the partition of Apache Hive™.
+컬럼 테이블 파티셔닝 기능은 하이브에서 제공하는 파티셔닝 방법을 지원하기 위해 설계되었습니다.
 
-================================================
-How to Create a Column Partitioned Table
-================================================
+==============================================================================
+컬럼 파티셔닝 기능을 사용한 테이블은 어떻게 만드나요?
+==============================================================================
 
-You can create a partitioned table by using the ``PARTITION BY`` clause. For a column partitioned table, you should use
-the ``PARTITION BY COLUMN`` clause with partition keys.
+테이블을 만들때 ``PARTITION BY`` 절을 사용하면 파티셔능 기능을 사용할 수 있습니다.
+컬럼 파티셔닝 기능을 사용해 테이블을 만들고 싶으실 경우 ``PARTITION BY COLUMN`` 절에 파티셔닝 키로 사용할 컬럼을 지정하시면 됩니다.
 
-For example, assume there is a table ``orders`` composed of the following schema. ::
+예를 들어, 아래의 테이블 스키마로 구성된 ``orders`` 테이블이 있다고 가정해 보겠습니다.::
 
   id          INT,
   item_name   TEXT,
   price       FLOAT
 
-Also, assume that you want to use ``order_date TEXT`` and ``ship_date TEXT`` as the partition keys.
-Then, you should create a table as follows:
+또한, 여러분은 파티셔닝 키로 ``order_date TEXT`` 와 ``ship_date TEXT``컬럼을 사용하고자 한다고 가정해 보겠습니다.
+위의 가정을 충족시키기 위해, 아래의 예제처럼 테이블을 생성하실때 ``PARTITION BY COLUMN`` 절에 파티셔닝 키를 기술하시면 됩니다.
 
 .. code-block:: sql
 
@@ -28,12 +28,14 @@ Then, you should create a table as follows:
     price
   ) PARTITION BY COLUMN (order_date TEXT, ship_date TEXT);
 
-==================================================
-Partition Pruning on Column Partitioned Tables
-==================================================
+이제, ``orders`` 테이블은 ``order_date`` 컬럼과 ``ship_date`` 컬럼들로 파티셔닝 되어 저장될 것입니다.
 
-The following predicates in the ``WHERE`` clause can be used to prune unqualified column partitions without processing
-during query planning phase.
+======================================================================================
+컬럼 파티셔닝 기능을 사용한 테이블에 대한 파티션 가지치기 (Pruning)
+======================================================================================
+
+아래의 여러가지 연산자들은 ``WHERE`` 절에서 사용하실 수 있습니다. 
+이를 활용하면 질의 처리 계획 생성 단계에서 컬럼 파티션 조건을 충족하지 않는 데이터를 제거하기 위한 연산을 수행하지 않아도 되는 장점이 생깁니다.
 
 * ``=``
 * ``<>``
@@ -41,12 +43,12 @@ during query planning phase.
 * ``<``
 * ``>=``
 * ``<=``
-* LIKE predicates with a leading wild-card character
-* IN list predicates
+* LIKE 키워드는 와일드카드 문자와 함께 쓰입니다.
+* IN 키워드를 사용해 연산자들을 나열할 수도 있습니다.
 
 ==================================================
-Compatibility Issues with Apache Hive™
+하이브와의 호환성 아슈
 ==================================================
 
-If partitioned tables of Hive are created as external tables in Tajo, Tajo can process the Hive partitioned tables directly.
-There haven't known compatibility issues yet.
+만약 하이브에서 파티셔닝 기능을 활용해 테이블을 만들때 Tajo의 외부 테이블로 만드실 경우, Tajo에서 해당 테이블을 바로 사용하실 수 있습니다.
+아직까지 Tajo와 하이브의 파티셔닝 테이블의 이용과 관련되어 발견된 호환성 이슈는 없습니다!

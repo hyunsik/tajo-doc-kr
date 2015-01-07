@@ -1,9 +1,9 @@
 *********************************
-Executing a single command
+단일 명령 실행
 *********************************
 
 
-You may want to run more queries without entering tsql prompt. Tsql provides the ``-c`` argument for above requirement. And Tajo assumes that queries are separated by semicolon as follows:
+tsql 프롬프트 시작 없이 여러 질의를 실행하고자 할 때는, tsql에서 제공하는 ``-c`` 명령을 사용합니다. 이 경우, 타조는 다음과 같이 세미콜론으로 구분된 각 쿼리를 실행합니다:
 
 .. code-block:: sql
 

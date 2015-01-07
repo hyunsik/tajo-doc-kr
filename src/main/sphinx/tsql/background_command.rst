@@ -1,11 +1,11 @@
 *********************************
-Executing as background process
+백그라운드 프로세스로 실행
 *********************************
 
 
-If you execute tsql as a background process, tsql will exit before executing a query because of some limitation of Jline2.
+일반적인 방법으로 tsql을 백그라운드 프로세스로 실행하려고 하면, Jline2의 제약 때문에 질의를 실행하기도 전에 tsql은 종료 것입니다.
 
-Example: 
+예: 
 
  .. code-block:: sql
 
@@ -15,7 +15,7 @@ Example:
   [1]+  Stopped                 ./bin/tsql -f aggregation.sql
 
 
-To avoid above problem, Tajo provides the -B command as follows:
+이러한 문제를 피하기 위해서, 타조는 다음과 같이 -B 명령을 제공합니다.:
 
 .. code-block:: sql
 

@@ -1,8 +1,8 @@
 *********************************
-Executing HDFS commands
+HDFS 명령 실행법
 *********************************
 
-You can run the hadoop dfs command (FsShell) within tsql. ``\dfs`` command provides a shortcut to the hadoop dfs commands. If you want to use this command, just specify FsShell arguments and add the semicolon at the end as follows:
+tsql 안에서 하둡의 dfs 명령 (FsShell) 을 실행할 수 있습니다. ``\dfs`` 명령은 하둡 dfs 명령에 대한 축약에 해당합니다. 이 명령을 사용할 때는, 다음과 같이 FsShell 파라미터들을 지정하기만 하면 됩니다:
 
 .. code-block:: sql
 

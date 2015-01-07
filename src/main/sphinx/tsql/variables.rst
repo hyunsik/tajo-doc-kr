@@ -1,11 +1,11 @@
 *********************************
-Session Variables
+세션 변수들
 *********************************
 
 
-Each client connection to TajoMaster creates a unique session, and the client and TajoMaster uses the session until disconnect. A session provides session variables which are used for various configs per session.
+모든 타조 마스터와의 클라이언트 연결은 각각의 고유한 세션을 생성하고, 연결이 끊길 때까지 서로가 이 세션를 사용하게 됩니다. 하나의 세션은 각각마다 설정에 필요한 세션 변수들을 제공합니다.
 
-``tsql`` provides the meta command ``\set`` to manipulate session variables. Just ``\set`` command shows all session variables. ::
+``tsql`` 은 세션 변수들을 다루기 위한 메타 명령인 ``\set`` 을 제공합니다. 단순히 ``\set`` 명령만으로 모든 세션 변수들을 볼 수 있습니다. ::
 
   default> \set
   'name1'='val1'
@@ -13,7 +13,7 @@ Each client connection to TajoMaster creates a unique session, and the client an
   'name3'='val3'
        ...
 
-``\set key val`` will set the session variable named *key* with the value *val*. ::
+``\set key val`` 는 *key* 에 해당되는 세션 변수에 *val* 에 해당하는 값을 설정합니다. ::
 
   default> \set
   'CURRENT_DATABASE'='default'
@@ -25,10 +25,10 @@ Each client connection to TajoMaster creates a unique session, and the client an
   'key1'='val1'
 
 
-Also, ``\unset key`` will unset the session variable named *key*.
+또한, ``\unset key`` 는 *key* 에 해당하는 세션 변수에 값을 미설정 상태로 초기화합니다.
 
 
-Now, tajo provides the following session variables.
+현재 타조는 다음과 같은 세션 변수들을 제공합니다.
 
 * ``DIST_QUERY_BROADCAST_JOIN_THRESHOLD``
 * ``DIST_QUERY_JOIN_TASK_VOLUME``

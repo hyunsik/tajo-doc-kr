@@ -17,7 +17,7 @@ SequenceFiles 은 바이너리 키/값 쌍이 일렬로 구성되어 있는 저�
  CREATE TABLE table1 (id int, name text, score float, type text)
  USING sequencefile;
 
-또한 타조는 하이브의 SequenceFile과의 호환성 또한 제공합니다. 위의 예제는 하이브에서 아래와 같이 사용될 수 있습니다.
+또한 Tajo는 하이브의 SequenceFile과의 호환성 또한 제공합니다. 위의 예제는 하이브에서 아래와 같이 사용될 수 있습니다.
 
 .. code-block:: sql
 
@@ -61,7 +61,7 @@ Writer
  + RecordCompressWriter : 레코드 단위로 압축된 파일을 위한 Writer. 참고로 값들에 대해서만 압축을 수행합니다.
  + BlockCompressWriter : 블록 단위로 압축된 파일을 위한 Writer. 참고로 여러개의 키/값 쌍 들이 `블록` 으로 구성되어 함께 압축됩니다. 참고로 `블록`의 크기는 조절 가능합니다.
 
-타조의 기본 Writer는 압축되지 않은 레코드를 위한 ``Writer``로 설정되어 있습니다. 
+Tajo의 기본 Writer는 압축되지 않은 레코드를 위한 ``Writer``로 설정되어 있습니다. 
 여러분이 ``RecordCompressWriter`` 를 사용하고자 하신다면, ``compression.type`` 키워드와 ``compression.codec`` 키워드를 통해 지정해주시면 됩니다.
 아래는 이와 관련된 예제입니다.
 

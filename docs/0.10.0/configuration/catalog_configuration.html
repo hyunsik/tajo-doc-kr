@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Catalog Configuration &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
+        <link rel="up" title="Configuration" href="../configuration.html"/>
+        <link rel="next" title="High Availability for TajoMaster" href="ha_configuration.html"/>
+        <link rel="prev" title="Worker Configuration" href="worker_configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">시작하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id2">준비 사항</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id5">소스코드 빌드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id6">로컬 클러스터 셋업</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id7">첫 질의 실행</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../configuration.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preliminary.html">Preliminary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker_configuration.html">Worker Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Catalog Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ha_configuration.html">High Availability for TajoMaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tajo-site-xml.html">The tajo-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">Meta Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">Administration Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">Introducing to TSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">Executing Queries from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#client-time-zone">클라이언트 타임존 (Client Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#id1">타임존 사용 예제</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../configuration.html">Configuration</a> &raquo;</li>
+      
+    <li>Catalog Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/configuration/catalog_configuration.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="catalog-configuration">
+<h1>Catalog Configuration<a class="headerlink" href="#catalog-configuration" title="Permalink to this headline">¶</a></h1>
+<p>If you want to customize the catalog service, copy <tt class="docutils literal"><span class="pre">$TAJO_HOME/conf/catalog-site.xml.template</span></tt> to <tt class="docutils literal"><span class="pre">catalog-site.xml</span></tt>. Then, add the following configs to catalog-site.xml. Note that the default configs are enough to launch Tajo cluster in most cases.</p>
+<ul class="simple">
+<li>tajo.catalog.master.addr - If you want to launch a Tajo cluster in distributed mode, you must specify this address. For more detail information, see [Default Ports](#DefaultPorts).</li>
+<li>tajo.catalog.store.class - If you want to change the persistent storage of the catalog server, specify the class name. Its default value is tajo.catalog.store.DerbyStore. In the current version, Tajo provides three persistent storage classes as follows:</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Driver Class</th>
+<th class="head">Descriptions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>tajo.catalog.store.DerbyStore</td>
+<td>this storage class uses Apache Derby.</td>
+</tr>
+<tr class="row-odd"><td>tajo.catalog.store.MySQLStore</td>
+<td>this storage class uses MySQL.</td>
+</tr>
+<tr class="row-even"><td>tajo.catalog.store.MariaDBStore</td>
+<td>this storage class uses MariaDB.</td>
+</tr>
+<tr class="row-odd"><td>tajo.catalog.store.MemStore</td>
+<td>this is the in-memory storage. It is only used
+in unit tests to shorten the duration of unit
+tests.</td>
+</tr>
+<tr class="row-even"><td>tajo.catalog.store.HCatalogStore</td>
+<td>this storage class uses HiveMetaStore.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="derby-configuration">
+<h2>Derby Configuration<a class="headerlink" href="#derby-configuration" title="Permalink to this headline">¶</a></h2>
+<p>By default, Tajo uses <a class="reference external" href="http://db.apache.org/derby/">Apache Derby</a> as a persistent storage in order to manage table meta data. So, without any configuration, you can use Derby for catalog store.</p>
+<p>Also, you can set manually configs in <tt class="docutils literal"><span class="pre">conf/catalog-site.xml</span></tt> as follows:</p>
+<div class="highlight-xml"><div class="highlight"><pre>&lt;property&gt;
+  &lt;name&gt;tajo.catalog.store.class&lt;/name&gt;
+  &lt;value&gt;org.apache.tajo.catalog.store.DerbyStore&lt;/value&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+  &lt;name&gt;tajo.catalog.uri&lt;/name&gt;
+  &lt;value&gt;jdbc:derby:&lt;absolute directory&gt;;create=true&lt;/value&gt;
+&lt;/property&gt;
+</pre></div>
+</div>
+<p>Since Derby is a file-based embedded database, it stores data into a specified directory. So, you need to specify the directory for storing data files instead of specifying JDBC URI with hostname and port. For example, in case where you use &#8216;/var/data/tajo-catalog&#8217; as a derby store directory, you should set configs as follows:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.catalog.uri<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>jdbc:derby:/var/data/tajo-catalog;create=true<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">By default, <em>Catalog server</em> stores catalog data into <tt class="docutils literal"><span class="pre">/tmp/tajo-catalog-${username}</span></tt> directory. But, some operating systems may remove all contents in <tt class="docutils literal"><span class="pre">/tmp</span></tt> when booting up. In order to ensure persistent store of your catalog data, you need to set a proper location of derby directory.</p>
+</div>
+</div>
+<div class="section" id="mysqlstore-configuration">
+<h2>MySQLStore Configuration<a class="headerlink" href="#mysqlstore-configuration" title="Permalink to this headline">¶</a></h2>
+<p>In order to use MySQLStore, you need to create database and user on MySQL for Tajo.</p>
+<div class="highlight-sh"><div class="highlight"><pre>mysql&gt; create user <span class="s1">&#39;tajo&#39;</span>@<span class="s1">&#39;localhost&#39;</span> identified by <span class="s1">&#39;xxxxxx&#39;</span>;
+Query OK, 0 rows affected <span class="o">(</span>0.00 sec<span class="o">)</span>
+
+mysql&gt; create database tajo;
+Query OK, 1 row affected <span class="o">(</span>0.00 sec<span class="o">)</span>
+
+mysql&gt; grant all on tajo.* to <span class="s1">&#39;tajo&#39;</span>@<span class="s1">&#39;localhost&#39;</span>;
+Query OK, 0 rows affected <span class="o">(</span>0.01 sec<span class="o">)</span>
+</pre></div>
+</div>
+<p>And then, you need to prepare MySQL JDBC driver on the machine which can be ran TajoMaster. If you do, you should set <tt class="docutils literal"><span class="pre">TAJO_CLASSPATH</span></tt> variable in <tt class="docutils literal"><span class="pre">conf/tajo-env.sh</span></tt> with it as follows:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">TAJO_CLASSPATH</span><span class="o">=</span>/usr/local/mysql/lib/mysql-connector-java-x.x.x.jar
+</pre></div>
+</div>
+<p>Or you just can copy jdbc driver into <tt class="docutils literal"><span class="pre">$TAJO_HOME/lib</span></tt>.</p>
+<p>Finally, you should add the following config to <cite>conf/catalog-site.xml</cite> :</p>
+<div class="highlight-xml"><div class="highlight"><pre>&lt;property&gt;
+  &lt;name&gt;tajo.catalog.store.class&lt;/name&gt;
+  &lt;value&gt;org.apache.tajo.catalog.store.MySQLStore&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;tajo.catalog.jdbc.connection.id&lt;/name&gt;
+  &lt;value&gt;&lt;mysql user name&gt;&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;tajo.catalog.jdbc.connection.password&lt;/name&gt;
+  &lt;value&gt;&lt;mysql user password&gt;&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;tajo.catalog.jdbc.uri&lt;/name&gt;
+  &lt;value&gt;jdbc:mysql://&lt;mysql host name&gt;:&lt;mysql port&gt;/&lt;database name for tajo&gt;?createDatabaseIfNotExist=true&lt;/value&gt;
+&lt;/property&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="mariadbstore-configuration">
+<h2>MariaDBStore Configuration<a class="headerlink" href="#mariadbstore-configuration" title="Permalink to this headline">¶</a></h2>
+<p>All configurations for using MariaDBStore is compatible with MySQLStore except following:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">TAJO_CLASSPATH</span><span class="o">=</span>/usr/local/mariadb/lib/mariadb-java-client-x.x.x.jar
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre>&lt;property&gt;
+  &lt;name&gt;tajo.catalog.store.class&lt;/name&gt;
+  &lt;value&gt;org.apache.tajo.catalog.store.MariaDBStore&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;tajo.catalog.jdbc.uri&lt;/name&gt;
+  &lt;value&gt;jdbc:mariadb://&lt;mariadb host name&gt;:&lt;mariadb port&gt;/&lt;database name for tajo&gt;?createDatabaseIfNotExist=true&lt;/value&gt;
+&lt;/property&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="hcatalogstore-configuration">
+<h2>HCatalogStore Configuration<a class="headerlink" href="#hcatalogstore-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Tajo support HCatalogStore to integrate with hive. If you want to use HCatalogStore, you just do as follows.</p>
+<p>First, you must compile source code and get a binary archive as follows:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">$ </span>git clone https://git-wip-us.apache.org/repos/asf/tajo.git tajo
+<span class="nv">$ </span>mvn clean install -DskipTests -Pdist -Dtar -Phcatalog-0.1x.0
+<span class="nv">$ </span>ls tajo-dist/target/tajo-x.y.z-SNAPSHOT.tar.gz
+</pre></div>
+</div>
+<p>Currently Tajo supports hive 0.12.0, hive 0.13.0, hive 0.13.1. If you enables HCatalogStore, you set the maven profile as <tt class="docutils literal"><span class="pre">-Phcatalog-0.12.0</span></tt>.</p>
+<p>Second, you must set your hive home directory to HIVE_HOME variable in <tt class="docutils literal"><span class="pre">conf/tajo-env.sh</span></tt> with it as follows:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">HIVE_HOME</span><span class="o">=</span>/path/to/your/hive/directory
+</pre></div>
+</div>
+<p>Third, if you need to use jdbc to connect HiveMetaStore, you have to prepare mysql jdbc driver on host which can be ran TajoMaster. If you prepare it, you should set jdbc driver file path to <tt class="docutils literal"><span class="pre">HIVE_JDBC_DRIVER_DIR</span></tt> variable in conf/tajo-env.sh with it as follows:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">HIVE_JDBC_DRIVER_DIR</span><span class="o">=</span>/path/to/your/mysql_jdbc_driver/mysql-connector-java-x.x.x-bin.jar
+</pre></div>
+</div>
+<p>Lastly, you should add the following config to <tt class="docutils literal"><span class="pre">conf/catalog-site.xml</span></tt> :</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.catalog.store.class<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>org.apache.tajo.catalog.store.HCatalogStore<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ha_configuration.html" class="btn btn-neutral float-right" title="High Availability for TajoMaster"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="worker_configuration.html" class="btn btn-neutral" title="Worker Configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

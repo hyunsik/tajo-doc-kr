@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>High Availability for TajoMaster &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
+        <link rel="up" title="Configuration" href="../configuration.html"/>
+        <link rel="next" title="Cluster Service Configuration Defaults" href="service_config_defaults.html"/>
+        <link rel="prev" title="Catalog Configuration" href="catalog_configuration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">시작하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id2">준비 사항</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id5">소스코드 빌드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id6">로컬 클러스터 셋업</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id7">첫 질의 실행</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../configuration.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preliminary.html">Preliminary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker_configuration.html">Worker Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog_configuration.html">Catalog Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">High Availability for TajoMaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tajo-site-xml.html">The tajo-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog-site-xml.html">The catalog-site.xml File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">Meta Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">Executing HDFS commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">Session Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">Administration Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">Introducing to TSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">Executing a single command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">Executing Queries from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_language/predicates.html">연산자</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#client-time-zone">클라이언트 타임존 (Client Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time_zone.html#id1">타임존 사용 예제</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#an-example-jdbc-client">An Example JDBC Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tajo_client_api.html">Tajo Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../configuration.html">Configuration</a> &raquo;</li>
+      
+    <li>High Availability for TajoMaster</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/configuration/ha_configuration.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="high-availability-for-tajomaster">
+<h1>High Availability for TajoMaster<a class="headerlink" href="#high-availability-for-tajomaster" title="Permalink to this headline">¶</a></h1>
+<p>TajoMaster is a Single Point of Failure in a Tajo Cluster because TajoMaster is the central controlling entity for all components of the Tajo system. TajoMaster failure prevents clients from submitting new queries to the cluster, and results in the disruption of the ability to run insert overwrite queries because the TajoWorker can’t apply its statistical information to CatalogStore. Therefore, the high-availability (HA) of TajoMaster is essential for the high-availability of Tajo generally.</p>
+<p>Currently, TajoMaster HA provides the following elements:</p>
+<ul class="simple">
+<li>Automatic failover of TajoMaster: Even if the active TajoMaster stops, the standby TajoMaster will become the active node.</li>
+<li>Preservation of the ongoing query in the cluster: Even if the active TajoMaster stops, the ongoing query will still complete in the cluster.</li>
+</ul>
+<div class="section" id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Active master: TajoMaster that is actively serving the all operation from TajoClient and TajoWorker.</li>
+<li>Backup master: This TajoMaster waits becomes active when the Active dies or unhealthy. Users can setup multiple back TajoMaster, and this servers monitors the Active status to become active.</li>
+</ul>
+</div>
+<div class="section" id="configuration-file-settings">
+<h2>Configuration File Settings<a class="headerlink" href="#configuration-file-settings" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use TajoMaster HA mode, specific your <tt class="docutils literal"><span class="pre">tajo.master.ha.enable</span></tt> as follows:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.master.ha.enable<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>true<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</pre></div>
+</div>
+<p>If you use HA mode, all back masters monitor the active master at 5 second intervals. If you update this period, specific your <tt class="docutils literal"><span class="pre">tajo.master.ha.monitor.interval</span></tt> as follows:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.master.ha.monitor.interval<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>monitor interval<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="backup-master-settings">
+<h2>Backup Master Settings<a class="headerlink" href="#backup-master-settings" title="Permalink to this headline">¶</a></h2>
+<p>If you want to run masters with <tt class="docutils literal"><span class="pre">start-tajo.sh</span></tt>, specific your masters in <tt class="docutils literal"><span class="pre">conf/masters</span></tt>. The file lists all host names of masters, one per line.By default, this file contains the single entry <tt class="docutils literal"><span class="pre">localhost</span></tt>. You can easily add host names of workers via your favorite text editor.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cat &gt; conf/masters
+host1.domain.com
+host2.domain.com
+....
+
+&lt;ctrl + d&gt;
+</pre></div>
+</div>
+<p>And then, you need to setup tarball and set configuration files on backup masters.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you want to run active master and backup master on the same host, you may find TajoMaster port conflicts. To avoid this problem, you must convert backup master primary ports to another port in <tt class="docutils literal"><span class="pre">tajo-site.xml</span></tt> as follows:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.master.umbilical-rpc.address<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>localhost:36001<span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;description&gt;</span>The default port is 26001.<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.master.client-rpc.address<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>localhost:36002<span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;description&gt;</span>The default port is 26002.<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.resource-tracker.rpc.address<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>localhost:36003<span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;description&gt;</span>The default port is 26003.<span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.catalog.client-rpc.address<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>localhost:36005<span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;description&gt;</span>The default port is 26005.<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;name&gt;</span>tajo.master.info-http.address<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;value&gt;</span>0.0.0.0:36080<span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;description&gt;</span>The default port is 26080.<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</pre></div>
+</div>
+<p class="last">And you need to convert <tt class="docutils literal"><span class="pre">TAJO_PID_DIR</span></tt> to another directory in <tt class="docutils literal"><span class="pre">tajo-env.sh</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="launch-a-tajo-cluster">
+<h2>Launch a Tajo cluster<a class="headerlink" href="#launch-a-tajo-cluster" title="Permalink to this headline">¶</a></h2>
+<p>Then, execute <tt class="docutils literal"><span class="pre">start-tajo.sh</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre>$ $TAJO_HOME/bin/start-tajo.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can&#8217;t use HA mode in DerbyStore. Currently, just one TajoMaster invoke the derby. If another master try to invoke it, it never run itself. Also, if you set another catalog uri for backup master, it is a incorrect configuration. Because they are unequal in every way.</p>
+</div>
+</div>
+<div class="section" id="administration-ha-state">
+<h2>Administration HA state<a class="headerlink" href="#administration-ha-state" title="Permalink to this headline">¶</a></h2>
+<p>If you want to transit any backup master to active master, execute <tt class="docutils literal"><span class="pre">tajo</span> <span class="pre">hadmin</span> <span class="pre">-transitionToActive</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre>$ $TAJO_HOME/bin/tajo haadmin -transitionToActive &lt;target tajo.master.umbilical-rpc.address&gt;
+</pre></div>
+</div>
+<p>If you want to transit any active master to backup master, execute <tt class="docutils literal"><span class="pre">tajo</span> <span class="pre">hadmin</span> <span class="pre">-transitionToBackup</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre>$ $TAJO_HOME/bin/tajo haadmin -transitionToBackup &lt;target tajo.master.umbilical-rpc.address&gt;
+</pre></div>
+</div>
+<p>If you want to find the state of any master, execute <tt class="docutils literal"><span class="pre">tajo</span> <span class="pre">hadmin</span> <span class="pre">-getState</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre>$ $TAJO_HOME/bin/tajo haadmin -getState &lt;target tajo.master.umbilical-rpc.address&gt;
+</pre></div>
+</div>
+<p>If you want to initiate HA information, execute <tt class="docutils literal"><span class="pre">tajo</span> <span class="pre">haadmin</span> <span class="pre">-formatHA</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre>$ $TAJO_HOME/bin/tajo haadmin -formatHA
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Before format HA, you must shutdown the Tajo cluster.</p>
+</div>
+</div>
+<div class="section" id="how-to-test-automatic-failover">
+<h2>How to Test Automatic Failover<a class="headerlink" href="#how-to-test-automatic-failover" title="Permalink to this headline">¶</a></h2>
+<p>If you want to verify automatic failover of TajoMaster, you must deploy your Tajo cluster with TajoMaster HA enable. And then, you need to find which node is active from Tajo web UI.</p>
+<p>Once you find your active TajoMaster, you can cause a failure on that node. For example, you can use kill -9 &lt;pid of TajoMaster&gt; to simulate a JVM crash. Or you can shutdown the machine or disconnect network interface. And then, the backup TajoMaster will be automatically active within 5 seconds. The amount of time required to detect a failure and  trigger a failover depends on the config <tt class="docutils literal"><span class="pre">tajo.master.ha.monitor.interval</span></tt>. If there is running queries, it will be finished successfully. Because your TajoClient will get the result data on TajoWorker. But you can&#8217;t find already query history. Because TajoMaster stores query history on memory. So, the other master can&#8217;t access already active master query history. And if there is no running query, the automatic failover run successfully.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TajoMaster HA does not consider TajoWorker failure. It guarantees the high availability of both TajoResourceManager and QueryMaster.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="service_config_defaults.html" class="btn btn-neutral float-right" title="Cluster Service Configuration Defaults"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="catalog_configuration.html" class="btn btn-neutral" title="Catalog Configuration"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

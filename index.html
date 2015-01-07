@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Apache Tajo 한글 문서 프로젝트 by hyunsik</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="without-description">
+        <h1>Apache Tajo 한글 문서 프로젝트</h1>
+        <p></p>
+        <p class="view"><a href="https://github.com/hyunsik/tajo-doc-kr">View the Project on GitHub <small>hyunsik/tajo-doc-kr</small></a></p>
+        <ul>
+          <li><a href="https://github.com/hyunsik/tajo-doc-kr/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/hyunsik/tajo-doc-kr/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/hyunsik/tajo-doc-kr">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="apache-tajo-한글-문서-프로젝트-tajo-doc-kr" class="anchor" href="#apache-tajo-%ED%95%9C%EA%B8%80-%EB%AC%B8%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-tajo-doc-kr" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apache Tajo 한글 문서 프로젝트 (tajo-doc-kr)</h1>
+
+<p>Apache Tajo의 공식 메뉴얼(<a href="http://tajo.apache.org/docs/devel/)%EC%9D%84">http://tajo.apache.org/docs/devel/)을</a> 한글로 번역 및 작성 합니다.
+또한 Apache Tajo 커미터의 도움으로 한글로 잘 작성된 문서는 Apache Tajo 프로젝트에 영문으로 번역되어 반영될 수 있습니다.</p>
+
+<h1>
+<a id="번역-문서" class="anchor" href="#%EB%B2%88%EC%97%AD-%EB%AC%B8%EC%84%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>번역 문서</h1>
+
+<ul>
+<li>Tajo (개발 버전) 사용자 메뉴얼 (<a href="http://hyunsik.github.io/tajo-doc-kr/docs/0.10.0/">http://hyunsik.github.io/tajo-doc-kr/docs/0.10.0/</a>)</li>
+</ul>
+
+<h1>
+<a id="문서포맷" class="anchor" href="#%EB%AC%B8%EC%84%9C%ED%8F%AC%EB%A7%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>문서포맷</h1>
+
+<p>Apache Tajo의 공식 문서와 똑같은 reStructuredText 포맷(<a href="http://docutils.sourceforge.net/rst.html)%EC%9D%84">http://docutils.sourceforge.net/rst.html)을</a> 사용합니다.
+소스는 Sphinx (<a href="http://sphinx-doc.org/index.html">http://sphinx-doc.org/index.html</a>) 를 이용해 문서를 생성하게 되어 있습니다. </p>
+
+<p>Sphinx나 reStructuredText은 위지웍(WYSIWYG) 도구를 제공하거나 markdow과 같이 쉽지는 않지만 문서의 계층구조를 가지는 체계적인 문서를 작성하는데 아주 강력한 도구입니다. Python의 공식문서도 이 도구를 이용하여 문서를 만듭니다.</p>
+
+<p>reStructuredText 포맷에 대한 레퍼런스는 아래 링크에서 참고 하세요.</p>
+
+<ul>
+<li>reStructuredText reference (<a href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a>)</li>
+<li>reStructuredText Primer (<a href="http://sphinx-doc.org/rest.html">http://sphinx-doc.org/rest.html</a>)</li>
+</ul>
+
+<h1>
+<a id="문서-빌드-하기" class="anchor" href="#%EB%AC%B8%EC%84%9C-%EB%B9%8C%EB%93%9C-%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>문서 빌드 하기</h1>
+
+<p>Python의 <code>easy_install</code>를 이용해서 Sphinx를 설치하세요.</p>
+
+<pre><code>$ easy_install -U Sphinx
+</code></pre>
+
+<p>설치가 완료되면 문서를 빌드하기 위해서는 <code>make html</code>만 실행해주시면 됩니다.</p>
+
+<pre><code>$ make html
+$ ls -l tajo-doc-kr/target/html
+index.html
+....
+....
+</code></pre>
+
+<h1>
+<a id="mailing-list" class="anchor" href="#mailing-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mailing List</h1>
+
+<ul>
+<li>tajo-doc-kr at googlegroups.com (<a href="https://groups.google.com/forum/#!forum/tajo-doc-kr/new">https://groups.google.com/forum/#!forum/tajo-doc-kr/new</a>)</li>
+</ul>
+
+<h1>
+<a id="공헌하기" class="anchor" href="#%EA%B3%B5%ED%97%8C%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>공헌하기</h1>
+
+<ul>
+<li>이슈 트래커 (<a href="https://github.com/hyunsik/tajo-doc-kr/issues">https://github.com/hyunsik/tajo-doc-kr/issues</a>)</li>
+<li>
+<a href="https://github.com/hyunsik/tajo-doc-kr/wiki/HowToContribute">https://github.com/hyunsik/tajo-doc-kr/wiki/HowToContribute</a> 페이지를 읽어주세요!</li>
+</ul>
+
+<h1>
+<a id="공헌한-분들" class="anchor" href="#%EA%B3%B5%ED%97%8C%ED%95%9C-%EB%B6%84%EB%93%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>공헌한 분들</h1>
+
+<p>참여를 원하시는 분들은 메일로 연락 주세요.</p>
+
+<ul>
+<li>최현식 (Hyunsik Choi) (<a href="https://github.com/hyunsik">https://github.com/hyunsik</a>)</li>
+<li>남윤민 (Yoonmin Nam) (<a href="https://github.com/RonyMin">https://github.com/RonyMin</a>)</li>
+<li>장정식 (Jeongshik Jang) (<a href="https://github.com/jsjang0070">https://github.com/jsjang0070</a>)</li>
+</ul>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>Apache License 2.0 (<a href="http://www.apache.org/licenses/">http://www.apache.org/licenses/</a>)</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/hyunsik">hyunsik</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-58119370-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>

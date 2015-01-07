@@ -1,18 +1,18 @@
 *************************************
-RCFile
+RC파일
 *************************************
 
-RCFile, short of Record Columnar File, are flat files consisting of binary key/value pairs,
-which shares many similarities with SequenceFile.
+RC파일은 로우 컬럼 파일 (Record Columnar File) 의 줄임말로 바이너리 키/값 쌍이 일렬로 늘어져 있는 구조의 파일입니다.
+이는 SequenceFile과 비슷한 형태입니다.
 
 =========================================
-How to Create a RCFile Table?
+RCFile 테이블을 어떻게 만드나요?
 =========================================
 
-If you are not familiar with the ``CREATE TABLE`` statement, please refer to the Data Definition Language :doc:`/sql_language/ddl`.
+``CREATE TABLE`` 선언에 아직 익숙하시지 않다면 :doc:`/sql_language/ddl` 를 참고해 주세요.
 
-In order to specify a certain file format for your table, you need to use the ``USING`` clause in your ``CREATE TABLE``
-statement. Below is an example statement for creating a table using RCFile.
+여러분의 테이블에 특정한 타일 포맷을 지정하시고 싶으시다면. ``CREATE TABLE`` 선언에 ``USING`` 절을 사용하시면 됩니다.
+아래의 예제는 RC파일 포맷으로 테이블을 작성하는 방법을 설명합니다.
 
 .. code-block:: sql
 
@@ -24,19 +24,19 @@ statement. Below is an example statement for creating a table using RCFile.
   ) USING RCFILE;
 
 =========================================
-Physical Properties
+물리적 속성
 =========================================
 
-Some table storage formats provide parameters for enabling or disabling features and adjusting physical parameters.
-The ``WITH`` clause in the CREATE TABLE statement allows users to set those parameters.
+몇몇 테이블 저장 포맷은 여러가지 물리적 속성들을 조정하는 파라메트들을 제공합니다.
+``CREATE TABLE`` 선언에 ``WITH`` 절을 통해 여러가지 파라메터들을 지정하실 수 있습니다.
 
-Now, the RCFile storage type provides the following physical properties.
+아래의 속성들은 RC파일이 제공하는 물리적 속성입니다.
 
-* ``rcfile.serde`` : custom (De)serializer class. ``org.apache.tajo.storage.BinarySerializerDeserializer`` is the default (de)serializer class.
-* ``rcfile.null`` : NULL character. It is only used when a table uses ``org.apache.tajo.storage.TextSerializerDeserializer``. The default NULL character is an empty string ``''``. Hive's default NULL character is ``'\\N'``.
-* ``compression.codec`` : Compression codec. You can enable compression feature and set specified compression algorithm. The compression algorithm used to compress files. The compression codec name should be the fully qualified class name inherited from `org.apache.hadoop.io.compress.CompressionCodec <https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/compress/CompressionCodec.html>`_. By default, compression is disabled.
+* ``rcfile.serde`` : 임의의 (역)직렬화 클래스를 지정하는 속성입니다. ``org.apache.tajo.storage.BinarySerializerDeserializer`` 가 기본 (역)직렬화 클래스입니다.
+* ``rcfile.null`` : NULL 문자를 지정하는 속성입니다.  하지만  ``org.apache.tajo.storage.TextSerializerDeserializer`` 를 (역)직렬화 클래스로 사용하실 경우에만 NULL문자를 이 속성을 통해 지정하실수 있습니다. 기본으로 지정된 NULL 문자는 공백 문자열 ``''`` 입니다. 하이브의 경우 기본 NULL 문자로 ``'\\N'`` 가 사용됩니다.
+* ``compression.codec`` : 압축 코덱에 대한 속성입니다. 이를 통해 여러분이 원하는 압축 알고리즘을 지정하실 수 있습니다. 압축 알고리즘은 파일을 압축하는데 사용되며  `org.apache.hadoop.io.compress.CompressionCodec <https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/compress/CompressionCodec.html>`_ 을 상속하는 클래스를 지정하셔야 합니다. 기본적으로 타조에서는 압축기능을 사용하지 않습니다.
 
-The following is an example for creating a table using RCFile that uses compression.
+아래의 예제는 압축을 사용하는 RC파일 포맷으로 테이블을 만드는 방법을 설명합니다.
 
 .. code-block:: sql
 
@@ -48,47 +48,43 @@ The following is an example for creating a table using RCFile that uses compress
   ) USING RCFILE WITH ('compression.codec'='org.apache.hadoop.io.compress.SnappyCodec');
 
 =========================================
-RCFile (De)serializers
+RC파일의 (역)직렬화 
 =========================================
 
-Tajo provides two built-in (De)serializer for RCFile:
+타조는  RC파일의 (역)직렬화를 위해 아래처럼 두가지 클래스를 기본으로 제공합니다.
 
-* ``org.apache.tajo.storage.TextSerializerDeserializer``: stores column values in a plain-text form.
-* ``org.apache.tajo.storage.BinarySerializerDeserializer``: stores column values in a binary file format.
+* ``org.apache.tajo.storage.TextSerializerDeserializer``: 컬럼 값을 일반 텍스트 형태로 저장합니다.
+* ``org.apache.tajo.storage.BinarySerializerDeserializer``: 컬럼 값을 바이너리 파일 형태로 저장합니다.
 
-The RCFile format can store some metadata in the RCFile header. Tajo writes the (de)serializer class name into
-the metadata header of each RCFile when the RCFile is created in Tajo.
+RC파일 포맷은 헤더 부분에 몇몇 메타데이터를 저장할 수 있습니다. 타조의 경우 RC파일이 만들어질때 (역)직렬화 클래스의 이름을 메타데이터로 저장합니다.
 
-.. note::
+.. 알림::
 
-  ``org.apache.tajo.storage.BinarySerializerDeserializer`` is the default (de) serializer for RCFile.
-
+  ``org.apache.tajo.storage.BinarySerializerDeserializer`` 은 RC파일의 기본 (역)직렬화 클래스 입니다.
 
 =========================================
-Compatibility Issues with Apache Hive™
+아파치 하이브와의 호환성 이슈들
 =========================================
 
-Regardless of whether the RCFiles are written by Apache Hive™ or Apache Tajo™, the files are compatible in both systems.
-In other words, Tajo can process RCFiles written by Apache Hive and vice versa.
+아파치 하이브 혹은 타조를 통해 만들어진 RC파일은 두 시스템 모두에서 사용될 수 있습니다.
+즉, 타조는 하이브가 만든 RC파일을 처리할 수도 있고, 그 반대의 경우도 가능합니다.
 
-Since there are no metadata in RCFiles written by Hive, we need to manually specify the (de)serializer class name
-by setting a physical property.
+하이브의 경우 RC파일에 아무런 메타데이터가 저장되어 있지 않기때문에, 물리적 속성을 사용해 (역)직렬화 클래스의 이름을 설정해주어야 합니다.
 
-In Hive, there are two SerDe, and they correspond to the following (de)serializer in Tajo.
+하이브에서는 두가지 (역)직렬화 클래스를 제공하는데, 이는 타조의 (역)직렬화 클래스와 동일하게 사용하실 수 있습니다.
 
-* ``org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe``: corresponds to ``TextSerializerDeserializer`` in Tajo.
-* ``org.apache.hadoop.hive.serde2.columnar.LazyBinaryColumnarSerDe``: corresponds to ``BinarySerializerDeserializer`` in Tajo.
+* ``org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe``: 타조의 ``TextSerializerDeserializer`` 클래스와 동일합니다.
+* ``org.apache.hadoop.hive.serde2.columnar.LazyBinaryColumnarSerDe``: 타조의 ``BinarySerializerDeserializer`` 클래스와 동일합니다.
 
-The compatibility issue mostly occurs when a user creates an external table pointing to data of an existing table.
-The following section explains two cases: 1) the case where Tajo reads RCFile written by Hive, and
-2) the case where Hive reads RCFile written by Tajo.
+호환성과 관련된 이슈는 주로 존재하는 테이블을 가리키는 외부 테이블을 만들때 발생합니다.
+아래의 섹션은 1) 타조가 하이브로부터 만들어진 RC파일을 읽을 경우 와 2) 하이브에서 타조를 사용해 만들어진 RC파일을 읽을 때의 경우에 대해 설명합니다.
 
 -----------------------------------------
-When Tajo reads RCFile generated in Hive
+1) 타조에서 하이브를 사용해 만들어진 RC파일을 읽을 경우
 -----------------------------------------
 
-To create an external RCFile table generated with ``ColumnarSerDe`` in Hive,
-you should set the physical property ``rcfile.serde`` in Tajo as follows:
+여러분이 하이브에서 ``ColumnarSerDe`` 클래스를 사용하여 만든 RC파일을 타조에서 사용하고 싶으실 경우
+타조의 ``rcfile.serde`` 속성을 아래와 같이 설정해 주시면 됩니다.
 
 .. code-block:: sql
 
@@ -100,8 +96,8 @@ you should set the physical property ``rcfile.serde`` in Tajo as follows:
   ) USING RCFILE with ( 'rcfile.serde'='org.apache.tajo.storage.TextSerializerDeserializer', 'rcfile.null'='\\N' )
   LOCATION '....';
 
-To create an external RCFile table generated with ``LazyBinaryColumnarSerDe`` in Hive,
-you should set the physical property ``rcfile.serde`` in Tajo as follows:
+이와 비슷하게, ``LazyBinaryColumnarSerDe`` 클래스를 사용해 하이브에서 만들어진 RC파일을 타조에서 사용하실 경우, 
+아래의 방법을 이용하시면 됩니다.
 
 .. code-block:: sql
 
@@ -113,17 +109,17 @@ you should set the physical property ``rcfile.serde`` in Tajo as follows:
   ) USING RCFILE WITH ('rcfile.serde' = 'org.apache.tajo.storage.BinarySerializerDeserializer')
   LOCATION '....';
 
-.. note::
+.. 알림::
 
-  As we mentioned above, ``BinarySerializerDeserializer`` is the default (de) serializer for RCFile.
-  So, you can omit the ``rcfile.serde`` only for ``org.apache.tajo.storage.BinarySerializerDeserializer``.
+  ``BinarySerializerDeserializer`` 클래스는 RC파일의 기본 (역)직렬화 클래스 입니다.
+    따라서 위의 클래스를 사용하셨을 경우, 타조의 ``rcfile.serde`` 속성을 지정하실 필요가 없습니다.
 
 -----------------------------------------
-When Hive reads RCFile generated in Tajo
+2) 타조에서 하이브를 사용해 만들어진 RC파일을 읽을 경우
 -----------------------------------------
 
-To create an external RCFile table written by Tajo with ``TextSerializerDeserializer``,
-you should set the ``SERDE`` as follows:
+여러분이 하이브에서 타조의 ``TextSerializerDeserializer`` 클래스를 사용해 만든 RC파일을 사용하려고 하신다면,
+아래와 같이 ``SERDE`` 속성을 설정해 주세요.
 
 .. code-block:: sql
 
@@ -135,8 +131,8 @@ you should set the ``SERDE`` as follows:
   ) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe' STORED AS RCFILE
   LOCATION '<hdfs_location>';
 
-To create an external RCFile table written by Tajo with ``BinarySerializerDeserializer``,
-you should set the ``SERDE`` as follows:
+또한, 하이브에서 타조의 ``BinarySerializerDeserializer`` 클래스를 사용해 만든 RC파일을 사용하려고 하신다면,
+아래와 같이 ``SERDE`` 속성을 설정해 주세요.
 
 .. code-block:: sql
 

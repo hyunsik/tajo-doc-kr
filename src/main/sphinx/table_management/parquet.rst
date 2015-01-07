@@ -2,19 +2,17 @@
 Parquet
 *************************************
 
-Parquet is a columnar storage format for Hadoop. Parquet is designed to make the advantages of compressed,
-efficient columnar data representation available to any project in the Hadoop ecosystem,
-regardless of the choice of data processing framework, data model, or programming language.
-For more details, please refer to `Parquet File Format <http://parquet.io/>`_.
+Parquet 는 하둡의 컬럼지향 저장 포맷입니다. Parquet 는 프로그래밍 언어, 데이터 모델, 혹은 데이터 처리 엔진에 관계 없이 하둡 에코시스템에 속하는 어떠한 프로젝트에서도 컬럼지향 데이터에 대한 효율적인 저장과 처리성능 향상을 도모하기 위하여 만들어졌습니다. 
+자세한 내용은 `Parquet File Format <http://parquet.io/>`_ 를 참고해 주세요.
 
 =========================================
-How to Create a Parquet Table?
+타조에서 어떻게 Parquet 저장 포맷을 사용한 테이블을 만드나요?
 =========================================
 
-If you are not familiar with ``CREATE TABLE`` statement, please refer to Data Definition Language :doc:`/sql_language/ddl`.
+아직 CREATE TABLE 선언문에 익숙하지 않으시다면,  데이터 정의 언어 (DDL, Data Definition Language) :doc:`/sql_language/ddl` 을 참고해 주세요.
 
-In order to specify a certain file format for your table, you need to use the ``USING`` clause in your ``CREATE TABLE``
-statement. Below is an example statement for creating a table using parquet files.
+여러분의 테이블에 특정한 타일 포맷을 지정하시고 싶으시다면. ``CREATE TABLE`` 선언에 ``USING`` 절을 사용하시면 됩니다.
+아래의 예제는 Parquet 포맷으로 테이블을 작성하는 방법을 설명합니다.
 
 .. code-block:: sql
 
@@ -26,23 +24,23 @@ statement. Below is an example statement for creating a table using parquet file
   ) USING PARQUET;
 
 =========================================
-Physical Properties
+물리적 속성들
 =========================================
 
-Some table storage formats provide parameters for enabling or disabling features and adjusting physical parameters.
-The ``WITH`` clause in the CREATE TABLE statement allows users to set those parameters.
+몇몇 테이블 저장 포맷은 테이블의 물리적 속성을 조정할 수 있는 기능을 허용하거나 허용하지 않도록 설정할 수 있는 파라메터를 제공합니다.
+``CREATE TABLE`` 선언문에  ``WITH`` 절을 사용하여 여러 파라메터들을 설정할 수 있습니다.
 
-Now, Parquet file provides the following physical properties.
+아래에 Parquet 저장 포맷의 여러가지 물리적 속성과 자세한 설명을 기술하였습니다.
 
-* ``parquet.block.size``: The block size is the size of a row group being buffered in memory. This limits the memory usage when writing. Larger values will improve the I/O when reading but consume more memory when writing. Default size is 134217728 bytes (= 128 * 1024 * 1024).
-* ``parquet.page.size``: The page size is for compression. When reading, each page can be decompressed independently. A block is composed of pages. The page is the smallest unit that must be read fully to access a single record. If this value is too small, the compression will deteriorate. Default size is 1048576 bytes (= 1 * 1024 * 1024).
-* ``parquet.compression``: The compression algorithm used to compress pages. It should be one of ``uncompressed``, ``snappy``, ``gzip``, ``lzo``. Default is ``uncompressed``.
-* ``parquet.enable.dictionary``: The boolean value is to enable/disable dictionary encoding. It should be one of either ``true`` or ``false``. Default is ``true``.
+* ``parquet.block.size``: 메모리에 버퍼링 될 로우 그룹의 크기에 대한 속성입니다. 이를 통해 쓰기를 수행할 때 사용 가능한 메모리의 양을 제한할 수 있습니다. 큰 값을 지정하실수록 메모리를 많이 소비하지만 I/O성능을 향상시키실 수 있습니다. 기본적으로 134217728 바이트 (= 128 * 1024 * 1024) 로 지정되어 있습니다.
+* ``parquet.page.size``: 압축을 위한 페이지 크기에 대한 속성입니다. 읽기의 경우 각각의 페이지들은 독립적으로 압축을 풀게 되어있습니다. 하나의 블록은 여러개의 페이지로 구성되어 있으며 페이지는 하나의 레코드를 완전히 읽기 위한 가장 작은 단위입니다. 만약 이 속성값이 너무 작다면, 압축으로 인해 오히려 성능이 더 나빠질 것입니다. 기본값으로 1048576 바이트 (= 1 * 1024 * 1024) 가 설정되어 있습니다 .
+* ``parquet.compression``: 페이지를 압축하기 위한 압축 알고리즘을 설정하는 속성입니다. ``uncompressed``, ``snappy``, ``gzip``, ``lzo`` 중에서 하나의 알고리즘을 선택하시면 됩니다. 기본적으로 ``uncompressed`` 로 설정이 되어 페이지에 대한 압축을 수행하지 않습니다.
+* ``parquet.enable.dictionary``: 불리언 값으로 dictionary encoding의 수행 여부를 설정합니다. ``true`` 혹은 ``false``의 값 중 하나로 설정 되어있어야 하며, 기본값으로 ``true`` 가 설정되어 있습니다.
 
 =========================================
-Compatibility Issues with Apache Hive™
+아파치 하이브와의 호환성 이슈들
 =========================================
 
-At the moment, Tajo only supports flat relational tables.
-As a result, Tajo's Parquet storage type does not support nested schemas.
-However, we are currently working on adding support for nested schemas and non-scalar types (`TAJO-710 <https://issues.apache.org/jira/browse/TAJO-710>`_).
+현재 타조는 flat한 관계 테이블만을 지원하고 있습니다.
+따라서 타조의 Parquet 저장 타입은 중첩된 스키마들을 지원하지 않습니다.
+그러나, 현재 중첩된 스키마와 비-스칼라 타입들에 대한 지원을 추가하기 위해 관련 사항들에 대한 개발을 진행중입니다. (`TAJO-710 <https://issues.apache.org/jira/browse/TAJO-710>`_).

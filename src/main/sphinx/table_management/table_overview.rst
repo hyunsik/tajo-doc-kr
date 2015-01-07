@@ -33,7 +33,7 @@ CREATE TABLE 선언문 내의 ``WITH`` 절을 통해 사용자에게 여러 속�
                   'text.null'='\\N',
                   'compression.codec'='org.apache.hadoop.io.compress.SnappyCodec');
 
-각 물리적 테이블 레이아웃은 그들만의 특별한 속성들을 가지고 있습니다. 이들은  :doc:`/table_management/file_formats`에 정리되어 있습니다.
+각 물리적 테이블 레이아웃은 그들만의 특별한 속성들을 가지고 있습니다. 이들은 :doc:`/table_management/file_formats` 에 정리되어 있습니다.
 
 테이블의 공통 속성들
 =======================

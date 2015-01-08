@@ -11,7 +11,7 @@ HCatalog 통합
 
 첫째, hcatalog 프로파일을 사용하여 소스 코드를 컴파일 해야합니다. 
 현재 Tajo는 hcatalog-0.11.0 및 hcatalog-0.12.0 프로파일을 지원합니다. 
-Hive 0.11.0를 사용하기 위해서는 ``-Phcatalog-0.11.0`` 처럼 메이븐 프로파일을 지정해야 합니다. ::
+Hive 0.11.0를 사용하기 위해서는 ``-Phcatalog-0.11.0`` 처럼 maven 프로파일을 지정해야 합니다. ::
 
   $ mvn clean package -DskipTests -Pdist -Dtar -Phcatalog-0.11.0
 
@@ -38,10 +38,10 @@ HiveMetaStore에 jdbc 연결이 필요하면 MySQL JDBC 드라이버를 준비�
 .. note::
 
   Hive는 각각의 테이블에 대한 파티션 목록을 저장합니다. 만일 새로운 파티션이 HDFS에 직접 추가된다면 HiveMetastore는 사용자가 새로운 파티션이 
-  추가될 때마다 ``ALTER TABLE table_name ADD PARTITION`` 또는 `MSCK  REPAIR TABLE  table_name`` 명령이 실행되지 않는 한
+  추가될 때마다 ``ALTER TABLE table_name ADD PARTITION`` 또는 ``MSCK  REPAIR TABLE  table_name`` 명령이 실행되지 않는 한
   파티션이 추가된것을 알수 있는 방법이 없습니다.
   
-  그러나 현재 Tajo는 `ADD PARTITION`` 명령을 제공하지 않고 Hive 또한  ``MSCK REPAIR TABLE`` 명령에 대한 응답을 위한 api를 제공하지 않습니다.
+  그러나 현재 Tajo는 ``ADD PARTITION`` 명령을 제공하지 않고 Hive 또한  ``MSCK REPAIR TABLE`` 명령에 대한 응답을 위한 api를 제공하지 않습니다.
   그래서 Tajo를 통해 테이블 파티션이 업데이트된 것을 검색 하기를 원하거나 파티션 테이블에 데이터를 insert 하기를 원한다면 Hive에서 다음과 같은 명령어를 실행해야 합니다.::
   
-  예)$ MSCK REPAIR TABLE [table_name];
+  $ MSCK REPAIR TABLE [table_name];

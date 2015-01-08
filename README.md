@@ -3,6 +3,10 @@ Apache Tajo 한글 문서 프로젝트 (tajo-doc-kr)
 Apache Tajo의 공식 메뉴얼(http://tajo.apache.org/docs/devel/)을 한글로 번역 및 작성 합니다.
 또한 Apache Tajo 커미터의 도움으로 한글로 잘 작성된 문서는 Apache Tajo 프로젝트에 영문으로 번역되어 반영될 수 있습니다.
 
+번역 문서
+=========
+ * Tajo (개발 버전) 사용자 메뉴얼 (http://hyunsik.github.io/tajo-doc-kr/docs/0.10.0/)
+
 문서포맷
 =========
 Apache Tajo의 공식 문서와 똑같은 reStructuredText 포맷(http://docutils.sourceforge.net/rst.html)을 사용합니다.
@@ -29,15 +33,22 @@ index.html
 ....
 ```
 
+Mailing List
+============
+ * tajo-doc-kr at googlegroups.com (https://groups.google.com/forum/#!forum/tajo-doc-kr/new)
+ 
 공헌하기
 ===========
-한글 번역이나 문서 작성 모두 환영합니다. 제출은 Github의 pull request를 이용해주세요!
+ * 이슈 트래커 (https://github.com/hyunsik/tajo-doc-kr/issues)
+ * https://github.com/hyunsik/tajo-doc-kr/wiki/HowToContribute 페이지를 읽어주세요!
 
-참여자
+공헌한 분들
 ===========
 참여를 원하시는 분들은 메일로 연락 주세요.
 
- * 최현식 (Hyunsik Choi) (hyunsik at apache dot org)
+ * 최현식 (Hyunsik Choi) (https://github.com/hyunsik)
+ * 남윤민 (Yoonmin Nam) (https://github.com/RonyMin)
+ * 장정식 (Jeongshik Jang) (https://github.com/jsjang0070)
  
 License
 ===========

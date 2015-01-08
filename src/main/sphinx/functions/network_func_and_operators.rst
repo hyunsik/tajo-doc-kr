@@ -10,8 +10,8 @@
 네트워크 함수와 연산자들을 사용하기 위해서는 모든 워커의 로컬디스크에 GeoIP 데이터베이스가 설치되어 있어야 합니다.
 (GeoIP의 설치를 위해서는 이 링크를 참고해 주세요:  http://dev.maxmind.com/geoip/legacy/downloadable/)
 
-GeoIP 데이터베이스가 설치되었다면, 설치위치를 ``conf/tajo-site.xml`` 에 아래와 같이 입력해주시면 모든 준비가 끝납니다.
-::
+GeoIP 데이터베이스가 설치되었다면, 설치위치를 ``conf/tajo-site.xml`` 에 아래와 같이 입력해주시면 모든 준비가 끝납니다. ::
+
   <property>
     <name>tajo.function.geoip-database-location</name>
     <value>/path/to/geoip/database/file</value>

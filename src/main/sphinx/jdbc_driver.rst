@@ -13,7 +13,7 @@ How to get JDBC driver
 배포판에서 JDBC Driver jar파일을 얻는 법
 --------------------------------
 
-타조의 배포판에는 JDBC Driver가 포함되어 있습니다. Driver jar파일의 경로는 아래와 같습니다.
+Tajo의 배포판에는 JDBC Driver가 포함되어 있습니다. Driver jar파일의 경로는 아래와 같습니다.
 ``${TAJO_HOME}/share/jdbc-dist/``
 
 
@@ -22,7 +22,7 @@ How to get JDBC driver
 
 또는 직접 source Code를 빌드하신다면 아래와 같이 우선  소스코드 압축파일의 압축을 푼 후에
 메이븐 명령을 통해서 빌드를 수행하면 메이븐의 빌드결과 디렉토리인 target 디렉토리의 하위에
-타조의 배포판과 동일한 폴더구조가 생성됩니다. 상세 경로는 아래와 같습니다.
+Tajo의 배포판과 동일한 폴더구조가 생성됩니다. 상세 경로는 아래와 같습니다.
 
 
 .. code-block:: bash
@@ -34,14 +34,14 @@ How to get JDBC driver
 CLASSPATH에 JDBC Jar 등록
 =======================
 
-jdbc Driver를 찾았다면 이제 classpath에 등록을 해주어야 합니다.  또한 hadoop 에 대한 classpath도 반드시 등록해줘야 합니다.
+JDBC Driver를 찾았다면 이제 classpath에 등록을 해주어야 합니다.  또한 hadoop 에 대한 classpath도 반드시 등록해줘야 합니다.
 아래와 같이 classpath 환경변수에 설정할 수 있습니다.
 .. code-block:: bash
 
   CLASSPATH=path/to/tajo-jdbc/*:path/to/tajo-site.xml:path/to/core-site.xml:path/to/hdfs-site.xml
 
 .. note::
-  그리고 타조의 환경설정파일과 hadoop의 설정파일도 classpath에 등록해주어야 합니다. 예를 들면 ''tajo-site.xml'' ,
+  그리고 Tajo의 환경설정파일과 hadoop의 설정파일도 classpath에 등록해주어야 합니다. 예를 들면 ''tajo-site.xml'' ,
   ''core-site.xml'' 그리고 ''hdfs-site.xml'' 과 같은 파일들을 등록해야 합니다.
  
 
@@ -50,15 +50,15 @@ Tajo의 JDBC Driver를 이용해서 client에서 접속하는 예제
 
 Tajo의 JDBC Driver 이름은 ``org.apache.tajo.jdbc.TajoDriver``. 
 clssForName구문을 이용해서 등록할 수 있습니다.``Class.forName("org.apache.tajo.jdbc.TajoDriver")``.
-접속 url은 jdbc url규약에 따라  ``jdbc:tajo://<TajoMaster hostname>:<TajoMaster client rpc port>/<database name>``
+접속 url은 JDBC url규약에 따라  ``jdbc:tajo://<TajoMaster hostname>:<TajoMaster client rpc port>/<database name>``
 같은 형태가 됩니다. 
-타조에서 클라이언트의 원격접속을 위한 기본포트는  ``26002`` 을 사용합니다. 
+Tajo에서 클라이언트의 원격접속을 위한 기본포트는  ``26002`` 을 사용합니다. 
 따라서 만약 포트를 변경하고 싶으시면 설정 문서를 참고하세요. `/configuration/configuration_defaults`.
 
 .. note::
 
-  현재 타조는 더 이상 데이터베이스의 네임스페이스 컨셉에 대해서 지원하지 않습니다. 모든 테이블은 ''default'' 데이터베이스 안에 포함되어 있습니다.
-  따라서 타조를 사용하실 때에는 mysql 과 같은 데이터베이스처럼 database명을 지정하지 않으셔도 됩니다.
+  현재 Tajo는 더 이상 데이터베이스의 네임스페이스 컨셉에 대해서 지원하지 않습니다. 모든 테이블은 ''default'' 데이터베이스 안에 포함되어 있습니다.
+  따라서 Tajo를 사용하실 때에는 mysql 과 같은 데이터베이스처럼 database명을 지정하지 않으셔도 됩니다.
 
 
 그럼 이제 실제로 작성된 예제를 보도록 하겠습니다.

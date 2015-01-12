@@ -37,8 +37,8 @@ HiveMetaStore에 jdbc 연결이 필요하면 conf/tajo-env.sh 파일에 ``HIVE_J
 
 .. note::
 
-Hive는 각각의 테이블에 대한 파티션 목록을 메타스토어에 유지합니다. Hive에서 새로운 파티션이 추가 될 때 Hive가 인식할 수 있도록 사용자는  ALTER TABLE table_name ADD PARTITION  명령 이용해 추가된 파티션 정보를 입력하거나  MSCK REPAIR TABLE table_name  명령을 이용해서 전체 파티션 목록을 갱신해야 합니다.
+  Hive는 각각의 테이블에 대한 파티션 목록을 메타스토어에 유지합니다. Hive에서 새로운 파티션이 추가 될 때 Hive가 인식할 수 있도록 사용자는  ``ALTER TABLE table_name ADD PARTITION``  명령 이용해 추가된 파티션 정보를 입력하거나  ``MSCK REPAIR TABLE table_name``  명령을 이용해서 전체 파티션 목록을 갱신해야 합니다.
 
-그러나 현재 Tajo에서는 위와 같은 기능을 지원하지 않습니다. 따라서 Tajo를 통해 추가된 테이블 파티션을 Hive 메타스토어에 반영하기 위해서는 다음과 같은 명령을 실행해야 합니다. ::
+  그러나 현재 Tajo에서는 위와 같은 기능을 지원하지 않습니다. 따라서 Tajo를 통해 추가된 테이블 파티션을 Hive 메타스토어에 반영하기 위해서는 다음과 같은 명령을 실행해야 합니다. ::
 
   $ MSCK REPAIR TABLE [table_name];

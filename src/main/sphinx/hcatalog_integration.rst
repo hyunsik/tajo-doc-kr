@@ -23,8 +23,8 @@ Hive 0.11.0를 사용하기 위해서는 ``-Phcatalog-0.11.0`` 처럼 maven 프�
 
   export HIVE_HOME=/path/to/your/hive/directory
 
-HiveMetaStore에 jdbc 연결이 필요하면 MySQL JDBC 드라이버를 준비해야 합니다.
-다음 JDBC 드라이버 jar 파일 경로를 설정하기 위해 conf/tajo-env.sh 파일에 ``HIVE_JDBC_DRIVER_DIR`` 환경변수를 다음처럼 설정해야 합니다.: ::
+연동하려는 Hive 메타스토어가 MySQL을 활용한 JDBC 기반으로 동작한다면 MySQL JDBC 드라이버를 준비하고 Tajo에도 해당 JDBC driver를 인식할 수 있도록 설정해야 합니다
+HiveMetaStore에 jdbc 연결이 필요하면 conf/tajo-env.sh 파일에 ``HIVE_JDBC_DRIVER_DIR`` 환경변수를 다음처럼 설정해야 합니다.: ::
 
   export HIVE_JDBC_DRIVER_DIR==/path/to/your/mysql_jdbc_driver/mysql-connector-java-x.x.x-bin.jar
 
@@ -37,11 +37,9 @@ HiveMetaStore에 jdbc 연결이 필요하면 MySQL JDBC 드라이버를 준비�
 
 .. note::
 
-  Hive는 각각의 테이블에 대한 파티션 목록을 저장합니다. 만일 새로운 파티션이 HDFS에 직접 추가된다면 HiveMetastore는 사용자가 새로운 파티션이 
-  추가될 때마다 ``ALTER TABLE table_name ADD PARTITION`` 또는 ``MSCK  REPAIR TABLE  table_name`` 명령이 실행되지 않는 한
-  파티션이 추가된것을 알수 있는 방법이 없습니다.
-  
-  그러나 현재 Tajo는 ``ADD PARTITION`` 명령을 제공하지 않고 Hive 또한  ``MSCK REPAIR TABLE`` 명령에 대한 응답을 위한 api를 제공하지 않습니다.
-  그래서 Tajo를 통해 테이블 파티션이 업데이트된 것을 검색 하기를 원하거나 파티션 테이블에 데이터를 insert 하기를 원한다면 Hive에서 다음과 같은 명령어를 실행해야 합니다.::
-  
+
+Hive는 각각의 테이블에 대한 파티션 목록을 메타스토어에 유지합니다. Hive에서 새로운 파티션이 추가 될 때 Hive가 인식할 수 있도록 사용자는  ALTER TABLE table_name ADD PARTITION  명령 이용해 추가된 파티션 정보를 입력하거나  MSCK REPAIR TABLE table_name  명령을 이용해서 전체 파티션 목록을 갱신해야 합니다.
+
+그러나 현재 Tajo에서는 위와 같은 기능을 지원하지 않습니다. 따라서 Tajo를 통해 추가된 테이블 파티션을 Hive 메타스토어에 반영하기 위해서는 다음과 같은 명령을 실행해야 합니다. ::
+
   $ MSCK REPAIR TABLE [table_name];

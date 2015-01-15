@@ -1,22 +1,21 @@
 *****************
- Predicates
+연산자
 *****************
 
 =====================
- IN Predicate
+ IN 연산자
 =====================
 
-IN predicate provides row and array comparison.
+``IN`` 연산자는 row와 배열 비교를 위해 사용됩니다.
 
-*Synopsis*
+*개요*
 
 .. code-block:: sql
 
   column_reference IN (val1, val2, ..., valN)
   column_reference NOT IN (val1, val2, ..., valN)
 
-
-Examples are as follows:
+예제는 아래와 같습니다.
 
 .. code-block:: sql
 
@@ -26,7 +25,7 @@ Examples are as follows:
   -- this statement filters lists down all the records where col1 value is neither 1, 2 nor 3:
   SELECT col1, col2 FROM table1 WHERE col1 NOT IN (1, 2, 3);
 
-You can use 'IN clause' on text data domain as follows:
+문자 데이터에 대해서도 ``IN`` 연산자를 사용할 수 있습니다.
 
 .. code-block:: sql
 
@@ -36,16 +35,17 @@ You can use 'IN clause' on text data domain as follows:
 
 
 ==================================
-String Pattern Matching Predicates
+String 패턴과 매칭 연산자
 ==================================
 
 --------------------
 LIKE
 --------------------
 
-LIKE operator returns true or false depending on whether its pattern matches the given string. An underscore (_) in pattern matches any single character. A percent sign (%) matches any sequence of zero or more characters.
+``LIKE`` 연산자는 주어진 string에 대해 패턴 매칭 검사를 한 후 true 혹은 false를 결과로 돌려줍니다.
+패턴에 포함된 ``_`` 는 하나의 문자를 의미하고, ``%`` 는 0개, 혹은 그 이상의 어떤 문자열을 의미합니다.
 
-*Synopsis*
+*개요*
 
 .. code-block:: sql
 
@@ -57,9 +57,9 @@ LIKE operator returns true or false depending on whether its pattern matches the
 ILIKE
 --------------------
 
-ILIKE is the same to LIKE, but it is a case insensitive operator. It is not in the SQL standard. We borrow this operator from PostgreSQL.
+``ILIKE`` 연산자는 ``LIKE`` 와 같지만 대소문자 구분이 없습니다. 이는 SQL의 표준은 아니며, PostgreSQL의 구현을 빌려왔습니다.
 
-*Synopsis*
+*개요*
 
 .. code-block:: sql
 
@@ -71,48 +71,51 @@ ILIKE is the same to LIKE, but it is a case insensitive operator. It is not in t
 SIMILAR TO
 --------------------
 
-*Synopsis*
+*개요*
 
 .. code-block:: sql
 
   string SIMILAR TO pattern
   string NOT SIMILAR TO pattern
 
-It returns true or false depending on whether its pattern matches the given string. Also like LIKE, ``SIMILAR TO`` uses ``_`` and ``%`` as metacharacters denoting any single character and any string, respectively.
+``SIMILAR TO`` 는 주어진 string에 대해 주어진 패턴이 맞는지를 계산해 true 혹은 false를 돌려줍니다.
+또한, ``LIKE`` 와 비슷하게, ``SIMILAR TO`` 연산자는 ``_`` 와 ``%`` 를 메타문자로 사용할 수 있습니다.
 
-In addition to these metacharacters borrowed from LIKE, 'SIMILAR TO' supports more powerful pattern-matching metacharacters borrowed from regular expressions:
+``LIKE`` 로부터 빌려온 이러한 메타문자들과 더불어, ``SIMILAR TO`` 연산자는 더욱 강력한 패턴매칭을 위해 정규식의 다양한 메타문자들을 지원합니다. 
 
-+------------------------+-------------------------------------------------------------------------------------------+
-| metacharacter          | description                                                                               |
-+========================+===========================================================================================+
-| &#124;                 | denotes alternation (either of two alternatives).                                         |
-+------------------------+-------------------------------------------------------------------------------------------+
-| *                      | denotes repetition of the previous item zero or more times.                               |
-+------------------------+-------------------------------------------------------------------------------------------+
-| +                      | denotes repetition of the previous item one or more times.                                |
-+------------------------+-------------------------------------------------------------------------------------------+
-| ?                      | denotes repetition of the previous item zero or one time.                                 |
-+------------------------+-------------------------------------------------------------------------------------------+
-| {m}                    | denotes repetition of the previous item exactly m times.                                  |
-+------------------------+-------------------------------------------------------------------------------------------+
-| {m,}                   | denotes repetition of the previous item m or more times.                                  |
-+------------------------+-------------------------------------------------------------------------------------------+
-| {m,n}                  | denotes repetition of the previous item at least m and not more than n times.             |
-+------------------------+-------------------------------------------------------------------------------------------+
-| []                     | A bracket expression specifies a character class, just as in POSIX regular expressions.   |
-+------------------------+-------------------------------------------------------------------------------------------+
-| ()                     | Parentheses can be used to group items into a single logical item.                        |
-+------------------------+-------------------------------------------------------------------------------------------+
++------------------------+----------------------------------------------------------------+
+| 메타문자               | 설명                                                           |
++========================+================================================================+
+| &#124;                 | 두개의 아이템 중 하나를 의미.                                  |
++------------------------+----------------------------------------------------------------+
+| *                      | 이전 아이템이 0번 이상 반복됨.                                 |
++------------------------+----------------------------------------------------------------+
+| +                      | 이전 아이템이 1번 이상 반복됨.                                 |
++------------------------+----------------------------------------------------------------+
+| ?                      | 이전 아이템이 0번 혹은 한번 반복됨.                            |
++------------------------+----------------------------------------------------------------+
+| {m}                    | 이전 아이템이 정확히 m번 반복됨.                               |
++------------------------+----------------------------------------------------------------+
+| {m,}                   | 이전 아이템이 m번 혹은 그 이상 반복됨.                         |
++------------------------+----------------------------------------------------------------+
+| {m,n}                  | 이전 아이템이 최소한 m번 반복되고, n번 이상은 반복되지 않음.   |
++------------------------+----------------------------------------------------------------+
+| []                     | POSIX 정규 표현식과 같이 문자열 클래스를 의미.                 |
++------------------------+----------------------------------------------------------------+
+| ()                     | 괄호 내의 아이템들을 하나의 논리적인 아이템으로 묶음.          |
++------------------------+----------------------------------------------------------------+
 
-Note that `.`` is not used as a metacharacter in ``SIMILAR TO`` operator.
+``.`` 의 경우는 ``SIMILAR TO`` 연산자의 메타문자로 사용되지 않는점을 유의하세요.
 
 ---------------------
-Regular expressions
+정규식
 ---------------------
 
-Regular expressions provide a very powerful means for string pattern matching. In the current Tajo, regular expressions are based on Java-style regular expressions instead of POSIX regular expression. The main difference between java-style one and POSIX's one is character class.
+정규식은 string 패턴 매칭을 위한 강력한 도구 입니다. 
+현재 Tajo에서는, POSIX 정규식을 대신해 자바언어와 유사한 정규식을 제공합니다.
+두 정규식의 주요 차이점은 문자 클래스에 있습니다.
 
-*Synopsis*
+*개요*
 
 .. code-block:: sql
 
@@ -123,18 +126,18 @@ Regular expressions provide a very powerful means for string pattern matching. I
   string !~* pattern
 
 +----------+---------------------------------------------------------------------------------------------------+
-| operator | Description                                                                                       |
+| 연산자   | 설명                                                                                              |
 +==========+===================================================================================================+
-| ~        | It returns true if a given regular expression is matched to string. Otherwise, it returns false.  |
+| ~        | 주어진 정규식이 string과 매칭될 경우 true를 돌려줍니다. 그렇지 않다면, false를 돌려줍니다.        |
 +----------+---------------------------------------------------------------------------------------------------+
-| !~       | It returns false if a given regular expression is matched to string. Otherwise, it returns true.  |
+| !~       | 주어진 정규식이 string과 매칭될 경우 false를 돌려줍니다. 그렇지 않다면, true를 돌려줍니다.        |
 +----------+---------------------------------------------------------------------------------------------------+
-| ~*       | It is the same to '~', but it is case insensitive.                                                |
+| ~*       | '~' 연산자와 동일하지만, 대소문자 구분이 없습니다.                                                |
 +----------+---------------------------------------------------------------------------------------------------+
-| !~*      | It is the same to '!~', but it is case insensitive.                                               |
+| !~*      | '!~' 연산자와 동일하지만, 대소문자 구분이 없습니다.                                               |
 +----------+---------------------------------------------------------------------------------------------------+
 
-Here are examples:
+아래에 몇가지 예제가 있습니다.
 
 .. code-block:: sql
 
@@ -142,11 +145,11 @@ Here are examples:
   'abc'   ~   'c'                 false
   'aaabc' ~   '([a-z]){3}bc       true
   'abc'   ~*  '.*C'               true
-  'abc'   !~* 'B.*'               true
+  'abc'   !~* 'B.*'            
 
-Regular expressions operator is not in the SQL standard. We borrow this operator from PostgreSQL.
+정규식 연산자들은 SQL 표준은 아닙니다. Tajo는 정규식 연산자들을 PostgreSQL 로부터 빌려왔습니다.
 
-*Synopsis for REGEXP and RLIKE operators*
+*REGEXP 연산자와 RLIKE 연산자 개요*
 
 .. code-block:: sql
 
@@ -156,4 +159,4 @@ Regular expressions operator is not in the SQL standard. We borrow this operator
   string RLIKE pattern
   string NOT RLIKE pattern
 
-But, they do not support case-insensitive operators.
+그러나, 이들은 대소문자 구분이 필요합니다.

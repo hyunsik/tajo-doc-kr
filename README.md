@@ -46,9 +46,9 @@ Mailing List
 ===========
 참여를 원하시는 분들은 메일로 연락 주세요.
 
- * 최현식 (Hyunsik Choi) (hyunsik at apache dot org)
- * 남윤민 (Yoonmin Nam)
-
+ * 최현식 (Hyunsik Choi) (https://github.com/hyunsik)
+ * 남윤민 (Yoonmin Nam) (https://github.com/RonyMin)
+ * 장정식 (Jeongshik Jang) (https://github.com/jsjang0070)
  
 License
 ===========

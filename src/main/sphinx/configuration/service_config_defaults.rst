@@ -1,12 +1,12 @@
 **************************************
-Cluster Service Configuration Defaults 
+클러스터 서비스 설정 기본값
 **************************************
 
-Tajo Master Configuration Defaults
+타조 마스터 설정 기본값
 ====================================
 
 ============================  ==============================================================  ===========   ===============  
-  Service Name                Config Property Name                                            Description   default address 
+  서비스 명                      설정 속성 명                                                       설명           기본 주소 값 
 ============================  ==============================================================  ===========   ===============  
 Tajo Master Umbilical Rpc     tajo.master.umbilical-rpc.address                                             localhost:26001 
 Tajo Master Client Rpc        tajo.master.client-rpc.address                                                localhost:26002 
@@ -16,11 +16,11 @@ Tajo Catalog Client Rpc       tajo.catalog.client-rpc.address                   
 ============================  ==============================================================  ===========   ===============  
 
 ====================================
-Tajo Worker Configuration Defaults
+타조 워커 설정 기본값
 ====================================
 
 ============================  ==============================================================  ===========   ===============  
-  Service Name                Config Property Name                                            Description   default address 
+  서비스 명                      설정 속성 명                                                       설명           기본 주소 값 
 ============================  ==============================================================  ===========   ===============  
 Tajo Worker Peer Rpc          tajo.worker.peer-rpc.address                                                  0.0.0.0:28091   
 Tajo Worker Client Rpc        tajo.worker.client-rpc.address                                                0.0.0.0:28092   

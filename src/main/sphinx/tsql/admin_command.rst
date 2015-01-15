@@ -1,13 +1,13 @@
 *********************************
-Administration Commands
+어드민 명령들
 *********************************
 
 
 ==========
-Synopsis
+요약
 ==========
 
-Tsql provides administration commands as follows:
+tsql 는 다음과 같은 어드민 명령을 제공합니다:
 
 .. code-block:: sql
 
@@ -23,10 +23,10 @@ Tsql provides administration commands as follows:
 
 
 -----------------------------------------------
-Basic usages
+기본 사용법
 -----------------------------------------------
 
-``-list`` option shows a list of all running queries as follows: ::
+``-list`` 옵션은 다음과 같이 실행 중인 모든 질의 목록을 보여줍니다: ::
 
   default> \admin -list
   QueryId              State               StartTime           Query
@@ -34,7 +34,7 @@ Basic usages
   q_1411357607375_0006 QUERY_RUNNING       2014-09-23 07:19:40 select count(*) from lineitem
 
 
-``-desc`` option shows a detailed description of a specified running query as follows: ::
+``-desc`` 옵션은 다음과 같이 실행 중인 해당 질의에 대한 세부 설명을 보여줍니다: ::
 
   default> \admin -desc q_1411357607375_0006
   Id: 1
@@ -47,14 +47,14 @@ Basic usages
   select count(*) from lineitem
 
 
-``-kill`` option kills a specified running query as follows: ::
+``-kill`` 옵션은 다음과 같이 지정된 실행 중인 질의를 중지합니다: ::
 
   default> \admin -kill q_1411357607375_0007
   q_1411357607375_0007 is killed successfully.
 
 
 
-``-showmasters`` option shows a list of all tajo masters as follows: ::
+``-showmasters`` 옵션은 다음과 같이 모든 타조 마스터 목록을 보여줍니다: ::
 
   default> \admin -showmasters
   grtajo01

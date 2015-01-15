@@ -1,16 +1,16 @@
 ***************
-Preliminary
+준비
 ***************
 
 ===================================
-catalog-site.xml and tajo-site.xml
+catalog-site.xml 와 tajo-site.xml
 ===================================
-Tajo's configuration is based on Hadoop's configuration system. Tajo uses two config files:
+타조 설정은 하둡 설정 시스템에 기반을 두고 있으며, 두 개의 설정 파일을 사용합니다:
 
-* catalog-site.xml - configuration for the catalog server.
-* tajo-site.xml - configuration for other tajo modules. 
+* catalog-site.xml - 카탈로그 서버 설정.
+* tajo-site.xml - 나머지 타조 모듈들에 대한 설정. 
 
-Each config consists of a pair of a name and a value. If you want to set the config name ``a.b.c`` with the value ``123``, add the following element to an appropriate file.
+각 설정은 속성 이름과 값의 쌍으로 되어 있습니다. 예를 들어, ``a.b.c`` 속성에 ``123`` 값을 지정한다면, 해당 파일에 다음과 같이 정의합니다.
 
 .. code-block:: xml
 
@@ -19,22 +19,22 @@ Each config consists of a pair of a name and a value. If you want to set the con
     <value>123</value>
   </property>
 
-Tajo has a variety of internal configs. If you don't set some config explicitly, the default config will be used for for that config. Tajo is designed to use only a few of configs in usual cases. You may not be concerned with the configuration.
+타조는 다양한 내부 설정이 가능합니다. 어떤 설정들은 따로 명시하지 않으면, 기본 값이 사용되기 때문에, 보통은 몇가지 설정만으로도 타조가 잘 동작하도록 설계되어 있습니다. 따라서, 설정에 대해 걱정을 많이할 필요는 없습니다.
 
-In default, there is no ``tajo-site.xml`` in ``${TAJO}/conf`` directory. If you set some configs, first copy ``$TAJO_HOME/conf/tajo-site.xml.templete`` to ``tajo-site.xml``. Then, add the configs to your tajo-site.
+처음에는, ``${TAJO}/conf`` 디렉토리에 ``tajo-site.xml`` 파일이 없기 때문에, 설정을 하려면, 먼저 ``$TAJO_HOME/conf/tajo-site.xml.templete`` 파일을 ``tajo-site.xml`` 로 복사하, tajo-site 파일에 설정 내용을 적용합니다.
 
 ============
 tajo-env.sh
 ============
 
-tajo-env.sh is a shell script file. The main purpose of this file is to set shell environment variables for TajoMaster and TajoWorker java program. So, you can set some variable as follows:
+tajo-env.sh는 쉘 스크립트 파일입니다. 이 파일의 목적은 자바 프로그램인 타조 마스터와 타조 워커를 위한 쉘 환경 변수들을 지정하기 위한 것으로, 다음과 같은 방법으로 환경 변수들을 지정할 수 있습니다:
 
 .. code-block:: sh
 
-  VARIABLE=value
+  변수명=값
 
-If a value is a literal string, type this as follows:
+변수 값이 문자열인 경우, 다음과 같은 요령으로 입력합니다:
 
 .. code-block:: sh
 
-  VARIABLE='value'
+  변수명='문자열 값'

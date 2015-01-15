@@ -1,11 +1,11 @@
 *********************************
-Meta Commands
+메타 명령
 *********************************
 
 
-In tsql, any command that begins with an unquoted backslash ('\') is a tsql meta-command that is processed by tsql itself.
+tsql에서 역슬래시 ('\\')로 시작하는 모든 명령들은 tsql 차체에서 처리되는 매타 명령들입니다.
 
-In the current implementation, there are meta commands as follows: ::
+현재는 다음과 같은 메타 명령들이 구현되어 있습니다: ::
 
   default> \?
 
@@ -48,10 +48,10 @@ In the current implementation, there are meta commands as follows: ::
     Configuration     http://tajo.apache.org/docs/current/configuration.html
 
 -----------------------------------------------
-Basic usages
+기본 사용법
 -----------------------------------------------
 
-``\l`` command shows a list of all databases as follows: ::
+``\l`` 명령은 다음과 같이 모든 데이터베이스 목록을 보여줍니다: ::
 
   default> \l
   default
@@ -61,7 +61,7 @@ Basic usages
 
 
 
-``\d`` command shows a list of tables in the current database as follows: ::
+``\d`` 명령은 다음과 같이 현재 데이터베이스의 테이블 목록을 보여줍니다: ::
 
   default> \d
   customer
@@ -74,7 +74,7 @@ Basic usages
   supplier
 
 
-``\d [table name]`` command also shows a table description as follows: ::
+``\d [테이블 명]`` 명령은 다음과 같이 테이블 설명을 보여줍니다: ::
 
   default> \d orders
 
@@ -96,7 +96,7 @@ Basic usages
 
 
 
-The prompt ``default>`` indicates the current database. Basically, all SQL statements and meta commands work in the current database. Also, you can change the current database with ``\c`` command.
+프롬프트인 ``default>`` 는 현재 데이터베이스를 나타냅니다. 기본적으로, 모든 SQL 문과 메타 명령들은 현재 데이터베이스에 대해 동작합니다. 그리고, ``\c`` 명령으로 현재 데이터베이스를 변경할 수 있습니다.
 
 .. code-block:: sql
 
@@ -105,7 +105,7 @@ The prompt ``default>`` indicates the current database. Basically, all SQL state
   work1>
 
 
-``\df`` command shows a list of all built-in functions as follows: ::
+``\df`` 명령은 다음과 같이 기본 제공되는 함수 목록을 보여줍니다: ::
 
   default> \df
    Name            | Result type     | Argument types        | Description                                   | Type
@@ -121,9 +121,9 @@ The prompt ``default>`` indicates the current database. Basically, all SQL state
 
   (181) rows
 
-  For Reference, many details have been omitted in order to present a clear picture of the process.
+  참고로, 처리에 대한 명확한 설명을 위해 많은 세부적인 부분들은 생략하였습니다.
 
-``\df [function name]`` command also shows a function description as follows: ::
+``\df [함수 명]`` 명령은 다음과 같이 해당 함수에 대한 설명을 보여줍니다: ::
 
   default> \df round;
    Name            | Result type     | Argument types        | Description                                   | Type

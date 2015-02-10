@@ -5,10 +5,8 @@ Tajo JDBC Driver
 Apache Tajo™  JDBC 드라이버를 제공합니다.  java 어플리케이션에서  RDBMS 접속하듯이 Tajo의 JDBC드라이버를 이용해서
 쉽게 접속할 수 있습니다.
 이 절에서는, 어떻게 JDBC Driver를 얻고 사용할 수 있는지 예제코드를 통해서 설명합니다.
-In this section, we explain how to get JDBC driver and an example code.
 
-How to get JDBC driver
-=======================
+
 
 배포판에서 JDBC Driver jar파일을 얻는 법
 --------------------------------
@@ -106,7 +104,7 @@ FAQ
 
 java.nio.channels.UnresolvedAddressException
 --------------------------------------------
-만약 위와 같은 결과를 얻으셨다면 tajo JDBC Driver가 HDFS의 data Node에 접근을 시도했다가 실패했을 확률이 높습니다.
+만약 위와 같은 결과를 얻으셨다면 Tajo JDBC Driver가 HDFS의 data Node에 접근을 시도했다가 실패했을 확률이 높습니다.
 많은 경우에 HDFS Cluster가 private network로 구축되어 있어서 이 때문에 네트워크적으로 접근할 수 없어서 에러가 발생하는
 경우가 많은데요 이때에는 호스트네임을 클라이언트사이드에서 공유해서 JDBC Driver로 접근가능하도록 해주어야 합니다.
 

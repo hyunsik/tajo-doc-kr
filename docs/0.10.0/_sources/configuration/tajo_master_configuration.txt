@@ -3,10 +3,10 @@ Tajo Master Configuration
 **************************
 
 ================================================
-  Tajo Rootdir
+  타조 루트 디렉토리 (Rootdir)
 ================================================
 
-Tajo uses HDFS as a primary storage layer. So, one Tajo cluster instance should have one tajo rootdir. A user is allowed to specific your tajo rootdir as follows:
+타조는 HDFS를 주 저장소 계층으로 사용하기 때문에, 타조 클러스터는 하나의 타조 루트 디렉토리(rootdir)를 갖게 되고, 다음과 같이 루트 디렉토리를 지정합니다:
 
 .. code-block:: xml
 
@@ -15,18 +15,18 @@ Tajo uses HDFS as a primary storage layer. So, one Tajo cluster instance should 
     <value>hdfs://namenode_hostname:port/path</value>
   </property>
 
-Tajo rootdir must be a url form like ``scheme://hostname:port/path``. The current implementaion only supports ``hdfs://`` and ``file://`` schemes. The default value is ``file:///tmp/tajo-${user.name}/``.
+타조 루트 디렉토리는 반드시 ``scheme://hostname:port/path`` 와 같은 형식으로 지정합니다. 현재 지원되는 형식은 ``hdfs://`` 와 ``file://`` 이고, 기본 값은 ``file:///tmp/tajo-${user.name}/`` 입니다.
 
 ================================================
-TajoMaster Heap Memory Size
+타조 마스터 힙 메모리 크기
 ================================================
 
-The environment variable TAJO_MASTER_HEAPSIZE in conf/tajo-env.sh allow Tajo Master to use the specified heap memory size.
+conf/tajo-env.sh 파일 내용 중에 TAJO_MASTER_HEAPSIZE 환경 변수에 타조 마스터의 힙 메모리 크기를 지정할 수 있습니다.
 
-If you want to adjust heap memory size, set ``TAJO_MASTER_HEAPSIZE`` variable in ``conf/tajo-env.sh`` with a proper size as follows:
+힙 메모리 크기를 변경하려면, 다음과 같이 ``conf/tajo-env.sh`` 파일 내용 중 ``TAJO_MASTER_HEAPSIZE`` 변수에 적절한 값을 지정합니다:
 
 .. code-block:: sh
 
   TAJO_MASTER_HEAPSIZE=2000
 
-The default size is 1000 (1GB). 
+기본 값은 1000 (1GB) 입니다. 

@@ -1,14 +1,14 @@
 *********************************
-Executing Queries from Files
+파일에 저장된 질의 실행
 *********************************
 
 
 -----------------------------------------------
-Basic usages
+기본 사용법
 -----------------------------------------------
 
 
-``-f`` command allows tsql to execute more than one SQL statements stored in a text file as follows:
+``-f`` 명령은 다음과 같이 한 파일에 저장된 여러 쿼리들을 tsql이 수행하도록 합니다:
 
 .. code-block:: sql
 
@@ -36,17 +36,17 @@ Basic usages
 
 
 -----------------------------------------------
-Setting parameter value in SQL file
+SQL 파일에 파라미터 값 지정하기
 -----------------------------------------------
 
-If you wish to set a parameter value in the SQL file, you can set with the -param key=value option. When you use this feature, you have to use the parameter in the file as follows:
+SQL 파일에 파라미터 값을 지정하려면, -param 키=값 옵션을 사용합니다. 이 기능을 사용할 때는 다음과 같이 파일에 파라미터을 정의합니다:
 
 .. code-block:: sql
 
-  ${paramter name}
+  ${파라미터 명}
 
 
-You have to put the parameter name in braces and you must use the $ symbol for the prefix as follows:
+다음과 같이 $ 기호로 시작하는 중괄호 안에 파라미터 명을 넣어서 정의합니다:
 
 .. code-block:: sql
 

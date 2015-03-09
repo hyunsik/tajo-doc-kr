@@ -59,7 +59,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Apache Tajo란?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">시작하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id2">준비 사항</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
@@ -91,7 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
@@ -115,24 +115,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../table_management.html">Table Management</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../table_management.html">테이블 관리</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="file_formats.html">파일 포맷</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compression.html">압축</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog 통합</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
@@ -165,7 +165,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../table_management.html">Table Management</a> &raquo;</li>
+          <li><a href="../table_management.html">테이블 관리</a> &raquo;</li>
       
           <li><a href="file_formats.html">파일 포맷</a> &raquo;</li>
       
@@ -182,15 +182,13 @@
             
   <div class="section" id="parquet">
 <h1>Parquet<a class="headerlink" href="#parquet" title="Permalink to this headline">¶</a></h1>
-<p>Parquet is a columnar storage format for Hadoop. Parquet is designed to make the advantages of compressed,
-efficient columnar data representation available to any project in the Hadoop ecosystem,
-regardless of the choice of data processing framework, data model, or programming language.
-For more details, please refer to <a class="reference external" href="http://parquet.io/">Parquet File Format</a>.</p>
-<div class="section" id="how-to-create-a-parquet-table">
-<h2>How to Create a Parquet Table?<a class="headerlink" href="#how-to-create-a-parquet-table" title="Permalink to this headline">¶</a></h2>
-<p>If you are not familiar with <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> statement, please refer to Data Definition Language <a class="reference internal" href="../sql_language/ddl.html"><em>데이터 정의 언어 (DDL, Data Definition Language)</em></a>.</p>
-<p>In order to specify a certain file format for your table, you need to use the <tt class="docutils literal"><span class="pre">USING</span></tt> clause in your <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt>
-statement. Below is an example statement for creating a table using parquet files.</p>
+<p>Parquet 는 하둡의 컬럼방식의 저장 포맷입니다. Parquet 는 프로그래밍 언어, 데이터 모델, 혹은 데이터 처리 엔진에 관계 없이 하둡 에코시스템에 속하는 프로젝트에서 컬럼방식으로 저장된 데이터에 대한 효율적인 저장과 처리성능 향상을 도모하기 위하여 만들어졌습니다.
+자세한 내용은 <a class="reference external" href="http://parquet.io/">Parquet File Format</a> 를 참고해 주세요.</p>
+<div class="section" id="tajo-parquet">
+<h2>Tajo에서 어떻게 Parquet 저장 포맷을 사용한 테이블을 만드나요?<a class="headerlink" href="#tajo-parquet" title="Permalink to this headline">¶</a></h2>
+<p>아직 CREATE TABLE 선언문에 익숙하지 않으시다면,  데이터 정의 언어 (DDL, Data Definition Language) <a class="reference internal" href="../sql_language/ddl.html"><em>데이터 정의 언어 (DDL, Data Definition Language)</em></a> 을 참고해 주세요.</p>
+<p>여러분의 테이블에 특정한 타일 포맷을 지정하시고 싶으시다면. <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> 선언에 <tt class="docutils literal"><span class="pre">USING</span></tt> 절을 사용하시면 됩니다.
+아래의 예제는 Parquet 포맷으로 테이블을 작성하는 방법을 설명합니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table1</span> <span class="p">(</span>
   <span class="n">id</span> <span class="nb">int</span><span class="p">,</span>
   <span class="n">name</span> <span class="nb">text</span><span class="p">,</span>
@@ -200,23 +198,23 @@ statement. Below is an example statement for creating a table using parquet file
 </pre></div>
 </div>
 </div>
-<div class="section" id="physical-properties">
-<h2>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h2>
-<p>Some table storage formats provide parameters for enabling or disabling features and adjusting physical parameters.
-The <tt class="docutils literal"><span class="pre">WITH</span></tt> clause in the CREATE TABLE statement allows users to set those parameters.</p>
-<p>Now, Parquet file provides the following physical properties.</p>
+<div class="section" id="id1">
+<h2>물리적 속성들<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>몇몇 테이블 저장 포맷은 테이블의 물리적 속성을 조정할 수 있는 기능을 허용하거나 허용하지 않도록 설정할 수 있는 파라메터를 제공합니다.
+<tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> 선언문에  <tt class="docutils literal"><span class="pre">WITH</span></tt> 절을 사용하여 여러 파라메터들을 설정할 수 있습니다.</p>
+<p>아래에 Parquet 저장 포맷의 여러가지 물리적 속성과 자세한 설명을 기술하였습니다.</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">parquet.block.size</span></tt>: The block size is the size of a row group being buffered in memory. This limits the memory usage when writing. Larger values will improve the I/O when reading but consume more memory when writing. Default size is 134217728 bytes (= 128 * 1024 * 1024).</li>
-<li><tt class="docutils literal"><span class="pre">parquet.page.size</span></tt>: The page size is for compression. When reading, each page can be decompressed independently. A block is composed of pages. The page is the smallest unit that must be read fully to access a single record. If this value is too small, the compression will deteriorate. Default size is 1048576 bytes (= 1 * 1024 * 1024).</li>
-<li><tt class="docutils literal"><span class="pre">parquet.compression</span></tt>: The compression algorithm used to compress pages. It should be one of <tt class="docutils literal"><span class="pre">uncompressed</span></tt>, <tt class="docutils literal"><span class="pre">snappy</span></tt>, <tt class="docutils literal"><span class="pre">gzip</span></tt>, <tt class="docutils literal"><span class="pre">lzo</span></tt>. Default is <tt class="docutils literal"><span class="pre">uncompressed</span></tt>.</li>
-<li><tt class="docutils literal"><span class="pre">parquet.enable.dictionary</span></tt>: The boolean value is to enable/disable dictionary encoding. It should be one of either <tt class="docutils literal"><span class="pre">true</span></tt> or <tt class="docutils literal"><span class="pre">false</span></tt>. Default is <tt class="docutils literal"><span class="pre">true</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">parquet.block.size</span></tt>: 메모리에 버퍼링 될 로우 그룹의 크기에 대한 속성입니다. 이를 통해 쓰기를 수행할 때 사용 가능한 메모리의 양을 제한할 수 있습니다. 큰 값을 지정하실수록 메모리를 많이 소비하지만 I/O성능을 향상시키실 수 있습니다. 기본적으로 134217728 바이트 (= 128 * 1024 * 1024) 로 지정되어 있습니다.</li>
+<li><tt class="docutils literal"><span class="pre">parquet.page.size</span></tt>: 압축을 위한 페이지 크기에 대한 속성입니다. 읽기의 경우 각각의 페이지들은 독립적으로 압축을 풀게 되어있습니다. 하나의 블록은 여러개의 페이지로 구성되어 있으며 페이지는 하나의 레코드를 완전히 읽기 위한 가장 작은 단위입니다. 만약 이 속성값이 너무 작다면, 압축으로 인해 오히려 성능이 더 나빠질 것입니다. 기본값으로 1048576 바이트 (= 1 * 1024 * 1024) 가 설정되어 있습니다 .</li>
+<li><tt class="docutils literal"><span class="pre">parquet.compression</span></tt>: 페이지를 압축하기 위한 압축 알고리즘을 설정하는 속성입니다. <tt class="docutils literal"><span class="pre">uncompressed</span></tt>, <tt class="docutils literal"><span class="pre">snappy</span></tt>, <tt class="docutils literal"><span class="pre">gzip</span></tt>, <tt class="docutils literal"><span class="pre">lzo</span></tt> 중에서 하나의 알고리즘을 선택하시면 됩니다. 기본적으로 <tt class="docutils literal"><span class="pre">uncompressed</span></tt> 로 설정이 되어 페이지에 대한 압축을 수행하지 않습니다.</li>
+<li><tt class="docutils literal"><span class="pre">parquet.enable.dictionary</span></tt>: 불리언 값으로 dictionary encoding의 수행 여부를 설정합니다. <tt class="docutils literal"><span class="pre">true</span></tt> 혹은 <tt class="docutils literal"><span class="pre">false``의</span> <span class="pre">값</span> <span class="pre">중</span> <span class="pre">하나로</span> <span class="pre">설정</span> <span class="pre">되어있어야</span> <span class="pre">하며,</span> <span class="pre">기본값으로</span> <span class="pre">``true</span></tt> 가 설정되어 있습니다.</li>
 </ul>
 </div>
-<div class="section" id="compatibility-issues-with-apache-hive">
-<h2>Compatibility Issues with Apache Hive™<a class="headerlink" href="#compatibility-issues-with-apache-hive" title="Permalink to this headline">¶</a></h2>
-<p>At the moment, Tajo only supports flat relational tables.
-As a result, Tajo&#8217;s Parquet storage type does not support nested schemas.
-However, we are currently working on adding support for nested schemas and non-scalar types (<a class="reference external" href="https://issues.apache.org/jira/browse/TAJO-710">TAJO-710</a>).</p>
+<div class="section" id="id2">
+<h2>아파치 하이브와의 호환성 이슈들<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>현재 Tajo는 flat한 관계 테이블만을 지원하고 있습니다.
+따라서 Tajo의 Parquet 저장 타입은 중첩된 스키마들을 지원하지 않습니다.
+그러나, 현재 중첩된 스키마와 비-스칼라 타입들에 대한 지원을 추가하기 위해 관련 사항들에 대한 개발을 진행중입니다. (<a class="reference external" href="https://issues.apache.org/jira/browse/TAJO-710">TAJO-710</a>).</p>
 </div>
 </div>
 

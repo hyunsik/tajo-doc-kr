@@ -29,7 +29,7 @@
 
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
-        <link rel="up" title="SQL Language" href="../sql_language.html"/>
+        <link rel="up" title="SQL 언어 (Tajo 질의 언어)" href="../sql_language.html"/>
         <link rel="next" title="SQL 수식" href="sql_expression.html"/>
         <link rel="prev" title="데이터 삽입: INSERT (OVERWRITE) INTO" href="insert.html"/> 
 
@@ -59,7 +59,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Apache Tajo란?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">시작하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id2">준비 사항</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
@@ -91,7 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_model.html">데이터 모델</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
@@ -115,24 +115,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">테이블 관리</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog 통합</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
@@ -165,7 +165,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../sql_language.html">SQL Language</a> &raquo;</li>
+          <li><a href="../sql_language.html">SQL 언어 (Tajo 질의 언어)</a> &raquo;</li>
       
     <li>질의하기</li>
       <li class="wy-breadcrumbs-aside">
@@ -220,7 +220,7 @@
 </div>
 <div class="section" id="id4">
 <h3>조인된 테이블<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>타조는 모든 타입의 조인을 지원합니다!</p>
+<p>Tajo는 모든 타입의 조인을 지원합니다!</p>
 <div class="section" id="id5">
 <h4>조인 타입<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="cross-join">
@@ -360,7 +360,7 @@ Grouping 은 동일한 값을 가진 row의 집합을 하나의 그룹으로 만
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">현제, 타조는 하나의 SQL 수식에 여러개의 다른 파티션 구문에 대해 지원하고 있지 않습니다.</p>
+<p class="last">현제, Tajo는 하나의 SQL 수식에 여러개의 다른 파티션 구문에 대해 지원하고 있지 않습니다.</p>
 </div>
 </div>
 </div>

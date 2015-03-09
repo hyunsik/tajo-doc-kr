@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Backup and Restore Catalog &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>카탈로그 백업 및 복원 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -29,9 +29,9 @@
 
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
-        <link rel="up" title="Backup and Restore" href="../backup_and_restore.html"/>
+        <link rel="up" title="백업 및 복원" href="../backup_and_restore.html"/>
         <link rel="next" title="HCatalog Integration" href="../hcatalog_integration.html"/>
-        <link rel="prev" title="Backup and Restore" href="../backup_and_restore.html"/> 
+        <link rel="prev" title="백업 및 복원" href="../backup_and_restore.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -59,7 +59,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Apache Tajo란?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">시작하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id2">준비 사항</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
@@ -68,30 +68,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id7">첫 질의 실행</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/preliminary.html">Preliminary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/cluster_setup.html">Cluster Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">설정</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/preliminary.html">준비</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/cluster_setup.html">클러스터 구성</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../configuration/tajo_master_configuration.html">Tajo Master Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/worker_configuration.html">Worker Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog_configuration.html">Catalog Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/ha_configuration.html">High Availability for TajoMaster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo-site-xml.html">The tajo-site.xml File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog-site-xml.html">The catalog-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/worker_configuration.html">워커(Worker) 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog_configuration.html">카탈로그 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/ha_configuration.html">타조 마스터 고 가용성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/service_config_defaults.html">클러스터 서비스 설정 기본값</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/tajo-site-xml.html">tajo-site.xml 파일</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/catalog-site-xml.html">catalog-site.xml 파일</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">Meta Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">Executing HDFS commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">Session Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">Administration Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">Introducing to TSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">Executing a single command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">Executing Queries from Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tsql.html">타조 쉘 (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">메타 명령</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">HDFS 명령 실행법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">세션 변수들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">어드민 명령들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">TSQL 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">단일 명령 실행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">파일에 저장된 질의 실행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">백그라운드 프로세스로 실행</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
@@ -115,21 +115,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">테이블 관리</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Backup and Restore Catalog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../backup_and_restore.html">백업 및 복원</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">카탈로그 백업 및 복원</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
@@ -165,9 +165,9 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../backup_and_restore.html">Backup and Restore</a> &raquo;</li>
+          <li><a href="../backup_and_restore.html">백업 및 복원</a> &raquo;</li>
       
-    <li>Backup and Restore Catalog</li>
+    <li>카탈로그 백업 및 복원</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/backup_and_restore/catalog.txt" rel="nofollow"> View page source</a>
@@ -178,20 +178,20 @@
 </div>
           <div role="main">
             
-  <div class="section" id="backup-and-restore-catalog">
-<h1>Backup and Restore Catalog<a class="headerlink" href="#backup-and-restore-catalog" title="Permalink to this headline">¶</a></h1>
-<p>Now, Tajo supports a two backup methods for</p>
+  <div class="section" id="id1">
+<h1>카탈로그 백업 및 복원<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>현재 타조는 다음 두가지에 대한 백업을 지원합니다.</p>
 <ul class="simple">
-<li>SQL dump</li>
-<li>Database-level backup</li>
+<li>SQL 덤프</li>
+<li>데이터베이스 수준의 백업</li>
 </ul>
-<div class="section" id="sql-dump">
-<h2>SQL dump<a class="headerlink" href="#sql-dump" title="Permalink to this headline">¶</a></h2>
-<p>SQL dump is an easy and strong way. If you use this approach, you don&#8217;t need to concern database-level compatiblities. If you want to backup your catalog, just use bin/tajo-dump command. The basic usage of this command is:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ tajo-dump table_name &gt; outfile
+<div class="section" id="sql">
+<h2>SQL 덤프<a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h2>
+<p>SQL 덤프는 쉬우면서도 강력한 기능으로, 데이터베이스 수준의 호환성을 걱정하지 않아도 됩니다. 카탈로그를 백업하려면, 간단히 bin/tajo-dump 명령을 실행하면 되며, 기본 사용법은 다음과 같습니다:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ tajo-dump 테이블명 &gt; 출력파일
 </pre></div>
 </div>
-<p>For example, if you want to backup a table customer, you should type a command as follows:</p>
+<p>예를 들어, customer 테이블을 백업하려면, 다음과 같이 명령을 입력합니다:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ bin/tajo-dump customer &gt; table_backup.sql
 $
 $ cat table_backup.sql
@@ -206,17 +206,17 @@ $ cat table_backup.sql
 CREATE EXTERNAL TABLE customer (c_custkey INT8, c_name TEXT, c_address TEXT, c_nationkey INT8, c_phone TEXT, c_acctbal FLOAT8, c_mktsegment TEXT, c_comment TEXT) USING CSV LOCATION &#39;file:/home/hyunsik/tpch/customer&#39;;
 </pre></div>
 </div>
-<p>If you want to restore the catalog from the SQL dump file, please type the below command:</p>
+<p>SQL 덤프 파일로부터 카탈로그를 복원하려면, 다음 명령을 사용합니다:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ bin/tsql -f table_backup.sql
 </pre></div>
 </div>
-<p>If you use an option &#8216;-a&#8217;, tajo-dump will dump all table DDLs.</p>
+<p>옵션 &#8216;-a&#8217;를 사용하면, 모든 테이블들의 DDL을 덤프할 수 있습니다.</p>
 <div class="highlight-python"><div class="highlight"><pre>$ bin/tajo-dump -a &gt; all_backup.sql
 </pre></div>
 </div>
 </div>
-<div class="section" id="database-level-backup">
-<h2>Database-level backup<a class="headerlink" href="#database-level-backup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>데이터베이스 수준의 백업<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first last admonition-title">Todo</p>
 </div>
@@ -232,7 +232,7 @@ CREATE EXTERNAL TABLE customer (c_custkey INT8, c_name TEXT, c_address TEXT, c_n
         <a href="../hcatalog_integration.html" class="btn btn-neutral float-right" title="HCatalog Integration"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../backup_and_restore.html" class="btn btn-neutral" title="Backup and Restore"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../backup_and_restore.html" class="btn btn-neutral" title="백업 및 복원"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

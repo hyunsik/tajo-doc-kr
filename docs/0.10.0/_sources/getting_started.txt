@@ -2,7 +2,7 @@
 시작하기
 ***************
 
-이 절에서는 로컬 파일 시스템 기반으로 동작하는 standalone 타조 인스턴스 셋업 방법을 설명합니다. 참고로, 다음에 이어지 절에서는, 아파치 하둡의 HDFS 위에서 타조 클러스터를 실행하는 방법이 설명되어 있습니다. 이 절에서 다루는 내용은, 타조 클러스터 구동, 테이블 생성, 타조 쉘을 이용한 SQL 질의 수행, 타조 클러스터 중지 방법입니다. 이 과정들을 수행하는데, 10분이 넘지 않을 것입니다.
+이 절에서는 로컬 파일 시스템 기반으로 동작하는 standalone 타조 인스턴스 셋업 방법을 설명합니다. 참고로, 다음에 이어지는 절에서는, 아파치 하둡의 HDFS 위에서 타조 클러스터를 실행하는 방법이 설명되어 있습니다. 이 절에서 다루는 내용은, 타조 클러스터 구동, 테이블 생성, 타조 쉘을 이용한 SQL 질의 수행, 타조 클러스터 중지 방법입니다. 이 과정들의 수행 예상 시간은 10분을 넘지 않을 것입니다.
 
 ===============
 준비 사항
@@ -22,16 +22,17 @@
 최신 소스코드 릴리즈 다운로드
 ------------------------------
 
-`Apache Download Mirrors <http://www.apache.org/dyn/closer.cgi/tajo>`_ 페이지 목록에서 다운로드 사이트를 선택합니다. 타조 릴리즈 미러 링크 중에 하나를 클릭해서 접속합니다. 
-.tar.gz 파일을 로컬 파일시스템에 다운로드합니다. 예) ``tajo-x.y.z-src.tar.gz``
+
+`Tajo Downloads <http://tajo.apache.org/downloads.html>`_ 페이지 목록에서 최신 릴리즈 소스인 ``tajo-0.10.0-src.tar.gz`` 파일을 다운로드합니다. 
 
 다운로드된 파일의 압축과 tar를 풀고 해당 디렉토리로 이동합니다. ::
 
-  tar xzvf tajo-x.y.z-src.tar.gz
+  tar xzvf tajo-0.10.0-src.tar.gz
 
 
 Git을 통해 소스코드 체크아웃
 -------------------------------
+
 
 개발중인 코드베이스는 `the Apache git repository <https://git-wip-us.apache.org/repos/asf/tajo.git>`_ 에서 다음과 같이 다운로드 받을 수 있습니다.: ::
 
@@ -52,9 +53,9 @@ Git을 통해 소스코드 체크아웃
 
 .. code-block:: bash
 
-  $ cd tajo-x.y.z
+  $ cd tajo-0.10.0
   $ mvn clean install -DskipTests -Pdist -Dtar -Dhadoop.version=2.X.X
-  $ ls tajo-dist/target/tajo-x.y.z-SNAPSHOT.tar.gz
+  $ ls tajo-dist/target/tajo-0.10.0.tar.gz
 
 .. note::
 

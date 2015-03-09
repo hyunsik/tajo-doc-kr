@@ -1,35 +1,37 @@
 ******************************
-Catalog Configuration
+카탈로그 설정
 ******************************
 
-If you want to customize the catalog service, copy ``$TAJO_HOME/conf/catalog-site.xml.template`` to ``catalog-site.xml``. Then, add the following configs to catalog-site.xml. Note that the default configs are enough to launch Tajo cluster in most cases.
+카탈로그 서비스 설정을 수정하려면, ``$TAJO_HOME/conf/catalog-site.xml.template`` 파일을 ``catalog-site.xml`` 로 복사하고 catalog-site.xml 파일 내용에 다음을 추가합니다. 대부분의 경우, 기본값 설정만으로도 충분히 타조 클러스터를 실행할 수 있다는 것을 기억해 주세요.
 
-* tajo.catalog.master.addr - If you want to launch a Tajo cluster in distributed mode, you must specify this address. For more detail information, see [Default Ports](#DefaultPorts).
-* tajo.catalog.store.class - If you want to change the persistent storage of the catalog server, specify the class name. Its default value is tajo.catalog.store.DerbyStore. In the current version, Tajo provides three persistent storage classes as follows:
+* tajo.catalog.master.addr - 분산 모드로 타조를 실행하려면, 이 주소를 반드시 명시해야합니다. 더 자세한 정보를 원하시면, [Default Ports](#DefaultPorts) 를 참고합니다.
+* tajo.catalog.store.class - 카탈로그 서버의 영구 저장소를 변경하려면, 클래스 명을 명시합니다. 참고로, 기본값은 tajo.catalog.store.DerbyStore 입니다. 현재 버전에서는 타조는 아래 세가지 영구 저장소를 지원합니다:
 
 +-----------------------------------+------------------------------------------------+
-| Driver Class                      | Descriptions                                   |
+| 드라이버 클래스                   | 설명                                           |
 +===================================+================================================+
-| tajo.catalog.store.DerbyStore     | this storage class uses Apache Derby.          |
+| tajo.catalog.store.DerbyStore     | 아파치 더비(Derby)를 사용합니다.               |
 +-----------------------------------+------------------------------------------------+
-| tajo.catalog.store.MySQLStore     | this storage class uses MySQL.                 |
+| tajo.catalog.store.MySQLStore     | MySQL을 사용합니다.                            |
 +-----------------------------------+------------------------------------------------+
-| tajo.catalog.store.MariaDBStore   | this storage class uses MariaDB.               |
+| tajo.catalog.store.MariaDBStore   | MariaDB를 사용합니다.                          |
 +-----------------------------------+------------------------------------------------+
-| tajo.catalog.store.MemStore       | this is the in-memory storage. It is only used |
-|                                   | in unit tests to shorten the duration of unit  |
-|                                   | tests.                                         |
+| tajo.catalog.store.MemStore       | 메모리 저장소를 사용합니다.                    | 
+|                                   |                                                |
+|                                   | 이 저장소는 유닛 테스트 시간을                 |
+|                                   |                                                |
+|                                   | 단축하기 위한 용도로만 사용됩니다.             |
 +-----------------------------------+------------------------------------------------+
-| tajo.catalog.store.HCatalogStore  | this storage class uses HiveMetaStore.         |
+| tajo.catalog.store.HCatalogStore  | 저장소 클래스로 HiveMetaStore를 사용합니다.    |
 +-----------------------------------+------------------------------------------------+
 
 =========================
-Derby Configuration
+더비(Derby) 설정
 =========================
 
-By default, Tajo uses `Apache Derby <http://db.apache.org/derby/>`_ as a persistent storage in order to manage table meta data. So, without any configuration, you can use Derby for catalog store.
+타조는 기본 설정으로 `Apache Derby <http://db.apache.org/derby/>`_ 를 테이블 메타 데이터를 관리하기 위한 영구 저장소로 사용하기 때문에, 다른 설정이 없다면, 카탈로스 스토어로 더비(Derby)를 사용할 수 있습니다.
 
-Also, you can set manually configs in ``conf/catalog-site.xml`` as follows:
+또는, ``conf/catalog-site.xml`` 에 다음과 같이 직접 설정할 수도 있습니다:
 
 .. code-block:: xml
 
@@ -43,7 +45,7 @@ Also, you can set manually configs in ``conf/catalog-site.xml`` as follows:
     <value>jdbc:derby:<absolute directory>;create=true</value>
   </property>
 
-Since Derby is a file-based embedded database, it stores data into a specified directory. So, you need to specify the directory for storing data files instead of specifying JDBC URI with hostname and port. For example, in case where you use '/var/data/tajo-catalog' as a derby store directory, you should set configs as follows:
+더비는 파일 기반의 임베디드 데이터베이스이기 때문에 특정 디렉토리에 데이터를 저장합니다. 따라서, 호스트 명과 포트를 지정하는 일반적인 JDBC URI 형태 대신 데이터 파일을 저장하기 위한 디렉토리를 지정해야 합니다. 예를 들어, 더비 저장소 디렉토리로 '/var/data/tajo-catalog'를 사용한다면, 다음과 같이 설정합니다:
 
 .. code-block:: xml
   
@@ -54,13 +56,13 @@ Since Derby is a file-based embedded database, it stores data into a specified d
 
 .. warning::
 
-  By default, *Catalog server* stores catalog data into ``/tmp/tajo-catalog-${username}`` directory. But, some operating systems may remove all contents in ``/tmp`` when booting up. In order to ensure persistent store of your catalog data, you need to set a proper location of derby directory.
+  기본적으로, *카탈로그 서버* 는 ``/tmp/tajo-catalog-${username}`` 디렉토리에 카탈로그 데이터를 저장합니다. 그러나, 일부 운영 체제에서는 재시작될 때 ``/tmp`` 에 내용을 모두 삭제하기 때문에, 안전한 카탈로그 데이터 저장소 확보를 위해서 적절한 더비(derby) 디렉토리를 지정해야 합니다.
 
 =========================
-MySQLStore Configuration
+MySQLStore 설정
 =========================
 
-In order to use MySQLStore, you need to create database and user on MySQL for Tajo.
+MySQLStore를 사용하려면, MySQL에 타조용 데이터베이스와 사용자를 생성합니다.
 
 .. code-block:: sh
   
@@ -74,15 +76,15 @@ In order to use MySQLStore, you need to create database and user on MySQL for Ta
   Query OK, 0 rows affected (0.01 sec)
 
 
-And then, you need to prepare MySQL JDBC driver on the machine which can be ran TajoMaster. If you do, you should set ``TAJO_CLASSPATH`` variable in ``conf/tajo-env.sh`` with it as follows:
+그리고, 타조 마스터 실행 서버에 MySQL JDBC 드라이버가 필요한데, ``conf/tajo-env.sh`` 파일에 ``TAJO_CLASSPATH`` 변수 값을 다음과 같이 설정합니다:
 
 .. code-block:: sh
 
   export TAJO_CLASSPATH=/usr/local/mysql/lib/mysql-connector-java-x.x.x.jar
 
-Or you just can copy jdbc driver into ``$TAJO_HOME/lib``.
+또는 JDBC 드라이버를 ``$TAJO_HOME/lib`` 로 복사합니다.
 
-Finally, you should add the following config to `conf/catalog-site.xml` :
+마지막으로, 다음 설정들을 `conf/catalog-site.xml` 에 추가합니다:
 
 .. code-block:: xml
 
@@ -105,10 +107,10 @@ Finally, you should add the following config to `conf/catalog-site.xml` :
 
 
 ===========================
-MariaDBStore Configuration
+MariaDBStore 설정
 ===========================
 
-All configurations for using MariaDBStore is compatible with MySQLStore except following:
+MariaDBStore 사용을 위한 모든 설정은 아래 내용을 제외하곤 MySQLStore 설정과 동일합니다:
 
 .. code-block:: sh
 
@@ -127,12 +129,12 @@ All configurations for using MariaDBStore is compatible with MySQLStore except f
 
 
 ==================================
-  HCatalogStore Configuration
+  HCatalogStore 설정
 ==================================
 
-Tajo support HCatalogStore to integrate with hive. If you want to use HCatalogStore, you just do as follows.
+타조는 Hive 연동을 위해 HCatalogStore를 지원합니다. HCatalogStore를 사용하려면 아래 과정을 따릅니다.
 
-First, you must compile source code and get a binary archive as follows:
+먼저, 아래 과정을 통해 소스코드를 컴파일하고 바이너리 아카이브를 생성합니다:
 
 .. code-block:: sh
 
@@ -140,22 +142,22 @@ First, you must compile source code and get a binary archive as follows:
   $ mvn clean install -DskipTests -Pdist -Dtar -Phcatalog-0.1x.0
   $ ls tajo-dist/target/tajo-x.y.z-SNAPSHOT.tar.gz
 
-Currently Tajo supports hive 0.12.0, hive 0.13.0, hive 0.13.1. If you enables HCatalogStore, you set the maven profile as ``-Phcatalog-0.12.0``.
+현재 타조는 Hive 0.12.0, Hive 0.13.0, Hive 0.13.1을 지원합니다. HCatalogStore 사용을 활성화 하려면, 메이븐(Maven) 프로파일에 ``-Phcatalog-0.12.0`` 과 같이 설정합니다.
 
-Second, you must set your hive home directory to HIVE_HOME variable in ``conf/tajo-env.sh`` with it as follows:
+그 다음, ``conf/tajo-env.sh`` 파일 내용 중에, HIVE_HOME 변수에 다음과 같이 Hive 홈 디렉토리 경로를 지정합니다:
 
 .. code-block:: sh
 
   export HIVE_HOME=/path/to/your/hive/directory
 
-Third, if you need to use jdbc to connect HiveMetaStore, you have to prepare mysql jdbc driver on host which can be ran TajoMaster. If you prepare it, you should set jdbc driver file path to ``HIVE_JDBC_DRIVER_DIR`` variable in conf/tajo-env.sh with it as follows:
+세번째 단계로, HiveMetaStore 접속을 위해 JDBC를 사용하는 경우, 타조 마스터 실행 서버에 MySQL JDBC 드라이버가 필요합니다. 이 경우, 다음과 같이 ``conf/tajo-env.sh`` 파일 내용 중 ``HIVE_JDBC_DRIVER_DIR`` 변수 값으로 JDBC 드라이버 파일 경로를 지정합니다:
 
 .. code-block:: sh
 
   export HIVE_JDBC_DRIVER_DIR=/path/to/your/mysql_jdbc_driver/mysql-connector-java-x.x.x-bin.jar
 
 
-Lastly, you should add the following config to ``conf/catalog-site.xml`` :
+마지막으로, ``conf/catalog-site.xml`` 파일 내용에 다음 설정을 추가합니다:
 
 .. code-block:: xml
 

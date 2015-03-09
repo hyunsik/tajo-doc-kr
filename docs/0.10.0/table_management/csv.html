@@ -59,7 +59,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Apache Tajo란?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">시작하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id2">준비 사항</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
@@ -91,7 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
@@ -115,24 +115,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../table_management.html">Table Management</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../table_management.html">테이블 관리</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="file_formats.html">파일 포맷</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compression.html">압축</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog 통합</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jdbc_driver.html">Tajo JDBC Driver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
@@ -165,7 +165,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../table_management.html">Table Management</a> &raquo;</li>
+          <li><a href="../table_management.html">테이블 관리</a> &raquo;</li>
       
           <li><a href="file_formats.html">파일 포맷</a> &raquo;</li>
       
@@ -184,11 +184,11 @@
 <h1>CSV (TextFile)<a class="headerlink" href="#csv-textfile" title="Permalink to this headline">¶</a></h1>
 <p>Character-separated values (CSV) 파일은 로우와 컬럼으로 구성된 표로 나타내어진 데이터 셋입니다.
 각각의 로우들은 일반 텍스트 라인입니다. 하나의 라인은 <tt class="docutils literal"><span class="pre">\n</span></tt> 혹은 <tt class="docutils literal"><span class="pre">\r</span></tt> 로 나누어 집니다.
-라인피드 <tt class="docutils literal"><span class="pre">\n</span></tt> 는 타조의 기본 구분자 입니다. 각각의 레코드는 여러개의 필드를 가지고 있으며, 여러가지 문자열 혹은 <tt class="docutils literal"><span class="pre">|</span></tt>, 컴마 <tt class="docutils literal"><span class="pre">,</span></tt> 혹은 탭 <tt class="docutils literal"><span class="pre">\t</span></tt> 으로 분리됩니다.
-타조는 <tt class="docutils literal"><span class="pre">|</span></tt> 를 기본 필드 구분자로 사용합니다.</p>
-<div class="section" id="csv">
-<h2>어떻게 CSV 테이블을 만드나요?<a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h2>
-<p>아직 CREATE TABLE 선언문에 익숙하지 않다면,  데이터 정의 언어 (DDL, Data Definition Language) <a class="reference internal" href="../sql_language/ddl.html"><em>데이터 정의 언어 (DDL, Data Definition Language)</em></a> 을 참고해 주세요.</p>
+라인피드 <tt class="docutils literal"><span class="pre">\n</span></tt> 는 Tajo의 기본 구분자 입니다. 각각의 레코드는 여러개의 필드를 가지고 있으며, 여러가지 문자열 혹은 <tt class="docutils literal"><span class="pre">|</span></tt>, 컴마 <tt class="docutils literal"><span class="pre">,</span></tt> 혹은 탭 <tt class="docutils literal"><span class="pre">\t</span></tt> 으로 분리됩니다.
+Tajo는 <tt class="docutils literal"><span class="pre">|</span></tt> 를 기본 필드 구분자로 사용합니다.</p>
+<div class="section" id="tajo-csv">
+<h2>Tajo에서 어떻게 CSV 저장 포맷을 사용한 테이블을 만드나요?<a class="headerlink" href="#tajo-csv" title="Permalink to this headline">¶</a></h2>
+<p>아직 CREATE TABLE 선언문에 익숙하지 않으시다면,  데이터 정의 언어 (DDL, Data Definition Language) <a class="reference internal" href="../sql_language/ddl.html"><em>데이터 정의 언어 (DDL, Data Definition Language)</em></a> 을 참고해 주세요.</p>
 <p>특정한 파일 포맷을 테이블에 지정하기 위해서는 <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> 절에 <tt class="docutils literal"><span class="pre">USING</span></tt> 선언을 사용하면 됩니다.
 아래는 csv 파일을 사용해 테이블을 만드는 방법에 대한 예제입니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span>
@@ -205,19 +205,19 @@
 <h2>물리적 속성들<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>몇몇 테이블 저장 포맷은 테이블의 물리적 속성을 조정할 수 있는 기능을 허용하거나 허용하지 않도록 설정할 수 있는 파라메터를 제공합니다.
 <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> 선언문에  <tt class="docutils literal"><span class="pre">WITH</span></tt> 절을 사용하여 여러 파라메터들을 설정할 수 있습니다.</p>
-<p>아래의 여러 설정값들을 통해 CSV 저장 포맷에 대한 여러가지 물리적 속성들을 변경할 수 있습니다.</p>
+<p>아래에 CSV 저장 포맷의 여러가지 물리적 속성과 자세한 설명을 기술하였습니다.</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">text.delimiter</span></tt>: 구분자에 대한 속성 입니다.  보통 <tt class="docutils literal"><span class="pre">|</span></tt> 혹은 <tt class="docutils literal"><span class="pre">\u0001</span></tt> 가 사용되고, 기본 구분자로는 <tt class="docutils literal"><span class="pre">|</span></tt> 가 사용됩니다.</li>
 <li><tt class="docutils literal"><span class="pre">text.null</span></tt>: NULL 문자에 대한 속성입니다.  NULL 문자의 기본값은 공백 문자열  <tt class="docutils literal"><span class="pre">''</span></tt> 입니다.  참고로, 아파치 하이브의 기본 NULL 문자는 <tt class="docutils literal"><span class="pre">'\\N'</span></tt> 입니다.</li>
 <li><tt class="docutils literal"><span class="pre">compression.codec</span></tt>: 압축 코덱에 대한 속성입니다. 압축에 대해 설정한 후 특정한 압축 알고리즘을 설정할 수 있습니다. 압축 알고리즘은 파일을 압축하는데 사용됩니다.  압축 코덱의 이름은 정확한 상속 정보 (<a class="reference external" href="https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/compress/CompressionCodec.html">org.apache.hadoop.io.compress.CompressionCodec</a>) 를 포함한 클래스 이름을 지정해주어야 합니다. 기본적으로 압축은 사용되지 않도록 설정되어 있습니다.</li>
 <li><tt class="docutils literal"><span class="pre">csvfile.serde</span></tt> (deprecated): 커스텀 (De)serializer 클래스에 대한 속성 입니다. <tt class="docutils literal"><span class="pre">org.apache.tajo.storage.TextSerializerDeserializer</span></tt> 가 기본 (De)serializer 클래스로 설정 되어 있습니다.</li>
 <li><tt class="docutils literal"><span class="pre">timezone</span></tt>: 테이블에 데이터를 쓸 때 사용되는 타임존에 대한 속성입니다. 테이블 로우들을 읽거나 쓸 때, <tt class="docutils literal"><span class="pre">`timestamp`</span></tt> 와 <tt class="docutils literal"><span class="pre">`time`</span></tt> 컬럼 값들은 타임존이 설정 되어 있을 경우 설정된 타임존에 맞게 값을 변경합니다. 타임존은 &#8216;PST&#8217; 혹은 &#8216;DST&#8217;와 같은 형태로 축약 될 수 이습니다. 또한 오프셋 기반의 형태 (UTC+9) 혹은 지역기반의 형태 (Asia/Seoul) 로 설정될 수 있습니다.</li>
-<li><tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span></tt>: the maximum number of permissible parsing errors. This value should be an integer value. By default, <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span></tt> is <tt class="docutils literal"><span class="pre">0</span></tt>. According to the value, parsing errors will be handled in different ways.
-* If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">&lt;</span> <span class="pre">0</span></tt>, all parsing errors are ignored.
-* If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">==</span> <span class="pre">0</span></tt>, any parsing error is not allowed. If any error occurs, the query will be failed. (default)
-* If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">&gt;</span> <span class="pre">0</span></tt>, the given number of parsing errors in each task will be pemissible.</li>
+<li><tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span></tt>: 허용되는 최대 파싱 오류 횟수에 대한 속성입니다. 해당 속성값은 반드시 정수여야 하며, 기본값은 0으로 설정되어 있습니다. 설정값에 따라서 파싱 오류는 다르게 처리될 수 있습니다.
+* If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">&lt;</span> <span class="pre">0</span></tt>, 모든 파싱 오류를 무시합니다.
+* If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">==</span> <span class="pre">0</span></tt>, 어떤 파싱 오류도 허용되지 않습니다. 만일 파싱 에러가 발생한다면, 처리중인 질의는 실패합니다. (기본값)
+* If <tt class="docutils literal"><span class="pre">text.error-tolerance.max-num</span> <span class="pre">&gt;</span> <span class="pre">0</span></tt>, 지정된 횟수 만큼 오류가 허용됩니다.</li>
 </ul>
-<p>The following example is to set a custom field delimiter, NULL character, and compression codec:</p>
+<p>아래의 예제는 필드 구분자, NULL 문자, 그리고 압축 코덱을 설정하는 방법을 보여줍니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table1</span> <span class="p">(</span>
  <span class="n">id</span> <span class="nb">int</span><span class="p">,</span>
  <span class="n">name</span> <span class="nb">text</span><span class="p">,</span>
@@ -228,20 +228,18 @@
                  <span class="s1">&#39;compression.codec&#39;</span><span class="o">=</span><span class="s1">&#39;org.apache.hadoop.io.compress.SnappyCodec&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Be careful when using <tt class="docutils literal"><span class="pre">\n</span></tt> as the field delimiter because CSV uses <tt class="docutils literal"><span class="pre">\n</span></tt> as the line delimiter.
-At the moment, Tajo does not provide a way to specify the line delimiter.</p>
+<p>..주의하세요:</p>
+<div class="highlight-python"><div class="highlight"><pre>``\n`` 을 구분자로 사용할 때 주의하셔야 합니다. 이는 CSV 파일 포맷이 ``\n`` 를 레코드의 라인 구분자로 사용하기 때문입니다.
+이럴 경우 Tajo는 라인 구분자를 명시하는 방법을 제공하지 않습니다.
+</pre></div>
 </div>
 </div>
-<div class="section" id="custom-de-serializer">
-<h2>Custom (De)serializer<a class="headerlink" href="#custom-de-serializer" title="Permalink to this headline">¶</a></h2>
-<p>The CSV storage format not only provides reading and writing interfaces for CSV data but also allows users to process custom
-plan-text file formats with user-defined (De)serializer classes.
-For example, with custom (de)serializers, Tajo can process JSON file formats or any specialized plan-text file formats.</p>
-<p>In order to specify a custom (De)serializer, set a physical property <tt class="docutils literal"><span class="pre">csvfile.serde</span></tt>.
-The property value should be a fully qualified class name.</p>
-<p>For example:</p>
+<div class="section" id="id2">
+<h2>직접 만든 (역)직렬화 클래스 사용하기<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>CSV 저장 포맷은 여러분이 작성한 (역)직렬화 클래스를 적용할 수 있어 CSV 데이터를 읽고 쓰기 위한 인터페이스를 제공하는것 뿐만 아니라, 일반 텍스트 파일 포맷에 대한 처리 방법도 제공할 수 있습니다.
+예를 들어, (역)직렬화 클래스를 새로 작성해 Tajo를 통해 JSON 파일 포맷 뿐만 아니라 특별한 텍스트 파일 또한 처리 할 수 있습니다.</p>
+<p>여러분이 작성한 (역)직렬화 클래스는  <tt class="docutils literal"><span class="pre">csvfile.serde</span></tt> 속성에 지정해 주시면 됩니다. 이 속성의 값으로 여러분이 작성하신 (역)직렬화 클래스의 전체 이름을 지정하시면 됩니다.</p>
+<p>예:</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table1</span> <span class="p">(</span>
  <span class="n">id</span> <span class="nb">int</span><span class="p">,</span>
  <span class="n">name</span> <span class="nb">text</span><span class="p">,</span>
@@ -251,26 +249,25 @@ The property value should be a fully qualified class name.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="null-value-handling-issues">
-<h2>Null Value Handling Issues<a class="headerlink" href="#null-value-handling-issues" title="Permalink to this headline">¶</a></h2>
-<p>In default, NULL character in CSV files is an empty string <tt class="docutils literal"><span class="pre">''</span></tt>.
-In other words, an empty field is basically recognized as a NULL value in Tajo.
-If a field domain is <tt class="docutils literal"><span class="pre">TEXT</span></tt>, an empty field is recognized as a string value <tt class="docutils literal"><span class="pre">''</span></tt> instead of NULL value.
-Besides, You can also use your own NULL character by specifying a physical property <tt class="docutils literal"><span class="pre">text.null</span></tt>.</p>
+<div class="section" id="null">
+<h2>Null 값 다루기<a class="headerlink" href="#null" title="Permalink to this headline">¶</a></h2>
+<p>기본적으로, CSV 파일 내의  NULL 값은 공백 문자열입니다. (<tt class="docutils literal"><span class="pre">''</span></tt>).
+즉, Tajo에서 공백 필드는 NULL 값으로 인식됩니다.
+하지만 필드의 도메인이 <tt class="docutils literal"><span class="pre">TEXT``일</span> <span class="pre">경우,</span> <span class="pre">공백</span> <span class="pre">필드는</span> <span class="pre">NULL</span> <span class="pre">값</span> <span class="pre">대신</span> <span class="pre">공백</span> <span class="pre">문자열</span> <span class="pre">``''</span></tt> 로 인식됩니다.
+더불어, <tt class="docutils literal"><span class="pre">text.null</span></tt> 속성을 통해 NULL 문자로 인식하고 싶은 특별한 문자를 지정해 줄 수 있습니다.</p>
 </div>
-<div class="section" id="compatibility-issues-with-apache-hive">
-<h2>Compatibility Issues with Apache Hive™<a class="headerlink" href="#compatibility-issues-with-apache-hive" title="Permalink to this headline">¶</a></h2>
-<p>CSV files generated in Tajo can be processed directly by Apache Hive™ without further processing.
-In this section, we explain some compatibility issue for users who use both Hive and Tajo.</p>
-<p>If you set a custom field delimiter, the CSV tables cannot be directly used in Hive.
-In order to specify the custom field delimiter in Hive, you need to use <tt class="docutils literal"><span class="pre">ROW</span> <span class="pre">FORMAT</span> <span class="pre">DELIMITED</span> <span class="pre">FIELDS</span> <span class="pre">TERMINATED</span> <span class="pre">BY</span></tt>
-clause in a Hive&#8217;s <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> statement as follows:</p>
+<div class="section" id="id3">
+<h2>하이브와의 호환성 이슈들<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Tajo를 통해 만들어진 CSV 파일은 하이브에서 추가적인 처리 없이 바로 사용 가능합니다.
+이 섹션은 하이브와 Tajo와의 몇가지 호환 이슈를 다룹니다.</p>
+<p>만약 여러분이 임의의 필드 구분자를 사용하실 경우엔, CSV 테이블은 하이브에서 바로 처리 될 수 없습니다.
+하이브에서 임의의 필드 구분자를 지정하시려면, 하이브에서 <tt class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></tt> 절 안에서 <tt class="docutils literal"><span class="pre">ROW</span> <span class="pre">FORMAT</span> <span class="pre">DELIMITED</span> <span class="pre">FIELDS</span> <span class="pre">TERMINATED</span> <span class="pre">BY</span></tt> 절을 아래와 같이 사용하시면 됩니다.</p>
 <div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">table1</span> <span class="p">(</span><span class="n">id</span> <span class="nb">int</span><span class="p">,</span> <span class="n">name</span> <span class="n">string</span><span class="p">,</span> <span class="n">score</span> <span class="nb">float</span><span class="p">,</span> <span class="k">type</span> <span class="n">string</span><span class="p">)</span>
 <span class="k">ROW</span> <span class="n">FORMAT</span> <span class="n">DELIMITED</span> <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;|&#39;</span>
 <span class="n">STORED</span> <span class="k">AS</span> <span class="nb">TEXT</span>
 </pre></div>
 </div>
-<p>To the best of our knowledge, there is not way to specify a custom NULL character in Hive.</p>
+<p>현재까지 하이브에서 NULL 문자를 특별하게 지정해 줄 수 있는 방법은 없습니다.</p>
 </div>
 </div>
 

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>아파치 타조란? &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>Apache Tajo란? &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">아파치 타조란?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Apache Tajo란?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#id2">준비 사항</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
@@ -90,7 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tsql/background_command.html">Executing as background process</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sql_language.html">SQL Language</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sql_language/data_model.html">데이터 모델</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
@@ -114,24 +114,24 @@
 <li class="toctree-l2"><a class="reference internal" href="functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="table_management.html">테이블 관리</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_management/table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l2"><a class="reference internal" href="table_management/file_formats.html">파일 포맷</a></li>
 <li class="toctree-l2"><a class="reference internal" href="table_management/compression.html">압축</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="table_partitioning.html">Table Partitioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/column_partitioning.html">Column Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/range_partitioning.html">Range Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hcatalog_integration.html">HCatalog 통합</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_driver.html">Tajo JDBC Driver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>아파치 타조란?</li>
+    <li>Apache Tajo란?</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/introduction.txt" rel="nofollow"> View page source</a>
@@ -175,15 +175,15 @@
 </div>
           <div role="main">
             
-  <div class="section" id="id1">
-<h1>아파치 타조란?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>아파치 타조 프로젝트의 핵심목표는 웹-스케일의 대규모 데이터를 처리하기 위한
+  <div class="section" id="apache-tajo">
+<h1>Apache Tajo란?<a class="headerlink" href="#apache-tajo" title="Permalink to this headline">¶</a></h1>
+<p>Apache Tajo 프로젝트의 핵심목표는 웹-스케일의 대규모 데이터를 처리하기 위한
 하둡 기반의 데이터 웨어하우스 시스템을 오픈소스로 구축하는 것입니다.
-타조는 표준 SQL을 질의 언어로 지원합니다. 또한, 타조는 하둡 분산 파일 시스템
+Tajo는 표준 SQL을 질의 언어로 지원합니다. 또한, Tajo는 하둡 분산 파일 시스템
 상의 데이터를 포함한 여러 형태의 데이터에 대해 인터랙티브 (interactive) 질의와
 배치 (batch) 질의 모두를 지원하도록 설계되어 있습니다. 빠른 질의 처리 시간을
-보장하면서, 타조는 내고장성 (fault-tolerance) 과 실시간 로드 밸런싱 (dynamic-
-load balancing) 을 제공합니다. 보다 빠른 성능을 위해 타조는 비용기반 최적화
+보장하면서, Tajo는 내고장성 (fault-tolerance) 과 실시간 로드 밸런싱 (dynamic-
+load balancing) 을 제공합니다. 보다 빠른 성능을 위해 Tajo는 비용기반 최적화
 (cost-based optimization) 와 더불어 점진적 최적화 (progressive optimization)
 기술을 활용하여 처리중인 질의를 재-최적화 합니다. 이를 통해 가장 성능이 나쁜
 질의 실행 계획은 사용하지 않도록 합니다.</p>

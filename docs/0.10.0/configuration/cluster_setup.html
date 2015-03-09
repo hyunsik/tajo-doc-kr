@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cluster Setup &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>클러스터 구성 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -29,9 +29,9 @@
 
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="../index.html"/>
-        <link rel="up" title="Configuration" href="../configuration.html"/>
+        <link rel="up" title="설정" href="../configuration.html"/>
         <link rel="next" title="Tajo Master Configuration" href="tajo_master_configuration.html"/>
-        <link rel="prev" title="Preliminary" href="preliminary.html"/> 
+        <link rel="prev" title="준비" href="preliminary.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -59,7 +59,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Apache Tajo란?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">시작하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id2">준비 사항</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
@@ -68,30 +68,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#id7">첫 질의 실행</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../configuration.html">Configuration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="preliminary.html">Preliminary</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Cluster Setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../configuration.html">설정</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preliminary.html">준비</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">클러스터 구성</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tajo_master_configuration.html">Tajo Master Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="worker_configuration.html">Worker Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="catalog_configuration.html">Catalog Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ha_configuration.html">High Availability for TajoMaster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="service_config_defaults.html">Cluster Service Configuration Defaults</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tajo-site-xml.html">The tajo-site.xml File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="catalog-site-xml.html">The catalog-site.xml File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="worker_configuration.html">워커(Worker) 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog_configuration.html">카탈로그 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ha_configuration.html">타조 마스터 고 가용성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service_config_defaults.html">클러스터 서비스 설정 기본값</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tajo-site-xml.html">tajo-site.xml 파일</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog-site-xml.html">catalog-site.xml 파일</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tsql.html">Tajo Shell (TSQL)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">Meta Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">Executing HDFS commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">Session Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">Administration Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">Introducing to TSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">Executing a single command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">Executing Queries from Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">Executing as background process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tsql.html">타조 쉘 (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/meta_command.html">메타 명령</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/dfs_command.html">HDFS 명령 실행법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/variables.html">세션 변수들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/admin_command.html">어드민 명령들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/intro.html">TSQL 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/single_command.html">단일 명령 실행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/execute_file.html">파일에 저장된 질의 실행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsql/background_command.html">백그라운드 프로세스로 실행</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL Language</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/data_model.html">데이터 모델</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
@@ -115,21 +115,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_management.html">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_management.html">테이블 관리</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../table_management/table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table_management/file_formats.html">파일 포맷</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table_management/compression.html">압축</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">Table Partitioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">Column Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">Range Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">Backup and Restore</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backup_and_restore.html">백업 및 복원</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../backup_and_restore/catalog.html">카탈로그 백업 및 복원</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../hcatalog_integration.html">HCatalog Integration</a></li>
@@ -165,9 +165,9 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../configuration.html">Configuration</a> &raquo;</li>
+          <li><a href="../configuration.html">설정</a> &raquo;</li>
       
-    <li>Cluster Setup</li>
+    <li>클러스터 구성</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/configuration/cluster_setup.txt" rel="nofollow"> View page source</a>
@@ -178,15 +178,15 @@
 </div>
           <div role="main">
             
-  <div class="section" id="cluster-setup">
-<h1>Cluster Setup<a class="headerlink" href="#cluster-setup" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="fully-distributed-mode">
-<h2>Fully Distributed Mode<a class="headerlink" href="#fully-distributed-mode" title="Permalink to this headline">¶</a></h2>
-<p>A fully distributed mode enables a Tajo instance to run on <a class="reference external" href="http://wiki.apache.org/hadoop/HDFS">Hadoop Distributed File System (HDFS)</a>. In this mode, a number of Tajo workers run across a number of the physical nodes where HDFS data nodes run.</p>
-<p>In this section, we explain how to setup the cluster mode.</p>
-<div class="section" id="settings">
-<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
-<p>Please add the following configs to tajo-site.xml file:</p>
+  <div class="section" id="id1">
+<h1>클러스터 구성<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>완전 분산 모드<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>완전 분산 모드는 타조 인스턴스를 <a class="reference external" href="http://wiki.apache.org/hadoop/HDFS">Hadoop Distributed File System (HDFS)</a> 위에서 동작하도록 해줍니다. 이 모드에서는, HDFS 데이터 노드들이 돌아가고 있는 여러 물리 노드들 위에서 여러 타조 워커(worker)들이 같이 동작하게 됩니다.</p>
+<p>이 절에서는, 해당 모드로 클러스터를 구성하는 방법에 대해 설명합니다.</p>
+<div class="section" id="id3">
+<h3>설정<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>tajo-site.xml 파일에 다음과 같이 설정합니다:</p>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;property&gt;</span>
   <span class="nt">&lt;name&gt;</span>tajo.rootdir<span class="nt">&lt;/name&gt;</span>
   <span class="nt">&lt;value&gt;</span>hdfs://hostname:port/tajo<span class="nt">&lt;/value&gt;</span>
@@ -215,11 +215,11 @@
 </div>
 </div>
 <div class="section" id="workers">
-<h3>Workers<a class="headerlink" href="#workers" title="Permalink to this headline">¶</a></h3>
-<p>The file <tt class="docutils literal"><span class="pre">conf/workers</span></tt> lists all host names of workers, one per line.
-By default, this file contains the single entry <tt class="docutils literal"><span class="pre">localhost</span></tt>.
-You can easily add host names of workers via your favorite text editor.</p>
-<p>For example:</p>
+<h3>워커들(Workers)<a class="headerlink" href="#workers" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">conf/workers</span></tt> 파일에 모든 워커들의 호스트 명을 한 줄에 하나씩 명시합니다.
+기본 값으로, 이 파일 내용에는 <tt class="docutils literal"><span class="pre">localhost</span></tt> 하나만 들어가 있습니다.
+평소에 잘 쓰는 아무 텍스트 편집기를 이용해서, 쉽게 워커의 호스트명을 추가할 수 있습니다.</p>
+<p>예:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ cat &gt; conf/workers
 host1.domain.com
 host2.domain.com
@@ -229,29 +229,29 @@ host2.domain.com
 </pre></div>
 </div>
 </div>
-<div class="section" id="make-base-directories-and-set-permissions">
-<h3>Make base directories and set permissions<a class="headerlink" href="#make-base-directories-and-set-permissions" title="Permalink to this headline">¶</a></h3>
-<p>If you want to know Tajo’s configuration in more detail, see Configuration page.
-Before launching the tajo, you should create the tajo root dir and set the permission as follows:</p>
+<div class="section" id="hdfs">
+<h3>HDFS에 기본 디렉토리 생성 및 접근 권한 설정<a class="headerlink" href="#hdfs" title="Permalink to this headline">¶</a></h3>
+<p>타조 설정에 대해 좀 더 자세한 내용을 원한다면, 설정 페이지를 참조합니다.
+타조 실행에 앞서, 다음과 같이 HDFS에 타조 root 디렉토리 생성과 접근 권한을 설정합니다:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ $HADOOP_HOME/bin/hadoop fs -mkdir       /tajo
 $ $HADOOP_HOME/bin/hadoop fs -chmod g+w   /tajo
 </pre></div>
 </div>
 </div>
-<div class="section" id="launch-a-tajo-cluster">
-<h3>Launch a Tajo cluster<a class="headerlink" href="#launch-a-tajo-cluster" title="Permalink to this headline">¶</a></h3>
-<p>Then, execute <tt class="docutils literal"><span class="pre">start-tajo.sh</span></tt></p>
+<div class="section" id="id4">
+<h3>타조 클러스터 실행<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>그리고, <tt class="docutils literal"><span class="pre">start-tajo.sh</span></tt> 를 실행합니다:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ $TAJO_HOME/bin/start-tajo.sh
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In default, each worker is set to very little resource capacity. In order to increase parallel degree, please read
-<a class="reference internal" href="worker_configuration.html"><em>Worker Configuration</em></a>.</p>
+<p class="last">기본적으로, 각 워커에는 아주 적은 량의 자원이 할당되어 있습니다. 병렬 작업 수을 늘리는 방법이 궁금하다면,
+<a class="reference internal" href="worker_configuration.html"><em>워커(Worker) 설정</em></a> 를 참고합니다.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In default, TajoMaster listens on 127.0.0.1 for clients. To allow remote clients to access TajoMaster, please set tajo.master.client-rpc.address config to tajo-site.xml. In order to know how to change the listen port, please refer <a class="reference internal" href="service_config_defaults.html"><em>Cluster Service Configuration Defaults</em></a>.</p>
+<p class="last">기본적으로, 타조 마스터는 127.0.0.1 주소에 대해 클라이언트 접속을 허용하도록 되어 있습니다. 타조 마스터로 원격에서 클라이언트 접속을 허용하도록 설정하려면, tajo-site.xml 파일 내용 중에 tajo.master.client-rpc.address 에 설정 값을 명시합니다. 접속 포트를 변경하는 방법은, <a class="reference internal" href="service_config_defaults.html"><em>클러스터 서비스 설정 기본값</em></a> 를 참고합니다.</p>
 </div>
 </div>
 </div>
@@ -266,7 +266,7 @@ $ $HADOOP_HOME/bin/hadoop fs -chmod g+w   /tajo
         <a href="tajo_master_configuration.html" class="btn btn-neutral float-right" title="Tajo Master Configuration"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="preliminary.html" class="btn btn-neutral" title="Preliminary"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="preliminary.html" class="btn btn-neutral" title="준비"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

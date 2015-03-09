@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table Management &mdash; Apache Tajo 0.8.0 documentation</title>
+  <title>테이블 관리 &mdash; Apache Tajo 0.8.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
 
   
     <link rel="top" title="Apache Tajo 0.8.0 documentation" href="index.html"/>
-        <link rel="next" title="아파치 타조 테이블 관리 개요" href="table_management/table_overview.html"/>
+        <link rel="next" title="Apache Tajo 테이블 관리 개요" href="table_management/table_overview.html"/>
         <link rel="prev" title="네트워크 함수와 연산자들" href="functions/network_func_and_operators.html"/> 
 
   
@@ -58,7 +58,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">아파치 타조란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Apache Tajo란?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#id2">준비 사항</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
@@ -90,7 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tsql/background_command.html">Executing as background process</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sql_language.html">SQL Language</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sql_language/data_model.html">데이터 모델</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
@@ -114,24 +114,24 @@
 <li class="toctree-l2"><a class="reference internal" href="functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Table Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">테이블 관리</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_management/table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l2"><a class="reference internal" href="table_management/file_formats.html">파일 포맷</a></li>
 <li class="toctree-l2"><a class="reference internal" href="table_management/compression.html">압축</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="table_partitioning.html">Table Partitioning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/intro_to_partitioning.html">Introduction to Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/column_partitioning.html">Column Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/range_partitioning.html">Range Partitioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partitioning/hash_partitioning.html">Hash Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="backup_and_restore/catalog.html">Backup and Restore Catalog</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hcatalog_integration.html">HCatalog Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hcatalog_integration.html">HCatalog 통합</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc_driver.html">Tajo JDBC Driver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#how-to-get-jdbc-driver">How to get JDBC driver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#setting-the-classpath">Setting the CLASSPATH</a></li>
@@ -164,7 +164,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Table Management</li>
+    <li>테이블 관리</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/table_management.txt" rel="nofollow"> View page source</a>
@@ -175,12 +175,15 @@
 </div>
           <div role="main">
             
-  <div class="section" id="table-management">
-<h1>Table Management<a class="headerlink" href="#table-management" title="Permalink to this headline">¶</a></h1>
-<p>In Tajo, a table is a logical view of one data sources. Logically, one table consists of a logical schema, partitions, URL, and various properties. Physically, A table can be a directory in HDFS, a single file, one HBase table, or a RDBMS table. In order to make good use of Tajo, users need to understand features and physical characteristics of their physical layout. This section explains all about table management.</p>
+  <div class="section" id="id1">
+<h1>테이블 관리<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Tajo에서 테이블은 데이터에 대한 논리적인 관점을 제공합니다. 테이블은 논리적인 스키마, 파티션들, URL과 많은 속성들의 논리적 조합으로 생각할 수 있습니다.
+물리적인 관점에서 테이블은 HDFS상의 폴더, 하나의 파일, 하나의 HBase 테이블, 혹은 RDBMS 테이블이 될 수 있습니다.
+Tajo를 잘 활용하기 위해서 여러분은 테이블의 물리적인 레이아웃에 대해 이들의 여러 속성들과 특징들을 정확하게 이해하여야 합니다.
+이 섹션은 Tajo의 테이블 관리에 대한 모든것을 담고 있습니다.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="table_management/table_overview.html">아파치 타조 테이블 관리 개요</a></li>
+<li class="toctree-l1"><a class="reference internal" href="table_management/table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
 <li class="toctree-l1"><a class="reference internal" href="table_management/file_formats.html">파일 포맷</a></li>
 <li class="toctree-l1"><a class="reference internal" href="table_management/compression.html">압축</a></li>
 </ul>
@@ -193,7 +196,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="table_management/table_overview.html" class="btn btn-neutral float-right" title="아파치 타조 테이블 관리 개요"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="table_management/table_overview.html" class="btn btn-neutral float-right" title="Apache Tajo 테이블 관리 개요"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="functions/network_func_and_operators.html" class="btn btn-neutral" title="네트워크 함수와 연산자들"><span class="fa fa-arrow-circle-left"></span> Previous</a>

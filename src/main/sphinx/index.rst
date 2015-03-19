@@ -37,8 +37,11 @@ Table of Contents:
    functions
    table_management
    table_partitioning
+   index_overview
    backup_and_restore
    hcatalog_integration
+   hbase_integration
+   swift_integration
    jdbc_driver   
    tajo_client_api
    faq

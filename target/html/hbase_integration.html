@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HBase 통합 &mdash; Apache Tajo 0.8.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Apache Tajo 0.8.0 documentation" href="index.html"/>
+        <link rel="next" title="OpenStack Swift 통합" href="swift_integration.html"/>
+        <link rel="prev" title="HCatalog 통합" href="hcatalog_integration.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Apache Tajo</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Apache Tajo란?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id2">준비 사항</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id3">다운로드 및 소스코드 풀기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id5">소스코드 빌드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id6">로컬 클러스터 셋업</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id7">첫 질의 실행</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">설정</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/preliminary.html">준비</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/cluster_setup.html">클러스터 구성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/tajo_master_configuration.html">Tajo Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/worker_configuration.html">워커(Worker) 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/catalog_configuration.html">카탈로그 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/ha_configuration.html">타조 마스터 고 가용성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/service_config_defaults.html">클러스터 서비스 설정 기본값</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/tajo-site-xml.html">tajo-site.xml 파일</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/catalog-site-xml.html">catalog-site.xml 파일</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tsql.html">타조 쉘 (TSQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tsql/meta_command.html">메타 명령</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/dfs_command.html">HDFS 명령 실행법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/variables.html">세션 변수들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/admin_command.html">어드민 명령들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/intro.html">TSQL 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/single_command.html">단일 명령 실행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/execute_file.html">파일에 저장된 질의 실행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tsql/background_command.html">백그라운드 프로세스로 실행</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql_language.html">SQL 언어 (Tajo 질의 언어)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/data_model.html">데이터 모델</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/ddl.html">데이터 정의 언어 (DDL, Data Definition Language)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/insert.html">데이터 삽입: INSERT (OVERWRITE) INTO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/queries.html">질의하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/sql_expression.html">SQL 수식</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_language/predicates.html">연산자</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="time_zone.html">타임존(Time Zone)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#server-cluster-time-zone">서버 클러스터 타임존 (Server Cluster Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#table-time-zone">테이블 타임존 (Table Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#client-time-zone">클라이언트 타임존 (Client Time Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#time-zone-id">Time Zone ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_zone.html#id1">타임존 사용 예제</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions/math_func_and_operators.html">수학함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/string_func_and_operators.html">문자열 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/datetime_func_and_operators.html">날짜 및 시간 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/network_func_and_operators.html">네트워크 함수와 연산자들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/json_func.html">JSON 함수</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_management.html">테이블 관리</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_management/table_overview.html">Apache Tajo 테이블 관리 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_management/file_formats.html">파일 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_management/compression.html">압축</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="table_partitioning.html">테이블 파티셔닝</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/intro_to_partitioning.html">파티셔닝 소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/column_partitioning.html">컬럼 파티셔닝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/range_partitioning.html">범위 파티셔닝 (Range Partitioning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitioning/hash_partitioning.html">해쉬 (Hash) 파티셔닝</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_overview.html">인덱스 (실험중)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index/types.html">인덱스 타입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index/how_to_use.html">인덱스 사용법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index/future_work.html">향후 계획</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">백업 및 복원</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backup_and_restore/catalog.html">카탈로그 백업 및 복원</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hcatalog_integration.html">HCatalog 통합</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">HBase 통합</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">테이블 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">테이블 삭제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">삽입(덮어쓰기)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">용례</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swift_integration.html">OpenStack Swift 통합</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swift_integration.html#swift">Swift 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swift_integration.html#hadoop">Hadoop 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swift_integration.html#tajo">Tajo 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swift_integration.html#id3">Swift에서의 질의</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jdbc_driver.html">타조 JDBC 드라이버</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#id1">JDBC 드라이버 받는 법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#classpath">CLASSPATH 설정하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#id18">JDBC 클라이언트 예제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc_driver.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tajo_client_api.html">Tajo 클라이언트 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">주요문답</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Apache Tajo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>HBase 통합</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/hbase_integration.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="hbase">
+<h1>HBase 통합<a class="headerlink" href="#hbase" title="Permalink to this headline">¶</a></h1>
+<p>Apache Tajo 저장소는 Apache HBase와의 통합을 지원합니다.
+이 통합은 Tajo가 Apache HBase에서 사용되는 모든 테이블에 접근하는 것을 허용합니다.</p>
+<p>이 기능을 이용하기 위해서, <code class="docutils literal"><span class="pre">conf/tajo-env.sh</span></code> 에 설정을 추가하고 테이블 생성문에 속성을 더해야 합니다.</p>
+<p>이 장에서는 HBase 통합을 하는 방법을 서술합니다.</p>
+<p>먼저, 아래와 같이 <code class="docutils literal"><span class="pre">conf/tajo-env.sh</span></code> 에 환경변수 <code class="docutils literal"><span class="pre">HBASE_HOME</span></code> 를 HBase 홈 디렉토리로 설정합니다:</p>
+<div class="highlight-python"><div class="highlight"><pre>export HBASE_HOME=/path/to/your/hbase/directory
+</pre></div>
+</div>
+<p>디렉토리를 설정하면, Tajo는 HBase 라이브러리 파일을 클래스패스에 추가할 것입니다.</p>
+<div class="section" id="id1">
+<h2>테이블 생성<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><em>개요</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="p">[</span><span class="k">EXTERNAL</span><span class="p">]</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span><span class="p">]</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="p">[(</span><span class="o">&lt;</span><span class="k">column_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">data_type</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">...</span> <span class="p">)]</span>
+<span class="k">USING</span> <span class="n">hbase</span>
+<span class="k">WITH</span> <span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="o">=</span><span class="s1">&#39;&lt;hbase_table_name&gt;&#39;</span>
+<span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="o">=</span><span class="s1">&#39;:key,&lt;column_family_name&gt;:&lt;qualifier_name&gt;, ...&#39;</span>
+<span class="p">,</span> <span class="s1">&#39;hbase.zookeeper.quorum&#39;</span><span class="o">=</span><span class="s1">&#39;&lt;zookeeper_address&gt;&#39;</span>
+<span class="p">,</span> <span class="s1">&#39;hbase.zookeeper.property.clientPort&#39;</span><span class="o">=</span><span class="s1">&#39;&lt;zookeeper_client_port&gt;&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>선택사항</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">table</span></code> : hbase 원본 테이블의 이름을 설정합니다. 만약 외부 테이블을 생성하고싶다면, 테이블은 반드시 HBase에 존재해야 합니다. 반면에, 만약 관리 테이블을 생성하고 싶다면, 테이블은 반드시 HBase에 존재하지 않아야 합니다.</li>
+<li><code class="docutils literal"><span class="pre">columns</span></code> : 키 는 HBase의 열 키를 뜻합니다. 열 명부의 갯수는 Tajo 테이블 열의 갯수와 같아야 합니다.</li>
+<li><code class="docutils literal"><span class="pre">hbase.zookeeper.quorum</span></code> : zookeeper 정족수 주소를 설정합니다. 당신은 동일한 Tajo 데이터베이스를 사용하는 다른 zookeeper 클러스터를 사용할 수 있습니다. 만약 zookeeper 주소를 설정하지 않는다면, Tajo는 <code class="docutils literal"><span class="pre">hbase-site.xml</span></code> 파일의 속성을 따를 것입니다.</li>
+<li><code class="docutils literal"><span class="pre">hbase.zookeeper.property.clientPort</span></code> : zookeeper 클라이언트 포트를 설정합니다. 만약 포트를 설정하지 않는다면, Tajo는 <code class="docutils literal"><span class="pre">hbase-site.xml</span></code> 파일의 속성을 따를 것입니다.</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span></code> 는 테이블이 존재하지 않을 때 발생하는 에러를 피하기 위해 <code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">[EXTERNAL]</span> <span class="pre">TABLE</span></code> 문을 허용합니다.</p>
+</div>
+<div class="section" id="id2">
+<h2>테이블 삭제<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><em>Synopsis</em></p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">DROP</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">IF</span> <span class="k">EXISTS</span><span class="p">]</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">PURGE</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">IF</span> <span class="pre">EXISTS</span></code> 는 테이블이 존재하지 않을 때 발생하는 에러를 피하기 위해 <code class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span></code> 문을 허용합니다. <code class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span></code> 문은 Tajo 카탈로그에서 테이블을 제거하지만, HBase 클러스터에 있는 내용은 제거하지 않습니다. 만약 <code class="docutils literal"><span class="pre">PURGE</span></code> 옵션이 주어진다면, <code class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span></code> 문은 HBase 클러스터의 내용 뿐만 아니라 카탈로그의 엔트리까지 제거할 것입니다.</p>
+</div>
+<div class="section" id="id3">
+<h2>삽입(덮어쓰기)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">INSERT</span> <span class="pre">OVERWRITE</span></code> 문은 현존하는 테이블의 테이블 데이터를 덮어씁니다. Tajo의 <code class="docutils literal"><span class="pre">INSERT</span> <span class="pre">OVERWRITE</span></code> 문은 SQL의 <code class="docutils literal"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">SELECT</span></code> 문을 따릅니다. 아래는 예시입니다:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="c1">-- 목표 테이블의 도식과 출력 테이블의 도식이 동일할 때</span>
+<span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="k">SELECT</span> <span class="n">l_orderkey</span><span class="p">,</span> <span class="n">l_partkey</span><span class="p">,</span> <span class="n">l_quantity</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
+<span class="c1">-- 또는</span>
+<span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
+
+<span class="c1">-- 출력 테이블의 도식이 목표 테이블의 도식보다 작을 때</span>
+<span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="k">SELECT</span> <span class="n">l_orderkey</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
+
+<span class="c1">-- 특정 목표 열을 지정하고 싶을 때</span>
+<span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">t1</span> <span class="p">(</span><span class="n">col1</span><span class="p">,</span> <span class="n">col3</span><span class="p">)</span> <span class="k">SELECT</span> <span class="n">l_orderkey</span><span class="p">,</span> <span class="n">l_quantity</span> <span class="k">FROM</span> <span class="n">lineitem</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">만약 열 키를 지정하지 않는다면, 테이블 데이터를 전혀 사용할 수 없습니다. 왜냐하면 Tajo는 결과 데이터를 생성하기 이전에 정렬하기 위하여 몇몇의 키 컬럼을 필요로 하기 때문입니다.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>용례<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Tajo에 의해 관리되는 새 HBase 테이블을 생성하기 위해서, <code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> 에 <code class="docutils literal"><span class="pre">USING</span></code> 절을 사용합니다:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">EXTERNAL</span> <span class="k">TABLE</span> <span class="n">blog</span> <span class="p">(</span><span class="n">rowkey</span> <span class="nb">text</span><span class="p">,</span> <span class="n">author</span> <span class="nb">text</span><span class="p">,</span> <span class="n">register_date</span> <span class="nb">text</span><span class="p">,</span> <span class="n">title</span> <span class="nb">text</span><span class="p">)</span>
+<span class="k">USING</span> <span class="n">hbase</span> <span class="k">WITH</span> <span class="p">(</span>
+  <span class="s1">&#39;table&#39;</span><span class="o">=</span><span class="s1">&#39;blog&#39;</span>
+  <span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="o">=</span><span class="s1">&#39;:key,info:author,info:date,content:title&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>위 명령을 실행하면, 당신은 HBase 쉘에서 새 테이블을 볼 수 있습니다:</p>
+<div class="highlight-sql"><div class="highlight"><pre>$ hbase shell
+create &#39;blog&#39;, {NAME=&gt;&#39;info&#39;}, {NAME=&gt;&#39;content&#39;}
+put &#39;blog&#39;, &#39;hyunsik-02&#39;, &#39;content:title&#39;, &#39;Getting started with Tajo on your desktop&#39;
+put &#39;blog&#39;, &#39;hyunsik-02&#39;, &#39;info:author&#39;, &#39;Hyunsik Choi&#39;
+put &#39;blog&#39;, &#39;hyunsik-02&#39;, &#39;info:date&#39;, &#39;2014-12-03&#39;
+put &#39;blog&#39;, &#39;blrunner-01&#39;, &#39;content:title&#39;, &#39;Apache Tajo: A Big Data Warehouse System on Hadoop&#39;
+put &#39;blog&#39;, &#39;blrunner-01&#39;, &#39;info:author&#39;, &#39;Jaehwa Jung&#39;
+put &#39;blog&#39;, &#39;blrunner-01&#39;, &#39;info:date&#39;, &#39;2014-10-31&#39;
+put &#39;blog&#39;, &#39;jhkim-01&#39;, &#39;content:title&#39;, &#39;APACHE TAJO�� v0.9 HAS ARRIVED!&#39;
+put &#39;blog&#39;, &#39;jhkim-01&#39;, &#39;info:author&#39;, &#39;Jinho Kim&#39;
+put &#39;blog&#39;, &#39;jhkim-01&#39;, &#39;info:date&#39;, &#39;2014-10-22&#39;
+</pre></div>
+</div>
+<p>이에 따라 테이블이 생성되고, <code class="docutils literal"><span class="pre">\d</span></code> 옵션으로 테이블의 메타 데이터를 질의합니다:</p>
+<div class="highlight-sql"><div class="highlight"><pre>default&gt; \d blog;
+
+table name: default.blog
+table path:
+store type: HBASE
+number of rows: unknown
+volume: 0 B
+Options:
+        &#39;columns&#39;=&#39;:key,info:author,info:date,content:title&#39;
+        &#39;table&#39;=&#39;blog&#39;
+
+schema:
+rowkey  TEXT
+author  TEXT
+register_date   TEXT
+title   TEXT
+</pre></div>
+</div>
+<p>이어서 아래와 같이 테이블을 질의합니다:</p>
+<div class="highlight-sql"><div class="highlight"><pre>default&gt; SELECT * FROM blog;
+rowkey,  author,  register_date,  title
+-------------------------------
+blrunner-01,  Jaehwa Jung,  2014-10-31,  Apache Tajo: A Big Data Warehouse System on Hadoop
+hyunsik-02,  Hyunsik Choi,  2014-12-03,  Getting started with Tajo on your desktop
+jhkim-01,  Jinho Kim,  2014-10-22,  APACHE TAJO�� v0.9 HAS ARRIVED!
+
+default&gt; SELECT * FROM blog WHERE rowkey = &#39;blrunner-01&#39;;
+Progress: 100%, response time: 2.043 sec
+rowkey,  author,  register_date,  title
+-------------------------------
+blrunner-01,  Jaehwa Jung,  2014-10-31,  Apache Tajo: A Big Data Warehouse System on Hadoop
+</pre></div>
+</div>
+<p>이것은 HBase 테이블에 데이터를 삽입하는 방법입니다:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">blog_backup</span><span class="p">(</span><span class="n">rowkey</span> <span class="nb">text</span><span class="p">,</span> <span class="n">author</span> <span class="nb">text</span><span class="p">,</span> <span class="n">register_date</span> <span class="nb">text</span><span class="p">,</span> <span class="n">title</span> <span class="nb">text</span><span class="p">)</span>
+<span class="k">USING</span> <span class="n">hbase</span> <span class="k">WITH</span> <span class="p">(</span>
+  <span class="s1">&#39;table&#39;</span><span class="o">=</span><span class="s1">&#39;blog_backup&#39;</span>
+  <span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="o">=</span><span class="s1">&#39;:key,info:author,info:date,content:title&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="n">blog_backup</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">blog</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>HBase 쉘을 사용하여 데이터가 잘 삽입되었는지 검증합니다:</p>
+<div class="highlight-sql"><div class="highlight"><pre>hbase(main):004:0&gt; scan &#39;blog_backup&#39;
+ ROW          COLUMN+CELL
+ blrunner-01  column=content:title, timestamp=1421227531054, value=Apache Tajo: A Big Data Warehouse System on Hadoop
+ blrunner-01  column=info:author, timestamp=1421227531054, value=Jaehwa Jung
+ blrunner-01  column=info:date, timestamp=1421227531054, value=2014-10-31
+ hyunsik-02   column=content:title, timestamp=1421227531054, value=Getting started with Tajo on your desktop
+ hyunsik-02   column=info:author, timestamp=1421227531054, value=Hyunsik Choi
+ hyunsik-02   column=info:date, timestamp=1421227531054, value=2014-12-03
+ jhkim-01     column=content:title, timestamp=1421227531054, value=APACHE TAJO\xE2\x84\xA2 v0.9 HAS ARRIVED!
+ jhkim-01     column=info:author, timestamp=1421227531054, value=Jinho Kim
+ jhkim-01     column=info:date, timestamp=1421227531054, value=2014-10-22
+3 row(s) in 0.0470 seconds
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="swift_integration.html" class="btn btn-neutral float-right" title="OpenStack Swift 통합"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hcatalog_integration.html" class="btn btn-neutral" title="HCatalog 통합"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Apache Tajo Team.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

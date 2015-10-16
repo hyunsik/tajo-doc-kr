@@ -26,22 +26,25 @@ Apache Tajo™ (dev) - User documentation
 Table of Contents:
 
 .. toctree::
-   :maxdepth: 3
+    :maxdepth: 3
 
-   introduction
-   getting_started
-   configuration
-   tsql
-   sql_language
-   time_zone
-   functions
-   table_management
-   table_partitioning
-   backup_and_restore
-   hcatalog_integration
-   jdbc_driver   
-   tajo_client_api
-   faq
+    introduction
+    getting_started
+    configuration
+    tsql
+    sql_language
+    time_zone
+    functions
+    table_management
+    table_partitioning
+    index_overview
+    backup_and_restore
+    hcatalog_integration
+    hbase_integration
+    swift_integration
+    jdbc_driver
+    tajo_client_api
+    faq
 
 Indices and tables
 ==================

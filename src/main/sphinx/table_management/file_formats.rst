@@ -7,7 +7,7 @@
 .. toctree::
     :maxdepth: 1
 
-    csv
+    text
     rcfile
     parquet
     sequencefile

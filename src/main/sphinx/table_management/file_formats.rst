@@ -10,4 +10,5 @@
     csv
     rcfile
     parquet
+    orc
     sequencefile

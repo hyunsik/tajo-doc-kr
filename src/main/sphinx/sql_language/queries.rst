@@ -141,7 +141,7 @@ Where 절은 아래와 같은 형태로 사용됩니다.
   WHERE search_condition
 
 ``search_condition`` 은 모든 boolean 수식을 포함할 수 있습니다. 
-추가적인 조건절을 알고 싶으시다면, :doc:`/sql_language/predicates` 을 참조해 주세요.
+추가적인 조건절을 알고 싶으시다면, :doc:`/sql_language/predicates` 를 참조해 주세요.
 
 ==========================
 Groupby 와 Having 절

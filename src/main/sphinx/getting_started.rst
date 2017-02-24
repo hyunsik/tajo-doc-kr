@@ -101,7 +101,7 @@ Git을 통해 소스코드 체크아웃
 
 .. warning::
 
-  기본적으로, 테이블 메타 데이터를 관리하는 *카탈로그 서버* 는 영구 정장소로 `Apache Derby <http://db.apache.org/derby/>`_ 를 사용한고, 더비(Derby)는 데이터를 ``/tmp/tajo-catalog-${username}`` 디렉토리에 저장합니다. 주의할 사항은, 일부 운영 체제에서는 시스템이 재시작될 때 ``/tmp`` 에 내용을 모두 삭제하기 때문에, 안전한 카탈로그 데이터 저장소 확보를 위해서 별도의 더비(derby) 디렉토리를 지정하는 것이 좋습니다. 카탈로그 설정에 대한 정보가 필요하다면, :doc:`/configuration/catalog_configuration` 를 참고합니다.
+  기본적으로, 테이블 메타 데이터를 관리하는 *카탈로그 서버* 는 영구 저장소로 `Apache Derby <http://db.apache.org/derby/>`_ 를 사용하고, 더비(Derby)는 데이터를 ``/tmp/tajo-catalog-${username}`` 디렉토리에 저장합니다. 주의할 사항은, 일부 운영 체제에서는 시스템이 재시작될 때 ``/tmp`` 에 내용을 모두 삭제하기 때문에, 안전한 카탈로그 데이터 저장소 확보를 위해서 별도의 더비(derby) 디렉토리를 지정하는 것이 좋습니다. 카탈로그 설정에 대한 정보가 필요하다면, :doc:`/configuration/catalog_configuration` 를 참고합니다.
 
 ========================
 첫 질의 실행
